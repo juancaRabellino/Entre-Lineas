@@ -11,3 +11,4 @@ const bookController = {
     .catch(error => res.json({success: false, error})) 
   }
 }
+module.exports = bookController 
