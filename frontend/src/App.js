@@ -4,14 +4,24 @@ import './style.css'
 import './styles/styles.css'
 import SearchStories from './components/SearchStories'
 
+import Header from "./Components/Header"
+import Home from "./Components/Home"
+import Footer from "./Components/Footer"
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
-function App() {
+const App = () => {
   return (
     <>
-    <h1>Comienzo de app</h1>
-    <SearchStories />
+      <BrowserRouter>
+        <Header />
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route path="/search" componente={SearchStories}/>
+        </Switch>
+        <Footer />
+      </BrowserRouter>
     </>
   );
 }
 
-export default App;
+export default App
