@@ -199,7 +199,6 @@
 }
 .infoSecondContainerThird{
     display: flex;
-    /* background-color: cyan; */
     height: 30vh;
     width: 25vw;
 }
@@ -207,9 +206,7 @@
     font-size: 2vw;
     font-weight: 640;
 }
-/* .bodyTxtSecContTh{
-    color:rgb(112, 112, 112);
-} */
+
 .numberSecondContThird{
     display: flex;
     color: rgb(175, 98, 194);
