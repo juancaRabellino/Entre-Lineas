@@ -1,7 +1,12 @@
+import React from 'react'
+import { BrowserRouter } from "react-router-dom"
+import Register from './components/Register'
+import SignIn from './components/SignIn'
+import './style.css'
 
 function App() {
   return (
-    <h1>Comienzo de app</h1>
+    <p>Hola</p>
   );
 }
 
