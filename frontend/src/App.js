@@ -1,8 +1,21 @@
+import React from 'react'
+import Header from "./Components/Header"
+import Home from "./Components/Home"
+import Footer from "./Components/Footer"
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
-function App() {
+const App = () => {
   return (
-    <h1>Comienzo de app</h1>
-  );
+    <>
+      <BrowserRouter>
+        <Header />
+        <Switch>
+          <Route exact path="/" component={Home} />
+        </Switch>
+        <Footer />
+      </BrowserRouter>
+    </>
+  )
 }
 
-export default App;
+export default App
