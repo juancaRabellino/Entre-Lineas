@@ -1,9 +1,8 @@
 import React from 'react'
-// import { BrowserRouter } from "react-router-dom"
+import 'bootstrap/dist/css/bootstrap.min.css'
 import './style.css'
 import './styles/styles.css'
 import SearchStories from './components/SearchStories'
-
 import Header from "./Components/Header"
 import Home from "./Components/Home"
 import Footer from "./Components/Footer"
