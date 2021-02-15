@@ -660,3 +660,13 @@ header, footer {
     background-size: cover;
     border-radius: 50%;
 }
+
+/* STYLES OF NEW BOOK */
+
+.form-book {
+    width: 50vw;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
