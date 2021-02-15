@@ -4,11 +4,12 @@ const bookSchema = new mongoose.Schema({
   title: String,
   description: String,
   mainCharacters: String,
-  genre: String,
-  user: {firstname: String, lastname: String, userid: String},
+  genre: {genre: String, image: String},
+  user: {type: mongoose.Schema.Types.ObjectId, ref: 'user'},
   stars:[{type: mongoose.Schema.Types.ObjectId, ref: 'user'}],
   views:Number,
-  chapters:[{chapter: String}]
+  chapters:[{chapter: String}],
+  image: String,
 })
 
 const Book = mongoose.model('book', bookSchema)

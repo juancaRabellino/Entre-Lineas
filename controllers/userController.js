@@ -11,17 +11,14 @@ const userController = {
         if (userExists) {
             errores.push('El nombre de usuario ya está siendo utilizado.  Elija otro.')
         }
-
         if (errores.length === 0) {
             const passwordHasheado = bcryptjs.hashSync(password, 10)
-
             var newUser = new User({
                 firstname, lastname, email, password: passwordHasheado, birthday
             })
             var newUserSaved = await newUser.save()
             var token = jwt.sign({...newUserSaved}, process.env.SECRET_KEY, {})
         }
-
         return res.json({success: errores.length === 0 ? true : false, 
             errores: errores,
             response: errores.length === 0 && {token, fistname: newUserSaved.firstname}})

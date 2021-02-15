@@ -6,32 +6,34 @@ import bookActions from "../redux/actions/bookActions"
 const NewBook =(props)=>{
   const [book, setBook] = useState({})
 
+  var imagenes = ['asd', 'asd1']
+
   const readInput =(e)=> {
     const value = e.target.value
     const prop = e.target.name
     setBook({
       ...book,
-      [prop]:value
+      [prop]:value,
     })
   }
+  console.log(book)
 
-  const send=()=> {
-    console.log(book)
+  const send=(e)=> {
+    e.preventDefault()
     if(!book.genre || book.genre===''){
       alert('no se puede')
     }
     props.addBook(book)
   }
 
-  console.log(book)
-
   return (
     <section>
-      <form>
+      <form className="form-book">
         <label htmlFor="title">Titulo</label>
         <input type="text" name="title" id="title" onChange={readInput} />
         <label htmlFor="description">Descripcion</label>
-        <input type="text" name="description" id="description" onChange={readInput} />
+        <textarea name="description" id="description" cols="30" rows="10" onChange={readInput}></textarea>
+        {/* <input type="text" name="description" id="description" onChange={readInput} /> */}
         <label htmlFor="mainCharacters">Personajes Principales</label>
         <input type="text" name="mainCharacters" id="mainCharacters" onChange={readInput} />
         <label htmlFor="genre">Genero</label>
@@ -48,8 +50,8 @@ const NewBook =(props)=>{
           <option value="Suspenso">Suspenso</option>
           <option value="Terror">Terror</option>
         </select>
+        <button onClick={(e)=>send(e)}>Continuar</button>
       </form>
-        <button onClick={send}>Continuar</button>
     </section>
   )
 }
