@@ -13,6 +13,505 @@ html * {
     font-family: 'Source Sans Pro', sans-serif;
 }
 
+/* Styles for Header and Footer */
+
+header, footer {
+    height: 10vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  
+  header *, footer * {
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .headerLeft, .headerRight, .footerLeft, .footerRight {
+    display: flex;
+    align-items: center;
+  }
+  
+  header a, footer a {
+    color: black;
+  }
+  
+  .headerLeft img.logo, .footerLeft img.logo {
+    /* width: 10vw; */
+    height: 10vh;
+    margin: 0 3vw 0 0;
+    background-position: center;
+    background-size: cover;
+  }
+  
+  header p, header input {
+    margin-right: 1.5vw;
+    border: none;
+    outline: none;
+  }
+  
+  header p:hover {
+    text-decoration: underline;
+  }
+  
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  table.dropdown-content {
+    padding: 1vh .5vw;
+    background-color: white;
+    display: none;
+    position: absolute;
+    width: 26vw;
+    box-shadow: 0px 5px 5px rgba(0,0,0,0.2);
+    z-index: 100;
+  }
+  
+  .dropdown:hover table.dropdown-content {
+    display: block;
+  }
+  
+  table.dropdown-content tbody tr, th.th {
+    height: 4vh;
+  }
+  
+  table.dropdown-content th, table.dropdown-content td {
+    width: 8vw;
+  }
+  
+  .fa-search {
+    margin-right: .2vw;
+  }
+  
+  .footerRight a img {
+    width: 2.2vw;
+    margin: 0 0 0 0.5vw;
+    border-radius: 50%;
+  }
+  
+  .containerRegister {
+    height: 100vh;
+    width: 98vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(../assets/fondo.jpg);
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+  .imagRegister {
+    background-image: url(../assets/registro.jpg);
+    height: 50vh;
+    width: 100vw;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    margin-left: 30vh;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.5),0 17px 50px 0 rgba(0, 0, 0, 0.5);
+    border-radius: 30px;
+  }
+  
+  .registerInput {
+    height: 20vh;
+    width: 65vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10vh;
+  }
+  
+  .register {
+    height: 50vh;
+    width: 20vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10vh;
+    background-color: rgb(255, 255, 255);
+    position: absolute ;
+    border: solid 2px rgb(83, 1, 150);
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+  }
+  
+  .inputRegister {
+    width: 20VW;
+    height: 5vh;
+    margin-top: 2vh;
+    border: none;
+    border-bottom: solid 1.5px rgb(98, 18, 129);
+    padding-left: 3vh;
+    padding-right: 3vh;
+  }
+  
+  .inputRegister:focus , .botonRegister:focus {
+    outline: none;
+  }
+  
+  .botonRegister {
+    background-color: rgb(98, 18, 129);
+    width: 10vw;
+    color: rgb(255, 255, 255);
+    border: none;
+    font: inherit;
+    cursor: pointer;
+    outline: none;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    margin-top: 2vh;
+    border-radius: 25px 25px 25px 25px ;
+  }
+  /* ESTILOS DE LA HOME Y LAS SECTIONS (MAURI) */
+  
+  .sectionBox{
+      min-height: 100vh;
+      background-image: url("../assets/fotoHome2.jpg");
+      background-size: cover;
+      background-position:right;
+      background-attachment: fixed;
+      background-color: blue;
+  }
+  .firstSection{
+      height: 100vh;
+      /* margin-top: 4vh; */
+      margin-left: 1vw;
+      display: flex;
+      align-items: center;
+  }
+  .leftBoxFirst{
+      margin-top: 5vh;
+      margin-left: 4vw;
+      width:50vw;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      height: 70vh;
+  
+  }
+  .titleFirst{
+      color: rgb(103, 11, 139);
+      font-weight: bold;
+      font-size: 4vw;
+      width: 25vw;
+  }
+  .boton2{
+      margin-left: 2vw;
+  }
+  .btn{
+      background-color:rgb(138, 61, 168)!important;
+      border: rgb(138, 61, 168);
+  }
+  .btn:hover{
+      background-color: rgb(163, 87, 173)!important;
+  }
+  .firstP{
+      margin-top: 4vh;
+      font-weight: bold;
+      font-size: 1.7vw;
+      width: 25vw;
+  }
+  .secondP{
+      margin-top: 4vh;
+      font-size: 1.5vw;
+      color: rgb(112, 111, 111);
+      width: 25vw;
+      margin-bottom: 4vh;
+  }
+  .rightBoxFirst{
+      background-image: url('../assets/computadoras2.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      height: 50vh;
+      width: 50vw;
+      margin-top: 20vh;
+      padding-right: 10vw;
+  }
+  .secondSection{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      /* height: 100vh; */
+      padding-bottom: 1vh;
+      margin-top: 15vh;
+      /* background-color: rgba(127, 255, 212, 0.459); */
+  }
+  .firstUp{
+      text-align: center;
+      font-size: 3vw;
+      font-weight: bold;
+  }
+  .secondUp{
+      display: flex;
+      width: 90vw;
+      justify-content: space-between;
+      text-align: center;
+      color: rgb(175, 98, 194)
+  }
+  .verContainer{
+      width: 25vw;
+      margin-top: 4vh;
+      font-size: 1.7vw;
+  }
+  .verContainer p {
+      font-weight: 600;
+  }
+  .verContainer i{
+      font-size: 2vw;
+      font-weight: bold;
+      margin-bottom: 1vh;
+  }
+  .downBoxSecond{
+      display: flex;
+      justify-content: flex-start;
+      /* background-color: blue; */
+      height: 60vh;
+      width: 90vw;
+      margin-top: 9vh;
+      margin-left: 4vw;
+  }
+  .imgBoxSecond{
+      background-image: url('../assets/secondImage.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      width: 50vw;
+      height: 50vh;
+  }
+  .textRightSecondBox{
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      width: 45vw;
+      margin-right: 20vw;
+      /* background-color: burlywood; */
+  }
+  .firstTextRightSecond{
+      font-size: 2vw;
+      font-weight: bold;
+  }
+  .secondTextRightSecond{
+      color: rgb(123, 122, 122);
+      font-weight: 600;
+  }
+  .thirdTextRightSecond{
+      color: rgb(123, 122, 122);
+      font-weight: 600;
+  }
+  .svgContainer{
+      /* background-color: coral; */
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      height: 20vh;
+      margin-top: -2vh;
+  }
+  .sony{
+      background-image: url('../assets/sony.svg');
+      background-size: contain;
+      background-repeat: no-repeat;
+      height: 12vh;
+      width: 5vw;
+      /* background-color: cyan; */
+  }
+  .hulu{
+      background-image: url('../assets/hulu.svg');
+      background-size: contain;
+      background-repeat: no-repeat;
+      height: 5vh;
+      width: 5vw;
+      margin-right: 2vw;
+  }
+  .syfy{
+      background-image: url('../assets/syfy.svg');
+      background-size: contain;
+      background-repeat: no-repeat;
+      height: 5vh;
+      width: 10vw;
+  }
+  .thirdSection{
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: center;
+      margin-top: 15vh;
+      /* background-color: darksalmon; */
+  }
+  .upContainerThird{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      /* background-color: darkseagreen; */
+      justify-content: space-evenly;
+      height: 62vh;
+      width: 95vw;
+  }
+  .firstContainerUpThird{
+      text-align: center;
+      margin-bottom: 7vh;
+  }
+  .titleThirdSec{
+      font-size: 3vw;
+      font-weight: bold;
+      margin-bottom: 4vh;
+  }
+  .subTitleThirdSec{
+      font-size: 1.4vw;
+  }
+  .secondContainerUpThird{
+      display: flex;
+  }
+  .infoSecondContainerThird{
+      display: flex;
+      /* background-color: cyan; */
+      height: 30vh;
+      width: 25vw;
+      align-items: center;
+  }
+  .titleTextSecContTh{
+      font-size: 2vw;
+      font-weight: 640;
+  }
+  /* .bodyTxtSecContTh{
+      color:rgb(112, 112, 112);
+  } */
+  .numberSecondContThird{
+      display: flex;
+      color: rgb(175, 98, 194);
+      align-items: center;
+      font-size: 6vw;
+      font-weight: bold;
+      margin-right: 2vw;
+      margin-left: 1.5vw;
+  }
+  .textSecondContThird{
+      font-size: 1.2vw;
+      width: 20vw;
+      /* height: 19vh; */
+      margin-right: 1vw;
+  }
+  .imgThirdSec{
+      display: flex;
+      width: 80vw;
+      padding-left: 1.5vw;
+      /* background-color: darkturquoise; */
+      justify-content: space-around ;
+      color: whitesmoke;
+  }
+  .resources{
+      background-image: url('../assets/cuadro1.jpg');
+      background-size: cover;
+      background-position: bottom;
+      background-repeat: no-repeat;
+      width: 22vw;
+      height: 34vh;
+      margin-top: 2vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  }
+  .resources p{
+      /* background-color: red; */
+      font-size: 1.8vw;
+      padding-top: 1.5vh;
+      font-weight: bold;
+      width: 10vw;
+  
+  }
+  .readers{
+      background-image: url('../assets/cuadro1.jpg');
+      background-size: cover;
+      /* background-position: center; */
+      background-repeat: no-repeat;
+      width: 22vw;
+      height: 34vh;
+      margin-left: 0.5vw;
+      margin-top: 2vh;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+  }
+  .readers p{
+      font-size: 1.8vw;
+      padding-top: 3.5vh;
+      font-weight: bold;
+      width: 10vw;
+  
+  }
+  .offers{
+      background-image: url('../assets/cuadro1.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      width: 22vw;
+      height: 34vh;
+      margin-top: 2vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  }
+  .offers p{
+      font-size: 1.8vw;
+      /* padding-top: 3vh; */
+      font-weight: bold;
+      width: 10vw;
+  }
+  .fourthSection{
+      background-image: url('../assets/thirdImage.png');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: 100vh;
+      margin-top: 15vh;
+      justify-content: space-between;
+  }
+  .upContainerFourth{
+      /* background-color: thistle; */
+      height: 40vh;
+      width: 50vw;
+      padding-bottom: 4vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+      text-align: center;
+  }
+  .fourthTitle{
+      color: white;
+      font-size: 3vw;
+      font-weight: bold;
+  }
+  .fourthBody{
+      color: white;
+      font-size: 1.5vw;
+      font-weight: 600;
+  }
+  .fourthSecButtons{
+      width: 100%;
+      display: flex;
+      justify-content: space-evenly;
+  }
+  .fourthSecButtons button{
+      color: white;
+  }
+  .fourthSecBack{
+      padding-top: 2vh;
+      background-image: url('../assets/computadoras.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      height: 80vh;
+      width: 85vw;
+      margin-bottom: -16vh;
+  }
+
 /* ----- Styles for component SearchStories ----- */ 
 
             /* Search Bar */
