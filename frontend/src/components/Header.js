@@ -34,9 +34,9 @@ const Header = () => {
             </tbody>
           </table>
         </div>
-        <Link to ="/search"><div>
+        <Link to ="/search"><div className="toSearch">
           <i className="fas fa-search"></i>
-          <input placeholder="Buscar"></input>
+          <p>Buscar</p>
         </div></Link>
       </div>
       <div className="headerRight">
