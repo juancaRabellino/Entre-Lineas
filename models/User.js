@@ -3,13 +3,11 @@ const mongoose = require('mongoose')
 const userSchema = new mongoose.Schema({
     firstname: String,
     lastname: String,
-    username: String,
+    email: String,
     password: String,
-    birthday: Date
-    
+    birthday: Date,
 
     // Debatir en grupo si agregar o no una propiedad de imagen en el modelo..
-
   
 })
 
