@@ -6,9 +6,7 @@ const Header = () => {
   return (
     <header>
       <div className="headerLeft">
-
         <Link to="/"><img src={'./assets/logo.jpg'} className="logo" alt='logo Entre Líneas'></img></Link>
-
         <div className="dropdown">
           <p>Navegar</p>
           <table className="dropdown-content">
@@ -36,18 +34,15 @@ const Header = () => {
             </tbody>
           </table>
         </div>
-        <div>
+        <Link to ="/search"><div>
           <i className="fas fa-search"></i>
           <input placeholder="Buscar"></input>
-        </div>
+        </div></Link>
       </div>
       <div className="headerRight">
-
         <Link to="/"><p>Iniciar sesión</p></Link>
         <Link to="/"><p>Regístrate</p></Link>
       </div>
-
-
     </header>
   )
 }

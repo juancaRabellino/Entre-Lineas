@@ -21,9 +21,7 @@ const Footer = () => {
         <a href="https://www.youtube.com/">
           <img src={'./assets/socialNetworks/youtube.png'} alt='Entre Líneas Youtube'></img>
         </a>
-
       </div>
-
     </footer>
   )
 }
