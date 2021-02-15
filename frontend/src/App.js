@@ -1,12 +1,16 @@
 import React from 'react'
-import { BrowserRouter } from "react-router-dom"
-import Register from './components/Register'
-import SignIn from './components/SignIn'
+// import { BrowserRouter } from "react-router-dom"
 import './style.css'
+import './styles/styles.css'
+import SearchStories from './components/SearchStories'
+
 
 function App() {
   return (
-    <p>Hola</p>
+    <>
+    <h1>Comienzo de app</h1>
+    <SearchStories />
+    </>
   );
 }
 
