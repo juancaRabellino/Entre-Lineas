@@ -3,10 +3,11 @@ const bcryptjs = require('bcryptjs')
 const jwt = require ("jsonwebtoken")
 
 const userController = {
+
     signUp: async (req, res) => {
         var errores = []
-        const {firstname, lastname, username, password, birthday} = req.body
-        const userExists = await User.findOne({username: username})
+        const {firstname, lastname, email, password, birthday} = req.body
+        const userExists = await User.findOne({email: email})
         if (userExists) {
             errores.push('El nombre de usuario ya está siendo utilizado.  Elija otro.')
         }
@@ -15,22 +16,20 @@ const userController = {
             const passwordHasheado = bcryptjs.hashSync(password, 10)
 
             var newUser = new User({
-                firstname, lastname, username, password: passwordHasheado, birthday
+                firstname, lastname, email, password: passwordHasheado, birthday
             })
             var newUserSaved = await newUser.save()
             var token = jwt.sign({...newUserSaved}, process.env.SECRET_KEY, {})
-            
         }
 
         return res.json({success: errores.length === 0 ? true : false, 
             errores: errores,
             response: errores.length === 0 && {token, fistname: newUserSaved.firstname}})
-
     },
 
     signIn: async (req, res) => {
-        const {username, password} = req.body
-        const userExists = await User.findOne({username: username})
+        const {email, password} = req.body
+        const userExists = await User.findOne({email: email})
         if (!userExists) {
             return res.json({success: false, mensaje: 'Nombre de usuario y/o contraseña incorrectos.'})
         }
@@ -42,8 +41,6 @@ const userController = {
         var token = jwt.sign({...userExists}, process.env.SECRET_KEY, {})
         return res.json({success: true, response: {token, firstname: userExists.firstname}})
     },
-
- 
 
     logFromLS: (req, res) => {
         res.json({success: true, response: {token: req.body.token, fistname: req.user.firstname}})

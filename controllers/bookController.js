@@ -3,7 +3,7 @@ const Book = require('../models/Book')
 const bookController = {
   createBook: (req,res) => {
     const {title, description, mainCharacters, genre, 
-      user, stars, views, chapters} = req.body
+      user, stars, views, chapters} = req.body.book
     const createBook = new Book({title, description, mainCharacters, genre, 
       user, stars, views, chapters})
     createBook.save()
@@ -11,3 +11,5 @@ const bookController = {
     .catch(error => res.json({success: false, error})) 
   }
 }
+
+module.exports = bookController

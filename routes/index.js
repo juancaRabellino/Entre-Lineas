@@ -1,6 +1,7 @@
 const express = require("express")
 const router = express.Router()
 const userController = require("../controllers/userController")
+const bookController = require("../controllers/bookController")
 const validator = require ("../controllers/validator")
 const passport = require("passport")
 require("../config/passport")
@@ -17,6 +18,10 @@ router.route('/user/signin')
 router.route('/user/ls')
 .post(passport.authenticate('jwt', {session: false}), userController.logFromLS)
 // Aca termina los controladores sobre usuarios. Agregaremos el panel de lectores y escritores..
+
+// Book routes
+router.route('/addBook')
+.post(bookController.createBook)
 
 
 module.exports = router
