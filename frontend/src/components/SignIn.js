@@ -7,17 +7,17 @@ const SignIn =(props) => {
     const [userLogueado, setUserLogueado] = useState({})
     const [errores, setErrores] = useState ([])
 
-    const readInput = e => { //recibe el evento
-        const valor = e.target.value // captura el valor
-        const campo = e.target.name // captura el campo
-        setUserLogueado ({ //modifica el usuariologueado que tengo en el state
-            ...userLogueado,//con lo que ya tiene
-            [campo]:valor//y en el campo con el valor
+    const readInput = e => { //receive the event
+        const valor = e.target.value // capture the value
+        const campo = e.target.name // capture the field
+        setUserLogueado ({//modify the user I have in the useState
+            ...userLogueado,
+            [campo]:valor
         })
     }
 
-    const validateUser = async e => {// funcion cuando le hace click a validar
-        e.preventDefault()//prevenir que recargue la pagina
+    const validateUser = async e => { // function that runs when you click the create user button
+        e.preventDefault() //prevent reloading the page
         if( userLogueado.username === "" || userLogueado.password === ""){
             alert('falta llenar campos')
             return false
@@ -32,24 +32,27 @@ const SignIn =(props) => {
     }
 
     return (
-        <div className="containerRegister" >
-            <div style={{height: '80vh',width: '65vw', backgroundSize: 'cover'}} className="imgRegister">
-                <input type="text"  name="username" placeholder="Nombre de Usuario" className="inputRegister" onChange={readInput}/>
-                <input type="password" name="password" placeholder="Contraseña" className="inputRegister" onChange={readInput}/>
-                <button className="botonRegister" onClick={validateUser}>Iniciar sesion</button>
+<div className="containerLogin">
+        <div className="imagRegister"></div>
+            <div className="registerInput" >
+                <div className= "login">
+                    <h2>Iniciar Sesion</h2>
+                        <input className="inputRegister" type="text" name="firstUser" placeholder="Nombre de Usuario" onChange={readInput}/>
+                        <input className="inputRegister" type="text" name="LastName" placeholder="Contraseña" onChange={readInput}/>
+                    <button className="botonRegister" onClick={validateUser} >Iniciar sesion</button>
+                </div>
             </div>
-            <div>
-                {errores.map(error=> {
-                    <h5>{error}</h5>
-                    console.log(error)
-                })}
-            </div>
+            <div style={{height:"50vh", width:"60vw"}}>
+            {/* {errores.map(error => {
+                <h5>{error.message}</h5>
+            })} */}
         </div>
+    </div>
     )
 }
 
-const mapDispatchToProps = { // map las acciones, lo que despacho
-    logInUser: authActions.logInUser //newUser es una funcion que despacha una accion
+const mapDispatchToProps = { // map the actions
+    logInUser: authActions.logInUser
 }
 
 export default connect(null,mapDispatchToProps) (SignIn)

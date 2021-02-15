@@ -39,23 +39,25 @@ const Register = ( props ) => {
 return (
     <div className="containerRegister">
         <div className="imagRegister"></div>
-        <div className="registerInput" >
-            <div className= "register">
-                <h2>Registrarse</h2>
-                <div>
-                    <input className="inputRegister" type="text" name="firstUser" placeholder="Nombre" onChange={readInput}/>
-                    <input className="inputRegister" type="text" name="LastName" placeholder="Apellido" onChange={readInput}/>
+            <div className="registerInput" >
+                <div className= "register">
+                    <h2>Crear Usuario</h2>
+                    <div className="nameAndLastName">
+                        <input className="inputRegister" type="text" name="firstUser" placeholder="Nombre" onChange={readInput}/>
+                        <input className="inputRegister" type="text" name="LastName" placeholder="Apellido" onChange={readInput}/>
+                    </div>
+                    <input  className="inputRegister" type="date" min="1950-01-01" max="2021-2-31" name="brithday" placeholder="fechas de nacimiento" onChange={readInput}></input>
+                    <div className="userNameAndPassword">
+                    <input className="inputRegister" type="text" name="username" placeholder="Nombre de Usuario" onChange={readInput} />
+                    <input className="inputRegister" type="password" name="password" placeholder="Contraseña" onChange={readInput} ></input>
+                    </div>
+                    <button className="botonRegister" onClick={validateUser} >Crear usuario</button>
                 </div>
-                <input className="inputRegister" type="text" name="brithday" placeholder="fechas de nacimiento" onChange={readInput}/>
-                <input className="inputRegister" type="text" name="username" placeholder="Nombre de Usuario" onChange={readInput} />
-                <input className="inputRegister" type="password" name="password" placeholder="Contraseña" onChange={readInput} ></input>
-                <button className="botonRegister" onClick={validateUser} >Crear usuario</button>
             </div>
-        </div>
         <div style={{height:"50vh", width:"60vw"}}>
-            {errores.map(error => {
+            {/* {errores.map(error => {
                 <h5>{error.message}</h5>
-            })}
+            })} */}
         </div>
     </div>
         )
