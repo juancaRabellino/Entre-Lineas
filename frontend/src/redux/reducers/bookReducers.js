@@ -27,11 +27,15 @@ const bookReducers = (state = initialState, action) => {
 
         filter: state.books.filter(book => {
           return (
+
+
             book.title.toUpperCase().indexOf(action.payload.toUpperCase().trim()) === 0,
             book.genre.toUpperCase().indexOf(action.payload.toUpperCase().trim()) === 0,
             book.user.firstname.toUpperCase().indexOf(action.payload.toUpperCase().trim()) === 0,
             book.user.lastname.toUpperCase().indexOf(action.payload.toUpperCase().trim()) === 0,
             console.log(book)
+
+            
           )
         })
       }
