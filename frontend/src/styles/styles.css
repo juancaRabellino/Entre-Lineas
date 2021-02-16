@@ -1,5 +1,11 @@
 /* ----- General configuration for the all document ----- */
 
+html * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 #root {
     display: flex;
     flex-direction: column;
@@ -8,88 +14,137 @@
     font-family: 'Source Sans Pro', sans-serif;
 }
 
-/* Styles for Header and Footer */
+/* Styles for Header and Footer (Juanca) */
 
 header, footer {
-    /* height: 10vh; */
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+  height: 10vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
   }
   
-  header *, footer * {
-    text-decoration: none;
-    font-weight: bold;
-  }
+header *, footer * {
+  text-decoration: none;
+  font-weight: bold;
   
-  .headerLeft, .headerRight, .toSearch, .footerLeft, .footerRight {
-    display: flex;
-    align-items: center;
-  }
-  
-  header a, footer a {
-    color: black;
-  }
-  
-  .headerLeft img.logo, .footerLeft img.logo {
-    width: 10vw;
-    height: 10vh;
-    margin: 0 3vw 0 0;
-    background-position: center;
-    background-size: cover;
-  }
-  
-  header p {
-    margin-right: 1.5vw;
-    border: none;
-    outline: none;
-  }
+}
 
-  header p, header i, footer p {
-    font-size: 1.2vw;
-  }
-  
-  header div.toSearch:hover, header p:hover {
-    text-decoration: underline;
-    color: black;
-  }
-  
-  .dropdown {
-    position: relative;
-    display: inline-block;
-  }
-  
-  table.dropdown-content {
-    padding: 1vh .5vw;
-    background-color: white;
-    display: none;
-    position: absolute;
-    width: 26vw;
-    box-shadow: 0px 5px 5px rgba(0,0,0,0.2);
-    z-index: 100;
-  }
-  
-  .dropdown:hover table.dropdown-content {
-    display: block;
-  }
-  
-  table.dropdown-content tbody tr, th.th {
-    height: 4vh;
-  }
-  
-  table.dropdown-content th, table.dropdown-content td {
-    width: 8vw;
-  }
-  
-  .fa-search {
-    margin-right: .2vw;
-  }
-  
-  .footerRight a img {
-    width: 2.2vw;
-    margin: 0 0 0 0.5vw;
-    border-radius: 50%;
-  }
+.headerLeft, .headerRight, .toSearch, .footerLeft, .footerRight {
+  display: flex;
+  align-items: center;
+}
+
+header a, footer a {
+  color: black;
+}
+
+.headerLeft img.logo, .footerLeft img.logo {
+  width: 11vw;
+  margin: 0 3vw 0 0;
+  background-position: center;
+  background-size: cover;
+}
+
+header p {
+  margin: 0 1.5vw 0 0;
+  border: none;
+  outline: none;
+}
+
+header p, header i, footer p {
+  font-size: 1.2vw;
+}
+
+header div.toSearch:hover, header p:hover {
+  text-decoration: underline;
+  color: black;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+table.dropdown-content {
+  padding: 1vh .5vw;
+  background-color: white;
+  display: none;
+  position: absolute;
+  width: 26vw;
+  box-shadow: 0px 5px 5px rgba(0,0,0,0.2);
+  z-index: 100;
+}
+
+.dropdown:hover table.dropdown-content {
+  display: block;
+}
+
+table.dropdown-content tbody tr, th.th {
+  height: 4vh;
+}
+
+table.dropdown-content th, table.dropdown-content td {
+  width: 8vw;
+}
+
+.fa-search {
+  margin-right: .2vw;
+}
+
+.footerRight a img {
+  width: 2.2vw;
+  margin: 0 0 0 0.5vw;
+  border-radius: 50%;
+}
+
+/* Styles settings user (Juanca) */
+section.settings {
+  min-height: 79.5vh;
+  display: flex;
+  justify-content: center;
+}
+
+.form-settings {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50vw;
+  margin: 0 10vw 0 0;
+  /* margin: auto; */
+}
+
+.form-settings label  {
+  width: 15vw;
+  text-align: right;
+  margin: 1vh 1vw 1vh 0;
+}
+
+.form-settings input, .form-settings select, .form-settings div.checkbox{
+  width: 20vw;
+  text-align: left;
+}
+
+.form-settings input#showName {
+  width: 1vw;
+}
+.form-settings div.checkbox {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+
+.line {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.buttonSettings {
+  width: 10vw;
+  height: 4vh;
+}
 
   /* estilos del register (gime) */
   .containerRegister,.containerLogin {
@@ -683,27 +738,12 @@ header, footer {
 
 footer {
     border-top: 1.5px solid rgb(103, 11, 139);
-    margin-bottom: -4vh;
-    display: flex;
-    align-items: center;
-    padding-top: 1vh;
-    padding-bottom: 2vh;
 }
-
 footer p {
     color: rgb(103, 11, 139);
 }
 .footerLeft{
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    text-align: center;
     margin-left: 5vw;
-}
-.footerLeft p{
-    color: rgb(103, 11, 139);
-    padding-top: 3.5vh;
-    width: 50vw;
 }
 .footerRight a{
     color:rgb(103, 11, 139)!important;
