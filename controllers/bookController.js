@@ -34,6 +34,13 @@ const bookController = {
       const book = await createBook.populate('user').execPopulate() 
       res.json({success: true, response: book})})
     .catch(error => res.json({success: false, error}))
+  },
+
+  getBooks: (req,res) => {
+    console.log(req)
+    Book.find().populate('user')
+    .then(response => res.json({success: true, response}))
+    .catch(error => res.json({success: false, error}))
   }
 }
 

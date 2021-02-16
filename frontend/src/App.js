@@ -9,7 +9,7 @@ import Register from "./components/Register"
 import SignIn from "./components/SignIn"
 import Stories from './components/Stories'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
-// import NewBook from './components/NewBook'
+import NewBook from './components/NewBook'
 
 const App = () => {
   return (
@@ -19,7 +19,7 @@ const App = () => {
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/search" component={Search}/>
-          {/* <Route path="/add-book" component={NewBook}/> */}
+          <Route path="/add-book" component={NewBook}/>
           <Route path="/register" component={Register}/>
           <Route path="/signin" component={SignIn}/>
           <Route path="/stories/:genre" component={Stories}/>

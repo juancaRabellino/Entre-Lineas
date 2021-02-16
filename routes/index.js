@@ -20,8 +20,11 @@ router.route('/user/ls')
 // Aca termina los controladores sobre usuarios. Agregaremos el panel de lectores y escritores..
 
 // Book routes
-router.route('/addBook')
+router.route('/book')
 .post(bookController.createBook)
+.get(bookController.getBooks)
+
+
 
 
 module.exports = router

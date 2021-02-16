@@ -110,7 +110,7 @@ return (
                             textButton="   Crear usuario con Facebook"
                             icon="fa-facebook "
                             cssClass="iconoFacebook"
-                        />,
+                        />
                 </div>
             </div>
         <div style={{height:"50vh", width:"60vw"}}>
