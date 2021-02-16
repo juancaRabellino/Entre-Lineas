@@ -16,6 +16,7 @@ const authActions = {
     },
 
     logInUser: user => {
+        console.log(user)
         return async (dispatch) => {
             const respuesta = await axios.post('http://localhost:4000/api/user/signin',user)
             if(!respuesta.data.success) return respuesta.data;
@@ -36,6 +37,12 @@ const authActions = {
         const response = await axios.delete(`http://localhost:4000/api/settings/${userId}`, { headers: { Authorization: `Bearer ${userToEdit.token}` } })
       }
     }
+    logStorage: (userName,token) => {
+        return (dispatch) => {
+            dispatch({type: 'LOG_USER', payload: {respuesta:{userName:userName,token}}})
+        }
+    }
+
 }
 
 export default authActions

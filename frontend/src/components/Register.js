@@ -59,13 +59,14 @@ const Register = ( props ) => {
 }
 
 const responseFacebook = async (response) => {
-    console.log(response);
+    var name = response.name.split(" ")
+
     if(response.error){
         alert('Algo salio mal con tu cuenta de Facebook')
     }else{
         const respuesta = await props.makeNewUser({
-            // firstname: response.profileObj.givenName,
-            lastname: response.name,
+            firstname:name[0],
+            lastname:name[1],
             // birthday: response.profileObj.googleId,
             email: response.email,
             password:response.id

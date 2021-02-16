@@ -56,9 +56,6 @@ const responseFacebook = async (response) => {
         alert('Algo salio mal con tu cuenta de Facebook')
     }else{
         const respuesta = await props.logInUser({
-            // firstname: response.profileObj.givenName,
-            // lastname: response.name,
-            // birthday: response.profileObj.googleId,
             email: response.email,
             password:response.id
         })
