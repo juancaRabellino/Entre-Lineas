@@ -4,7 +4,7 @@ const CardCategory = () => {
     return (
         <>
             <div className='containerViewCardsCategories'>
-            <Link to={'/category/action'}>
+            <Link to={'/stories/Accion'}>
                 <div className='cardCategory'>
                     <div className='nameCategory'>
                             Acción
@@ -15,7 +15,7 @@ const CardCategory = () => {
                     </div>
                 </div>
                 </Link>
-                <Link to='/stories/aventura'><div className='cardCategory'>
+                <Link to='/stories/Aventura'><div className='cardCategory'>
                     <div className='nameCategory'>
                         <h2>Aventura</h2>
                     </div>
@@ -24,7 +24,7 @@ const CardCategory = () => {
                         </div>
                     </div>
                 </div></Link>
-                <div className='cardCategory'>
+                <Link to='/stories/Clásicos'><div className='cardCategory'>
                     <div className='nameCategory'>
                         <h2>Clásicos</h2>
                     </div>
@@ -32,7 +32,7 @@ const CardCategory = () => {
                         <div className='logoCategory' style={{ backgroundImage: `url(https://lithub.com/wp-content/uploads/2018/04/a1a64211b2e1f8dbc07546bcc2d25352.jpg)`, width: '8vw', height: '8vw' }}>
                         </div>
                     </div>
-                </div>
+                </div></Link>
                 <div className='cardCategory'>
                     <div className='nameCategory'>
                         <h2>Ciencia Ficción</h2>
