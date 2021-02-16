@@ -9,7 +9,7 @@ const userController = {
         const {firstname, lastname, email, password, birthday} = req.body
         const userExists = await User.findOne({email: email})
         if (userExists) {
-            errores.push('El nombre de usuario ya está siendo utilizado.  Elija otro.')
+            errores.push('El nombre email ya está siendo utilizado.  Elija otro.')
         }
         if (errores.length === 0) {
             const passwordHasheado = bcryptjs.hashSync(password, 10)

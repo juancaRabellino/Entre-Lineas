@@ -1,6 +1,8 @@
 import React, {useState} from 'react'
 import { connect } from 'react-redux'
 import authActions from '../redux/actions/authActions'
+import GoogleLogin from 'react-google-login'
+import FacebookLogin from 'react-facebook-login';
 
 const SignIn =(props) => {
 
@@ -31,6 +33,43 @@ const SignIn =(props) => {
         }
     }
 
+    const responseGoogle = async (response) => {
+        console.log(response)
+        if(response.error){
+            alert('Algo salio mal con tu cuenta de Google')
+        }else{
+            const respuesta = await props.logInUser({
+                email: response.profileObj.email,
+                password:response.profileObj.googleId
+            })
+        if(respuesta && !respuesta.success){
+            setErrores(respuesta.errores.details)
+        }else{
+            alert ('Bienvenido a Entre Lineas!')
+        }
+    }
+}
+
+const responseFacebook = async (response) => {
+    console.log(response);
+    if(response.error){
+        alert('Algo salio mal con tu cuenta de Facebook')
+    }else{
+        const respuesta = await props.logInUser({
+            // firstname: response.profileObj.givenName,
+            // lastname: response.name,
+            // birthday: response.profileObj.googleId,
+            email: response.email,
+            password:response.id
+        })
+    if(respuesta && !respuesta.success){
+        setErrores(respuesta.errores)
+    }else{
+        alert ('Bienvenido a Entre Lineas!')
+        }
+    }
+}
+
     return (
 <div className="containerLogin">
         <div className="imagRegister"></div>
@@ -40,6 +79,22 @@ const SignIn =(props) => {
                         <input className="inputRegister" type="text" name="email" placeholder="Nombre de Usuario" onChange={readInput}/>
                         <input className="inputRegister" type="password" name="password" placeholder="Contraseña" onChange={readInput}/>
                     <button className="botonRegister" onClick={validateUser} >Iniciar sesion</button>
+                    <GoogleLogin
+                        clientId="1087968275357-m12u0vuij7mp2vs76frlkn5of8ae1are.apps.googleusercontent.com"
+                        buttonText="Iniciar sesion con google"
+                        onSuccess={responseGoogle}
+                        onFailure={responseGoogle}
+                        cookiePolicy={'single_host_origin'}
+                    />
+                    <FacebookLogin
+                        appId="781019919514137"
+                        autoLoad={true}
+                        fields="name,email,picture"
+                        callback={responseFacebook}
+                        textButton="Iniciar sesion con Facebook"
+                        icon="fa-facebook"
+                        cssClass="iconoFacebook"
+                    />,
                 </div>
             </div>
             <div style={{height:"50vh", width:"60vw"}}>
