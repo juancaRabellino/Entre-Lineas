@@ -30,7 +30,7 @@ const NewBook =(props)=>{
         <label htmlFor="title">Titulo</label>
         <input type="text" name="title" id="title" onChange={readInput} />
         <label htmlFor="description">Descripcion</label>
-        <textarea name="description" id="description" cols="30" rows="10" onChange={readInput}></textarea>
+        <textarea name="description" id="description" cols="30" rows="10" style={{resize: 'none'}} onChange={readInput}></textarea>
         <label htmlFor="user">User id</label>
         <input type="text" name="user" id="user" onChange={readInput}/>
         <label htmlFor="genre">Genero</label>

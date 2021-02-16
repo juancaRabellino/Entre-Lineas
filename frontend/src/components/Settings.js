@@ -76,8 +76,7 @@ const Settings = (props) => {
 
 const mapStateToProps = state => {
   return {
-    loggedUser: state.auth.loggedUser 
-    
+    loggedUser: state.auth.loggedUser
   }
 }
 

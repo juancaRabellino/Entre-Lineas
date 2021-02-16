@@ -35,7 +35,6 @@ const userController = {
         if (!passwordMatches) {
             return res.json({success: false, mensaje: 'Nombre de usuario y/o contraseña incorrectos.'})
         }
-
         var token = jwt.sign({...userExists}, process.env.SECRET_KEY, {})
         return res.json({success: true, response: {token, firstname: userExists.firstname}})
     },
