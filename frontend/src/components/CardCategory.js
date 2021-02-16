@@ -4,7 +4,7 @@ const CardCategory = () => {
     return (
         <>
             <div className='containerViewCardsCategories'>
-            <Link to={'/stories/Accion'}>
+            <Link to={'/stories/Acción'}>
                 <div className='cardCategory'>
                     <div className='nameCategory'>
                             Acción

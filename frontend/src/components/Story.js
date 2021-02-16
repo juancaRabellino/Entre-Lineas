@@ -11,7 +11,7 @@ const Story=(props)=>{
                         <p>{props.libro.stars.length}</p>
                         <p>{props.libro.chapters.length}</p>
                     </div>
-                    <p>{props.libro.description}</p>
+                    <p>{props.libro.description.substr(0,300)+"..."}</p>
                 </div>
         </div>
         </>
