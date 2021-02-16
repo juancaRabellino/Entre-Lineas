@@ -5,8 +5,7 @@ const initialState = {
 const authReducers = (state = initialState, action) => {
     switch (action.type) {
         case 'LOG_USER': //para cuando el usuario va a crear una cuenta o a loguearse
-        localStorage.setItem('token', action.payload.respuesta.token)
-        localStorage.setItem('firstname',action.payload.respuesta.userName)
+        localStorage.setItem('token', action.payload.response.token)
             return {
                 ...state,
                 loggedUser:action.payload.respuesta

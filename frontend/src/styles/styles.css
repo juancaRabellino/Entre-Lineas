@@ -16,8 +16,16 @@ html * {
 
 /* Styles for Header and Footer (Juanca) */
 
+.containerHeader {
+    height: 15vh;
+    display: flex;
+    width: 100vw;
+    justify-content: space-around;
+    align-items: center;
+}
+
 header, footer {
-  height: 10vh;
+  height: 15vh;
   display: flex;
   justify-content: space-around;
   align-items: center;

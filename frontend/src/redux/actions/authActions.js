@@ -16,11 +16,9 @@ const authActions = {
     },
 
     logInUser: user => {
-        console.log(user)
         return async (dispatch) => {
             const respuesta = await axios.post('http://localhost:4000/api/user/signin',user)
             if(!respuesta.data.success) return respuesta.data;
-
             dispatch({type: 'LOG_USER', payload: respuesta.data})
         }
     },
@@ -42,6 +40,7 @@ const authActions = {
         dispatch({success: true, response: response.data})
       }
     },
+
     logStorage: (userName,token) => {
         return (dispatch) => {
             dispatch({type: 'LOG_USER', payload: {respuesta:{userName:userName,token}}})

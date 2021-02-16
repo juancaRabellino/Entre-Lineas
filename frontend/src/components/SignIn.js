@@ -51,7 +51,6 @@ const SignIn =(props) => {
 }
 
 const responseFacebook = async (response) => {
-    console.log(response);
     if(response.error){
         alert('Algo salio mal con tu cuenta de Facebook')
     }else{
