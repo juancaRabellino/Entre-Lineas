@@ -2,13 +2,15 @@ import CardCategory from "./CardCategory"
 import {connect} from "react-redux"
 import {useEffect} from "react"
 import bookActions from "../redux/actions/bookActions"
+import cardActions from '../redux/actions/cardActions'
 
 const Search = (props) => {
-    
+        
     useEffect( () => {
         props.getBooks()
+        props.getCardsCategories()
     },[])
-
+    
     return(
         <div className='containerComponentSearchStories'>
             <div className='containerSearchBar'>
@@ -19,7 +21,9 @@ const Search = (props) => {
                 <h1>Explorá las categorías</h1>
             </div>
             <div className='containerViewCardsCategories'>
-                <CardCategory />
+                {props.genres.map(cardCategory => {
+                    return <CardCategory cardCategory={cardCategory}/>
+                })}
             </div>
         </div>
     )
@@ -29,13 +33,15 @@ const mapStateToProps = state => {
     return {
         books: state.bookR.books,
         filter: state.bookR.filter,
-        genero: state.bookR.genre
+        genres: state.cardR.genres
     }
-  }
+}   
 
 const mapDispatchToProps = {
     getBooks: bookActions.getBooks,
-    search: bookActions.searchBooks
+    search: bookActions.searchBooks,
+    getCardsCategories: cardActions.getCardsCategories
+    
 }
 
 export default connect(mapStateToProps,mapDispatchToProps)(Search);
