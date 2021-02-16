@@ -5,7 +5,6 @@ const jwt = require ("jsonwebtoken")
 const userController = {
 
     signUp: async (req, res) => {
-        console.log('llega')
         var errores = []
         const {firstname, lastname, email, password, birthday} = req.body
         const userExists = await User.findOne({email: email})
@@ -22,7 +21,7 @@ const userController = {
         }
         return res.json({success: errores.length === 0 ? true : false,
             errores: errores,
-            response: errores.length === 0 && {token, fistname: newUserSaved.firstname}})
+            response: errores.length === 0 && {token, firstname: newUserSaved.firstname}})
     },
 
     signIn: async (req, res) => {
@@ -35,17 +34,15 @@ const userController = {
         if (!passwordMatches) {
             return res.json({success: false, mensaje: 'Nombre de usuario y/o contraseña incorrectos.'})
         }
-
         var token = jwt.sign({...userExists}, process.env.SECRET_KEY, {})
         return res.json({success: true, response: {token, firstname: userExists.firstname}})
     },
 
     logFromLS: (req, res) => {
-        res.json({success: true, response: {token: req.body.token, fistname: req.user.firstname}})
+        res.json({success: true, response: {token: req.body.token, firstname: req.user.firstname}})
     },
 
     modifyUser: (req, res) => {
-      console.log(req.params)
       const userId = req.params.userId
       Itinerary.findOneAndUpdate({_id: userId})
       .then(data => res.json({ success: true, response: data }))
