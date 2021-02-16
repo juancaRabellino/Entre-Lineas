@@ -5,6 +5,7 @@ import authReducers from './authReducer'
 const rootReducer = combineReducers({
   bookR: bookReducers,
   auth:authReducers
+
 })
 
 export default rootReducer

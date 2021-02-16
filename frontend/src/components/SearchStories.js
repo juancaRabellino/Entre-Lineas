@@ -1,6 +1,13 @@
 import CardCategory from "./CardCategory"
+import { connect } from 'react-redux'
+import bookActions from "../redux/actions/bookActions"
+import { useEffect } from "react"
 
-const SearchStories = () => {
+const SearchStories = (props) => {
+    useEffect( () => {
+        props.getBooks()
+    },[])
+    
     return(
         <div className='containerComponentSearchStories'>
             <div className='containerSearchBar'>
@@ -13,5 +20,17 @@ const SearchStories = () => {
         </div>
     )
 }
+const mapStateToProps = state => {
+    return {
+        books: state.bookR.books,
+        filter: state.bookR.filter
+    }
+  }
 
-export default SearchStories;
+const mapDispatchToProps = {
+    getBooks: bookActions.getBooks,
+    search: bookActions.searchBooks
+}
+
+
+export default connect(mapStateToProps,mapDispatchToProps) (SearchStories)
