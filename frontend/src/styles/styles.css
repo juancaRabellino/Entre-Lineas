@@ -27,7 +27,7 @@ header, footer {
     font-weight: bold;
   }
   
-  .headerLeft, .headerRight, .footerLeft, .footerRight {
+  .headerLeft, .headerRight, .toSearch, .footerLeft, .footerRight {
     display: flex;
     align-items: center;
   }
@@ -44,14 +44,19 @@ header, footer {
     background-size: cover;
   }
   
-  header p, header input {
+  header p {
     margin-right: 1.5vw;
     border: none;
     outline: none;
   }
+
+  header p, header i, footer p {
+    font-size: 1.2vw;
+  }
   
-  header p:hover {
+  header div.toSearch:hover, header p:hover {
     text-decoration: underline;
+    color: black;
   }
   
   .dropdown {

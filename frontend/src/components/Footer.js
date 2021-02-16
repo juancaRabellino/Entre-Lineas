@@ -5,9 +5,9 @@ const Footer = () => {
   return (
     <footer>
       <div className="footerLeft">
-      <Link to="/"><img src={'./assets/logo.jpg'} className="logo" alt='logo Entre Líneas'></img></Link>
-        <p>© 2020 Entre Líneas.</p>
+        <Link to="/"><img src={'./assets/logo.jpg'} className="logo" alt='logo Entre Líneas'></img></Link>
       </div>
+      <p>© 2020 Entre Líneas.</p>
       <div className="footerRight">
         <a href="https://www.facebook.com/">
           <img src={'./assets/socialNetworks/facebook.png'} alt='Entre Líneas Facebook'></img>

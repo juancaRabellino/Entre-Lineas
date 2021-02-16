@@ -33,7 +33,6 @@ const NewBook =(props)=>{
         <textarea name="description" id="description" cols="30" rows="10" onChange={readInput}></textarea>
         <label htmlFor="user">User id</label>
         <input type="text" name="user" id="user" onChange={readInput}/>
-        {/* <input type="text" name="description" id="description" onChange={readInput} /> */}
         <label htmlFor="genre">Genero</label>
         <select name="genre" id="genre" defaultValue={'Elige un Género'} onChange={readInput}>
           <option value="" >Elige un Género</option>
