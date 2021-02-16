@@ -25,8 +25,9 @@ const bookActions = {
 						}
         }
     },
+
     searchBooks: (value) => {
-        return async (dispatch, getState) => {
+        return (dispatch, getState) => {
             dispatch({type: 'SEARCH_BOOKS', payload: value})
         }
     }

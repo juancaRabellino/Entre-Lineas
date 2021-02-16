@@ -9,9 +9,6 @@ const Search = (props) => {
         props.getBooks()
     },[])
 
-
-    console.log(props.books)
-
     return(
         <div className='containerComponentSearchStories'>
             <div className='containerSearchBar'>
@@ -31,7 +28,8 @@ const Search = (props) => {
 const mapStateToProps = state => {
     return {
         books: state.bookR.books,
-        filter: state.bookR.filter
+        filter: state.bookR.filter,
+        genero: state.bookR.genre
     }
   }
 

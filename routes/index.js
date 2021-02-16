@@ -2,6 +2,7 @@ const express = require("express")
 const router = express.Router()
 const userController = require("../controllers/userController")
 const bookController = require("../controllers/bookController")
+const genreController = require('../controllers/genreController')
 const validator = require ("../controllers/validator")
 const passport = require("passport")
 require("../config/passport")
@@ -24,6 +25,10 @@ router.route('/book')
 .post(bookController.createBook)
 .get(bookController.getBooks)
 
+// Genre Route
+router.route('/genre')
+.get(genreController.getGenres)
+.post(genreController.addGenre)
 
 
 
