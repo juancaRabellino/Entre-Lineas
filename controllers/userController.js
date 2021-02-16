@@ -41,6 +41,14 @@ const userController = {
 
     logFromLS: (req, res) => {
         res.json({success: true, response: {token: req.body.token, fistname: req.user.firstname}})
+    },
+
+    modifyUser: (req, res) => {
+      console.log(req.params)
+      const userId = req.params.userId
+      Itinerary.findOneAndUpdate({_id: userId})
+      .then(data => res.json({ success: true, response: data }))
+      .catch(error => res.json({ success: false, error }))
     }
 }
 

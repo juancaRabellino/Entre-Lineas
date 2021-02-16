@@ -18,18 +18,21 @@ const Header = () => {
             <tbody>
               <tr>
                 <td><Link to="/">Acción</Link></td>
-                <td><Link to="/">Fantasía</Link></td>
+                <td><Link to="/">Aventura</Link></td>
                 <td><Link to="/">Ciencia Ficción</Link></td>
               </tr>
               <tr>
                 <td><Link to="/">Clásicos</Link></td>
+                <td><Link to="/">Historias cortas</Link></td>
+                <td><Link to="/">Históricas</Link></td>
+              </tr>
+              <tr>
                 <td><Link to="/">Humor</Link></td>
+                <td><Link to="/">Romance</Link></td>
                 <td><Link to="/">Suspenso</Link></td>
               </tr>
               <tr>
                 <td><Link to="/">Terror</Link></td>
-                <td><Link to="/">Aventura</Link></td>
-                <td><Link to="/">Romance</Link></td>
               </tr>
             </tbody>
           </table>

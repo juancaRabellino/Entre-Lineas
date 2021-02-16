@@ -10,6 +10,7 @@ import SignIn from "./components/SignIn"
 import Stories from './components/Stories'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import NewBook from './components/NewBook'
+import Settings from './components/Settings'
 
 const App = () => {
   return (
@@ -23,6 +24,7 @@ const App = () => {
           <Route path="/register" component={Register}/>
           <Route path="/signin" component={SignIn}/>
           <Route path="/stories/:genre" component={Stories}/>
+          <Route path="/settings" component={Settings}/>
         </Switch>
         <Footer />
       </BrowserRouter>
