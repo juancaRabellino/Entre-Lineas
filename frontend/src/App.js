@@ -1,7 +1,7 @@
 import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './styles/styles.css'
-import SearchStories from './components/SearchStories'
+import Search from './components/Search'
 import Header from "./components/Header"
 import Home from "./components/Home"
 import Footer from "./components/Footer"
@@ -17,7 +17,7 @@ const App = () => {
         <Header />
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route path="/search" component={SearchStories}/>
+          <Route exact path="/search" component={Search}/>
           {/* <Route path="/add-book" component={NewBook}/> */}
           <Route path="/register" component={Register}/>
           <Route path="/signin" component={SignIn}/>
