@@ -4,14 +4,19 @@ const authActions = {
     makeNewUser: (usuario) => {
         console.log(usuario)
         return async (dispatch) => {
-            const respuesta = await axios.post('http://localhost:4000/api/user/signup', usuario)///esto viaja al backend, va a router, busca la ruta
-            if(!respuesta.data.success) return respuesta.data
-            dispatch({type: 'LOG_USER', payload: respuesta.data})//lo que ma contesto el backend se lo mando al reducers
-            console.log(respuesta)
+            try {
+                const respuesta = await axios.post('http://localhost:4000/api/user/signup', usuario)///esto viaja al backend, va a router, busca la ruta
+                if(!respuesta.data.success) return respuesta.data
+                dispatch({type: 'LOG_USER', payload: respuesta.data})//lo que ma contesto el backend se lo mando al reducers
+                console.log(respuesta)
+            }catch(error){
+                console.log(error)
+            }
         }
     },
 
     logInUser: user => {
+        console.log(user)
         return async (dispatch) => {
             const respuesta = await axios.post('http://localhost:4000/api/user/signin',user)
             if(!respuesta.data.success) return respuesta.data;
@@ -25,6 +30,12 @@ const authActions = {
             dispatch({type:'LOG_OUT_USER'})
         }
     },
+
+    logStorage: (userName,token) => {
+        return (dispatch) => {
+            dispatch({type: 'LOG_USER', payload: {respuesta:{userName:userName,token}}})
+        }
+    }
 
 }
 

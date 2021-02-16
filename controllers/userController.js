@@ -5,6 +5,7 @@ const jwt = require ("jsonwebtoken")
 const userController = {
 
     signUp: async (req, res) => {
+        console.log('llega')
         var errores = []
         const {firstname, lastname, email, password, birthday} = req.body
         const userExists = await User.findOne({email: email})
@@ -19,7 +20,7 @@ const userController = {
             var newUserSaved = await newUser.save()
             var token = jwt.sign({...newUserSaved}, process.env.SECRET_KEY, {})
         }
-        return res.json({success: errores.length === 0 ? true : false, 
+        return res.json({success: errores.length === 0 ? true : false,
             errores: errores,
             response: errores.length === 0 && {token, fistname: newUserSaved.firstname}})
     },
@@ -44,4 +45,4 @@ const userController = {
     }
 }
 
-module.exports = userController 
+module.exports = userController
