@@ -34,9 +34,14 @@ const authActions = {
     modifyUser: userToEdit => {
       const userId = userToEdit._id
       return async (dispatch, getState) => {
-        const response = await axios.delete(`http://localhost:4000/api/settings/${userId}`, { headers: { Authorization: `Bearer ${userToEdit.token}` } })
+        const response = await axios.delete(`http://localhost:4000/api/settings/${userId}`, {
+             headers: { 
+                 Authorization: `Bearer ${userToEdit.token}` 
+                }
+             })
+        dispatch({success: true, response: response.data})
       }
-    }
+    },
     logStorage: (userName,token) => {
         return (dispatch) => {
             dispatch({type: 'LOG_USER', payload: {respuesta:{userName:userName,token}}})

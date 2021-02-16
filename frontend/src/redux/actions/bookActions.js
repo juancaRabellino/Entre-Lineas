@@ -1,10 +1,10 @@
 const { default: axios } = require("axios")
 
 const bookActions = {
+
   addBook: (book) => {
     return async (dispatch, getState) => {
       try {
-      console.log('llega')
       const response = await axios.post('http://localhost:4000/api/book', {book})
       dispatch({type: 'ADD_BOOK', payload:response.data})
       console.log(response)
@@ -30,6 +30,9 @@ const bookActions = {
             dispatch({type: 'SEARCH_BOOKS', payload: value})
         }
     }
+
+
+
 }
 
 export default bookActions
