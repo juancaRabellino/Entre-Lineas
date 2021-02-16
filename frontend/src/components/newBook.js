@@ -36,7 +36,7 @@ const NewBook =(props)=>{
         <label htmlFor="genre">Genero</label>
         <select name="genre" id="genre" defaultValue={'Elige un Género'} onChange={readInput}>
           <option value="" >Elige un Género</option>
-          <option value="Accion">Accion</option>
+          <option value="Acción">Acción</option>
           <option value="Aventura">Aventura</option>
           <option value="Ciencia Ficción">Ciencia Ficción</option>
           <option value="Clásicos">Clásicos</option>

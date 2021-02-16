@@ -8,8 +8,10 @@ import Footer from "./components/Footer"
 import Register from "./components/Register"
 import SignIn from "./components/SignIn"
 import Stories from './components/Stories'
-import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
 import NewBook from './components/NewBook'
+import Settings from './components/Settings'
+import StoryDescription from './components/StoryDescription'
 
 const App = () => {
   return (
@@ -23,6 +25,9 @@ const App = () => {
           <Route path="/register" component={Register}/>
           <Route path="/signin" component={SignIn}/>
           <Route path="/stories/:genre" component={Stories}/>
+          <Route path="/story/:id" component={StoryDescription}/>
+          <Route path="/settings" component={Settings}/>
+          <Redirect to="/"/>
         </Switch>
         <Footer />
       </BrowserRouter>
