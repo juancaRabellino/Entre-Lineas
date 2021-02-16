@@ -29,10 +29,7 @@ const bookController = {
       user, stars, views, chapters, image} = book
     const createBook = new Book({title, description, mainCharacters, genre:{genre, image: url[0]}, 
       user, stars, views, chapters, image})
-      console.log(createBook)
-
     createBook.save()
-
     .then( async createBook => {
       const book = await createBook.populate('user').execPopulate() 
       res.json({success: true, response: book})})

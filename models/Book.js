@@ -3,7 +3,6 @@ const mongoose = require('mongoose')
 const bookSchema = new mongoose.Schema({
   title: String,
   description: String,
-  mainCharacters: String,
   genre: {genre: String, image: String},
   user: {type: mongoose.Schema.Types.ObjectId, ref: 'user'},
   stars:[{type: mongoose.Schema.Types.ObjectId, ref: 'user'}],
