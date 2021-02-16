@@ -1,10 +1,5 @@
 /* ----- General configuration for the all document ----- */
 
-html * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
 #root {
     display: flex;
     flex-direction: column;
@@ -16,7 +11,7 @@ html * {
 /* Styles for Header and Footer */
 
 header, footer {
-    height: 10vh;
+    /* height: 10vh; */
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -37,7 +32,7 @@ header, footer {
   }
   
   .headerLeft img.logo, .footerLeft img.logo {
-    /* width: 10vw; */
+    width: 10vw;
     height: 10vh;
     margin: 0 3vw 0 0;
     background-position: center;
@@ -207,7 +202,7 @@ header, footer {
   /* ESTILOS DE LA HOME Y LAS SECTIONS (MAURI) */
   
   .sectionBox{
-      min-height: 100vh;
+      /* min-height: 100vh; */
       background-image: url("../assets/fotoHome2.jpg");
       background-size: cover;
       background-position:right;
@@ -262,7 +257,7 @@ header, footer {
       margin-bottom: 4vh;
   }
   .rightBoxFirst{
-      background-image: url('../assets/computadoras2.png');
+      background-image: url('../assets/dispositivos2.png');
       background-size: contain;
       background-repeat: no-repeat;
       height: 50vh;
@@ -456,7 +451,8 @@ header, footer {
   .resources p{
       /* background-color: red; */
       font-size: 1.8vw;
-      padding-top: 1.5vh;
+      /* padding-top: 1.5vh; */
+      padding-bottom: 8.2vh;
       font-weight: bold;
       width: 10vw;
   
@@ -495,6 +491,7 @@ header, footer {
   .offers p{
       font-size: 1.8vw;
       /* padding-top: 3vh; */
+      padding-bottom: 1.5vh;
       font-weight: bold;
       width: 10vw;
   }
@@ -508,6 +505,7 @@ header, footer {
       align-items: center;
       height: 100vh;
       margin-top: 15vh;
+      margin-bottom: 17vh;
       justify-content: space-between;
   }
   .upContainerFourth{
@@ -541,12 +539,12 @@ header, footer {
   }
   .fourthSecBack{
       padding-top: 2vh;
-      background-image: url('../assets/computadoras.png');
+      background-image: url('../assets/dispositivos.png');
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
-      height: 80vh;
-      width: 85vw;
+      height: 88vh;
+      width: 75vw;
       margin-bottom: -16vh;
   }
 
@@ -571,15 +569,13 @@ header, footer {
     justify-content: center;
     align-items: flex-start;
 }
-.inputSearchStories {
-    color: white;
-    font-family: 'Source Sans Pro', sans-serif;
-}
 .inputSearchStories:focus {
     color: rgb(103, 11, 139);
     font-weight: bold;
 }
 .inputSearchStories {
+    color: white;
+    font-family: 'Source Sans Pro', sans-serif;
     background-color: rgb(103, 11, 139);
     height: 75%;
     width: 50%;
@@ -681,4 +677,89 @@ header, footer {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+}
+    
+/* CORRECION FOOTER MAURI */
+
+footer {
+    border-top: 1.5px solid rgb(103, 11, 139);
+    margin-bottom: -4vh;
+    display: flex;
+    align-items: center;
+    padding-top: 1vh;
+    padding-bottom: 2vh;
+}
+.footerLeft{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    text-align: center;
+    margin-left: 5vw;
+}
+.footerLeft p{
+    color: rgb(103, 11, 139);
+    padding-top: 3.5vh;
+    width: 50vw;
+}
+.footerRight a{
+    color:rgb(103, 11, 139)!important;
+}
+
+/* COMPONENTE STORIES (MAURI) */
+
+.capitalize{
+    text-transform: capitalize;
+}
+.storiesContainer{
+    background-color: cyan;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.boxStories{
+    background-color: darkgoldenrod;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.upContainerStories{
+    background-color: darkkhaki;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+}
+.downContainerStories{
+    background-color: darksalmon;
+    /* margin-bottom: 1vh; */
+}
+.storyContainer{
+    background-color: darkseagreen;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1vh;
+}
+.storyBodyContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50vw;
+}
+.storyIcons{
+    background-color: dimgrey;
+    display: flex;
+    justify-content: space-evenly;
+    width: 30vw;
+}
+.boxInputStories{
+    background-color: darkorange;
+}
+
+.storyPic{
+
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 20vw;
+    height: 50vh;
+    margin-left: 2vh;
 }

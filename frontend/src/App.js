@@ -7,6 +7,7 @@ import Home from "./components/Home"
 import Footer from "./components/Footer"
 import Register from "./components/Register"
 import SignIn from "./components/SignIn"
+import Stories from './components/Stories'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 // import NewBook from './components/NewBook'
 
@@ -21,6 +22,7 @@ const App = () => {
           {/* <Route path="/add-book" component={NewBook}/> */}
           <Route path="/register" component={Register}/>
           <Route path="/signin" component={SignIn}/>
+          <Route path="/stories/:genre" component={Stories}/>
         </Switch>
         <Footer />
       </BrowserRouter>

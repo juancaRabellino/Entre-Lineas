@@ -6,16 +6,17 @@ const CardCategory = () => {
             <div className='containerViewCardsCategories'>
             <Link to={'/category/action'}>
                 <div className='cardCategory'>
+                    <Link to='/stories/accion'>
                     <div className='nameCategory'>
                             Acción
                     </div>
                     <div className='containerLogoCategory'>
                         <div className='logoCategory' style={{ backgroundImage: `url(https://media.istockphoto.com/illustrations/after-the-war-in-battlefield-illustration-id1133395584?k=6&m=1133395584&s=612x612&w=0&h=7Mt6MDN_pcjZChU1mog6VW1DpOZlXPpoGQas-7nqtW8=)`, width: '8vw', height: '8vw' }}>
                         </div>
-                    </div>
+                    </div></Link>
                 </div>
                 </Link>
-                <div className='cardCategory'>
+                <Link to='/stories/aventura'><div className='cardCategory'>
                     <div className='nameCategory'>
                         <h2>Aventura</h2>
                     </div>
@@ -23,7 +24,7 @@ const CardCategory = () => {
                         <div className='logoCategory' style={{ backgroundImage: `url(https://img.freepik.com/free-vector/explorer-with-backpack-background_23-2148159527.jpg?size=626&ext=jpg)`, width: '8vw', height: '8vw' }}>
                         </div>
                     </div>
-                </div>
+                </div></Link>
                 <div className='cardCategory'>
                     <div className='nameCategory'>
                         <h2>Clásicos</h2>
