@@ -40,8 +40,8 @@ const Header = () => {
         </div></Link>
       </div>
       <div className="headerRight">
-        <Link to="/"><p>Iniciar sesión</p></Link>
-        <Link to="/"><p>Regístrate</p></Link>
+        <Link to="/signin"><p>Iniciar sesión</p></Link>
+        <Link to="/register"><p>Regístrate</p></Link>
       </div>
     </header>
   )
