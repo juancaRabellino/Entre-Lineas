@@ -29,8 +29,8 @@ header, footer {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  }
-  
+}
+
 header *, footer * {
   text-decoration: none;
   font-weight: bold;
@@ -105,30 +105,42 @@ table.dropdown-content th, table.dropdown-content td {
   border-radius: 50%;
 }
 
-/* Styles settings user (Juanca) */
-section.settings {
+/* Styles Settings y New Chapter (Juanca) */
+section.settings, section.chapter {
   min-height: 79.5vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
 }
 
 .form-settings {
+  margin: 0 10vw 0 0;
+}
+
+.form-settings, .form-chapter {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 50vw;
-  margin: 0 10vw 0 0;
-  /* margin: auto; */
 }
 
-.form-settings label  {
+.form-settings label {
   width: 15vw;
+}
+
+.form-settings label, .form-chapter label {
+  min-width: 5vw;
   text-align: right;
   margin: 1vh 1vw 1vh 0;
 }
 
-.form-settings input, .form-settings select, .form-settings div.checkbox{
+.form-chapter label.labelContent {
+  text-align: center;
+}
+
+.form-settings input, .form-chapter input, .form-settings select, .form-settings div.checkbox{
   width: 20vw;
   text-align: left;
 }
@@ -136,12 +148,12 @@ section.settings {
 .form-settings input#showName {
   width: 1vw;
 }
+
 .form-settings div.checkbox {
   display: flex;
   justify-content: flex-start;
   align-items: center;
 }
-
 
 .line {
   display: flex;
@@ -149,9 +161,21 @@ section.settings {
   align-items: center;
 }
 
+.form-chapter textarea {
+  width: 100%;
+}
+
 .buttonSettings {
   width: 10vw;
   height: 4vh;
+}
+
+.buttonNewChapter {
+  margin: 0 1vw 0 0;
+}
+
+.buttonSettings, .buttonNewChapter {
+  cursor: pointer;
 }
 
   /* estilos del register (gime) */
