@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
+import { connect } from 'react-redux'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './styles/styles.css'
 import Search from './components/Search'
@@ -8,10 +10,10 @@ import Footer from "./components/Footer"
 import Register from "./components/Register"
 import SignIn from "./components/SignIn"
 import Stories from './components/Stories'
-import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
-import { connect } from 'react-redux'
-import newBook from './components/newBook'
+import NewChapter from './components/NewChapter'
+import NewBook from './components/NewBook'
 import Settings from './components/Settings'
+import StoryDescription from './components/StoryDescription'
 import authActions from './redux/actions/authActions'
 
 const App = (props) => {
@@ -23,8 +25,9 @@ const App = (props) => {
     <Switch>
       <Route exact path="/" component={Home} />
       <Route exact path="/search" component={Search}/>
-      <Route path="/add-book" component={newBook}/>
+      <Route path="/add-book" component={NewBook}/>
       <Route path="/stories/:genre" component={Stories}/>
+      <Route path="/story/:id" component={StoryDescription}/>
       <Route path="/settings" component={Settings}/>
       <Redirect to ="/search"/>
     </Switch>
@@ -38,11 +41,14 @@ const App = (props) => {
     routes = 
     <>
     <Switch>
+      <Route path="/add-book" component={NewBook}/>
       <Route exact path="/" component={Home} />
       <Route exact path="/search" component={Search}/>
       <Route path="/register" component={Register}/>
       <Route path="/signin" component={SignIn}/>
       <Route path="/stories/:genre" component={Stories}/>
+      <Route path="/add-chapter" component={NewChapter} />
+      <Route path="/story/:id" component={StoryDescription}/>
       <Redirect to="/"/>
     </Switch>
     </>

@@ -1,4 +1,4 @@
-const { default: axios } = require("axios")
+import axios from 'axios'
 
 const bookActions = {
 
@@ -27,12 +27,29 @@ const bookActions = {
 
     searchBooks: (value) => {
         return (dispatch, getState) => {
+          try {
             dispatch({type: 'SEARCH_BOOKS', payload: value})
+          }catch(error){
+            console.log(error)
+          }
         }
+    },
+
+    addChapter: (chapter, id, token) => {
+      return async (dispatch, getState) => {
+        try {
+          const response = await axios.post('http://localhost:4000/api/book/addChapter', {chapter, id})
+          //   headers: {
+          //     Authorization : `Bearer ${token}`
+          //   }
+          // })
+          console.log(response.data)
+          dispatch({type: 'UPDATE_BOOK', payload: response.data.response})
+        }catch(error){
+          console.log(error)
+        }
+      }
     }
-
-
-
 }
 
 export default bookActions

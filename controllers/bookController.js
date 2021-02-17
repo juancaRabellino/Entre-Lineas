@@ -5,7 +5,7 @@ const bookController = {
     const book = req.body.book
     const {title, description, mainCharacters, genre, 
       user, stars, views, chapters, image} = book
-    const createBook = new Book({title, description, mainCharacters, genre:{genre, image: url[0]}, 
+    const createBook = new Book({title, description, mainCharacters, genre, 
       user, stars, views, chapters, image})
     createBook.save()
     .then( async createBook => {
@@ -17,6 +17,18 @@ const bookController = {
   getBooks: (req,res) => {
     Book.find().populate('user')
     .then(response => res.json({success: true, response}))
+    .catch(error => res.json({success: false, error}))
+  },
+
+  updateBook: (req, res) => {
+    const id = req.body.id
+    const title = req.body.chapter.title
+    const content = req.body.chapter.content
+    console.log(req.body)
+    Book.findOneAndUpdate({_id: id},
+      {$push: {chapters: {title, content}}},
+      {new: true})
+    .then(response=> res.json({success: true, response}))
     .catch(error => res.json({success: false, error}))
   }
 }
