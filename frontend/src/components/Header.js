@@ -9,7 +9,7 @@ const Header = (props) => {
     <header>
       {props.loggedUser && <h4>Hola! {(props.loggedUser.firstname).toUpperCase()}</h4>}
       <div className="headerLeft">
-        <Link to="/"><img src={'../assets/logo.jpg'} className="logo" alt='logo Entre Líneas'></img></Link>
+        <Link to="/"><img src={'../assets/Logo-EntreLineas-Pluma-inclinada.png'} className="logo" alt='logo Entre Líneas'></img></Link>
         <div className="dropdown">
           <p>Navegar</p>
           <table className="dropdown-content">

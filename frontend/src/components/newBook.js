@@ -11,32 +11,33 @@ const NewBook =(props)=>{
     const prop = e.target.name
     setBook({
       ...book,
-      [prop]:value,
+      [prop]:value
     })
   }
-  console.log(book)
 
-  const send=(e)=> {
-    e.preventDefault()
+  const send=()=> {
+    console.log(book)
     if(!book.genre || book.genre===''){
       alert('no se puede')
     }
     props.addBook(book)
   }
 
+  console.log(book)
+
   return (
     <section>
-      <form className="form-book">
+      <form>
         <label htmlFor="title">Titulo</label>
         <input type="text" name="title" id="title" onChange={readInput} />
         <label htmlFor="description">Descripcion</label>
-        <textarea name="description" id="description" cols="30" rows="10" onChange={readInput}></textarea>
-        <label htmlFor="user">User id</label>
-        <input type="text" name="user" id="user" onChange={readInput}/>
+        <input type="text" name="description" id="description" onChange={readInput} />
+        <label htmlFor="mainCharacters">Personajes Principales</label>
+        <input type="text" name="mainCharacters" id="mainCharacters" onChange={readInput} />
         <label htmlFor="genre">Genero</label>
         <select name="genre" id="genre" defaultValue={'Elige un Género'} onChange={readInput}>
           <option value="" >Elige un Género</option>
-          <option value="Acción">Acción</option>
+          <option value="Accion">Accion</option>
           <option value="Aventura">Aventura</option>
           <option value="Ciencia Ficción">Ciencia Ficción</option>
           <option value="Clásicos">Clásicos</option>
@@ -47,8 +48,8 @@ const NewBook =(props)=>{
           <option value="Suspenso">Suspenso</option>
           <option value="Terror">Terror</option>
         </select>
-        <button onClick={(e)=>send(e)}>Continuar</button>
       </form>
+        <button onClick={send}>Continuar</button>
     </section>
   )
 }
@@ -56,5 +57,6 @@ const NewBook =(props)=>{
 const mapDispatchToProps = {
   addBook: bookActions.addBook
 }
+
 
 export default connect(null, mapDispatchToProps)(NewBook)

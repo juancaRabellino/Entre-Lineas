@@ -22,11 +22,11 @@ const bookReducers = (state = initialState, action) => {
         ...state,
         filter: state.books.filter(book => book.title.toUpperCase().includes(action.payload.toUpperCase().trim())  
         || book.user.firstname.toUpperCase().includes(action.payload.toUpperCase().trim()) 
-        || book.user.lastname.toUpperCase().includes(action.payload.toUpperCase().trim()) )
+        || book.user.lastname.toUpperCase().includes(action.payload.toUpperCase().trim()))
       }
     default:
       return state
-  }
+	}
 }
 
 export default bookReducers
