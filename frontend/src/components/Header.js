@@ -6,7 +6,7 @@ const Header = () => {
   return (
     <header>
       <div className="headerLeft">
-        <Link to="/"><img src={'../assets/logo.jpg'} className="logo" alt='logo Entre Líneas'></img></Link>
+        <Link to="/"><img src={'../assets/Logo-EntreLineas-Pluma-inclinada.png'} className="logo" alt='logo Entre Líneas'></img></Link>
         <div className="dropdown">
           <p>Navegar</p>
           <table className="dropdown-content">

@@ -2,10 +2,9 @@ import { Link } from 'react-router-dom'
 import {connect} from "react-redux"
 
 const CardCategory = (props) => {
-    console.log(props.cardCategory)
     return (
         <>
-            <Link to={`/stories/soyunacategoria`}>
+            <Link to={`/stories/${props.cardCategory.genre}`}>
                 <div className='cardCategory'>
                     <div className='nameCategory'>
                             {props.cardCategory.genre}

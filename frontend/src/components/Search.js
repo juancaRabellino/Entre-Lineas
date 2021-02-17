@@ -10,12 +10,12 @@ const Search = (props) => {
         props.getBooks()
         props.getCardsCategories()
     },[])
-    
+
     return(
         <div className='containerComponentSearchStories'>
             <div className='containerSearchBar'>
                 <input type='text' className='inputSearchStories' placeholder='¿Qué vas a leer hoy?'></input>
-                <div className='iconSearchStories'><i class="fas fa-search"></i></div>
+                <div className='iconSearchStories'><i className="fas fa-search"></i></div>
             </div>
             <div className='containerTitleSearch'>
                 <h1>Explorá las categorías</h1>
