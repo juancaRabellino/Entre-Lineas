@@ -84,13 +84,13 @@ const responseFacebook = async (response) => {
                     />
                     <FacebookLogin
                         appId="781019919514137"
-                        autoLoad={true}
+                        autoLoad={false}
                         fields="name,email,picture"
                         callback={responseFacebook}
                         textButton="Iniciar sesion con Facebook"
                         icon="fa-facebook"
                         cssClass="iconoFacebook"
-                    />,
+                    />
                 </div>
             </div>
             <div style={{height:"50vh", width:"60vw"}}>

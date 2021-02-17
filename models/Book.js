@@ -7,7 +7,7 @@ const bookSchema = new mongoose.Schema({
   user: {type: mongoose.Schema.Types.ObjectId, ref: 'user'},
   stars:[{type: mongoose.Schema.Types.ObjectId, ref: 'user'}],
   views:Number,
-  chapters:[{chapter: String}],
+  chapters:[{chapter:String, content:String}],
   image: String,
 })
 
