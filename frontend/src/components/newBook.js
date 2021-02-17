@@ -15,8 +15,7 @@ const NewBook =(props)=>{
     })
   }
 
-  const send=(e)=> { 
-    e.preventDefault()
+  const send=()=> {
     console.log(book)
     if(!book.genre || book.genre===''){
       alert('no se puede')
@@ -27,36 +26,30 @@ const NewBook =(props)=>{
   console.log(book)
 
   return (
-    <section className="section-form-book">
-      <div className="imag-form-book"></div>
-      <div className="frase-form">
-        <div className="frase">
-          <h4>« Escribir es la manera más profunda de leer la vida »</h4>
-          <h3>- Francisco Umbral. -</h3>
-        </div>
-        <div className="container-form-book">
-          <form className="form-book">
-            <h5 className="newBook">Nuevo Libro</h5>
-            <input className="input-formBook" type="text" name="title" id="title" placeholder="Titulo" onChange={readInput} />
-            <textarea className="textarea-formBook" name="description" id="description" cols="30" rows="10" placeholder="Descripcion" onChange={readInput}></textarea>
-            <input className="input-formBook" type="text" name="user" id="user" placeholder="User id" onChange={readInput}/>
-            <select className="input-formBook" name="genre" id="genre" defaultValue={'Elige un Género'} onChange={readInput}>
-              <option value="" >Elige un Género</option>
-              <option value="Acción">Acción</option>
-              <option value="Aventura">Aventura</option>
-              <option value="Ciencia Ficción">Ciencia Ficción</option>
-              <option value="Clásicos">Clásicos</option>
-              <option value="Historias Cortas">Historias Cortas</option>
-              <option value="Históricas">Históricas</option>
-              <option value="Humor">Humor</option>
-              <option value="Romance">Romance</option>
-              <option value="Suspenso">Suspenso</option>
-              <option value="Terror">Terror</option>
-            </select>
-            <button onClick={send} className="buttonDiscover"><span>Continuar</span></button>
-          </form>
-        </div>
-      </div>
+    <section>
+      <form>
+        <label htmlFor="title">Titulo</label>
+        <input type="text" name="title" id="title" onChange={readInput} />
+        <label htmlFor="description">Descripcion</label>
+        <input type="text" name="description" id="description" onChange={readInput} />
+        <label htmlFor="mainCharacters">Personajes Principales</label>
+        <input type="text" name="mainCharacters" id="mainCharacters" onChange={readInput} />
+        <label htmlFor="genre">Genero</label>
+        <select name="genre" id="genre" defaultValue={'Elige un Género'} onChange={readInput}>
+          <option value="" >Elige un Género</option>
+          <option value="Accion">Accion</option>
+          <option value="Aventura">Aventura</option>
+          <option value="Ciencia Ficción">Ciencia Ficción</option>
+          <option value="Clásicos">Clásicos</option>
+          <option value="Historias Cortas">Historias Cortas</option>
+          <option value="Históricas">Históricas</option>
+          <option value="Humor">Humor</option>
+          <option value="Romance">Romance</option>
+          <option value="Suspenso">Suspenso</option>
+          <option value="Terror">Terror</option>
+        </select>
+      </form>
+        <button onClick={send}>Continuar</button>
     </section>
   )
 }
