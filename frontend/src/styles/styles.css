@@ -16,8 +16,16 @@ html * {
 
 /* Styles for Header and Footer (Juanca) */
 
+.containerHeader {
+    height: 15vh;
+    display: flex;
+    width: 100vw;
+    justify-content: space-around;
+    align-items: center;
+}
+
 header, footer {
-  height: 10vh;
+  height: 15vh;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -756,14 +764,139 @@ section.settings {
 
 /* STYLES OF NEW BOOK */
 
+.section-form-book {
+    height: 100vh;
+    width: 98vw;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 55vh;
+}
+
+.imag-form-book {
+    background-image: url(../assets/imagFormBook.png);
+    height: 60vh;
+    width: 98.79vw;
+    background-position:center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.5),0 17px 50px 0 rgba(0, 0, 0, 0.5);
+}
+
+.frase-form {
+    display: flex;
+    position: absolute;
+    flex-direction: row-reverse;
+    margin-top: 40vh;
+    align-items: center;
+    padding-left: 8vh;
+}
+
+.frase{
+    width: 35vw;
+    margin-left: -8vh;
+    background-color: rgb(103, 11, 139);
+    color: white;
+    padding: 5vh;
+    padding-left: 10vh;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.5),0 17px 50px 0 rgba(0, 0, 0, 0.5);
+    border-radius: 5vh;
+    text-align: center;
+}
+
+.frase h4 {
+    font-family: 'Satisfy', cursive;
+}
+
+.frase h3 {
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+
+.container-form-book{
+    background-color: white;
+    border: solid 3px rgb(55, 112, 187);
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.5),0 17px 50px 0 rgba(0, 0, 0, 0.5);
+}
+
 .form-book {
-    width: 50vw;
-    margin: auto;
+    width: 60vw;
+    padding: 10vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
-    
+
+.newBook{
+    text-align: center;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 6vh;
+}
+
+
+.input-formBook {
+    width: 51VW;
+    height: 5vh;
+    margin-top: 3vh;
+    margin-bottom: 3vh;
+    border: none;
+    border-bottom: solid 1.8px rgb(55, 112, 187);
+    padding-left: 3vh;
+    padding-right: 3vh;
+}
+
+.input-formBook:focus , .botonRinput-formBookegister:focus {
+    outline: none;
+}
+
+.textarea-formBook {
+    border: solid 1.8px rgb(55, 112, 187);
+}
+
+.buttonDiscover {
+    height: 10vh;
+    display: inline-block;
+    background-color: rgb(55, 112, 187);
+    color: #FFFFFF;
+    text-align: center;
+    transition: all 0.5s;
+    border: solid 0.1vh rgb(255, 255, 255);
+}
+
+.buttonDiscover span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+    font-size: 20px;
+}
+
+.buttonDiscover span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+
+.buttonDiscover span {
+    padding-right: 25px;
+}
+
+.buttonDiscover:hover{
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+    background-color:#108cc5;
+    color: white;
+    border: solid 0.1vh rgb(35, 60, 201);
+}
+
+.buttonDiscover:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+
 /* CORRECION FOOTER MAURI */
 
 footer {

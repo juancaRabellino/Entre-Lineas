@@ -51,7 +51,6 @@ const SignIn =(props) => {
 }
 
 const responseFacebook = async (response) => {
-    console.log(response);
     if(response.error){
         alert('Algo salio mal con tu cuenta de Facebook')
     }else{
@@ -85,7 +84,7 @@ const responseFacebook = async (response) => {
                     />
                     <FacebookLogin
                         appId="781019919514137"
-                        autoLoad={true}
+                        autoLoad={false}
                         fields="name,email,picture"
                         callback={responseFacebook}
                         textButton="Iniciar sesion con Facebook"
