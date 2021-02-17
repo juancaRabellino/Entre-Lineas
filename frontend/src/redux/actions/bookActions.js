@@ -29,9 +29,7 @@ const bookActions = {
         return (dispatch, getState) => {
             dispatch({type: 'SEARCH_BOOKS', payload: value})
         }
-    }
-
-
+    },
 
 }
 

@@ -774,74 +774,115 @@ footer p {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 2.5vh;
 }
 .boxStories{
-    /* background-color: darkgoldenrod; */
+    background-color: white;
     display: flex;
     flex-direction: column;
     align-items: center;
+    box-shadow: 3px -3px 8px rgba(146, 138, 150, 0.685);
+    border-radius: 10px;
+    width: 85%;
+    margin-top: 2.5vh;
+    margin-bottom: 2vh;
 }
 .upContainerStories{
-    background-color: darkkhaki;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 85%;
+    height: 10vh;
+    width: 100%;
+    /*  */
 }
 .downContainerStories{
-    background-color: darksalmon;
-    width: 85%;
+    width: 100%;
     display: flex;
     justify-content: space-evenly;
     flex-direction: row;
     flex-wrap: wrap;
-    /* margin-bottom: 1vh; */
+    padding-top: 1vh;
+    border-top: 1px solid rgb(179, 179, 179);
+    padding-bottom: 3vh;
 }
 .storyContainer{
-    background-color: darkseagreen;
     display: flex;
-    width: 40vw;
-    height: 55vh;
-    justify-content: space-around;
-    margin-bottom: 1vh;
+    align-items: center;
+    width: 34vw;
+    border-radius: 10px;
+    padding-top: 2vh;
+    padding-left: 2vw;
+    height: 60vh;
+    margin-top: 2vh;
+    border: 1px solid rgb(103, 11, 139);
+    justify-content: center;
 }
 .storyBodyContainer{
     display: flex;
-    background-color: yellow;
     flex-direction: column;
     justify-content: space-evenly;
     height: 51vh;
+    padding-bottom: 1vh;
+    margin-left: 0.7vw;
     align-items: flex-start;
-    width: 20vw;
+    width: 18vw;
 }
 .storyIcons{
-    background-color: dimgrey;
+    color: rgb(110, 110, 110);
     display: flex;
     justify-content: space-evenly;
     width: 10vw;
 }
 .boxInputStories{
-    background-color: darkorange;
+    margin-right: 4vw;
+    font-size: 1.5vw;
+}
+.boxInputStories label{
+    font-size: 1.5vw;
+}
+.boxInputStories select{
+    outline: none!important;
+    border: none;
+}
+.boxInputStories option{
+    border: none!important;
+    outline: none!important; 
+}
+.boxInputStories option::selection{
+    background-color: greenyellow!important;
+    color: hotpink;
 }
 
 .storyPic{
     background-size: contain;
     background-repeat: no-repeat;
-    background-color: violet;
     width: 15vw;
     height: 51vh;
-    margin-left: 2vh;
 }
 .verMasStory{
     color: white;
 }
 .storyDescription{
-    background-color: chocolate;
-    font-size: 1.3vw;
+    color: rgb(110, 110, 110);
+    font-size: 1.2vw;
+    width: 90%;
     height: 20vh;
+}
+.storyUser{
+    color: rgb(110, 110, 110);
 }
 .storyButtons{
     display: flex;
     justify-content: center;
     width: 100%;
+}
+.storyNumber{
+    
+    margin-left: 5vw;
+    font-size: 1.5vw;
+}
+.storyTitle{
+    font-size: 1.5vw;
+    text-transform: capitalize;
+    font-weight: bold;
 }

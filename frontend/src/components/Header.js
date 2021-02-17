@@ -1,10 +1,13 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import {connect} from 'react-redux'
+import authActions from '../redux/actions/authActions'
 
+const Header = (props) => {
 
-const Header = () => {
   return (
     <header>
+      {props.loggedUser && <h4>Hola! {(props.loggedUser.firstname).toUpperCase()}</h4>}
       <div className="headerLeft">
         <Link to="/"><img src={'../assets/logo.jpg'} className="logo" alt='logo Entre Líneas'></img></Link>
         <div className="dropdown">
@@ -42,12 +45,27 @@ const Header = () => {
           <p>Buscar</p>
         </div></Link>
       </div>
-      <div className="headerRight">
+        {props.loggedUser ?
+        <div className="headerRight">
+        <Link to="/" onClick={props.logout}><p>LogOut</p></Link></div>
+        :
+        <div className="headerRight">
         <Link to="/signin"><p>Iniciar sesión</p></Link>
         <Link to="/register"><p>Regístrate</p></Link>
-      </div>
+        </div>
+        }
     </header>
   )
 }
 
-export default Header
+const mapStateToProps = (state) => {
+  return {
+    loggedUser: state.auth.loggedUser
+  }
+}
+
+const mapDispatchToProps = {
+  logout: authActions.logOutUser
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header)
