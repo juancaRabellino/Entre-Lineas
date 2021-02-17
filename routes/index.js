@@ -18,12 +18,16 @@ router.route('/user/signin')
 
 router.route('/user/ls')
 .post(passport.authenticate('jwt', {session: false}), userController.logFromLS)
+
 // Aca termina los controladores sobre usuarios. Agregaremos el panel de lectores y escritores..
 
 // Book routes
 router.route('/book')
 .post(bookController.createBook)
 .get(bookController.getBooks)
+
+router.route('/book/addChapter')
+.post(bookController.updateBook)
 
 // Genre Route
 router.route('/genre')

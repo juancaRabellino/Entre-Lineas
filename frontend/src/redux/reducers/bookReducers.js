@@ -1,3 +1,5 @@
+import { object } from "joi"
+
 const initialState = {
   books: [],
   filter: [],
@@ -18,10 +20,10 @@ const bookReducers = (state = initialState, action) => {
     case 'SEARCH_BOOKS':
     	return {
         	...state,
-        	filter: state.books.filter(book => book.title.toUpperCase().includes(action.payload.toUpperCase().trim())  
+        	filter: state.books.filter(book => book.title.toUpperCase().includes(action.payload.toUpperCase().trim())
+          || book.genre.toUpperCase().includes(action.payload.toUpperCase().trim())  
         	|| book.user.firstname.toUpperCase().includes(action.payload.toUpperCase().trim()) 
-        	|| book.user.lastname.toUpperCase().includes(action.payload.toUpperCase().trim())
-        	)
+        	|| book.user.lastname.toUpperCase().includes(action.payload.toUpperCase().trim()))
         }
     default:
       return state
