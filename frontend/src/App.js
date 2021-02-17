@@ -10,7 +10,13 @@ import Footer from "./components/Footer"
 import Register from "./components/Register"
 import SignIn from "./components/SignIn"
 import Stories from './components/Stories'
+<<<<<<< HEAD
 import NewChapter from './components/NewChapter'
+=======
+import StoryDescription from './components/StoryDescription'
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
+import { connect } from 'react-redux'
+>>>>>>> da3bcc259f0953ca1593650aa93e046dd19ced05
 import NewBook from './components/NewBook'
 import Settings from './components/Settings'
 import authActions from './redux/actions/authActions'
@@ -26,6 +32,7 @@ const App = (props) => {
       <Route exact path="/search" component={Search}/>
       <Route path="/add-book" component={NewBook}/>
       <Route path="/stories/:genre" component={Stories}/>
+      <Route path="/story/:id" component={StoryDescription}/>
       <Route path="/settings" component={Settings}/>
       <Redirect to ="/search"/>
     </Switch>
@@ -46,6 +53,7 @@ const App = (props) => {
       <Route path="/signin" component={SignIn}/>
       <Route path="/stories/:genre" component={Stories}/>
       <Route path="/add-chapter" component={NewChapter} />
+      <Route path="/story/:id" component={StoryDescription}/>
       <Redirect to="/"/>
     </Switch>
     </>
