@@ -19,6 +19,7 @@ const bookActions = {
 							const response = await fetch('http://localhost:4000/api/book')
 							const data = await response.json()
 							dispatch({type: 'GET_BOOKS', payload: data.response})
+              console.log(data)
 						}catch(error){
 							console.log(error)
 						}
