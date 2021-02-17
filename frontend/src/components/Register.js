@@ -10,6 +10,7 @@ const Register = ( props ) => {
         firstname:'',lastname:'',birthday:'',email:'',password:''
     })
     const [errores, setErrores] = useState ([])
+    const [visible, setVisible] = useState(false)
 
     const readInput = e => { //receive the event
         const valor = e.target.value // capture the value
@@ -90,10 +91,12 @@ return (
                         <input className="inputRegister" type="text" name="firstname" placeholder="Nombre" onChange={readInput}/>
                         <input className="inputRegister" type="text" name="lastname" placeholder="Apellido" onChange={readInput}/>
                     </div>
-                    <input  className="inputRegister" type="date" min="1950-01-01" max="2021-2-31" name="birthday" placeholder="fechas de nacimiento" onChange={readInput}></input>
+                    <input  className="inputRegister" type="date" min="1950-01-01" max="2021-2-31" name="birthday" placeholder="fechas de nacimiento" onChange={readInput}/>
                     <div className="userNameAndPassword">
                     <input className="inputRegister" type="text" name="email" placeholder="Email" onChange={readInput} />
-                    <input className="inputRegister" type="password" name="password" placeholder="Contraseña" onChange={readInput} ></input>
+                    <input className="inputRegister" type={visible ? "text" : "password"} name="password" placeholder="Contraseña" onChange={readInput} />
+                    <i class={visible ? "far fa-eye-slash" : "far fa-eye"} onClick={()=>setVisible(!visible)}></i>
+
                     </div>
                     <button className="botonRegister" onClick={validateUser} >Crear usuario</button>
                         <GoogleLogin

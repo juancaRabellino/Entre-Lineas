@@ -8,6 +8,7 @@ const SignIn =(props) => {
 
     const [userLogueado, setUserLogueado] = useState({})
     const [errores, setErrores] = useState ([])
+    const [visible, setVisible] = useState(false)
 
     const readInput = e => { //receive the event
         const valor = e.target.value // capture the value
@@ -73,7 +74,9 @@ const responseFacebook = async (response) => {
                 <div className= "login">
                     <h2>Iniciar Sesion</h2>
                         <input className="inputRegister" type="text" name="email" placeholder="Nombre de Usuario" onChange={readInput}/>
-                        <input className="inputRegister" type="password" name="password" placeholder="Contraseña" onChange={readInput}/>
+                        <input className="inputRegister" type={visible ? "text" : "password"} name="password" placeholder="Contraseña" onChange={readInput}/>
+                        <i class={visible ? "far fa-eye-slash" : "far fa-eye"} onClick={()=>setVisible(!visible)}></i>
+                                                                                                                                                   
                     <button className="botonRegister" onClick={validateUser} >Iniciar sesion</button>
                     <GoogleLogin
                         clientId="1087968275357-m12u0vuij7mp2vs76frlkn5of8ae1are.apps.googleusercontent.com"

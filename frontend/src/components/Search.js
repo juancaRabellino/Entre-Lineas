@@ -12,10 +12,10 @@ const Search = (props) => {
         props.getBooks()
         props.getCardsCategories()
     },[])
-    
     const searching = (e) => {
         props.search(e.target.value)
         setValue(true)
+        e.target.value==="" && setValue(false)
     }
     return(
         <div className='containerComponentSearchStories'>

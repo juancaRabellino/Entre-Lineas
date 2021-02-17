@@ -4,6 +4,7 @@ const initialState = {
   books: [],
   filter: [],
 }
+
 const bookReducers = (state = initialState, action) => {
   switch (action.type) {
     case 'ADD_BOOK':
@@ -14,15 +15,16 @@ const bookReducers = (state = initialState, action) => {
       return {
         ...state,
         books: action.payload,
-        filter: action.payload,
+        filter: action.payload
       }
     case 'SEARCH_BOOKS':
-      return {
-        ...state,
-        filter: state.books.filter(book => book.title.toUpperCase().includes(action.payload.toUpperCase().trim())  
-        || book.user.firstname.toUpperCase().includes(action.payload.toUpperCase().trim()) 
-        || book.user.lastname.toUpperCase().includes(action.payload.toUpperCase().trim()))
-      }
+    	return {
+        	...state,
+        	filter: state.books.filter(book => book.title.toUpperCase().includes(action.payload.toUpperCase().trim())
+          || book.genre.toUpperCase().includes(action.payload.toUpperCase().trim())  
+        	|| book.user.firstname.toUpperCase().includes(action.payload.toUpperCase().trim()) 
+        	|| book.user.lastname.toUpperCase().includes(action.payload.toUpperCase().trim()))
+        }
     default:
       return state
 	}

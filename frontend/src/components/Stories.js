@@ -5,13 +5,12 @@ import Story from './Story'
 
 const Stories = (props)=>{
     const namePage = props.match.params.genre
-    console.log(props.booksFiltered)
     const [filter, setFilter]=useState([])
     const [boolean,setBoolean]=useState(true)
 
     var books = props.books.filter(libro => libro.genre === namePage)
     useEffect(()=>{
-        setFilter(books)
+        setFilter(books.sort((a,b)=> b.views - a.views))
         setBoolean(!boolean)
     },[])
 
@@ -35,8 +34,8 @@ const Stories = (props)=>{
                     <div className='boxInputStories'>
                         <label for="popular">Filtrar Por:</label>
                         <select onChange={e => sortFilter(e.target.value)} name="popular" id="cars">
-                            <option value="lessPopular">Menos Populares</option>
                             <option value="mostPopular">Mas Populares</option>
+                            <option value="lessPopular">Menos Populares</option>
                         </select>
                     </div>
                 </div>
