@@ -4,24 +4,22 @@ import bookActions from "../redux/actions/bookActions"
 
 
 const NewChapter = (props) => {
-  const [book, setBook] = useState({})
+  const [chapter, setChapter] = useState({})
 
   const readInput = (e) => {
     const value = e.target.value
     const prop = e.target.name
-    setBook({
-      ...book,
+    setChapter({
+      ...chapter,
       [prop]: value,
     })
   }
-  console.log(book)
+  console.log(chapter)
 
   const send = (e) => {
     e.preventDefault()
-    if (!book.genre || book.genre === '') {
-      alert('no se puede')
-    }
-    props.addBook(book)
+    
+    props.addChapter(chapter)
   }
 
   return (
