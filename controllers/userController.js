@@ -21,7 +21,7 @@ const userController = {
         }
         return res.json({success: errores.length === 0 ? true : false,
             errores: errores,
-            response: errores.length === 0 && {token, firstname: newUserSaved.firstname}})
+            response: errores.length === 0 && {token, firstname: newUserSaved.firstname, lastname: newUserSaved.lastname, birthday: newUserSaved.birthday, email: newUserSaved.email }})
     },
 
     signIn: async (req, res) => {
@@ -35,19 +35,14 @@ const userController = {
             return res.json({success: false, mensaje: 'Nombre de usuario y/o contraseña incorrectos.'})
         }
         var token = jwt.sign({...userExists}, process.env.SECRET_KEY, {})
-        return res.json({success: true, response: {token, firstname: userExists.firstname}})
+        return res.json({success: true, response: {token, firstname: userExists.firstname, lastname: userExists.lastname, birthday: userExists.birthday, email: userExists.email}})
     },
 
     logFromLS: (req, res) => {
-        res.json({success: true, response: {token: req.body.token, firstname: req.user.firstname}})
+        res.json({success: true, response: {token: req.body.token, firstname: req.user.firstname, lastname: req.user.lastname, birthday: req.user.birthday, email: req.user.email}})
     },
 
-    modifyUser: (req, res) => {
-      const userId = req.params.userId
-      Itinerary.findOneAndUpdate({_id: userId})
-      .then(data => res.json({ success: true, response: data }))
-      .catch(error => res.json({ success: false, error }))
-    }
+   
 }
 
 module.exports = userController
