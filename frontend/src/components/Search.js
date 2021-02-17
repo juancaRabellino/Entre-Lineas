@@ -10,11 +10,11 @@ const Search = (props) => {
         props.getBooks()
         props.getCardsCategories()
     },[])
-    
+    console.log(props.filter)
     return(
         <div className='containerComponentSearchStories'>
             <div className='containerSearchBar'>
-                <input type='text' className='inputSearchStories' placeholder='¿Qué vas a leer hoy?'></input>
+                <input type='text' className='inputSearchStories' placeholder='¿Qué vas a leer hoy?' onChange={(e)=>props.search(e.target.value)}></input>
                 <div className='iconSearchStories'><i class="fas fa-search"></i></div>
             </div>
             <div className='containerTitleSearch'>

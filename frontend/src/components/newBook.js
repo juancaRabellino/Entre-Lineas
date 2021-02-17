@@ -57,5 +57,4 @@ const mapDispatchToProps = {
   addBook: bookActions.addBook
 }
 
-
 export default connect(null, mapDispatchToProps)(NewBook)

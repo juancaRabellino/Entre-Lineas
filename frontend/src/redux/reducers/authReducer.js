@@ -12,7 +12,6 @@ const authReducers = (state = initialState, action) => {
                 ...state,
                 loggedUser:action.payload.response
             }
-
         case 'LOG_OUT_USER' :
             localStorage.clear()
             return {

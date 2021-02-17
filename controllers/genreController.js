@@ -11,7 +11,7 @@ const genreController = {
   getGenres: (req,res) => {
     Genre.find()
     .then(response => res.json({success: true, response }))
-    .then(error => res.json({success: false, error}))
+    .catch(error => res.json({success: false, error}))
   }
 }
 
