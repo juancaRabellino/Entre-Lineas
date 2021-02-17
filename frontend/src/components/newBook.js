@@ -16,7 +16,7 @@ const NewBook =(props)=>{
   }
   console.log(book)
 
-  const send=(e)=> {
+  const send=(e)=> { 
     e.preventDefault()
     if(!book.genre || book.genre===''){
       alert('no se puede')
