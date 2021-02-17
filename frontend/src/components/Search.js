@@ -18,7 +18,7 @@ const Search = (props) => {
                 <div className='iconSearchStories'><i className="fas fa-search"></i></div>
             </div>
             <div className='containerTitleSearch'>
-                <h1>Explorá las categorías</h1>
+                <h1>Explorá las categorías<span>&#160;</span></h1>
             </div>
             <div className='containerViewCardsCategories'>
                 {props.genres.map(cardCategory => {
