@@ -19,47 +19,30 @@ const Settings = (props) => {
     props.modifyUser(user)
   }
 
+  console.log(props)
+
   return (
     <section className="settings">
       <form className="form-settings">
         <div className="line">
-          <label htmlFor="username">Nombre de usuario</label>
-          <input type="text" name="username" id="username" onChange={readInput} />
+          <label htmlFor="email">Nombre de usuario</label>
+          <input type="text" name="email" id="email" placeholder={props.loggedUser.email} onChange={readInput} />
         </div>
         <div className="line">
           <label htmlFor="password">Contraseña</label>
-          <input type="password" name="password" id="password" onChange={readInput} />
+          <input type="text" name="email" id="email" placeholder="******" onChange={readInput} />
         </div>
         <div className="line">
-          <label htmlFor="email">Correo electrónico</label>
-          <input type="text" name="email" id="email" onChange={readInput} />
-        </div>
-        <div className="line">
-          <label htmlFor="firstName">Nombre</label>
-          <input type="text" name="firstName" id="firstName" onChange={readInput} />
+          <label htmlFor="firstname">Nombre</label>
+          <input type="text" name="firstname" id="firstname" placeholder={props.loggedUser.firstname} onChange={readInput} />
         </div>
         <div className="line">
           <label htmlFor="lastName">Apellido</label>
-          <input type="text" name="lastName" id="lastName" onChange={readInput} />
-        </div>
-        <div className="line">
-          <label htmlFor="showName">Mostrar nombre</label>
-          <div className="checkbox">
-            <input type="checkbox" name="showName" id="showName" onChange={readInput} />
-          </div>
+          <input type="text" name="lastname" id="lastname" placeholder={props.loggedUser.lastname} onChange={readInput} />
         </div>
         <div className="line">
           <label htmlFor="birthday">Fecha de nacimiento</label>
-          <input type="date" min="1920-01-01" max="2021-2-31" name="birthday" id="birthday" onChange={readInput}></input>
-        </div>
-        <div className="line">
-          <label htmlFor="gender">Género</label>
-          <select name="gender" id="gender" defaultValue={'Select gender'} onChange={readInput}>
-            <option value="" >Elige un Género</option>
-            <option value="masc">Masculino</option>
-            <option value="fem">Femenino</option>
-            <option value="otro">Otro</option>
-          </select>
+          <input type="text" name="birthday" id="birthday" placeholder={props.loggedUser.birthday} onChange={readInput} />
         </div>
         <div className="line">
           <label htmlFor="urlPic">URL imagen</label>

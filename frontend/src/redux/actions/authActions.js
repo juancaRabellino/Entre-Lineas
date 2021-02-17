@@ -30,7 +30,7 @@ const authActions = {
     modifyUser: userToEdit => {
         const userId = userToEdit._id
         return async (dispatch, getState) => {
-            const response = await axios.delete(`http://localhost:4000/api/settings/${userId}`, {
+            const response = await axios.put(`http://localhost:4000/api/settings/${userId}`, {
                 headers: { 
                     Authorization: `Bearer ${userToEdit.token}` 
                 }
