@@ -23,16 +23,22 @@ const NewChapter = (props) => {
 
   return (
     <section className="chapter">
-      <h3>Agregar nuevo capítulo</h3>
-      <form className="form-chapter">
-        <div className="line">
-          <label htmlFor="title">Capítulo</label>
-          <input type="text" name="title" id="title" onChange={readInput} />
+      <div className="imag-form-chapter"></div>
+      <div className="frase-form">
+        <div className="frase-chapter">
+          <h4>« ¡Atrapá al lector desde la primera página y lográ que tu historia este entre las más populares! »</h4>
         </div>
-        <label htmlFor="content" className="labelContent">Contenido</label>
-        <textarea name="content" id="content" cols="30" rows="10" style={{ resize: 'none', width: '90%' }} onChange={readInput}></textarea>
-        <button className="buttonNewChapter" onClick={send}>Enviar</button>
-      </form>
+        <div className="container-form-chapter">
+          <form className="form-chapter">
+            <h3>Agregar nuevo capítulo</h3>
+            <div className="line">
+              <input className="input-chapter" type="text" name="title" id="title" placeholder="Capitulo" onChange={readInput} />
+            </div>
+            <textarea className="textarea-chapter" name="content" id="content" cols="30" rows="10" placeholder="Comenza a escibir tu historia..." style={{ resize: 'none', width: '90%' }} onChange={readInput}></textarea>
+            <button className="buttonNewChapter" onClick={send}><span>Enviar</span></button>
+          </form>
+        </div>
+      </div>
     </section>
   )
 }

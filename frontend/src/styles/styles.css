@@ -29,8 +29,8 @@ header, footer {
   display: flex;
   justify-content: space-around;
   align-items: center;
-}
-
+  }
+  
 header *, footer * {
   text-decoration: none;
   font-weight: bold;
@@ -105,42 +105,30 @@ table.dropdown-content th, table.dropdown-content td {
   border-radius: 50%;
 }
 
-/* Styles Settings y New Chapter (Juanca) */
-section.settings, section.chapter {
+/* Styles settings user (Juanca) */
+section.settings {
   min-height: 79.5vh;
   display: flex;
-  flex-direction: column;
   justify-content: center;
-  align-items: center;
 }
 
 .form-settings {
-  margin: 0 10vw 0 0;
-}
-
-.form-settings, .form-chapter {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 50vw;
+  margin: 0 10vw 0 0;
+  /* margin: auto; */
 }
 
-.form-settings label {
+.form-settings label  {
   width: 15vw;
-}
-
-.form-settings label, .form-chapter label {
-  min-width: 5vw;
   text-align: right;
   margin: 1vh 1vw 1vh 0;
 }
 
-.form-chapter label.labelContent {
-  text-align: center;
-}
-
-.form-settings input, .form-chapter input, .form-settings select, .form-settings div.checkbox{
+.form-settings input, .form-settings select, .form-settings div.checkbox{
   width: 20vw;
   text-align: left;
 }
@@ -148,12 +136,12 @@ section.settings, section.chapter {
 .form-settings input#showName {
   width: 1vw;
 }
-
 .form-settings div.checkbox {
   display: flex;
   justify-content: flex-start;
   align-items: center;
 }
+
 
 .line {
   display: flex;
@@ -161,21 +149,9 @@ section.settings, section.chapter {
   align-items: center;
 }
 
-.form-chapter textarea {
-  width: 100%;
-}
-
 .buttonSettings {
   width: 10vw;
   height: 4vh;
-}
-
-.buttonNewChapter {
-  margin: 0 1vw 0 0;
-}
-
-.buttonSettings, .buttonNewChapter {
-  cursor: pointer;
 }
 
   /* estilos del register (gime) */
@@ -295,6 +271,7 @@ section.settings, section.chapter {
       background-size: cover;
       background-position:right;
       background-attachment: fixed;
+      background-color: blue;
   }
   .firstSection{
       height: 100vh;
@@ -742,29 +719,11 @@ section.settings, section.chapter {
     padding: 0.5vw;
     border-radius: 5px;
     box-shadow: 2px -2px 10px rgb(75 75 75);
-    position: relative;
-}
-/* --- De prueba --- */
-.cardCategory::before {
-    content: '';
-    display: block;
-    width: 0%;
-    height: 2px;
-    background-color: blueviolet;
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    transition: all 0.3s;
 }
 .cardCategory:hover {
     box-shadow: 4px -4px 12px rgb(103, 11, 139);
     transition: 300ms ease;
 }
-/* --- De prueba --- */
-.cardCategory:hover::before {
-    width: 100%;
-}
-
 .nameCategory {
     width: 60%;
     height: 100%;
@@ -785,7 +744,7 @@ section.settings, section.chapter {
     border-radius: 50%;
 }
 
-/* STYLES OF NEW BOOK */
+/* STYLES OF NEW BOOK (gime) */
 
 .section-form-book {
     height: 100vh;
@@ -816,7 +775,7 @@ section.settings, section.chapter {
     padding-left: 8vh;
 }
 
-.frase{
+.frase, .frase-chapter{
     width: 35vw;
     margin-left: -8vh;
     background-color: rgb(103, 11, 139);
@@ -920,6 +879,122 @@ section.settings, section.chapter {
     right: 0;
 }
 
+/* estilos new chapter (gime) */
+.chapter {
+    height: 100vh;
+    width: 98vw;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 55vh;
+}
+
+.imag-form-chapter {
+    background-image: url(../assets/17010.jpg);
+    height: 60vh;
+    width: 99vw;
+    background-position:bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.5),0 17px 50px 0 rgba(0, 0, 0, 0.5);
+}
+
+.frase-form {
+    display: flex;
+    position: absolute;
+    flex-direction: row-reverse;
+    margin-top: 45vh;
+    align-items: center;
+    padding-left: 8vh;
+}
+
+.frase-chapter h4 {
+    font-family: 'Source Sans Pro', sans-serif;
+
+}
+
+.container-form-chapter {
+    background-color: white;
+    border: solid 3px rgb(55, 112, 187);
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.5),0 17px 50px 0 rgba(0, 0, 0, 0.5);
+}
+
+.form-chapter {
+    width: 60vw;
+    padding: 10vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.input-chapter{
+    width: 45VW;
+    height: 5vh;
+    margin-top: 3vh;
+    margin-bottom: 3vh;
+    border: none;
+    border-bottom: solid 1.8px rgb(55, 112, 187);
+    padding-left: 3.5vh;
+    padding-right: 3vh;
+}
+
+.input-chapter:focus {
+    outline: none;
+}
+
+.textarea-chapter {
+    border: solid 1.8px rgb(55, 112, 187);
+    padding-left: 3vh;
+    padding-right: 3vh;
+}
+
+
+.buttonNewChapter {
+    height: 10vh;
+    width: 46vw;
+    display: inline-block;
+    background-color: rgb(55, 112, 187);
+    color: #FFFFFF;
+    text-align: center;
+    transition: all 0.5s;
+    border: solid 0.1vh rgb(255, 255, 255);
+    margin-top: 4vh;
+}
+
+.buttonNewChapter span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+    font-size: 20px;
+}
+
+.buttonNewChapter span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+
+.buttonNewChapter span {
+    padding-right: 25px;
+}
+
+.buttonNewChapter:hover{
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+    background-color:#108cc5;
+    color: white;
+    border: solid 0.1vh rgb(35, 60, 201);
+}
+
+.buttonNewChapter:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+
 /* CORRECION FOOTER MAURI */
 
 footer {
@@ -941,123 +1016,54 @@ footer p {
     text-transform: capitalize;
 }
 .storiesContainer{
-    background-image: url("../assets/fotoHome2.jpg");
-    background-size: cover;
-    background-position:center;
-    background-attachment: fixed;
     background-color: cyan;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 2.5vh;
 }
 .boxStories{
-    background-color: white;
+    background-color: darkgoldenrod;
     display: flex;
     flex-direction: column;
     align-items: center;
-    box-shadow: 3px -3px 8px rgba(146, 138, 150, 0.685);
-    border-radius: 10px;
-    width: 85%;
-    margin-top: 2.5vh;
-    margin-bottom: 2vh;
 }
 .upContainerStories{
+    background-color: darkkhaki;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
-    height: 10vh;
     width: 100%;
-    /*  */
 }
 .downContainerStories{
-    width: 100%;
-    display: flex;
-    justify-content: space-evenly;
-    flex-direction: row;
-    flex-wrap: wrap;
-    padding-top: 1vh;
-    border-top: 1px solid rgb(179, 179, 179);
-    padding-bottom: 3vh;
+    background-color: darksalmon;
+    /* margin-bottom: 1vh; */
 }
 .storyContainer{
+    background-color: darkseagreen;
     display: flex;
-    align-items: center;
-    width: 34vw;
-    border-radius: 10px;
-    padding-top: 2vh;
-    padding-left: 2vw;
-    height: 60vh;
-    margin-top: 2vh;
-    border: 1px solid rgb(103, 11, 139);
     justify-content: center;
+    margin-bottom: 1vh;
 }
 .storyBodyContainer{
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
-    height: 51vh;
-    padding-bottom: 1vh;
-    margin-left: 0.7vw;
-    align-items: flex-start;
-    width: 18vw;
+    align-items: center;
+    width: 50vw;
 }
 .storyIcons{
-    color: rgb(110, 110, 110);
+    background-color: dimgrey;
     display: flex;
     justify-content: space-evenly;
-    width: 10vw;
+    width: 30vw;
 }
 .boxInputStories{
-    margin-right: 4vw;
-    font-size: 1.5vw;
-}
-.boxInputStories label{
-    font-size: 1.5vw;
-}
-.boxInputStories select{
-    outline: none!important;
-    border: none;
-}
-.boxInputStories option{
-    border: none!important;
-    outline: none!important; 
-}
-.boxInputStories option::selection{
-    background-color: greenyellow!important;
-    color: hotpink;
+    background-color: darkorange;
 }
 
 .storyPic{
     background-size: contain;
     background-repeat: no-repeat;
-    width: 15vw;
-    height: 51vh;
-}
-.verMasStory{
-    color: white;
-}
-.storyDescription{
-    color: rgb(110, 110, 110);
-    font-size: 1.2vw;
-    width: 90%;
-    height: 20vh;
-}
-.storyUser{
-    color: rgb(110, 110, 110);
-}
-.storyButtons{
-    display: flex;
-    justify-content: center;
-    width: 100%;
-}
-.storyNumber{
-    
-    margin-left: 5vw;
-    font-size: 1.5vw;
-}
-.storyTitle{
-    font-size: 1.5vw;
-    text-transform: capitalize;
-    font-weight: bold;
+    width: 20vw;
+    height: 50vh;
+    margin-left: 2vh;
 }
