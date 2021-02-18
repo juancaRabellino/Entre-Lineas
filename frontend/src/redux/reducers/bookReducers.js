@@ -3,7 +3,8 @@ import { object } from "joi"
 const initialState = {
   books: [],
   filter: [],
-  comments: []
+  comments: [],
+  booksByGenre: []
 }
 
 const bookReducers = (state = initialState, action) => {
@@ -18,6 +19,11 @@ const bookReducers = (state = initialState, action) => {
         books: action.payload,
         filter: action.payload
       }
+    case 'GET_BY_GENRE':
+      return{
+        ...state,
+        booksByGenre: action.payload.sort((a,b)=> b.views - a.views)
+      }  
     case 'SEARCH_BOOKS':
     	return {
         	...state,
