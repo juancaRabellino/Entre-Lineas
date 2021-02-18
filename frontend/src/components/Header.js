@@ -52,6 +52,7 @@ const Header = (props) => {
         <div className="headerRight">
         <Link to="/signin"><p>Iniciar sesión</p></Link>
         <Link to="/register"><p>Regístrate</p></Link>
+        <Link to='/userprofile'><p>Mi Perfil</p></Link>
         </div>
         }
     </header>
