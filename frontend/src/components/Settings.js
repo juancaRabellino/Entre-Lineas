@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import { connect } from 'react-redux'
 import authActions from '../redux/actions/authActions'
-import Button from 'react-bootstrap/Button';
 
 
 const Settings = (props) => {
@@ -22,12 +21,8 @@ const Settings = (props) => {
   const edit = (e) => {
     e.preventDefault()
     setChange(!change)
-    setEmail(props.loggedUser.email)
-    setFirstname(props.loggedUser.firstname)
-    setLastname(props.loggedUser.lastname)
-    setBirthday(props.loggedUser.birthday.substr(-25, 10))
   }
-  
+
   const send = e => {
     e.preventDefault()
     const emailValue = document.getElementById('email').value
@@ -36,13 +31,19 @@ const Settings = (props) => {
     const birthdayValue= document.getElementById('birthday').value
     const imageValue= document.getElementById('image').files[0]
     const formData = new FormData()
+
     formData.append('email', emailValue.trim())
     formData.append('firstname', firstnameValue.trim())
     formData.append('lastname', lastnameValue.trim())
     formData.append('birthday', birthdayValue)
     formData.append('image', imageValue)
     formData.append('id', props.loggedUser.id)
-    if(imageValue.name.includes('.jpg' || '.jpeg')){
+
+    var filesExtension = ['.jpg', '.png', '.jpeg']
+    
+    if(emailValue==='' || firstnameValue=== '' || lastnameValue === ''||  imageValue=== ''){
+      alert('tienes que completar todos los campos')
+    }else if(imageValue && filesExtension.some(file=>imageValue.name.includes(file))){
       props.modifyUser(formData)
       alert('correcta validacion')
     }else {
@@ -69,7 +70,7 @@ const Settings = (props) => {
         </div>
         <div className="line">
           <label htmlFor="birthday">Fecha de nacimiento</label>
-          <input type="date" name="birthday" id="birthday" disabled={!change ? true : false} value={birthday} onChange={(e)=>setEmail(e.target.email)} />
+          <input type="date" name="birthday" id="birthday" disabled={!change ? true : false} value={birthday} onChange={(e)=>setBirthday(e.target.value)} />
         </div>
         <div className="line">
           <label htmlFor="image">URL imagen</label>
@@ -79,11 +80,7 @@ const Settings = (props) => {
           <div className="buttonSettings" onClick={send}>Confirmar cambios</div>
         </div>
       </form>
-      <Button variant="primary">Primary</Button>
     </section>
-
-   
-
   )
 }
 

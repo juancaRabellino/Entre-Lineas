@@ -37,7 +37,7 @@ const userController = {
         }
         var token = jwt.sign({...userExists}, process.env.SECRET_KEY, {})
         return res.json({success: true, response: 
-            {token, firstname: userExists.firstname, email: userExists.email, lastname: userExists.lastname, birthday: userExists.birthday}})
+            {token, firstname: userExists.firstname, email: userExists.email, lastname: userExists.lastname, birthday: userExists.birthday, image: userExists.image}})
     },
 
     logFromLS: (req, res) => {
@@ -48,23 +48,19 @@ const userController = {
     modifyUser: (req, res) => {
       const {id, email, firstname, lastname, birthday} = req.body
       const {image} = req.files
-
-      image.mv(`./frontend/public/assets/${firstname}-${id}-${image.name}`, error => {
+      const pic = image.name.split('.')
+      const url = `../assets/${id}.${pic[1]}`
+      image.mv(`./frontend/public/assets/${id}.${pic[1]}`, error => {
         if(error) {
           console.log(error)
           return res.json({success: false, error})
         }
       })
-      const url = `../assets/${firstname}-${id}-${image.name}`
-      console.log(url)
-
-    //   (!email || email=== '') && console.log('email incorrecto')
-
-    //   User.findOneAndUpdate({_id: id}, 
-    //     {$set: {firstname, email, lastname, birthday, image: url}},
-    //     {new: true})
-    //   .then(data => res.json({ success: true, response: data }))
-    //   .catch(error => res.json({ success: false, error }))
+      User.findOneAndUpdate({_id: id}, 
+        {$set: {firstname, email, lastname, birthday, image: url}},
+        {new: true})
+      .then(data => res.json({ success: true, response: data }))
+      .catch(error => res.json({ success: false, error }))
     }
 }
 

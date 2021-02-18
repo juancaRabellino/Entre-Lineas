@@ -117,6 +117,9 @@ div.dropdown-content {
   width: 4vw;
   height: 4vw;
   margin: 0 1vw;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .footerRight a img {
@@ -129,7 +132,9 @@ div.dropdown-content {
 section.settings {
   min-height: 79.5vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-self: center;
 }
 
 .form-settings {
@@ -138,7 +143,7 @@ section.settings {
   justify-content: center;
   align-items: center;
   width: 50vw;
-  margin: 0 10vw 0 0;
+  /* margin: 0 10vw 0 0; */
   /* margin: auto; */
 }
 
@@ -163,11 +168,11 @@ section.settings {
 }
 
 
-.line {
+/* .line {
   display: flex;
   justify-content: center;
   align-items: center;
-}
+} */
 
 .buttonSettings {
   width: 10vw;

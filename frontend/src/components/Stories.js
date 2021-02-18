@@ -8,8 +8,8 @@ const Stories = (props)=>{
     const [boolean,setBoolean]=useState(true)
 
 
-    useEffect(async()=>{
-        await props.getByGenre(namePage)
+    useEffect(()=>{
+        props.getByGenre(namePage)
         props.booksByGenre.sort((a,b)=> b.views - a.views)
         setBoolean(!boolean)
     },[])

@@ -6,13 +6,10 @@ const bookSchema = new mongoose.Schema({
   genre: String,
   user: {type: mongoose.Schema.Types.ObjectId, ref: 'user'},
   stars:[{type: mongoose.Schema.Types.ObjectId, ref: 'user'}],
-  comments: [{userPic: String, firstName: String, userLastname: String, content: String, userId: String}],
+  comments: [{userPic: String, firstName: String, lastName: String, content: String, userId: String}],
   views:Number,
   chapters:[{title:String, content:String}],
   image: String,
-  commments: [
-    {userPic: String, firstName: String, lastName:String, comment: String, userId: String}
-  ]
 })
 
 const Book = mongoose.model('book', bookSchema)
