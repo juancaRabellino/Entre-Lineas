@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import authActions from '../redux/actions/authActions'
 
 const Header = (props) => {
+  
   return (
     <header>
       <div className="headerLeft">

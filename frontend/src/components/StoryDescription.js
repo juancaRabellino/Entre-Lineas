@@ -5,7 +5,8 @@ import { Link } from "react-router-dom"
 const StoryDescription = (props)=>{
     var namePage = props.match.params.id
     var filtro = props.books.filter(libro=> libro._id === namePage)
-    console.log(filtro)
+
+
     return(
         <>
         <div className="uno">
@@ -24,7 +25,7 @@ const StoryDescription = (props)=>{
                         <h5>{filtro[0].user.firstname}</h5>
                         <h5>{filtro[0].user.lastname}</h5>
                     </div>
-                    <Link><button className="BotonLeer">Leer</button></Link>
+                    <Link to={`/book/${filtro[0]._id}/${filtro[0].chapters[0]._id}/${0}`}><button className="BotonLeer">Leer</button></Link>
                 </div>
             </div>
         </div>
@@ -34,10 +35,9 @@ const StoryDescription = (props)=>{
                     <h2>Tabla de Contenidos</h2>
                 </div>
                 <div className="siete">
-                {filtro[0].chapters.map(chapter => {
-                    console.log(chapter)
+                {filtro[0].chapters.map((chapter, index) => {
                     return (
-                        <Link><button><p>{chapter.title}</p></button></Link>
+                        <Link to={`/book/${filtro[0]._id}/${chapter._id}/${index}`}><button><p>{chapter.title}</p></button></Link>
                     )
                 })}
                 </div>
