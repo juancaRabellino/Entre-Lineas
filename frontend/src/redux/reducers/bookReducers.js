@@ -3,6 +3,7 @@ import { object } from "joi"
 const initialState = {
   books: [],
   filter: [],
+  comments: []
 }
 
 const bookReducers = (state = initialState, action) => {
@@ -25,6 +26,16 @@ const bookReducers = (state = initialState, action) => {
         	|| book.user.firstname.toUpperCase().includes(action.payload.toUpperCase().trim()) 
         	|| book.user.lastname.toUpperCase().includes(action.payload.toUpperCase().trim()))
         }
+    case 'ADD_COMMENT':
+      return{
+        ...state,
+        comments: action.payload
+      }
+    case 'DELETE_COMMENT':
+      return {
+        ...state,
+        comment: action.payload
+      }
     default:
       return state
 	}

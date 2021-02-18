@@ -29,16 +29,20 @@ const Search = (props) => {
                 <h1>Explorá las categorías</h1>
             </div>
             <div className='containerViewCardsCategories'>
-                {props.genres.map(cardCategory => {
-                    return <CardCategory cardCategory={cardCategory}/>
+                {props.genres.map((cardCategory, index) => {
+                    return <CardCategory cardCategory={cardCategory} key={index}/>
                 })}
             </div>
             </> 
             : 
             <>
             <h2>Su busqueda</h2>
-            {props.filter.map(book =>
-            <Story libro={book}/>)}
+            <div className="d-flex flex-wrap justify-content-center">
+            {props.filter.map((book, index) =>
+            <div>
+                <Story libro={book} key={index}/>
+            </div>)}
+            </div>
             </>}
         </div>
     )

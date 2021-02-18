@@ -3,6 +3,7 @@ const router = express.Router()
 const userController = require("../controllers/userController")
 const bookController = require("../controllers/bookController")
 const genreController = require('../controllers/genreController')
+const commentController = require('../controllers/commentController')
 const validator = require ("../controllers/validator")
 const passport = require("passport")
 require("../config/passport")
@@ -34,6 +35,13 @@ router.route('/genre')
 .get(genreController.getGenres)
 .post(genreController.addGenre)
 
+// Comments Route
+router.route('/comments')
+.post(commentController.addComment)
+.put(commentController.modComment)
+
+router.route('/comments/delete')
+.put(commentController.deleteComment)
 
 
 module.exports = router
