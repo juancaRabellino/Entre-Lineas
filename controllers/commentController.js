@@ -4,8 +4,10 @@ const commentController = {
     addComment: (req, res) => {
         const {id, content} = req.body
         const {user} = req
-        Book.findOneAndUpdate({_id: id}, {$push:{comments:{firstName: user.username, lastName: user.lastname, userPic: user.image, content: content}} }, {new: true})
+        Book.findOneAndUpdate({_id: id}, {$push:{comments:{firstName: user.firstname, lastName: user.lastname, userPic: user.image, content: content}} }, {new: true})
         .then(book => {
+          console.log(book)
+
           return res.json({success: true, respuesta: book})
         })
         .catch(error => {
@@ -13,10 +15,8 @@ const commentController = {
         })
     },
     modComment: (req, res) => {
-      const {bookId, commentId} = req.body
-      // const commentId = req.body.idcomment
-      // const bookId = req.body.idBook
-      Book.findOneAndUpdate({_id: bookId,'comments._id': commentId}, {$set :{'comments.$.comment':req.body.comment}}, {new: true})
+      const {id, idcomment} = req.body
+      Book.findOneAndUpdate({_id: id,'comments._id': idcomment}, {$set :{'comments.$.content':req.body.value}}, {new: true})
       .then(book => {
         return res.json({success: true, respuesta: book})
       })

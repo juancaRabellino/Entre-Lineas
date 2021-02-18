@@ -66,12 +66,12 @@ const bookActions = {
   addComment:(content, id, token) => {
     return async (dispatch, getState) => {
       try {
-        const res = await axios.post('http://localhost:4000/api/comments', {content, id}, {
+        const res = await axios.post('http://localhost:4000/api/comments/', {content, id, token}, {
           headers: {
               Authorization: `Bearer ${token}` 
           }
       })
-        dispatch({type: 'ADD_COMMENT', payload: res.data})
+        dispatch({type: 'ADD_COMMENT', payload: res.config.data})
         return true
       } catch(error){
         console.log(error)
@@ -87,7 +87,7 @@ const bookActions = {
               Authorization: `Bearer ${token}` 
           }
       })
-        dispatch({type: 'DELETE_COMMENT', payload: res.data})
+        dispatch({type: 'DELETE_COMMENT', payload: res.config.data})
       } catch(error){
         console.log(error)
       }
@@ -95,6 +95,7 @@ const bookActions = {
   },
 
   modComment: (value, idcomment, id, token) => {
+    console.log(value, idcomment, id, token)
     return async (dispatch, getState) => {
       try{
         const res = await axios.put('http://localhost:4000/api/comments/', {value, idcomment, id}, {
@@ -102,37 +103,40 @@ const bookActions = {
               Authorization: `Bearer ${token}` 
           }
       })
-        dispatch({type: 'ADD_COMMENT', payload: res.data})
+        dispatch({type: 'ADD_COMMENT', payload: res.config.data})
+        console.log(res)
       } catch(error){
         console.log(error)
       }
     }
   },
 
-  like:(id, token) => {
+  vote:(id, token) => {
     return async(dispatch, getState) => {
       try {
-        const res = await axios.post('http://localhost:4000/api/likes/', {id}, {
+        const res = await axios.post('http://localhost:4000/api/vote', {id}, {
           headers: {
             Authorization: `Bearer ${token}` 
           }
         })
         dispatch({type: 'LIKE', payload: res.data})
+        console.log(res.data)
       } catch(error){
         console.log(error)
       }
     }
   },
 
-  dislike:(id, token) => {
+  dismissVote:(id, token) => {
     return async(dispatch, getState) => {
       try {
-        const res = await axios.post('http://localhost:4000/api/dislike/', {id}, {
+        const res = await axios.put('http://localhost:4000/api/vote', {id}, {
           headers: {
             Authorization: `Bearer ${token}` 
           }
         })
         dispatch({type: 'LIKE', payload: res.data})
+        console.log(res.data)
       } catch(error){
         console.log(error)
       }
