@@ -41,6 +41,8 @@ const App = (props) => {
     routes = 
     <>
     <Switch>
+    <Route path="/settings" component={Settings}/>
+
       <Route path="/add-book" component={NewBook}/>
       <Route exact path="/" component={Home} />
       <Route exact path="/search" component={Search}/>

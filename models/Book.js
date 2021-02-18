@@ -9,6 +9,9 @@ const bookSchema = new mongoose.Schema({
   views:Number,
   chapters:[{title:String, content:String}],
   image: String,
+  commments: [
+    {userPic: String, userName: String, userLastname:String, comment: String, userId: String}
+  ]
 })
 
 const Book = mongoose.model('book', bookSchema)

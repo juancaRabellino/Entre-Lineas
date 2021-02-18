@@ -204,6 +204,11 @@ section.settings, section.chapter {
     display: flex;
 }
 
+.userImage {
+    background-position: center;
+    background-size: cover;
+}
+
 .registerInput {
     height: 20vh;
     width: 85vw;

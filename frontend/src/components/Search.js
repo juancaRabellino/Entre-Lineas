@@ -17,6 +17,18 @@ const Search = (props) => {
         setValue(true)
         e.target.value==="" && setValue(false)
     }
+
+    // var frase = 'C://users/downloads/EntreLineas/'
+
+    // var lafrase= frase+'usrimgs'
+    // console.log(lafrase)
+    // var nuevafrase = lafrase.split(frase,2)
+    // console.log(nuevafrase)
+
+    // var frase = 'C://users/downloads/EntreLineas/usrimgs'
+    // var nuevafrase = frase.split('C://users/downloads/EntreLineas/',2)
+    // console.log(nuevafrase[1])
+
     return(
         <div className='containerComponentSearchStories'>
             <div className='containerSearchBar'>
@@ -46,6 +58,7 @@ const Search = (props) => {
 
 const mapStateToProps = state => {
     return {
+        loggedUser: state.auth.loggedUser,
         books: state.bookR.books,
         filter: state.bookR.filter,
         genres: state.cardR.genres,

@@ -29,6 +29,9 @@ router.route('/book')
 router.route('/book/addChapter')
 .post(bookController.updateBook)
 
+router.route('/settings')
+.post(userController.modifyUser)
+
 // Genre Route
 router.route('/genre')
 .get(genreController.getGenres)
