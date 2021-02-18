@@ -13,6 +13,7 @@ import Stories from './components/Stories'
 import NewChapter from './components/NewChapter'
 import NewBook from './components/NewBook'
 import Settings from './components/Settings'
+import StoryBook from './components/StoryBook'
 import StoryDescription from './components/StoryDescription'
 import authActions from './redux/actions/authActions'
 
@@ -28,6 +29,7 @@ const App = (props) => {
       <Route path="/add-book" component={NewBook}/>
       <Route path="/stories/:genre" component={Stories}/>
       <Route path="/story/:id" component={StoryDescription}/>
+      <Route patch="/:id/:genre" component={StoryBook}/>
       <Route path="/settings" component={Settings}/>
       <Redirect to ="/search"/>
     </Switch>
@@ -49,6 +51,7 @@ const App = (props) => {
       <Route path="/stories/:genre" component={Stories}/>
       <Route path="/add-chapter" component={NewChapter} />
       <Route path="/story/:id" component={StoryDescription}/>
+      <Route path="/:id/:genre" component={StoryBook}/>
       <Redirect to="/"/>
     </Switch>
     </>

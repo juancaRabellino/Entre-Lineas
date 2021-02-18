@@ -292,6 +292,7 @@ section.settings, section.chapter {
   .sectionBox{
       /* min-height: 100vh; */
       background-image: url("../assets/fotoHome2.jpg");
+      position:relative;
       background-size: cover;
       background-position:right;
       background-attachment: fixed;

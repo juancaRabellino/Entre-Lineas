@@ -26,7 +26,7 @@ const Header = (props) => {
               </tr>
               <tr>
                 <td><Link to="/stories/Clásicos">Clásicos</Link></td>
-                <td><Link to="/stories/Historias cortas">Historias cortas</Link></td>
+                <td><Link to="/stories/Historias Cortas">Historias Cortas</Link></td>
                 <td><Link to="/stories/Históricas">Históricas</Link></td>
               </tr>
               <tr>

@@ -24,6 +24,17 @@ const bookActions = {
 						}
         }
     },
+    getByGenre: (genre)=>{
+      return async(dispatch, getState) =>{
+        try {
+          const response = await fetch('http://localhost:4000/api/book/'+genre)
+          const data = await response.json()
+          dispatch({type: 'GET_BY_GENRE', payload: data.response})
+        }catch(error){
+          console.log(error)
+        }
+      }
+    },
 
     searchBooks: (value) => {
         return (dispatch, getState) => {

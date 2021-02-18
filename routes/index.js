@@ -26,6 +26,11 @@ router.route('/book')
 .post(bookController.createBook)
 .get(bookController.getBooks)
 
+router.route('/book/:genre')
+.get(bookController.getByGenre)
+/* router.route("/itineraries/:cityId")
+.get(itineraryController.allById) */
+
 router.route('/book/addChapter')
 .post(bookController.updateBook)
 

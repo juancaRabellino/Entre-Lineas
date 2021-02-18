@@ -5,22 +5,22 @@ import Story from './Story'
 
 const Stories = (props)=>{
     const namePage = props.match.params.genre
-    const [filter, setFilter]=useState([])
     const [boolean,setBoolean]=useState(true)
 
-    var books = props.books.filter(libro => libro.genre === namePage)
-    useEffect(()=>{
-        setFilter(books.sort((a,b)=> b.views - a.views))
+
+    useEffect(async()=>{
+        await props.getByGenre(namePage)
+        props.booksByGenre.sort((a,b)=> b.views - a.views)
         setBoolean(!boolean)
     },[])
-
+    console.log(props.booksByGenre)
     function sortFilter(value) {
         if(value ==="mostPopular"){
-           setFilter(books.sort((a,b)=> b.views - a.views))
+           props.booksByGenre.sort((a,b)=> b.views - a.views)
            setBoolean(!boolean)
         }else if(value === "lessPopular"){
-            setFilter(books.sort((a,b)=> a.views - b.views))
-            setBoolean(!boolean)
+           props.booksByGenre.sort((a,b)=> a.views - b.views)
+           setBoolean(!boolean)
         }
     }
 
@@ -30,7 +30,7 @@ const Stories = (props)=>{
             <h1>Historias de <span className='capitalize'>{namePage}</span></h1>
             <div className='boxStories'>
                 <div className='upContainerStories'>
-                    <p className='storyNumber'>{filter.length} Historias</p>
+                    <p className='storyNumber'>{props.booksByGenre.length} Historias</p>
                     <div className='boxInputStories'>
                         <label for="popular">Filtrar Por:</label>
                         <select onChange={e => sortFilter(e.target.value)} name="popular" id="cars">
@@ -40,11 +40,12 @@ const Stories = (props)=>{
                     </div>
                 </div>
                 <div className='downContainerStories'>
-                    {boolean ? filter.map(libro=>{
+                    {
+                    boolean ? props.booksByGenre.map(libro=>{
                         return(
                             <Story libro={libro}/>
                         )
-                    }): filter.map(libro=>{
+                    }): props.booksByGenre.map(libro=>{
                         return(
                             <Story libro={libro}/>
                         )
@@ -58,11 +59,12 @@ const Stories = (props)=>{
 const mapStateToProps = state => {
     return {
         books: state.bookR.books,
+        booksByGenre: state.bookR.booksByGenre
     }
   }
 
 const mapDispatchToProps = {
-    filteredBooks: bookActions.filteredBooks,
+    getByGenre: bookActions.getByGenre,
 
 }
 export default connect(mapStateToProps,mapDispatchToProps)(Stories);
