@@ -19,20 +19,21 @@ import authActions from './redux/actions/authActions'
 const App = (props) => {
   const [reload, setReload] = useState(false)
 
-  if(props.loggedUser){
-    var routes = 
-    <>
-    <Switch>
-      <Route exact path="/" component={Home} />
-      <Route exact path="/search" component={Search}/>
-      <Route path="/add-book" component={NewBook}/>
-      <Route path="/stories/:genre" component={Stories}/>
-      <Route path="/story/:id" component={StoryDescription}/>
-      <Route path="/settings" component={Settings}/>
-      <Redirect to ="/search"/>
-    </Switch>
-    </>
-  }else if(localStorage.getItem('token')){
+  if (props.loggedUser) {
+    var routes =
+      <>
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/search" component={Search} />
+          <Route path="/add-book" component={NewBook} />
+          <Route path="/stories/:genre" component={Stories} />
+          <Route path="/story/:id" component={StoryDescription} />
+          <Route path="/settings" component={Settings} />
+          <Route path="/add-chapter" component={NewChapter} />
+          <Redirect to="/search" />
+        </Switch>
+      </>
+  } else if (localStorage.getItem('token')) {
     props.logFromLS(localStorage.getItem('token'))
     .then(response=> {
       response && setReload(!reload)
@@ -41,8 +42,7 @@ const App = (props) => {
     routes = 
     <>
     <Switch>
-    <Route path="/settings" component={Settings}/>
-
+      <Route path="/settings" component={Settings}/>
       <Route path="/add-book" component={NewBook}/>
       <Route exact path="/" component={Home} />
       <Route exact path="/search" component={Search}/>

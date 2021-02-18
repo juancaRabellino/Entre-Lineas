@@ -18,7 +18,10 @@ const NewChapter = (props) => {
 
   const send = (e) => {
     e.preventDefault()
-    props.addChapter(chapter, '602c552cf50b811f40c8add3')
+    props.addChapter(chapter, '602b053ae6873a3708a0d3ad')
+    document.getElementById("title").value = "" ;
+    document.getElementById("title").focus();
+    document.getElementById("content").value = "";
   }
 
   return (

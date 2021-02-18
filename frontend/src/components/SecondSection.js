@@ -8,15 +8,15 @@ const SecondSection = ()=>{
                 </div>
                 <div className="secondUp">
                     <div className='verContainer'>
-                        <i class="fas fa-tv"></i>
+                        <i className="fas fa-tv"></i>
                         <p>Consigue que tu historia se produzca como una película</p>
                     </div>
                     <div className='verContainer'>
-                        <i class="fas fa-film"></i>
+                        <i className="fas fa-film"></i>
                         <p>Consigue que tu historia se adapte como Serie de Televisión</p>
                     </div>
                     <div className='verContainer'>
-                        <i class="fas fa-book"></i>
+                        <i className="fas fa-book"></i>
                         <p>Conviértete en un autor publicado</p>
                     </div>
                 </div>

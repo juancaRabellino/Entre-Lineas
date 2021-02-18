@@ -25,7 +25,7 @@ html * {
 }
 
 header, footer {
-  height: 15vh;
+  height: 10vh;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -42,12 +42,16 @@ header *, footer * {
   align-items: center;
 }
 
+header div.toSearch {
+  margin-top: .3vw;
+}
+
 header a, footer a {
   color: black;
 }
 
 .headerLeft img.logo, .footerLeft img.logo {
-  width: 11vw;
+  width: 15vw;
   margin: 0 3vw 0 0;
   background-position: center;
   background-size: cover;
@@ -60,10 +64,10 @@ header p {
 }
 
 header p, header i, footer p {
-  font-size: 1.2vw;
+  font-size: 1.4vw;
 }
 
-header div.toSearch:hover, header p:hover {
+header div.toSearch:hover, header p:hover, header a:hover {
   text-decoration: underline;
   color: black;
 }
@@ -73,30 +77,46 @@ header div.toSearch:hover, header p:hover {
   display: inline-block;
 }
 
-table.dropdown-content {
+div.dropdown-content {
   padding: 1vh .5vw;
   background-color: white;
   display: none;
   position: absolute;
-  width: 26vw;
+  width: 32vw;
   box-shadow: 0px 5px 5px rgba(0,0,0,0.2);
   z-index: 100;
 }
 
-.dropdown:hover table.dropdown-content {
+.dropdown:hover div.dropdown-content {
   display: block;
 }
 
-table.dropdown-content tbody tr, th.th {
-  height: 4vh;
+.dropdown-content .genres {
+  display: flex;
+  flex-wrap: wrap;
 }
 
-table.dropdown-content th, table.dropdown-content td {
-  width: 8vw;
+.dropdown-content .genres p.genre {
+  margin: .1vh .2vw .1vh 0;
+  width: 10vw; 
 }
 
 .fa-search {
   margin-right: .2vw;
+}
+
+.dropDownPic {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(103, 11, 139);;
+  color: white;
+  font-size: 2.5vw;
+  font-weight: bold;
+  border-radius: 50%;
+  width: 4vw;
+  height: 4vw;
+  margin: 0 1vw;
 }
 
 .footerRight a img {

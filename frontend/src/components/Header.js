@@ -1,66 +1,46 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import {connect} from 'react-redux'
+import { connect } from 'react-redux'
 import authActions from '../redux/actions/authActions'
 
 const Header = (props) => {
-
   return (
     <header>
-      {props.loggedUser && <h4>Hola! {(props.loggedUser.firstname).toUpperCase()}</h4>}
       <div className="headerLeft">
         <Link to="/"><img src={'../assets/Logo-EntreLineas-Pluma-inclinada.png'} className="logo" alt='logo Entre Líneas'></img></Link>
         <div className="dropdown">
           <p>Navegar</p>
-          <table className="dropdown-content">
-            <thead>
-              <tr>
-                <th colSpan="3" className="th">Género:</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><Link to="/stories/Acción">Acción</Link></td>
-                <td><Link to="/stories/Aventura">Aventura</Link></td>
-                <td><Link to="/stories/Ciencia Ficción">Ciencia Ficción</Link></td>
-              </tr>
-              <tr>
-                <td><Link to="/stories/Clásicos">Clásicos</Link></td>
-                <td><Link to="/stories/Historias cortas">Historias cortas</Link></td>
-                <td><Link to="/stories/Históricas">Históricas</Link></td>
-              </tr>
-              <tr>
-                <td><Link to="/stories/Humor">Humor</Link></td>
-                <td><Link to="/stories/Romance">Romance</Link></td>
-                <td><Link to="/stories/Suspenso">Suspenso</Link></td>
-              </tr>
-              <tr>
-                <td><Link to="/stories/Terror">Terror</Link></td>
-              </tr>
-            </tbody>
-          </table>
+          <div className="dropdown-content">
+            <div className="genres">
+              {props.genres.map((genre, i) => <p className="genre">{genre.genre}</p>)}
+            </div>
+          </div>
         </div>
-        <Link to ="/search"><div className="toSearch">
-          <i className="fas fa-search"></i>
-          <p>Buscar</p>
-        </div></Link>
       </div>
-        {props.loggedUser ?
+      <Link to="/search"><div className="toSearch">
+        <i className="fas fa-search"></i>
+        <p>Buscar</p>
+      </div></Link>
+      {props.loggedUser ?
         <div className="headerRight">
-        <Link to="/" onClick={props.logout}><p>LogOut</p></Link></div>
+          <Link to="/" onClick={props.logout}><p>LogOut</p></Link>
+          <h4>Hola! {(props.loggedUser.firstname).toUpperCase()}</h4>
+          <div className="dropDownPic" >{props.loggedUser.firstname.toUpperCase().substr(0, 1)}</div>
+        </div>
         :
         <div className="headerRight">
-        <Link to="/signin"><p>Iniciar sesión</p></Link>
-        <Link to="/register"><p>Regístrate</p></Link>
+          <Link to="/signin"><p>Iniciar sesión</p></Link>
+          <Link to="/register"><p>Regístrate</p></Link>
         </div>
-        }
+      }
     </header>
   )
 }
 
 const mapStateToProps = (state) => {
   return {
-    loggedUser: state.auth.loggedUser
+    loggedUser: state.auth.loggedUser,
+    genres: state.cardR.genres
   }
 }
 
