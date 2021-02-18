@@ -2,6 +2,7 @@ import { connect } from "react-redux"
 import { useState } from "react"
 import bookActions from "../redux/actions/bookActions"
 import e from "cors"
+import Swal from'sweetalert2';
 
 
 const NewBook =(props)=>{
@@ -18,15 +19,17 @@ const NewBook =(props)=>{
 
   const send=(e)=> {
     e.preventDefault()
-    console.log(book)
     if(!book.genre || book.genre===''|| book.title===''|| book.description===''|| book.user===''){
-      alert('no se puede')
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'No se pueden enviar campos vacios!',
+      })
     }else {
       props.addBook(book)
     }
   }
 
-  console.log(book)
 
   return (
     <section className="section-form-book">

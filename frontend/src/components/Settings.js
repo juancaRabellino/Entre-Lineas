@@ -23,35 +23,42 @@ const Settings = (props) => {
 
   return (
     <section className="settings">
-      <form className="form-settings">
-        <div className="line">
-          <label htmlFor="email">Nombre de usuario</label>
-          <input type="text" name="email" id="email" placeholder={props.loggedUser.email} onChange={readInput} />
-        </div>
-        <div className="line">
-          <label htmlFor="password">Contraseña</label>
-          <input type="text" name="email" id="email" placeholder="******" onChange={readInput} />
-        </div>
-        <div className="line">
-          <label htmlFor="firstname">Nombre</label>
-          <input type="text" name="firstname" id="firstname" placeholder={props.loggedUser.firstname} onChange={readInput} />
-        </div>
-        <div className="line">
-          <label htmlFor="lastName">Apellido</label>
-          <input type="text" name="lastname" id="lastname" placeholder={props.loggedUser.lastname} onChange={readInput} />
-        </div>
-        <div className="line">
-          <label htmlFor="birthday">Fecha de nacimiento</label>
-          <input type="text" name="birthday" id="birthday" placeholder={props.loggedUser.birthday} onChange={readInput} />
-        </div>
-        <div className="line">
-          <label htmlFor="urlPic">URL imagen</label>
-          <input type="text" name="urlPic" id="urlPic" onChange={readInput} />
-        </div>
-        <div className="line">
-          <div className="buttonSettings" onClick={send}>Enviar</div>
-        </div>
-      </form>
+      <div className="imagSettings"></div>
+      <div className="container-form-register">
+        <form className="form-settings">
+          <div className="tituloIcon">
+            <div className="iconoAjus"></div>
+            <h4>Ajustes de usuario</h4>
+          </div>
+          <div className="line">
+            <label htmlFor="email">Nombre de usuario</label>
+            <input type="text" name="email" id="email" placeholder={props.loggedUser.email} onChange={readInput} />
+          </div>
+          <div className="line">
+            <label htmlFor="password">Contraseña</label>
+            <input type="text" name="email" id="email" placeholder="******" onChange={readInput} />
+          </div>
+          <div className="line">
+            <label htmlFor="firstname">Nombre</label>
+            <input type="text" name="firstname" id="firstname" placeholder={props.loggedUser.firstname} onChange={readInput} />
+          </div>
+          <div className="line">
+            <label htmlFor="lastName">Apellido</label>
+            <input type="text" name="lastname" id="lastname" placeholder={props.loggedUser.lastname} onChange={readInput} />
+          </div>
+          <div className="line">
+            <label htmlFor="birthday">Fecha de nacimiento</label>
+            <input type="text" name="birthday" id="birthday" placeholder={props.loggedUser.birthday} onChange={readInput} />
+          </div>
+          <div className="line">
+            <label htmlFor="urlPic">URL imagen</label>
+            <input type="text" name="urlPic" id="urlPic" onChange={readInput} />
+          </div>
+          <div className="line">
+            <div className="buttonSettings" onClick={send}><span>Enviar</span></div>
+          </div>
+        </form>
+      </div>
     </section>
   )
 }
