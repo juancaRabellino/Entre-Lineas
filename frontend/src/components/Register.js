@@ -61,7 +61,6 @@ const Register = ( props ) => {
 
 const responseFacebook = async (response) => {
     var name = response.name.split(" ")
-
     if(response.error){
         alert('Algo salio mal con tu cuenta de Facebook')
     }else{
