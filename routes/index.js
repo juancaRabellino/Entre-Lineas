@@ -20,6 +20,9 @@ router.route('/user/signin')
 router.route('/user/ls')
 .post(passport.authenticate('jwt', {session: false}), userController.logFromLS)
 
+
+
+
 // Aca termina los controladores sobre usuarios. Agregaremos el panel de lectores y escritores..
 
 // Book routes

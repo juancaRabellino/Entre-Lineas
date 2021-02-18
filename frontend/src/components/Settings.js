@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react'
 import { connect } from 'react-redux'
 import authActions from '../redux/actions/authActions'
+import Button from 'react-bootstrap/Button';
+
 
 const Settings = (props) => {
   const [change, setChange] = useState(false)
@@ -77,7 +79,11 @@ const Settings = (props) => {
           <div className="buttonSettings" onClick={send}>Confirmar cambios</div>
         </div>
       </form>
+      <Button variant="primary">Primary</Button>
     </section>
+
+   
+
   )
 }
 
