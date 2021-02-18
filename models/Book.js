@@ -11,7 +11,7 @@ const bookSchema = new mongoose.Schema({
   chapters:[{title:String, content:String}],
   image: String,
   commments: [
-    {userPic: String, userName: String, userLastname:String, comment: String, userId: String}
+    {userPic: String, firstName: String, lastName:String, content: String, userId: String}
   ]
 })
 
