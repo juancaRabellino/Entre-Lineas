@@ -5,7 +5,7 @@ import cardReducer from './cardReducer'
 
 const rootReducer = combineReducers({
   bookR: bookReducers,
-  auth:authReducers,
+  auth: authReducers,
   cardR: cardReducer
 })
 
