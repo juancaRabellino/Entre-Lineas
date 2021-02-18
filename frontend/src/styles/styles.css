@@ -44,10 +44,12 @@ header *, footer * {
 
 header div.toSearch {
   margin-top: .3vw;
+  cursor: pointer;
 }
 
 header a, footer a {
   color: black;
+  cursor: pointer;
 }
 
 .headerLeft img.logo, .footerLeft img.logo {
@@ -61,6 +63,7 @@ header p {
   margin: 0 1.5vw 0 0;
   border: none;
   outline: none;
+  cursor: pointer;
 }
 
 header p, header i, footer p {

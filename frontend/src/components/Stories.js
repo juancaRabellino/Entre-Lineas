@@ -32,7 +32,7 @@ const Stories = (props)=>{
                 <div className='upContainerStories'>
                     <p className='storyNumber'>{props.booksByGenre.length} Historias</p>
                     <div className='boxInputStories'>
-                        <label for="popular">Filtrar Por:</label>
+                        <label htmlFor="popular">Filtrar Por:</label>
                         <select onChange={e => sortFilter(e.target.value)} name="popular" id="cars">
                             <option value="mostPopular">Mas Populares</option>
                             <option value="lessPopular">Menos Populares</option>
@@ -41,13 +41,13 @@ const Stories = (props)=>{
                 </div>
                 <div className='downContainerStories'>
                     {
-                    boolean ? props.booksByGenre.map(libro=>{
+                    boolean ? props.booksByGenre.map((libro, i)=>{
                         return(
-                            <Story libro={libro}/>
+                            <Story libro={libro} key={`story${i}`}/>
                         )
-                    }): props.booksByGenre.map(libro=>{
+                    }): props.booksByGenre.map((libro, i)=>{
                         return(
-                            <Story libro={libro}/>
+                            <Story libro={libro} key={`story${i}`}/>
                         )
                     })}
                 </div>

@@ -2,8 +2,16 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import authActions from '../redux/actions/authActions'
+import bookActions from '../redux/actions/bookActions'
+import cardActions from '../redux/actions/cardActions'
+import { useEffect } from 'react'
 
 const Header = (props) => {
+  useEffect(() => {
+    props.getBooks()
+    props.getCardsCategories()
+  }, [])
+
   return (
     <header>
       <div className="headerLeft">
@@ -12,7 +20,7 @@ const Header = (props) => {
           <p>Navegar</p>
           <div className="dropdown-content">
             <div className="genres">
-              {props.genres.map((genre, i) => <p className="genre">{genre.genre}</p>)}
+              {props.genres.map((genre, i) => <Link to={`/stories/${genre.genre}`} key={"linkGenre"+i}><p className="genre">{genre.genre}</p></Link>)}
             </div>
           </div>
         </div>
@@ -40,12 +48,16 @@ const Header = (props) => {
 const mapStateToProps = (state) => {
   return {
     loggedUser: state.auth.loggedUser,
-    genres: state.cardR.genres
+    genres: state.cardR.genres,
+    cardsCategories: state.cardR.cardsCategories,
+    books: state.bookR.books
   }
 }
 
 const mapDispatchToProps = {
-  logout: authActions.logOutUser
+  logout: authActions.logOutUser,
+  getBooks: bookActions.getBooks,
+  getCardsCategories: cardActions.getCardsCategories
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header)

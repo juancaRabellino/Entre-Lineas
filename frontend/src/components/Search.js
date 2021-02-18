@@ -10,7 +10,7 @@ const Search = (props) => {
         
     useEffect( () => {
         props.getBooks()
-        props.getCardsCategories()
+        
     },[])
     const searching = (e) => {
         props.search(e.target.value)
@@ -71,9 +71,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = {
     getBooks: bookActions.getBooks,
-    search: bookActions.searchBooks,
-    getCardsCategories: cardActions.getCardsCategories
-    
+    search: bookActions.searchBooks
 }
 
 export default connect(mapStateToProps,mapDispatchToProps)(Search);
