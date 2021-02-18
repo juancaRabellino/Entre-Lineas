@@ -22,8 +22,8 @@ const bookController = {
 
   getByGenre: async (req,res)=>{
     const genre = req.params.genre
-    const register = await Book.find({genre:genre}).populate('user')
-    res.json({succes:true, response:register})
+    Book.find({genre:genre}).populate('user')
+    .then(response=> res.json({succes:true, response}))
     .catch(error => res.json({succes: false, error}))
   },
 

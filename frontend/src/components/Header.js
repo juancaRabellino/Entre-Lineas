@@ -7,10 +7,12 @@ import cardActions from '../redux/actions/cardActions'
 import { useEffect } from 'react'
 
 const Header = (props) => {
+  
   useEffect(() => {
     props.getBooks()
     props.getCardsCategories()
   }, [])
+
 
   return (
     <header>
@@ -29,11 +31,18 @@ const Header = (props) => {
         <i className="fas fa-search"></i>
         <p>Buscar</p>
       </div></Link>
-      {props.loggedUser ?
+      {props.loggedUser && !props.loggedUser.image ?
         <div className="headerRight">
           <Link to="/" onClick={props.logout}><p>LogOut</p></Link>
           <h4>Hola! {(props.loggedUser.firstname).toUpperCase()}</h4>
           <div className="dropDownPic" >{props.loggedUser.firstname.toUpperCase().substr(0, 1)}</div>
+        </div>
+        : props.loggedUser && props.loggedUser.image 
+        ?
+        <div className="headerRight">
+          <Link to="/" onClick={props.logout}><p>LogOut</p></Link>
+          <h4>Hola! {(props.loggedUser.firstname).toUpperCase()}</h4>
+          <div className="dropDownPic" style={{backgroundImage: `url('${props.loggedUser.image}')`}}></div>
         </div>
         :
         <div className="headerRight">

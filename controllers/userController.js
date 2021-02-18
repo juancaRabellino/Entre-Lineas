@@ -1,6 +1,7 @@
 const User = require('../models/User')
 const bcryptjs = require('bcryptjs')
 const jwt = require ("jsonwebtoken")
+const crypto = require ("crypto")
 
 const userController = {
 
@@ -37,7 +38,7 @@ const userController = {
         }
         var token = jwt.sign({...userExists}, process.env.SECRET_KEY, {})
         return res.json({success: true, response: 
-            {token, firstname: userExists.firstname, email: userExists.email, lastname: userExists.lastname, birthday: userExists.birthday}})
+            {token, firstname: userExists.firstname, email: userExists.email, lastname: userExists.lastname, birthday: userExists.birthday, image: userExists.image}})
     },
 
     logFromLS: (req, res) => {
@@ -48,23 +49,52 @@ const userController = {
     modifyUser: (req, res) => {
       const {id, email, firstname, lastname, birthday} = req.body
       const {image} = req.files
-
-      image.mv(`./frontend/public/assets/${firstname}-${id}-${image.name}`, error => {
+      const pic = image.name.split('.')
+      const url = `../assets/${id}.${pic[1]}`
+      image.mv(`./frontend/public/assets/${id}.${pic[1]}`, error => {
         if(error) {
           console.log(error)
           return res.json({success: false, error})
         }
       })
-      const url = `../assets/${firstname}-${id}-${image.name}`
-      console.log(url)
+      User.findOneAndUpdate({_id: id}, 
+        {$set: {firstname, email, lastname, birthday, image: url}},
+        {new: true})
+      .then(data => res.json({ success: true, response: data }))
+      .catch(error => res.json({ success: false, error }))
+    },
 
-    //   (!email || email=== '') && console.log('email incorrecto')
+    resetPassword: (req, res) =>{
 
-    //   User.findOneAndUpdate({_id: id}, 
-    //     {$set: {firstname, email, lastname, birthday, image: url}},
-    //     {new: true})
-    //   .then(data => res.json({ success: true, response: data }))
-    //   .catch(error => res.json({ success: false, error }))
+        crypto.randomBytes(32,(err,buffer)=>{
+            if(err){
+                console.log(err)
+            }
+            const token = buffer.toString("hex")
+            User.findOne({email:req.body.email})
+            .then(user=>{
+                if(!user){
+                    return res.status(422).json({error:"User dont exists with that email"})
+                }
+                user.resetToken = token
+                user.expireToken = Date.now() + 3600000
+                user.save().then((result)=>{
+                    transporter.sendMail({
+                        to:user.email,
+                        from:"no-replay@insta.com",
+                        subject:"password reset",
+                        html:`
+                        <p>You requested for password reset</p>
+                        <h5>click in this <a href="${EMAIL}/reset/${token}">link</a> to reset password</h5>
+                        `
+                    })
+                    res.json({message:"check your email"})
+                })
+   
+            })
+        })
+
+
     }
 }
 

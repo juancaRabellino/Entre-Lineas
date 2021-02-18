@@ -9,7 +9,7 @@ const bookSchema = new mongoose.Schema({
   comments: [{userPic: String, firstName: String, lastName: String, content: String, userId: String}],
   views:Number,
   chapters:[{title:String, content:String}],
-  image: String
+  image: String,
 })
 
 const Book = mongoose.model('book', bookSchema)
