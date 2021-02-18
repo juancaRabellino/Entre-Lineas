@@ -11,6 +11,7 @@ const Comment = (props) => {
         e.preventDefault()
         await props.deleteComments(props.id, props.comment._id, props.loggedUser.token)
     }
+    console.log(props.id)
     const modiComment = async (e) => {
         await props.modComment(value, props.comment._id, props.id, props.loggedUser.token)
     }
@@ -22,8 +23,8 @@ const Comment = (props) => {
   }
     return (
         <div className="d-flex justify-content-center">
-            <div className="d-flex justify-content-center align-items-center w-50">
-                <img src={props.comment.userPic} className="rounded" width="15%" alt="..."/>
+            <div className="d-flex justify-content-center align-items-center">
+                <img src={props.comment.userPic} className="rounded" alt="..."/>
                 {!input ? 
                 <div>
                     <h6 className="index">{props.comment.userName}</h6>
@@ -37,8 +38,8 @@ const Comment = (props) => {
                 {props.loggedUser ?
                 <>
                 <div className="">
-                    <Button onClick={deleteC} className="bg-danger"><i className="far fa-trash-alt"></i></Button>
-                    <Button onClick={() => {setInput(!input)}} className="bg-info"><i className="fas fa-edit"></i></Button>
+                    <Button onClick={deleteC}><i className="far fa-trash-alt"></i></Button>
+                    <Button onClick={() => {setInput(!input)}}><i className="fas fa-edit"></i></Button>
                 </div>
                 </>
                 :
