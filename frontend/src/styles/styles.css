@@ -177,11 +177,6 @@ section.settings {
   align-items: center;
 } */
 
-.buttonSettings {
-  width: 10vw;
-  height: 4vh;
-}
-
   /* estilos del register (gime) */
 .containerRegister,.containerLogin {
     height: 100vh;
@@ -886,6 +881,7 @@ section.settings {
     position: relative;
     transition: 0.5s;
     font-size: 20px;
+    padding-right: 25px;
 }
 
 .buttonDiscover span:after {
@@ -897,15 +893,15 @@ section.settings {
     transition: 0.5s;
 }
 
-.buttonDiscover span {
-    padding-right: 25px;
-}
-
 .buttonDiscover:hover{
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
     background-color:#108cc5;
     color: white;
     border: solid 0.1vh rgb(35, 60, 201);
+}
+
+.buttonNewChapter span {
+    padding-right: 25px;
 }
 
 .buttonDiscover:hover span:after {
@@ -1281,4 +1277,128 @@ footer p {
     background-color: yellowgreen;
     margin-right: 3vh;
     margin-top: 6vh;
+}
+
+/* estilos Settings (gime) */
+
+.settings {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 50vh;
+}
+.imagSettings {
+    background-image: url(../assets/17010.jpg);
+    height: 60vh;
+    width: 98.7vw;
+    background-position:bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.5),0 17px 50px 0 rgba(0, 0, 0, 0.5);
+    margin-bottom: 30vh;
+}
+
+.container-form-register{
+    position: absolute;
+    background-color: white;
+    margin-top: 85vh;
+    padding: 5vh;
+    border: solid 1px rgb(35, 60, 201);
+    opacity: 90%;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.5),0 17px 50px 0 rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.tituloIcon{
+    display: flex;
+    align-items: center;
+    width: 20vw;
+    justify-content: space-between;
+}
+
+.tituloIcon h4 {
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+.iconoAjus {
+    background-image: url(../assets/logoAjustes.png);
+    background-position:bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 12vh;
+    width: 5vw;
+    -webkit-animation: rotation 2s infinite linear;
+}
+
+@keyframes rotation {
+    from {
+            -webkit-transform: rotate(0deg);
+    }
+    to {
+            -webkit-transform: rotate(359deg);
+    }
+}
+
+
+.line input {
+    width: 35VW;
+    height: 3vh;
+    margin-top: 3vh;
+    margin-bottom: 3vh;
+    border: none;
+    border-bottom: solid 1.8px rgb(55, 112, 187);
+    padding: 2vh;
+}
+
+.line input:focus {
+        outline: none;
+    }
+
+.buttonSettings {
+    height: 8vh;
+    width: 35vw;
+    display: inline-block;
+    background-color: rgb(55, 112, 187);
+    color: #FFFFFF;
+    text-align: center;
+    transition: all 0.5s;
+    border: solid 0.1vh rgb(255, 255, 255);
+    margin-left: 16vw;
+}
+
+.buttonSettings span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+    font-size: 20px;
+    margin-top: 1.5vh;
+}
+
+.buttonSettings span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+
+.buttonSettings:hover{
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+    background-color:#108cc5;
+    color: white;
+    border: solid 0.1vh rgb(35, 60, 201);
+}
+
+.buttonSettings span {
+    padding-right: 25px;
+}
+
+.buttonSettings:hover span:after {
+    opacity: 1;
+    right: 0;
 }

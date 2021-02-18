@@ -29,8 +29,8 @@ const App = (props) => {
           <Route path="/add-book" component={NewBook} />
           <Route path="/stories/:genre" component={Stories} />
           <Route path="/story/:id" component={StoryDescription} />
-          <Route patch="/book/:id/:chapter/:index" component={StoryBook}/>
           <Route path="/settings" component={Settings} />
+          <Route patch="/book/:id/:chapter/:index" component={StoryBook}/>
           <Route path="/add-chapter" component={NewChapter} />
           <Redirect to="/search" />
         </Switch>

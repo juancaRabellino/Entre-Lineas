@@ -53,10 +53,16 @@ const Settings = (props) => {
 
   return (
     <section className="settings">
-      <div className="userImage" style={{width: '20vw', height: '20vh', backgroundColor:"black", backgroundImage: `url('${props.loggedUser.image}')`}}></div>
-      <i onClick={edit} className="fas fa-pencil-alt editPencil"></i>
-      <form className="form-settings">
-        <div className="line">
+      <div className="imagSettings"></div>
+      <div className="container-form-register">
+        <div className="userImage" style={{width: '20vw', height: '20vh', backgroundColor:"black", backgroundImage: `url('${props.loggedUser.image}')`}}></div>
+        <i onClick={edit} className="fas fa-pencil-alt editPencil"></i>
+        <form className="form-settings">
+          <div className="tituloIcon">
+            <div className="iconoAjus"></div>
+            <h4>Ajustes de usuario</h4>
+          </div>
+          <div className="line">
           <label htmlFor="email">Email</label>
           <input type="text" name="email" id="email" value={email} disabled={!change ? true : false} onChange={(e)=>setEmail(e.target.value)} />
         </div>
@@ -79,7 +85,8 @@ const Settings = (props) => {
         <div className="line">
           <div className="buttonSettings" onClick={send}>Confirmar cambios</div>
         </div>
-      </form>
+        </form>
+      </div>
     </section>
   )
 }
