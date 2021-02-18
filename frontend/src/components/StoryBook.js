@@ -10,13 +10,13 @@ const StoryBook = (props)=>{
             <div>
                 <div>
                     <div>
-                        <p>{filtro[0].chapters[0].title}</p>
+                        {/* <p>{filtro[0].chapters[0].title}</p> */}
                     </div>
-                    <div>por {filtro[0].user.firstname} {filtro[0].user.lastname}</div>
+                    {/* <div>por {filtro[0].user.firstname} {filtro[0].user.lastname}</div> */}
                 </div>
                 <div>
                     <div>
-                        <p>{filtro[0].chapters[0].content}</p>
+                        {/* <p>{filtro[0].chapters[0].content}</p> */}
                     </div>
                     <button>Sigue leyendo la parte siguiente {'>'}</button>
                 </div>

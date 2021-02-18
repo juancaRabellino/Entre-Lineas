@@ -29,7 +29,7 @@ const App = (props) => {
           <Route path="/add-book" component={NewBook} />
           <Route path="/stories/:genre" component={Stories} />
           <Route path="/story/:id" component={StoryDescription} />
-<Route patch="/:id/:genre" component={StoryBook}/>
+{/* <Route patch="/:id/:genre" component={StoryBook}/> */}
           <Route path="/settings" component={Settings} />
           <Route path="/add-chapter" component={NewChapter} />
           <Redirect to="/search" />
