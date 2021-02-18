@@ -34,7 +34,6 @@ header, footer {
 header *, footer * {
   text-decoration: none;
   font-weight: bold;
-  
 }
 
 .headerLeft, .headerRight, .toSearch, .footerLeft, .footerRight {
