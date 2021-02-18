@@ -7,10 +7,12 @@ import cardActions from '../redux/actions/cardActions'
 import { useEffect } from 'react'
 
 const Header = (props) => {
+  
   useEffect(() => {
     props.getBooks()
     props.getCardsCategories()
   }, [])
+
 
   return (
     <header>
