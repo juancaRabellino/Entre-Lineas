@@ -6,9 +6,6 @@ const StoryBook = (props)=>{
     var filtro = props.books.filter(libro=> libro._id === namePage)
     var indexPage = parseInt(props.match.params.index)
 
-  var parrafos = [{chapter:[{parrafo:"soy el parrafo 1 del cap1"}, {parrafo:"soy el parrafo2 del cap1"}]},
-{chapter:[{parrafo:"parrafito1 del cap2"}, {parrafo:"parrafito2 del cap2"}]}]
-console.log(filtro[0].chapters)
     return(
         <>
             <div>
@@ -20,14 +17,14 @@ console.log(filtro[0].chapters)
                 </div>
                 <div>
                     <div>
-                        {parrafos[indexPage].chapter.map(parrafo=>{
+                        {filtro[0].chapters[indexPage].chapter.map(parrafo=>{
                            return(
-                               <p>soy el {parrafo.parrafo}</p>
+                               <p>{parrafo.content}</p>
                            )
                         })}
                         
                     </div>
-                    {<Link to={`/book/${filtro[0]._id}/${filtro[0].chapters[indexPage+1]._id}/${indexPage + 1}`}><button>Sigue leyendo la parte siguiente {'>'}</button></Link>}
+                    {indexPage === filtro[0].chapters.length -1 ? <Link to={`/story/${filtro[0]._id}`}><button>Volver al libro</button></Link> : <Link to={`/book/${filtro[0]._id}/${filtro[0].chapters[indexPage]._id}/${indexPage+1}`}><button>Sigue leyendo la parte siguiente {'>'}</button></Link>}
                 </div>
             </div>
         </>
