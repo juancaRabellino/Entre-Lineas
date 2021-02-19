@@ -75,7 +75,7 @@ const bookActions = {
               Authorization: `Bearer ${token}` 
           }
       })
-        dispatch({type: 'ADD_COMMENT', payload: res.config.data})
+        dispatch({type: 'ADD_COMMENT', payload: res.data.respuesta})
         return true
       } catch(error){
         console.log(error)
@@ -91,7 +91,7 @@ const bookActions = {
               Authorization: `Bearer ${token}` 
           }
       })
-        dispatch({type: 'DELETE_COMMENT', payload: res.config.data})
+        dispatch({type: 'DELETE_COMMENT', payload: res.data.respuesta})
       } catch(error){
         console.log(error)
       }
@@ -107,7 +107,7 @@ const bookActions = {
               Authorization: `Bearer ${token}` 
           }
       })
-        dispatch({type: 'ADD_COMMENT', payload: res.config.data})
+        dispatch({type: 'ADD_COMMENT', payload: res.data.respuesta})
         console.log(res)
       } catch(error){
         console.log(error)
