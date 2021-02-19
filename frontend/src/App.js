@@ -17,6 +17,7 @@ import StoryBook from './components/StoryBook'
 import StoryDescription from './components/StoryDescription'
 import authActions from './redux/actions/authActions'
 import UserProfile from './components/UserProfile'
+import FinishBook from './components/FinishBook'
 
 const App = (props) => {
   const [reload, setReload] = useState(false)
@@ -34,6 +35,7 @@ const App = (props) => {
           <Route path="/book/:id/:chapter/:index" component={StoryBook}/>
           <Route path="/new-book/:id" component={NewChapter}/>
           <Route path='/userprofile' component={UserProfile}/>
+          <Route path='/finish-book/:id' component={FinishBook}/>
           <Redirect to="/search" />
         </Switch>
       </>
@@ -55,6 +57,7 @@ const App = (props) => {
       <Route path="/stories/:genre" component={Stories}/>
       <Route path="/story/:id" component={StoryDescription}/>
       <Route path="/book/:id/:chapter/:index" component={StoryBook}/>
+      <Route path='/finish-book/:id' component={FinishBook}/>
       <Route path='/userprofile' component={UserProfile}/>
       <Redirect to="/"/>
     </Switch>

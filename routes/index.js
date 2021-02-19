@@ -36,6 +36,7 @@ router.route("/user/reset-password")
 router.route('/book')
 .post(passport.authenticate('jwt', {session: false}),bookController.createBook)
 .get(bookController.getBooks)
+.put(passport.authenticate('jwt', {session: false}),bookController.addImage)
 
 router.route('/book/:genre')
 .get(bookController.getByGenre)
