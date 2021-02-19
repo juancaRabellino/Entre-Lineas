@@ -15,7 +15,7 @@ const Search = (props) => {
     const searching = (e) => {
         props.search(e.target.value)
         setValue(true)
-        e.target.value==="" && setValue(false)
+        e.target.value === "" && setValue(false)
     }
 
     // var frase = 'C://users/downloads/EntreLineas/'

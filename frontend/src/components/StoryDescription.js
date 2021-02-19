@@ -15,15 +15,11 @@ const StoryDescription = (props)=>{
         if(props.loggedUser) {
             setVoted(props.loggedUser.id)
         }
-
     }, [])
-    const comment = e => {
-        setValue(e.target.value)
-    }
-    const enviar =  (e) => {
-        e.preventDefault()
-        props.addComment(value, filtro[0]._id, props.loggedUser.token)
-        document.getElementById('comment').value= ""
+    console.log(props.comments)
+    const enviar =  async (e) => {
+        await props.addComment(value, filtro[0]._id, props.loggedUser.token)
+        setValue("")
     }
     const votes = () => {
         props.vote(filtro[0]._id, props.loggedUser.token)
@@ -77,10 +73,9 @@ const StoryDescription = (props)=>{
                 </div>
             </div>
             <div className="nueve">
-                {filtro[0].comments.length !== 0 ?
+                {props.comments.comments ?
                 <div>
-
-                    {(filtro[0].comments.map(comment => {
+                    {(props.comments.comments.map(comment => {
                     return <Comment comment={comment} key={comment._id} id={filtro[0]._id}/>
                 }))}
                 </div>
@@ -89,7 +84,7 @@ const StoryDescription = (props)=>{
                 {props.loggedUser ? 
                 <div className="">
                     <div className="inputButtomEnvComment">
-                        <Input className="comment" id="comment" type="text" placeholder="Comenta!" onChange={comment} onKeyPress={keyPress}/>
+                        <Input className="comment" id="comment" type="text" placeholder="Comenta!" value={value} onChange={(e)=> setValue(e.target.value)} onKeyPress={keyPress}/>
                         <Button onClick={enviar}><i class="far fa-paper-plane"></i></Button>
                     </div>
                 </div> :
@@ -106,7 +101,7 @@ const mapStateToProps = state => {
     return {
         loggedUser: state.auth.loggedUser,
         books: state.bookR.books,
-
+        comments: state.bookR.comments
     }
   }
 
