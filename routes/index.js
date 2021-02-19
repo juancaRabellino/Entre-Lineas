@@ -55,6 +55,7 @@ router.route('/comments/')
 router.route('/comments/delete')
 .put(commentController.deleteComment)
 
+// likes/votes Route
 router.route('/vote')
 .post(passport.authenticate('jwt', {session: false}), voteController.vote)
 .put(passport.authenticate('jwt', {session: false}), voteController.dismissVote)
