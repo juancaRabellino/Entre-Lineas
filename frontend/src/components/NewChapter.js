@@ -6,16 +6,13 @@ import bookActions from "../redux/actions/bookActions"
 const NewChapter = (props) => {
   const [title, setTitle] = useState({})
   const [content, setContent] = useState({})
-  const [newBook, setNewBook] = useState([])
   const id = props.match.params.id
 
   useEffect(()=>{
     props.getBooks()
-    var book = props.books.filter(book => book._id === id)
-    setNewBook(book[0]) 
-  },[props.books.length > 0])
-
+  },[])
   const [chapter, setChapter] = useState([])
+
 
   const [newChapter, setNewChapter] = useState([])
 
@@ -34,14 +31,12 @@ const NewChapter = (props) => {
     setNewChapter([
       {title: title, chapter}
     ])
-    // props.addChapter(newChapter, id, props.loggedUser.token)
+    props.addChapter(newChapter, id, props.loggedUser.token)
     document.getElementById("title").value = "" ;
     // document.getElementById("title").focus();
     document.getElementById("content").value = "";
+
   }
-
-  // console.log('Capitulos de NewBook ', newBook.chapters)
-
 
   return (
     <section className="chapter">
@@ -71,8 +66,8 @@ const NewChapter = (props) => {
 const mapStateToProps = state => {
   return {
     loggedUser: state.auth.loggedUser,
-    newBook: state.bookR.newBook,
-    books: state.bookR.books
+    books: state.bookR.books,
+    newBook: state.bookR.books
   }
 }
 

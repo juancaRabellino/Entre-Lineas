@@ -4,6 +4,7 @@ const bookController = {
   createBook: (req,res) => {
     const {title, description, genre} = req.body
     const {image} = req.files
+    console.log('')
     const pic = image.name.split('.')
     const url = `../booksimages/${req.user._id}.${pic[1]}`
     image.mv(`./frontend/public/booksimages/${req.user._id}.${pic[1]}`, error => {

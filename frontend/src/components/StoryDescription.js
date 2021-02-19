@@ -9,6 +9,8 @@ const StoryDescription = (props)=>{
     var namePage = props.match.params.id
     var filtro = props.books.filter(libro=> libro._id === namePage)
     
+    console.log()
+
     const [value, setValue] = useState('')
     const [voted, setVoted] = useState(false)
     useEffect(() => {
@@ -34,6 +36,12 @@ const StoryDescription = (props)=>{
         enviar()
         }
     }
+
+    const redirect = () =>{
+        alert("Esta historia todavia no tiene capitulos")
+        props.history.push(`/stories/${filtro[0].genre}`)
+    }
+
     return(
         <>
         <div className="uno">
@@ -45,6 +53,7 @@ const StoryDescription = (props)=>{
                     <h5>{filtro[0].genre}</h5>
                     <div className="dos">
                         <h5><i className="far fa-eye"></i> {filtro[0].views} </h5>
+                        {console.log(filtro[0].stars)}
                         <h5><i class="far fa-star"></i> {filtro[0].stars.length}</h5>
                         <h5><i class="fas fa-list-ul"></i> {filtro[0].chapters.length}</h5>
                     </div>
@@ -52,7 +61,9 @@ const StoryDescription = (props)=>{
                         <h5>{filtro[0].user.firstname}</h5>
                         <h5>{filtro[0].user.lastname}</h5>
                     </div>
-                    <Link to={`/book/${filtro[0]._id}/${filtro[0].chapters[0]._id}/${0}`}><button className="BotonLeer">Leer</button></Link>
+                    {filtro[0].chapters.length > 0 
+                    ? <Link to={`/book/${filtro[0]._id}/${filtro[0].chapters[0]._id}/${0}`}>
+                    <button className="BotonLeer">Leer</button></Link> : redirect()}
                     {filtro[0].stars.includes(voted) ?
                     <button className="BotonLeer" onClick={props.loggedUser && dismissVote}>Quitar Voto <i class="fas fa-star"></i></button>: 
                     <button className="BotonLeer" onClick={props.loggedUser && votes}>Votar <i class="far fa-star"></i></button>}

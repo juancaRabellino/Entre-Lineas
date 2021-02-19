@@ -2,16 +2,16 @@ import axios from 'axios'
 
 const bookActions = {
   
-  addBook: (book, token) => {
+  addBook: (formData, token) => {
     return async (dispatch, getState) => {
       try {
-        const response = await axios.post('http://localhost:4000/api/book', {book}, {
+        const response = await axios.post('http://localhost:4000/api/book', formData, {
           headers: {
             Authorization: `Bearer ${token}`
           }
         })
         dispatch({type: 'ADD_BOOK', payload:response.data.response})
-        console.log(response.data.response._id)
+        console.log(response.data.response)
       }catch(error){
         console.log(error)
       }
