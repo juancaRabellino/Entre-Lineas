@@ -7,7 +7,7 @@ const NewChapter = (props) => {
   const [title, setTitle] = useState({})
   const [content, setContent] = useState({})
   const id = props.match.params.id
-  const book = props.books.filter(book => book._id === id)
+  // const book = props.books.filter(book => book._id === id)
 
   useEffect(()=>{
     props.getBooks()
@@ -49,7 +49,7 @@ const NewChapter = (props) => {
             <div className="line">
               <input className="input-chapter" type="text" name="title" id="title" placeholder="Capitulo" onChange={(e)=>setTitle({...chapter, title:e.target.value})} />
             </div>
-            {book.length>0  && <div className="chapterSended"><p>{book[0].chapters[0].chapter[0]}</p></div>}
+            {/* {book.length>0  && <div className="chapterSended"><p>{book[0].chapters[0].chapter[0]}</p></div>} */}
             <textarea className="textarea-chapter" name="content" id="content" cols="20" rows="5" placeholder="Comenza a escibir tu historia..." 
             onKeyPress={keyPress} style={{ resize: 'none', width: '90%' }} onChange={(e)=>setContent({...content, content: e.target.value})}></textarea>
             <button className="buttonNewChapter" onClick={send}><span>Enviar</span></button>

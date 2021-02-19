@@ -74,9 +74,10 @@ const responseFacebook = async (response) => {
                 <div className= "login">
                     <h2>Iniciar Sesion</h2>
                         <input className="inputRegister" type="text" name="email" placeholder="Nombre de Usuario" onChange={readInput}/>
-                        <input className="inputRegister" type={visible ? "text" : "password"} name="password" placeholder="Contraseña" onChange={readInput}/>
-                        <i class={visible ? "far fa-eye-slash" : "far fa-eye"} onClick={()=>setVisible(!visible)}></i>
-                                                                                                                                                   
+                        <div className="a">
+                            <input className="inputRegisterPassword" type={visible ? "text" : "password"} name="password" placeholder="Contraseña" onChange={readInput}/>
+                            <div className='ojito'><i class={visible ? "far fa-eye-slash" : "far fa-eye"} onClick={()=>setVisible(!visible)}></i></div>
+                        </div>
                     <button className="botonRegister" onClick={validateUser} >Iniciar sesion</button>
                     <GoogleLogin
                         clientId="1087968275357-m12u0vuij7mp2vs76frlkn5of8ae1are.apps.googleusercontent.com"

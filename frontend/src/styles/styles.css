@@ -289,7 +289,12 @@ section.settings {
     justify-content: space-between;
 }
 
-.nameAndLastName input, .userNameAndPassword input {
+ .userNameAndPassword input {
+    width: 14.3vw;
+    margin: 1vh;
+
+}
+.nameAndLastName input{
     width: 15vw;
     margin: 1vh;
 }
@@ -306,6 +311,27 @@ section.settings {
 
 .inputRegister:focus , .botonRegister:focus {
     outline: none;
+}
+
+.a {
+    width: 31vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ojito {
+    margin-top: 1.5vh;
+}
+
+.inputRegisterPassword{
+    width: 29vw;
+    height: 5vh;
+    margin-top: 2vh;
+    border: none;
+    border-bottom: solid 1.5px rgb(98, 18, 129);
+    padding-left: 3vh;
+    padding-right: 3vh;
 }
 
 .botonRegister {
@@ -344,6 +370,7 @@ section.settings {
     width: 16vw;
     margin-top: 1vh;
 }
+
 /* ESTILOS DE LA HOME Y LAS SECTIONS (MAURI) */
 
   .sectionBox{

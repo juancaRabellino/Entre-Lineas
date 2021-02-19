@@ -92,10 +92,11 @@ return (
                     </div>
                     <input  className="inputRegister" type="date" min="1950-01-01" max="2021-2-31" name="birthday" placeholder="fechas de nacimiento" onChange={readInput}/>
                     <div className="userNameAndPassword">
-                    <input className="inputRegister" type="text" name="email" placeholder="Email" onChange={readInput} />
-                    <input className="inputRegister" type={visible ? "text" : "password"} name="password" placeholder="Contraseña" onChange={readInput} />
-                    <i className={visible ? "far fa-eye-slash" : "far fa-eye"} onClick={()=>setVisible(!visible)}></i>
-
+                        <input className="inputRegister" type="text" name="email" placeholder="Email" onChange={readInput} />
+                        <div style={{display:'flex',alignItems:'center'}}>
+                            <input className="inputRegister" type={visible ? "text" : "password"} name="password" placeholder="Contraseña" onChange={readInput} />
+                            <i className={visible ? "far fa-eye-slash" : "far fa-eye"} onClick={()=>setVisible(!visible)}></i>
+                        </div>
                     </div>
                     <button className="botonRegister" onClick={validateUser} >Crear usuario</button>
                         <GoogleLogin
