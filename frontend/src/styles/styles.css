@@ -919,6 +919,7 @@ section.settings {
     width: 12vw;
     height: 12vw;
     border-radius: 50%;
+    background-size: cover;
 }
 .buttonEditProfile{
     width: 13vw;
@@ -1022,7 +1023,6 @@ section.settings {
     font-weight: bold;
 }
 .containerViewComponentOption{
-    background-color: wheat;
     width: 100%;
     height: 80%;
 }
@@ -1056,13 +1056,56 @@ section.settings {
     transition: 300ms ease;
 }
 .containerFirstBlock{
-    background-color: yellow;
+    display: flex;
+    justify-content: space-between;
     width: 100%;
     height: 30%;
     margin-top: 2vw;
-    padding: 2vw;
+    padding: 1vw;
 }
-
+.containerInfo{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 33%;
+    height: 100%;
+}
+.containerInfoField {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 40%;
+    padding-left: 0.5vw;
+}
+.containerInfoField p{
+    font-weight: bold;
+    font-size: 1.7vw;
+}
+.containerField{
+    border-bottom: 2px solid rgb(163, 6, 224);
+    display: flex;
+    align-items:center;
+    width: 100%;
+    height: 40%;
+    padding-left: 0.5vw;
+}
+.containerFieldData{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.containerFieldData p{
+    color: rgb(163, 6, 224);
+    font-size: 1.4vw;
+}
+.iconField {
+    width: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 /* STYLES OF NEW BOOK */
 
 .section-form-book {
