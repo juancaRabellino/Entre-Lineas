@@ -169,12 +169,66 @@ section.settings {
   align-items: center;
 }
 
+/* Responsividad (Juanca) */
+@media only screen and (max-width: 600px) {
+  
+}
+@media only screen and (min-width: 600px) {
+  
+}
+@media only screen and (min-width: 768px) {
+  
+}
+@media (max-width: 992px) {
+  div.firstSection {
+    height: 100vh;
+    flex-direction: column;
+  }
+  
+  div.leftBoxFirst, div.rightBoxFirst {
+    margin: 3vh 0 0;
+    padding: 0;
+  }
 
-/* .line {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-} */
+  div.leftBoxFirst {
+    text-align: center;
+    width: 80vw;
+    height: 65vh;
+  }
+
+  div.rightBoxFirst {
+    width: 40vw;
+    margin-top: 5vh;
+  }
+
+  div.leftBoxFirst * {
+    width: 80%;
+  }
+  
+  h1.titleFirst {
+    font-size: 4vw;
+  }
+
+  p.firstP {
+    margin: 0;
+    font-size: 3vw;
+  }
+  p.secondP {
+    margin: 0;
+    font-size: 2.5vw;
+  }
+
+  div.leftBoxFirst button.btn.btn-danger{
+    width: 30vw;
+  }
+
+}
+@media only screen and (max-width: 1200px) {
+  /* .firstSection {
+    flex-direction: column;
+  } */
+}
+
 
   /* estilos del register (gime) */
 .containerRegister,.containerLogin {
@@ -302,14 +356,13 @@ section.settings {
       background-color: blue;
   }
   .firstSection{
-      height: 100vh;
+      height: 90vh;
       /* margin-top: 4vh; */
       margin-left: 1vw;
       display: flex;
       align-items: center;
   }
   .leftBoxFirst{
-      margin-top: 5vh;
       margin-left: 4vw;
       width:50vw;
       display: flex;
@@ -361,7 +414,7 @@ section.settings {
       display: flex;
       flex-direction: column;
       align-items: center;
-      /* height: 100vh; */
+      height: 100vh;
       padding-bottom: 1vh;
       margin-top: 15vh;
       /* background-color: rgba(127, 255, 212, 0.459); */
@@ -1029,12 +1082,11 @@ section.settings {
 footer {
     border-top: 1.5px solid rgb(103, 11, 139);
 }
+
 footer p {
     color: rgb(103, 11, 139);
 }
-.footerLeft{
-    margin-left: 5vw;
-}
+
 .footerRight a{
     color:rgb(103, 11, 139)!important;
 }
