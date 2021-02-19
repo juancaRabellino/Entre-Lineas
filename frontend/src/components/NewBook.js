@@ -1,13 +1,11 @@
 import { connect } from "react-redux"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import bookActions from "../redux/actions/bookActions"
-import e from "cors"
 import Swal from'sweetalert2';
 
 
 const NewBook =(props)=>{
   const [book, setBook] = useState({})
-
   const readInput =(e)=> {
     const value = e.target.value
     const prop = e.target.name
@@ -16,7 +14,9 @@ const NewBook =(props)=>{
       [prop]:value.trim(),
     })
   }
-  console.log(book)
+  useEffect(()=>{
+    if(props.newBook._id) props.history.push(`/new-book/${props.newBook._id}`)
+  },[props.newBook._id])
 
   const send=(e)=> {
     e.preventDefault()
@@ -26,11 +26,11 @@ const NewBook =(props)=>{
         title: 'Oops...',
         text: 'No se pueden enviar campos vacios!',
       })
-    }else {
-      props.addBook(book)
+    }else{
+      props.addBook(book, props.loggedUser.token)
     }
-  }
 
+  }
 
   return (
     <section className="section-form-book">
@@ -45,7 +45,6 @@ const NewBook =(props)=>{
           <h5 className="newBook">Nuevo Libro</h5>
           <input className="input-formBook" type="text" name="title" id="title" placeholder="Titulo" onChange={readInput} />
           <textarea className="textarea-formBook" name="description" id="description" cols="30" rows="10" placeholder="Descripcion" onChange={readInput}></textarea>
-          <input className="input-formBook" type="text" name="user" id="user" placeholder="User id" onChange={readInput}/>
           <select className="input-formBook" name="genre" id="genre" defaultValue={'Elige un Género'} onChange={readInput}>
             <option value="" >Elige un Género</option>
             <option value="Acción">Acción</option>
@@ -67,9 +66,16 @@ const NewBook =(props)=>{
   )
 }
 
+const mapStateToProps =state=> {
+  return {
+    newBook: state.bookR.newBook,
+    loggedUser:state.auth.loggedUser
+  }
+}
+
 const mapDispatchToProps = {
   addBook: bookActions.addBook
 }
 
 
-export default connect(null, mapDispatchToProps)(NewBook)
+export default connect(mapStateToProps, mapDispatchToProps)(NewBook)

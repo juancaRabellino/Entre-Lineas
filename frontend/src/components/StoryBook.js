@@ -11,15 +11,13 @@ const StoryBook = (props)=>{
         <>
             <div>
                 <div>
-                    {/* <div> */}
-                        {/* <p>{filtro[0].chapters[0].title}</p>
+                    <div> 
                         <p>{filtro[0].chapters[indexPage].title}</p>
                     </div>
-                    {/* <div>por {filtro[0].user.firstname} {filtro[0].user.lastname}</div> */}
+                    <div>por {filtro[0].user.firstname} {filtro[0].user.lastname}</div>
                 </div>
                 <div>
                     <div>
-                        <p>{filtro[0].chapters[0].content}</p>
                         {/* {parrafos.map(parrafo=>{
                             return(
                                 <p>soy el parrafo {parrafo}</p>

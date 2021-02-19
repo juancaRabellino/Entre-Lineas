@@ -1,29 +1,41 @@
 import { connect } from "react-redux"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import bookActions from "../redux/actions/bookActions"
 
 
 const NewChapter = (props) => {
-  const [chapter, setChapter] = useState({})
+  const [title, setTitle] = useState({})
+  const [content, setContent] = useState({})
+  const id = props.match.params.id
+  const book = props.books.filter(book => book._id === id)
 
-  const readInput = (e) => {
-    const value = e.target.value
-    const prop = e.target.name
-    setChapter({
-      ...chapter,
-      [prop]: value,
-    })
+  useEffect(()=>{
+    props.getBooks()
+  },[])
+
+  // console.log(props.newBook)
+  const [chapter, setChapter] = useState([])
+
+  const keyPress=(e)=>{
+    if(e.key==='Enter'){
+      setChapter([
+        ...chapter, content,
+      ])
+      document.getElementById("content").value = "";
+    }
   }
-  console.log(chapter)
+
+  console.log(content)
 
   const send = (e) => {
     e.preventDefault()
-    props.addChapter(chapter, '602b053ae6873a3708a0d3ad')
-    document.getElementById("title").value = "" ;
+
+    // props.addChapter(chapter, id)
+    // document.getElementById("title").value = "" ;
     document.getElementById("title").focus();
     document.getElementById("content").value = "";
   }
-
+  console.log(chapter)
   return (
     <section className="chapter">
       <div className="imag-form-chapter"></div>
@@ -35,9 +47,11 @@ const NewChapter = (props) => {
           <form className="form-chapter">
             <h3>Agregar nuevo capítulo</h3>
             <div className="line">
-              <input className="input-chapter" type="text" name="title" id="title" placeholder="Capitulo" onChange={readInput} />
+              <input className="input-chapter" type="text" name="title" id="title" placeholder="Capitulo" onChange={(e)=>setTitle({...chapter, title:e.target.value})} />
             </div>
-            <textarea className="textarea-chapter" name="content" id="content" cols="30" rows="10" placeholder="Comenza a escibir tu historia..." style={{ resize: 'none', width: '90%' }} onChange={readInput}></textarea>
+            {book.length>0  && <div className="chapterSended"><p>{book[0].chapters[0].chapter[0]}</p></div>}
+            <textarea className="textarea-chapter" name="content" id="content" cols="20" rows="5" placeholder="Comenza a escibir tu historia..." 
+            onKeyPress={keyPress} style={{ resize: 'none', width: '90%' }} onChange={(e)=>setContent({...content, content: e.target.value})}></textarea>
             <button className="buttonNewChapter" onClick={send}><span>Enviar</span></button>
           </form>
         </div>
@@ -46,9 +60,17 @@ const NewChapter = (props) => {
   )
 }
 
+const mapStateToProps = state => {
+  return {
+    newBook: state.bookR.newBook,
+    books: state.bookR.books
+  }
+}
+
 const mapDispatchToProps = {
-  addChapter: bookActions.addChapter
+  addChapter: bookActions.addChapter,
+  getBooks: bookActions.getBooks
 }
 
 
-export default connect(null, mapDispatchToProps)(NewChapter)
+export default connect(mapStateToProps, mapDispatchToProps)(NewChapter)

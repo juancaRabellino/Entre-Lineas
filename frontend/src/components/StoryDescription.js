@@ -56,11 +56,10 @@ const StoryDescription = (props)=>{
                         <h5>{filtro[0].user.firstname}</h5>
                         <h5>{filtro[0].user.lastname}</h5>
                     </div>
-                    <Link><button className="BotonLeer">Leer</button></Link>
+                    <Link to={`/book/${filtro[0]._id}/${filtro[0].chapters[0]._id}/${0}`}><button className="BotonLeer">Leer</button></Link>
                     {filtro[0].stars.includes(voted) ?
                     <button className="BotonLeer" onClick={props.loggedUser && dismissVote}>Quitar Voto <i class="fas fa-star"></i></button>: 
                     <button className="BotonLeer" onClick={props.loggedUser && votes}>Votar <i class="far fa-star"></i></button>}
-                    <Link to={`/book/${filtro[0]._id}/${filtro[0].chapters[0]._id}/${0}`}><button className="BotonLeer">Leer</button></Link>
                 </div>
             </div>
         </div>

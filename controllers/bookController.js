@@ -10,6 +10,7 @@ const bookController = {
     createBook.save()
     .then( async createBook => {
       const book = await createBook.populate('user').execPopulate() 
+      console.log(book)
       res.json({success: true, response: book})})
     .catch(error => res.json({success: false, error}))
   },
@@ -29,11 +30,9 @@ const bookController = {
 
   updateBook: (req, res) => {
     const id = req.body.id
-    const title = req.body.chapter.title
-    const content = req.body.chapter.content
-    console.log(req.body)
+    const {title, content} = req.body.chapter
     Book.findOneAndUpdate({_id: id},
-      {$push: {chapters: {title, content}}},
+      {$push: {chapters: [{title, chapter:[{content}]}]}},
       {new: true})
     .then(response=> res.json({success: true, response}))
     .catch(error => res.json({success: false, error}))

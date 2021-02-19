@@ -1,6 +1,7 @@
 
 const initialState = {
   books: [],
+  newBook: [],
   filter: [],
   comments: [],
   booksByGenre: []
@@ -10,7 +11,7 @@ const bookReducers = (state = initialState, action) => {
   switch (action.type) {
     case 'ADD_BOOK':
       return {
-        books: action.payload
+        newBook: action.payload
       }
     case 'GET_BOOKS':
       return {
