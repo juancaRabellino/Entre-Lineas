@@ -2,16 +2,16 @@ import axios from 'axios'
 
 const bookActions = {
   
-  addBook: (formData, token) => {
+  addBook: (book, token) => {
     return async (dispatch, getState) => {
       try {
-        const response = await axios.post('http://localhost:4000/api/book', formData, {
+        const response = await axios.post('http://localhost:4000/api/book', {book}, {
           headers: {
             Authorization: `Bearer ${token}`
           }
         })
         dispatch({type: 'ADD_BOOK', payload:response.data.response})
-        console.log(response.data.response)
+        console.log(response.data.response._id)
       }catch(error){
         console.log(error)
       }
@@ -54,29 +54,13 @@ const bookActions = {
   addChapter: (chapter, id, token) => {
     return async (dispatch, getState) => {
       try {
-        const response = await axios.post('http://localhost:4000/api/book/addChapter', {chapter, id}, {
-          headers: {
-            Authorization : `Bearer ${token}`
-          }
-        })
+        const response = await axios.post('http://localhost:4000/api/book/addChapter', {chapter, id})
+        //   headers: {
+        //     Authorization : `Bearer ${token}`
+        //   }
+        // })
         console.log(response.data)
         dispatch({type: 'UPDATE_BOOK', payload: response.data.response})
-      }catch(error){
-        console.log(error) 
-      }
-    }
-  },
-
-  sendContent: (content, id, token) => {
-    return async (dispatch, getState) => {
-      try {
-        const response = await axios.put('http://localhost:4000/api/book/addChapter', {content, id}, {
-          headers: {
-            Authorization: `Bearer ${token}`
-          }
-        })
-        dispatch({type: 'SEND_CONTENT', payload: response.data.response})
-        console.log(response)
       }catch(error){
         console.log(error)
       }
@@ -86,7 +70,7 @@ const bookActions = {
   addComment:(content, id, token) => {
     return async (dispatch, getState) => {
       try {
-        const res = await axios.post('http://localhost:4000/api/comments/', {content, id}, {
+        const res = await axios.post('http://localhost:4000/api/comments/', {content, id, token}, {
           headers: {
               Authorization: `Bearer ${token}` 
           }
