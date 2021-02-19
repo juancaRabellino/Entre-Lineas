@@ -8,6 +8,7 @@ const StoryBook = (props)=>{
 
   var parrafos = [{chapter:[{parrafo:"soy el parrafo 1 del cap1"}, {parrafo:"soy el parrafo2 del cap1"}]},
 {chapter:[{parrafo:"parrafito1 del cap2"}, {parrafo:"parrafito2 del cap2"}]}]
+console.log(filtro[0].chapters)
     return(
         <>
             <div>
@@ -26,7 +27,7 @@ const StoryBook = (props)=>{
                         })}
                         
                     </div>
-                    {/* <Link to={`/book/${filtro[0]._id}/${filtro[0].chapters[indexPage+1]._id}/${indexPage + 1}`}><button>Sigue leyendo la parte siguiente {'>'}</button></Link> */}
+                    {<Link to={`/book/${filtro[0]._id}/${filtro[0].chapters[indexPage+1]._id}/${indexPage + 1}`}><button>Sigue leyendo la parte siguiente {'>'}</button></Link>}
                 </div>
             </div>
         </>

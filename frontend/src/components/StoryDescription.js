@@ -8,7 +8,9 @@ import Comment from './Comment'
 const StoryDescription = (props)=>{
     var namePage = props.match.params.id
     var filtro = props.books.filter(libro=> libro._id === namePage)
-    
+
+    console.log(filtro[0].chapters)
+
     const [value, setValue] = useState('')
     const [voted, setVoted] = useState(false)
     useEffect(() => {
@@ -56,7 +58,7 @@ const StoryDescription = (props)=>{
                         <h5>{filtro[0].user.firstname}</h5>
                         <h5>{filtro[0].user.lastname}</h5>
                     </div>
-                    <Link to={`/book/${filtro[0]._id}/${filtro[0].chapters[0]._id}/${0}`}><button className="BotonLeer">Leer</button></Link>
+                    {filtro[0].chapters.length > 0 ? <Link to={`/book/${filtro[0]._id}/${filtro[0].chapters[0]._id}/${0}`}><button className="BotonLeer">Leer</button></Link> : props.history.push('/')}
                     {filtro[0].stars.includes(voted) ?
                     <button className="BotonLeer" onClick={props.loggedUser && dismissVote}>Quitar Voto <i class="fas fa-star"></i></button>: 
                     <button className="BotonLeer" onClick={props.loggedUser && votes}>Votar <i class="far fa-star"></i></button>}
@@ -79,10 +81,10 @@ const StoryDescription = (props)=>{
             <div className="nueve">
                 {filtro[0].comments.length !== 0 ?
                 <div>
-
+{/* 
                     {(filtro[0].comments.map(comment => {
                     return <Comment comment={comment} key={comment._id} id={filtro[0]._id}/>
-                }))}
+                }))} */}
                 </div>
                  :
                 <h2 className="text-center bg-white w-100">Sin Comentarios</h2>}

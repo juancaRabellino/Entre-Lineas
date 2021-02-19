@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 const Story=(props)=>{
-    console.log(props)
+    /* console.log(props) */
     return(
         <>
         <div className='storyContainer'>
