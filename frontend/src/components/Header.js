@@ -7,8 +7,6 @@ import cardActions from '../redux/actions/cardActions'
 import {useState, useEffect } from 'react'
 
 const Header = (props) => {
-  
-  
   const [visible, setVisible] = useState(false)
 
   useEffect(() => {
@@ -64,7 +62,6 @@ const Header = (props) => {
             </div>
           }
           </div>
-          
         </div>
         </>
         :

@@ -51,10 +51,10 @@ const bookActions = {
     }
   },
 
-  addChapter: (chapter, id, token) => {
+  addChapter: (newChapter, id, token) => {
     return async (dispatch, getState) => {
       try {
-        const response = await axios.post('http://localhost:4000/api/book/addChapter', {chapter, id}, {
+        const response = await axios.post('http://localhost:4000/api/book/addChapter', {newChapter, id}, {
           headers: {
             Authorization : `Bearer ${token}`
           }
@@ -67,21 +67,6 @@ const bookActions = {
     }
   },
 
-  sendContent: (content, id, token) => {
-    return async (dispatch, getState) => {
-      try {
-        const response = await axios.put('http://localhost:4000/api/book/addChapter', {content, id}, {
-          headers: {
-            Authorization: `Bearer ${token}`
-          }
-        })
-        dispatch({type: 'SEND_CONTENT', payload: response.data.response})
-        console.log(response)
-      }catch(error){
-        console.log(error)
-      }
-    }
-  },
 
   addComment:(content, id, token) => {
     return async (dispatch, getState) => {
