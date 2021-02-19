@@ -4,6 +4,7 @@ import { Button, Input } from 'reactstrap'
 import bookActions from '../redux/actions/bookActions'
 
 const Comment = (props) => {
+    console.log(props)
     const [value, setValue] = useState('')
     const [input, setInput] = useState(false)
 
@@ -22,22 +23,24 @@ const Comment = (props) => {
     }
   }
     return (
-        <div className="d-flex justify-content-center">
-            <div className="d-flex justify-content-center align-items-center">
-                <img src={props.comment.userPic} className="rounded" alt="..."/>
-                {!input ? 
-                <div>
-                    <h6 className="index">{props.comment.userName}</h6>
-                    <p className="bg-light rounded">{props.comment.content}</p>
+        <div className="containerComment">
+            <div className="containerComments">
+                <div className="userPicAndName">
+                    <img src={props.loggedUser.image} className="rounded-circle" alt="..."/>
+                    <h6 className="index">{props.comment.firstName}</h6>
                 </div>
-                : 
+                {!input ?
+                <div className="contentComment">
+                    <p>{props.comment.content}</p>
+                </div>
+                :
                 <div className="d-flex">
                     <Input className="comment" id="comment" type="text" placeholder="Edit comment" onChange={(e) => {setValue(e.target.value)}} onKeyPress={keyPress}/>
                     <Button onClick={modiComment}><i className="fas fa-paper-plane"></i></Button>
                 </div>}
                 {props.loggedUser ?
                 <>
-                <div className="">
+                <div className="botonesEditAndBorrar">
                     <Button onClick={deleteC}><i className="far fa-trash-alt"></i></Button>
                     <Button onClick={() => {setInput(!input)}}><i className="fas fa-edit"></i></Button>
                 </div>

@@ -26,7 +26,7 @@ const StoryBook = (props)=>{
                         })}
                         
                     </div>
-                    <Link to={`/book/${filtro[0]._id}/${filtro[0].chapters[indexPage+1]._id}/${indexPage + 1}`}><button>Sigue leyendo la parte siguiente {'>'}</button></Link>
+                    {/* <Link to={`/book/${filtro[0]._id}/${filtro[0].chapters[indexPage+1]._id}/${indexPage + 1}`}><button>Sigue leyendo la parte siguiente {'>'}</button></Link> */}
                 </div>
             </div>
         </>

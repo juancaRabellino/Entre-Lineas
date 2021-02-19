@@ -18,7 +18,7 @@ const CardCategory = (props) => {
     </>
   )
 }
-const mapStateToProps = state => {
-  return(console.log('Voy a ser el mapStateToProps'))
-}
-export default connect(mapStateToProps)(CardCategory);
+// const mapStateToProps = state => {
+//   return(console.log('Voy a ser el mapStateToProps'))
+// }
+export default connect()(CardCategory);
