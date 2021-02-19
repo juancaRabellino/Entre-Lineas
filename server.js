@@ -7,13 +7,21 @@ require('./config/database')
 const fileUpload = require('express-fileupload')
 
 
+
+
 const app = express()
 
 
 // MIDDLEWARES
 
 app.use(express.json())
+
+
+
 app.use(cors())
+
+
+
 app.use(fileUpload())
 
 //Ruteo

@@ -3,6 +3,9 @@ const bcryptjs = require('bcryptjs')
 const jwt = require ("jsonwebtoken")
 const crypto = require ("crypto")
 
+
+
+
 const userController = {
 
     signUp: async (req, res) => {
@@ -64,38 +67,8 @@ const userController = {
       .catch(error => res.json({ success: false, error }))
     },
 
-    resetPassword: (req, res) =>{
 
-        crypto.randomBytes(32,(err,buffer)=>{
-            if(err){
-                console.log(err)
-            }
-            const token = buffer.toString("hex")
-            User.findOne({email:req.body.email})
-            .then(user=>{
-                if(!user){
-                    return res.status(422).json({error:"User dont exists with that email"})
-                }
-                user.resetToken = token
-                user.expireToken = Date.now() + 3600000
-                user.save().then((result)=>{
-                    transporter.sendMail({
-                        to:user.email,
-                        from:"no-replay@insta.com",
-                        subject:"password reset",
-                        html:`
-                        <p>You requested for password reset</p>
-                        <h5>click in this <a href="${EMAIL}/reset/${token}">link</a> to reset password</h5>
-                        `
-                    })
-                    res.json({message:"check your email"})
-                })
-   
-            })
-        })
-
-
-    }
+    
 }
 
 module.exports = userController
