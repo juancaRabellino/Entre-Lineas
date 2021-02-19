@@ -33,6 +33,7 @@ const App = (props) => {
           <Route path="/settings" component={Settings} />
           <Route path="/book/:id/:chapter/:index" component={StoryBook}/>
           <Route path="/new-book/:id" component={NewChapter}/>
+          <Route path='/userprofile' component={UserProfile}/>
           <Redirect to="/search" />
         </Switch>
       </>
@@ -53,8 +54,7 @@ const App = (props) => {
       <Route path="/signin" component={SignIn}/>
       <Route path="/stories/:genre" component={Stories}/>
       <Route path="/add-chapter" component={NewChapter} />
-      <Route path="/story/:id" component={StoryDescription}/>
-      <Route path='/userprofile' component={UserProfile}/>
+      <Route path="/story/:id" component={StoryDescription}/> 
       <Redirect to="/"/>
     </Switch>
     </>

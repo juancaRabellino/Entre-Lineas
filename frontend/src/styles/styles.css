@@ -871,7 +871,10 @@ section.settings {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    align-items: center
+    align-items: center;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
 }
 .photoUser {
     background-color: grey;
@@ -914,7 +917,18 @@ section.settings {
     width: 80%;
     padding-left: 0.5vw;
 }
-.dataInformationProfileUserFixed p, .fa, .fas, .optionMenu{
+.dataInformationProfileUserFixed p, .fa-user, .fa-birthday-cake, .fa-bookmark, .fa-envelope, .optionMenu{
+    color: rgb(103, 11, 139)
+}
+.dataInformationProfileUserFixed a{
+    
+    width: 50%;
+    outline: none;
+    border: none;
+    padding: 0.5vw;
+    margin-top: 7vw;
+    font-size: 1.2vw;
+    border-radius: 3vw;
     color: rgb(103, 11, 139)
 }
 .buttonLogout{
@@ -954,7 +968,7 @@ section.settings {
     justify-content: center;
     align-items: center;
     font-size: 2vw;
-    padding: 1vw;
+    padding: 0.5vw;
 }
 .optionMenu:hover{
     background-color: rgb(103, 11, 139);
@@ -966,7 +980,7 @@ section.settings {
     border-bottom: 2px solid rgba(103, 11, 139, 0.5);
 }
 .containerNavMenu a:focus{
-    border-bottom: 2px solid rgb(103, 11, 139);
+    border-bottom: 3px solid rgb(103, 11, 139);
     font-weight: bold;
 }
 .containerViewComponentOption{
@@ -974,6 +988,43 @@ section.settings {
     width: 100%;
     height: 80%;
 }
+.dropDownMenu {
+    width: 10vw;
+    font-size: 12px;
+    position: absolute;
+    display: flex;
+    left: 83.5vw;
+    top: 9.3vh;
+    z-index: 5;
+    transition: 1s ease;
+}
+.dropDownMenu ul a li {
+    text-decoration: none;
+    list-style: none;
+    background-color: rgb(182, 132, 230);
+    padding: 0.5vw;
+}
+.dropDownMenu ul a{
+    text-decoration: none;
+}
+
+.dropDownMenu ul a:hover{
+    text-decoration: none;
+}
+.dropDownMenu ul a li:hover{
+    color: white;
+    font-weight: bold;
+    background-color:  rgb(103, 11, 139);
+    transition: 300ms ease;
+}
+.containerFirstBlock{
+    background-color: yellow;
+    width: 100%;
+    height: 30%;
+    margin-top: 2vw;
+    padding: 2vw;
+}
+
 /* STYLES OF NEW BOOK */
 
 .section-form-book {
