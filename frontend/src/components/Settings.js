@@ -38,6 +38,7 @@ const Settings = (props) => {
     formData.append('birthday', birthdayValue)
     formData.append('image', imageValue)
     formData.append('id', props.loggedUser.id)
+    console.log(imageValue)
 
     var filesExtension = ['.jpg', '.png', '.jpeg']
     
@@ -47,7 +48,7 @@ const Settings = (props) => {
       props.modifyUser(formData)
       alert('correcta validacion')
     }else {
-      alert('error en el archivo')
+      alert('Extension de archivo no permitida')
     }
   }
 

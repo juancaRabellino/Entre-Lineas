@@ -41,6 +41,7 @@ router.route('/book/:genre')
 
 router.route('/book/addChapter')
 .post(passport.authenticate('jwt', {session: false}),bookController.updateBook)
+// .put(passport.authenticate('jwt', {session: false}), bookController.updateChapter)
 
 router.route('/settings')
 .post(userController.modifyUser)

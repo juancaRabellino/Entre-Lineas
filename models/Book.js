@@ -5,7 +5,7 @@ const bookSchema = new mongoose.Schema({
   description: String,
   genre: String,
   user: {type: mongoose.Schema.Types.ObjectId, ref: 'user'},
-  stars:[{type: mongoose.Schema.Types.ObjectId, ref: 'user'}],
+  stars:[{String}],
   comments: [{userPic: String, firstName: String, lastName: String, content: String, userId: String}],
   views:Number,
   chapters:[{title: String, chapter:[{content:String}]}],
