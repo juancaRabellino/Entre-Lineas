@@ -54,7 +54,9 @@ const App = (props) => {
       <Route path="/signin" component={SignIn}/>
       <Route path="/stories/:genre" component={Stories}/>
       <Route path="/add-chapter" component={NewChapter} />
-      <Route path="/story/:id" component={StoryDescription}/> 
+      <Route path="/story/:id" component={StoryDescription}/>
+      <Route path="/book/:id/:chapter/:index" component={StoryBook}/>
+      <Route path='/userprofile' component={UserProfile}/>
       <Redirect to="/"/>
     </Switch>
     </>
