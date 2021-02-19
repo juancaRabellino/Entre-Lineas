@@ -10,6 +10,8 @@ const Settings = (props) => {
   const [lastname, setLastname] = useState('')
   const [birthday, setBirthday] = useState('')
   const [image, setImage] = useState('')
+  const [fileUrl, setFileUrl] = useState(null)
+
 
   useEffect(()=>{
     setEmail(props.loggedUser.email)
@@ -21,6 +23,17 @@ const Settings = (props) => {
   const edit = (e) => {
     e.preventDefault()
     setChange(!change)
+  }
+
+  const processImage = () => {
+    const imagen= document.getElementById('image').files[0]
+    const foto = URL.createObjectURL(imagen)
+    setFileUrl(foto)
+  }
+
+  const prueba = (e) => {
+    processImage()
+    setImage(e.target.value)
   }
 
   const send = e => {
@@ -83,13 +96,13 @@ const Settings = (props) => {
           </div>
           <div className="lineImgUser">
             <label htmlFor="image">Foto de perfil</label>
-            <input type="file" name="image" id="image" value={image} onChange={(e)=>setImage(e.target.value)}/>
+            <input type="file" name="image" id="image" value={image} onChange={prueba}/>
           </div>
           <div className="line">
             <div className="buttonSettings" onClick={send}><span>Confirmar cambios</span></div>
           </div>
         </form>
-        <div className="userImage" style={{width: '20vw', height: '50vh', backgroundColor:"black", backgroundImage: `url('${props.loggedUser.image}')`}}>
+        <div className="userImage" style={{width: '20vw', height: '50vh', backgroundColor:"black", backgroundImage: `url('${fileUrl}')`}}>
       </div>
     </div>
     </section>
