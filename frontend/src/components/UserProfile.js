@@ -1,34 +1,57 @@
 import { Link } from 'react-router-dom'
 import Settings from './Settings'
+import { connect } from 'react-redux'
 
 
-const UserProfile = () => {
+const UserProfile = (props) => {
+
+    console.log(props.loggedUser)
+
     return(
         <>
             <div className='containerComponentUserProfile'>
                 <div className='containerBannerUserData'>
                     <div className='bannerUserData'>
                         <div className='photoEditProfile'>
-                            <div className='photoUser'>
+                            <div className='photoUser'style={{ backgroundImage: `url(${props.loggedUser.image})`}}>
                             </div>
                             <div className='buttonEditProfile'>
-                                <button>Editar mis Datos</button>
+                                <Link to='/settings'><button>Editar mis Datos</button></Link>
                             </div>
                         </div>
                         <div className='informationProfileUserBlock'>
                             <div className='informationProfileUserFixed'>
-                                <div className='iconInformationProfileUserFixed'><i class="fas fa-user"></i></div>
-                                <div className='dataInformationProfileUserFixed'><p>Nombre de Usuario</p></div>
+                                <div className='iconInformationProfileUserFixed'><i className="fas fa-user"></i></div>
+                                <div className='dataInformationProfileUserFixed'><p>{props.loggedUser.firstname} {props.loggedUser.lastname}</p></div>
                             </div>
                             <div className='informationProfileUserFixed'>
-                                <div className='iconInformationProfileUserFixed'><i class="fas fa-birthday-cake"></i></div>
-                                <div className='dataInformationProfileUserFixed'><p>Cumpleaños</p></div>
+                                
+                                {props.loggedUser.birthday
+                                ?
+                                <>
+                                    <div className='iconInformationProfileUserFixed'><i className="fas fa-birthday-cake"></i></div>
+                                    <div className='dataInformationProfileUserFixed'>
+                                        <p>{props.loggedUser.birthday.substr(0, 10)}</p>   
+                                    </div>
+                                </>
+                                :
+                                <>
+                                    <div className='iconInformationProfileUserFixed'><i className="fas fa-envelope"></i></div>
+                                    <div className='dataInformationProfileUserFixed'>
+                                        <p>{props.loggedUser.email.substr(0, 10)}</p>   
+                                    </div>
+                                </>
+
+                                }
                             </div>
                             <div className='informationProfileUserFixed'>
-                                <div className='iconInformationProfileUserFixed'><i class="fas fa-bookmark"></i></div>
+                                <div className='iconInformationProfileUserFixed'><i className="fas fa-bookmark"></i></div>
                                 <div className='dataInformationProfileUserFixed'><p>Libros Guardados</p></div>
                             </div>
-                            <button className='buttonLogout'>Cerrar mi sesión</button>
+                            <div className='buttonLogout'>
+                            <Link to='/' onClick={props.logout}><button className='buttonLogout'>Cerrar mi sesión</button></Link>
+                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -40,11 +63,53 @@ const UserProfile = () => {
                         <Link to='savedBooks'><div className='optionMenu savedBooks'>Mis libros guardados</div></Link>
                     </div>
                     <div className='containerViewComponentOption'>
-                        <Settings />
+                        <div className='containerFirstBlock'>
+                            <div className='containerInfo'>
+                                <div className='containerInfoField'>
+                                    <p>Tu nombre</p>
+                                </div>
+                                <div className='containerField'>
+                                    <div className='containerFieldData'>
+                                        <p>{props.loggedUser.firstname} {props.loggedUser.lastname}</p>
+                                        <div className='iconField'><i className="fas fa-user"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className='containerInfo'>
+                                <div className='containerInfoField'>
+                                    <p>Tu cumpleaños</p>
+                                </div>
+                                <div className='containerField'>
+                                    <div className='containerFieldData'>
+                                        <p>{props.loggedUser.birthday.substr(5, 5)}</p>
+                                        <div className='iconField'><i className="fas fa-birthday-cake"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className='containerInfo'>
+                                <div className='containerInfoField'>
+                                    <p>Tu nombre</p>
+                                </div>
+                                <div className='containerField'>
+                                    <div className='containerFieldData'>
+                                        <p>{props.loggedUser.firstname} {props.loggedUser.lastname}</p>
+                                        <div className='iconField'><i className="fas fa-bookmark"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </>
     )
 }
-export default UserProfile
+
+const mapStateToProps = state => {
+    return {
+      loggedUser: state.auth.loggedUser
+    }
+}
+export default connect(mapStateToProps)(UserProfile)
+
+/*<Settings />*/

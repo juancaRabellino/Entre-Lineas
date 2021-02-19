@@ -4,15 +4,15 @@ import { connect } from 'react-redux'
 import authActions from '../redux/actions/authActions'
 import bookActions from '../redux/actions/bookActions'
 import cardActions from '../redux/actions/cardActions'
-import { useEffect } from 'react'
+import {useState, useEffect } from 'react'
 
 const Header = (props) => {
-  
+  const [visible, setVisible] = useState(false)
+
   useEffect(() => {
     props.getBooks()
     props.getCardsCategories()
   }, [])
-
 
   return (
     <header>
@@ -33,24 +33,43 @@ const Header = (props) => {
       </div></Link>
       {props.loggedUser && !props.loggedUser.image ?
         <div className="headerRight">
-          <Link to="/" onClick={props.logout}><p>LogOut</p></Link>
           <h4>Hola! {(props.loggedUser.firstname).toUpperCase()}</h4>
-          <div className="dropDownPic" >{props.loggedUser.firstname.toUpperCase().substr(0, 1)}</div>
+          <div className="dropDownPic"  onClick={() => setVisible(!visible)}>{props.loggedUser.firstname.toUpperCase().substr(0, 1)}
+          <i style={{color: 'black', marginLeft:'5.5vw', cursor: 'pointer'}} class="fas fa-caret-down"></i>
+          {visible &&
+            <div className='dropDownMenu'>
+              <ul>
+                <Link to='/userprofile'><li>Mi Perfil</li></Link>
+                <Link to='/settings'><li>Configuración</li></Link>
+                <Link to='/add-book'><li>Crear un Nuevo Libro</li></Link>
+                <Link to='/' onClick={props.logout}><li>Cerrar mi Sesión</li></Link>
+              </ul>
+            </div>
+          }</div>
         </div>
         : props.loggedUser && props.loggedUser.image 
         ?<>
-        <div className="headerRight">
-          <Link to='/userprofile'><p>Mi Perfil</p></Link>
+        <div className="headerRight" >
           <h4>Hola! {(props.loggedUser.firstname).toUpperCase()}</h4>
-          <div className="dropDownPic" style={{backgroundImage: `url('${props.loggedUser.image}')`}}></div>
-          
+          <div className="dropDownPic" style={{backgroundImage: `url('${props.loggedUser.image}')`, cursor: 'pointer'}} onClick={() => setVisible(!visible)}>
+          <i style={{color: 'black', marginLeft:'5.5vw', cursor: 'pointer'}} class="fas fa-caret-down"></i>
+          {visible &&
+            <div className='dropDownMenu'>
+              <ul>
+                <Link to='/userprofile'><li>Mi Perfil</li></Link>
+                <Link to='/settings'><li>Configuración</li></Link>
+                <Link to='/add-book'><li>Crear un Nuevo Libro</li></Link>
+                <Link to='/' onClick={props.logout}><li>Cerrar mi Sesión</li></Link>
+              </ul>
+            </div>
+          }
+          </div>
         </div>
-        <Link to="/" onClick={props.logout}><p>LogOut</p></Link></>
+        </>
         :
         <div className="headerRight">
         <Link to="/signin"><p>Iniciar sesión</p></Link>
         <Link to="/register"><p>Regístrate</p></Link>
-        <Link to='/userprofile'><p>Mi Perfil</p></Link>
         </div>
       }
     </header>

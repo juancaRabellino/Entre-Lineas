@@ -2,16 +2,16 @@ import axios from 'axios'
 
 const bookActions = {
   
-  addBook: (book, token) => {
+  addBook: (formData, token) => {
     return async (dispatch, getState) => {
       try {
-        const response = await axios.post('http://localhost:4000/api/book', {book}, {
+        const response = await axios.post('http://localhost:4000/api/book', formData, {
           headers: {
             Authorization: `Bearer ${token}`
           }
         })
         dispatch({type: 'ADD_BOOK', payload:response.data.response})
-        console.log(response.data.response._id)
+        console.log(response.data.response)
       }catch(error){
         console.log(error)
       }
@@ -51,21 +51,22 @@ const bookActions = {
     }
   },
 
-  addChapter: (chapter, id, token) => {
+  addChapter: (newChapter, id, token) => {
     return async (dispatch, getState) => {
       try {
-        const response = await axios.post('http://localhost:4000/api/book/addChapter', {chapter, id})
-        //   headers: {
-        //     Authorization : `Bearer ${token}`
-        //   }
-        // })
+        const response = await axios.post('http://localhost:4000/api/book/addChapter', {newChapter, id}, {
+          headers: {
+            Authorization : `Bearer ${token}`
+          }
+        })
         console.log(response.data)
         dispatch({type: 'UPDATE_BOOK', payload: response.data.response})
       }catch(error){
-        console.log(error)
+        console.log(error) 
       }
     }
   },
+
 
   addComment:(content, id, token) => {
     return async (dispatch, getState) => {
@@ -75,7 +76,7 @@ const bookActions = {
               Authorization: `Bearer ${token}` 
           }
       })
-        dispatch({type: 'ADD_COMMENT', payload: res.config.data})
+        dispatch({type: 'ADD_COMMENT', payload: res.data.respuesta})
         return true
       } catch(error){
         console.log(error)
@@ -91,7 +92,7 @@ const bookActions = {
               Authorization: `Bearer ${token}` 
           }
       })
-        dispatch({type: 'DELETE_COMMENT', payload: res.config.data})
+        dispatch({type: 'DELETE_COMMENT', payload: res.data.respuesta})
       } catch(error){
         console.log(error)
       }
@@ -107,7 +108,7 @@ const bookActions = {
               Authorization: `Bearer ${token}` 
           }
       })
-        dispatch({type: 'ADD_COMMENT', payload: res.config.data})
+        dispatch({type: 'ADD_COMMENT', payload: res.data.respuesta})
         console.log(res)
       } catch(error){
         console.log(error)

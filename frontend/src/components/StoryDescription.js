@@ -9,21 +9,19 @@ const StoryDescription = (props)=>{
     var namePage = props.match.params.id
     var filtro = props.books.filter(libro=> libro._id === namePage)
     
+    console.log()
+
     const [value, setValue] = useState('')
     const [voted, setVoted] = useState(false)
     useEffect(() => {
         if(props.loggedUser) {
             setVoted(props.loggedUser.id)
         }
-
     }, [])
-    const comment = e => {
-        setValue(e.target.value)
-    }
-    const enviar =  (e) => {
-        e.preventDefault()
-        props.addComment(value, filtro[0]._id, props.loggedUser.token)
-        document.getElementById('comment').value= ""
+    console.log(props.comments)
+    const enviar =  async (e) => {
+        await props.addComment(value, filtro[0]._id, props.loggedUser.token)
+        setValue("")
     }
     const votes = () => {
         props.vote(filtro[0]._id, props.loggedUser.token)
@@ -38,6 +36,12 @@ const StoryDescription = (props)=>{
         enviar()
         }
     }
+
+    const redirect = () =>{
+        alert("Esta historia todavia no tiene capitulos")
+        props.history.push(`/stories/${filtro[0].genre}`)
+    }
+
     return(
         <>
         <div className="uno">
@@ -49,6 +53,7 @@ const StoryDescription = (props)=>{
                     <h5>{filtro[0].genre}</h5>
                     <div className="dos">
                         <h5><i className="far fa-eye"></i> {filtro[0].views} </h5>
+                        {console.log(filtro[0].stars)}
                         <h5><i class="far fa-star"></i> {filtro[0].stars.length}</h5>
                         <h5><i class="fas fa-list-ul"></i> {filtro[0].chapters.length}</h5>
                     </div>
@@ -56,7 +61,9 @@ const StoryDescription = (props)=>{
                         <h5>{filtro[0].user.firstname}</h5>
                         <h5>{filtro[0].user.lastname}</h5>
                     </div>
-                    <Link to={`/book/${filtro[0]._id}/${filtro[0].chapters[0]._id}/${0}`}><button className="BotonLeer">Leer</button></Link>
+                    {filtro[0].chapters.length > 0 
+                    ? <Link to={`/book/${filtro[0]._id}/${filtro[0].chapters[0]._id}/${0}`}>
+                    <button className="BotonLeer">Leer</button></Link> : redirect()}
                     {filtro[0].stars.includes(voted) ?
                     <button className="BotonLeer" onClick={props.loggedUser && dismissVote}>Quitar Voto <i class="fas fa-star"></i></button>: 
                     <button className="BotonLeer" onClick={props.loggedUser && votes}>Votar <i class="far fa-star"></i></button>}
@@ -77,10 +84,9 @@ const StoryDescription = (props)=>{
                 </div>
             </div>
             <div className="nueve">
-                {filtro[0].comments.length !== 0 ?
+                {props.comments.comments ?
                 <div>
-
-                    {(filtro[0].comments.map(comment => {
+                    {(props.comments.comments.map(comment => {
                     return <Comment comment={comment} key={comment._id} id={filtro[0]._id}/>
                 }))}
                 </div>
@@ -89,7 +95,7 @@ const StoryDescription = (props)=>{
                 {props.loggedUser ? 
                 <div className="">
                     <div className="inputButtomEnvComment">
-                        <Input className="comment" id="comment" type="text" placeholder="Comenta!" onChange={comment} onKeyPress={keyPress}/>
+                        <Input className="comment" id="comment" type="text" placeholder="Comenta!" value={value} onChange={(e)=> setValue(e.target.value)} onKeyPress={keyPress}/>
                         <Button onClick={enviar}><i class="far fa-paper-plane"></i></Button>
                     </div>
                 </div> :
@@ -106,7 +112,7 @@ const mapStateToProps = state => {
     return {
         loggedUser: state.auth.loggedUser,
         books: state.bookR.books,
-
+        comments: state.bookR.comments
     }
   }
 

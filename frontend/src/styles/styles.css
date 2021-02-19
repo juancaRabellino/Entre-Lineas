@@ -170,15 +170,6 @@ section.settings {
 }
 
 /* Responsividad (Juanca) */
-@media only screen and (max-width: 600px) {
-  
-}
-@media only screen and (min-width: 600px) {
-  
-}
-@media only screen and (min-width: 768px) {
-  
-}
 @media (max-width: 992px) {
   div.firstSection {
     height: 100vh;
@@ -192,13 +183,18 @@ section.settings {
 
   div.leftBoxFirst {
     text-align: center;
-    width: 80vw;
+    width: 90vw;
     height: 65vh;
   }
 
   div.rightBoxFirst {
-    width: 40vw;
-    margin-top: 5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 3vh 0;
+    text-align: center;
+    min-width: 450px;
+    min-height: 200px;
   }
 
   div.leftBoxFirst * {
@@ -206,28 +202,191 @@ section.settings {
   }
   
   h1.titleFirst {
-    font-size: 4vw;
+    font-size: 5vh;
+    margin-bottom: 2vh;
+    text-shadow: 1px 0 1px white;
   }
 
   p.firstP {
     margin: 0;
-    font-size: 3vw;
+    font-size: 4vh;
+    margin-bottom: 2vh;
   }
   p.secondP {
     margin: 0;
-    font-size: 2.5vw;
+    font-size: 3vh;
+    margin-bottom: 2vh;
   }
 
   div.leftBoxFirst button.btn.btn-danger{
     width: 30vw;
   }
 
-}
-@media only screen and (max-width: 1200px) {
-  /* .firstSection {
+  div.secondSection {
+    height: 80vh;
+    margin: 8vh 0 0;
+  }
+
+  div.firstUp {
+    font-size: 4vh;
+    margin-bottom: 2vh;
+  }
+
+  div.secondUp {
+    width: 100vw;
+    margin-bottom: 2vh;
+  }
+
+  div.secondUp div.verContainer, div.secondUp div.verContainer i{
+    width: 30vw;
+    font-size: 20px;
+  }
+
+  div.secondUp div.verContainer:nth-child(2){
+    margin: 4vh 2vw 0;
+    width: 35vw;
+  }
+
+  div.downBoxSecond {
+    height: 50vh;
+    margin: 8vh 0 0;
+  }
+
+  div.textRightSecondBox {
+    margin-right: 0;
+    height: 45vh;
+  }
+
+  p.firstTextRightSecond {
+    font-size: 20px;
+    margin-bottom: 3vh;
+  }
+
+  p.secondTextRightSecond {
+    margin-bottom: 3vh;
+  }
+
+  div.imgBoxSecond {
+    height: 40vh;
+    /* width: 30vw; */
+    background-position: center;
+  }
+
+  div.svgContainer div {
+    min-width: 6vw;
+  }
+  div.hulu {
+    margin: 0;
+  }
+
+  div.thirdSection {
+    height: 100vh;
+    margin: 8vh 0 0
+  }
+  
+  p.titleThirdSec {
+    font-size: 4vh;
+  }
+
+  div.upContainerThird {
+    height: 55vh;
+  }
+  p.subTitleThirdSec {
+    width: 80vw;
+    text-align: center;
+    font-size: 20px;
+  }
+
+  p.titleTextSecContTh {
+    font-size: 20px;
+    width: 100%;
+  }
+
+  div.infoSecondContainerThird {
+    margin: 0;
+    width: 32vw;
+  }
+
+  div.firstContainerUpThird {
+    margin-bottom: 1vh;
+  }
+
+  div.textSecondContThird {
+    display: flex;
     flex-direction: column;
-  } */
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    width: 32vw;
+  }
+  p.bodyTxtSecContTh {
+    /* width: 20vw; */
+    font-size: 15px;
+    width: 100%;
+  }
+
+  div.imgThirdSec {
+    width: 95vw;
+    height: 30vh;
+  }
+  
+  div.imgThirdSec div {
+    margin: 0;
+    width: 27vw;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  div.imgThirdSec div p {
+    margin: 0;
+    padding: 0;
+    width: 70%;
+    text-align: center;
+    font-size: 20px;
+  }
+
+  div.fourthSection {
+    margin-top: 6vh;
+    height: 75vh;
+  }
+
+  div.upContainerFourth {
+    padding: 0;
+    height: 30vh;
+    width: 100vw;
+  }
+
+  p.fourthTitle {
+    font-size: 30px;
+  }
+
+  p.fourthBody {
+    font-size: 20px;
+  }
+
+  div.fourthSecButtons {
+    width: 62vw;
+    justify-content: center;
+  }
+
+  div.fourthSecButtons *{
+    margin: 0 3vw;
+  }
+
+  div.fourthSecBack {
+    padding: 0;
+    width: 100vw;
+    height: 60vh;
+    background-size: contain;
+  }
+  
 }
+@media (max-width: 600px) {
+  
+}
+
 
 
   /* estilos del register (gime) */
@@ -473,8 +632,7 @@ section.settings {
   }
   .downBoxSecond{
       display: flex;
-      justify-content: flex-start;
-      /* background-color: blue; */
+      justify-content: space-evenly;
       height: 60vh;
       width: 90vw;
       margin-top: 9vh;
@@ -486,14 +644,15 @@ section.settings {
       background-repeat: no-repeat;
       width: 50vw;
       height: 50vh;
+      min-width: 300px;
   }
   .textRightSecondBox{
       display: flex;
       flex-direction: column;
       justify-content: space-around;
       width: 45vw;
-      margin-right: 20vw;
-      /* background-color: burlywood; */
+      margin-right: 5vw;
+      height: 40vh;
   }
   .firstTextRightSecond{
       font-size: 2vw;
@@ -512,7 +671,7 @@ section.settings {
       display: flex;
       justify-content: space-evenly;
       align-items: center;
-      height: 20vh;
+      height: 15vh;
       margin-top: -2vh;
   }
   .sony{
@@ -621,10 +780,8 @@ section.settings {
       justify-content: center;
   }
   .resources p{
-      /* background-color: red; */
       font-size: 1.8vw;
-      /* padding-top: 1.5vh; */
-      padding-bottom: 8.2vh;
+      text-align: center;
       font-weight: bold;
       width: 10vw;
   
@@ -639,15 +796,14 @@ section.settings {
       margin-left: 0.5vw;
       margin-top: 2vh;
       display: flex;
-      align-items: flex-start;
+      align-items: center;
       justify-content: center;
   }
   .readers p{
       font-size: 1.8vw;
-      padding-top: 3.5vh;
       font-weight: bold;
       width: 10vw;
-  
+      text-align: center;
   }
   .offers{
       background-image: url('../assets/cuadro1.jpg');
@@ -662,10 +818,9 @@ section.settings {
   }
   .offers p{
       font-size: 1.8vw;
-      /* padding-top: 3vh; */
-      padding-bottom: 1.5vh;
       font-weight: bold;
       width: 10vw;
+      text-align: center;
   }
   .fourthSection{
       background-image: url('../assets/thirdImage.png');
@@ -898,13 +1053,17 @@ section.settings {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    align-items: center
+    align-items: center;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
 }
 .photoUser {
     background-color: grey;
     width: 12vw;
     height: 12vw;
     border-radius: 50%;
+    background-size: cover;
 }
 .buttonEditProfile{
     width: 13vw;
@@ -941,7 +1100,18 @@ section.settings {
     width: 80%;
     padding-left: 0.5vw;
 }
-.dataInformationProfileUserFixed p, .fa, .fas, .optionMenu{
+.dataInformationProfileUserFixed p, .fa-user, .fa-birthday-cake, .fa-bookmark, .fa-envelope, .optionMenu{
+    color: rgb(103, 11, 139)
+}
+.dataInformationProfileUserFixed a{
+    
+    width: 50%;
+    outline: none;
+    border: none;
+    padding: 0.5vw;
+    margin-top: 7vw;
+    font-size: 1.2vw;
+    border-radius: 3vw;
     color: rgb(103, 11, 139)
 }
 .buttonLogout{
@@ -981,7 +1151,7 @@ section.settings {
     justify-content: center;
     align-items: center;
     font-size: 2vw;
-    padding: 1vw;
+    padding: 0.5vw;
 }
 .optionMenu:hover{
     background-color: rgb(103, 11, 139);
@@ -993,13 +1163,92 @@ section.settings {
     border-bottom: 2px solid rgba(103, 11, 139, 0.5);
 }
 .containerNavMenu a:focus{
-    border-bottom: 2px solid rgb(103, 11, 139);
+    border-bottom: 3px solid rgb(103, 11, 139);
     font-weight: bold;
 }
 .containerViewComponentOption{
-    background-color: wheat;
     width: 100%;
     height: 80%;
+}
+.dropDownMenu {
+    width: 10vw;
+    font-size: 12px;
+    position: absolute;
+    display: flex;
+    left: 83.5vw;
+    top: 9.3vh;
+    z-index: 5;
+    transition: 1s ease;
+}
+.dropDownMenu ul a li {
+    text-decoration: none;
+    list-style: none;
+    background-color: rgb(182, 132, 230);
+    padding: 0.5vw;
+}
+.dropDownMenu ul a{
+    text-decoration: none;
+}
+
+.dropDownMenu ul a:hover{
+    text-decoration: none;
+}
+.dropDownMenu ul a li:hover{
+    color: white;
+    font-weight: bold;
+    background-color:  rgb(103, 11, 139);
+    transition: 300ms ease;
+}
+.containerFirstBlock{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 30%;
+    margin-top: 2vw;
+    padding: 1vw;
+}
+.containerInfo{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 33%;
+    height: 100%;
+}
+.containerInfoField {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 40%;
+    padding-left: 0.5vw;
+}
+.containerInfoField p{
+    font-weight: bold;
+    font-size: 1.7vw;
+}
+.containerField{
+    border-bottom: 2px solid rgb(163, 6, 224);
+    display: flex;
+    align-items:center;
+    width: 100%;
+    height: 40%;
+    padding-left: 0.5vw;
+}
+.containerFieldData{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.containerFieldData p{
+    color: rgb(163, 6, 224);
+    font-size: 1.4vw;
+}
+.iconField {
+    width: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 /* STYLES OF NEW BOOK */
 
@@ -1578,7 +1827,7 @@ border-radius: 30px;
 .contentComment p {
     background-color: rgb(255, 255, 255);
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
     border: solid 1px rgb(103, 11, 139);
     border-radius: 20px;
 }

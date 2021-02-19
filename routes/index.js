@@ -4,10 +4,12 @@ const userController = require("../controllers/userController")
 const bookController = require("../controllers/bookController")
 const genreController = require('../controllers/genreController')
 const commentController = require('../controllers/commentController')
+const auth = require('../controllers/auth')
 const validator = require ("../controllers/validator")
 const voteController = require('../controllers/voteController')
 const passport = require("passport")
 require("../config/passport")
+
 
 
 
@@ -21,8 +23,9 @@ router.route('/user/signin')
 router.route('/user/ls')
 .post(passport.authenticate('jwt', {session: false}), userController.logFromLS)
 
+
 router.route("/user/reset-password")
-.post(userController.resetPassword)
+.post(auth.restartPassword)
 
 
 
@@ -36,8 +39,7 @@ router.route('/book')
 
 router.route('/book/:genre')
 .get(bookController.getByGenre)
-/* router.route("/itineraries/:cityId")
-.get(itineraryController.allById) */
+
 
 router.route('/book/addChapter')
 .post(passport.authenticate('jwt', {session: false}),bookController.updateBook)
@@ -62,5 +64,8 @@ router.route('/comments/delete')
 router.route('/vote')
 .post(passport.authenticate('jwt', {session: false}), voteController.vote)
 .put(passport.authenticate('jwt', {session: false}), voteController.dismissVote)
+
+router.route("/restartpassword")
+.post(auth.restartPassword)
 
 module.exports = router
