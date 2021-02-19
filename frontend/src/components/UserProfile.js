@@ -64,7 +64,39 @@ const UserProfile = (props) => {
                     </div>
                     <div className='containerViewComponentOption'>
                         <div className='containerFirstBlock'>
-
+                            <div className='containerInfo'>
+                                <div className='containerInfoField'>
+                                    <p>Tu nombre</p>
+                                </div>
+                                <div className='containerField'>
+                                    <div className='containerFieldData'>
+                                        <p>{props.loggedUser.firstname} {props.loggedUser.lastname}</p>
+                                        <div className='iconField'><i className="fas fa-user"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className='containerInfo'>
+                                <div className='containerInfoField'>
+                                    <p>Tu cumpleaños</p>
+                                </div>
+                                <div className='containerField'>
+                                    <div className='containerFieldData'>
+                                        <p>{props.loggedUser.birthday.substr(5, 5)}</p>
+                                        <div className='iconField'><i className="fas fa-birthday-cake"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className='containerInfo'>
+                                <div className='containerInfoField'>
+                                    <p>Tu nombre</p>
+                                </div>
+                                <div className='containerField'>
+                                    <div className='containerFieldData'>
+                                        <p>{props.loggedUser.firstname} {props.loggedUser.lastname}</p>
+                                        <div className='iconField'><i className="fas fa-bookmark"></i></div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
