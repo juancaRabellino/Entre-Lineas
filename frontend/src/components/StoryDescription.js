@@ -54,8 +54,8 @@ const StoryDescription = (props)=>{
                     <div className="dos">
                         <h5><i className="far fa-eye"></i> {filtro[0].views} </h5>
                         {console.log(filtro[0].stars)}
-                        <h5><i class="far fa-star"></i> {filtro[0].stars.length}</h5>
-                        <h5><i class="fas fa-list-ul"></i> {filtro[0].chapters.length}</h5>
+                        <h5><i className="far fa-star"></i> {filtro[0].stars.length}</h5>
+                        <h5><i className="fas fa-list-ul"></i> {filtro[0].chapters.length}</h5>
                     </div>
                     <div className="tres">
                         <h5>{filtro[0].user.firstname}</h5>
@@ -65,8 +65,8 @@ const StoryDescription = (props)=>{
                     ? <Link to={`/book/${filtro[0]._id}/${filtro[0].chapters[0]._id}/${0}`}>
                     <button className="BotonLeer">Leer</button></Link> : redirect()}
                     {filtro[0].stars.includes(voted) ?
-                    <button className="BotonLeer" onClick={props.loggedUser && dismissVote}>Quitar Voto <i class="fas fa-star"></i></button>: 
-                    <button className="BotonLeer" onClick={props.loggedUser && votes}>Votar <i class="far fa-star"></i></button>}
+                    <button className="BotonLeer" onClick={props.loggedUser && dismissVote}>Quitar Voto <i className="fas fa-star"></i></button>: 
+                    <button className="BotonLeer" onClick={props.loggedUser && votes}>Votar <i className="far fa-star"></i></button>}
                 </div>
             </div>
         </div>
@@ -96,7 +96,7 @@ const StoryDescription = (props)=>{
                 <div className="">
                     <div className="inputButtomEnvComment">
                         <Input className="comment" id="comment" type="text" placeholder="Comenta!" value={value} onChange={(e)=> setValue(e.target.value)} onKeyPress={keyPress}/>
-                        <Button onClick={enviar}><i class="far fa-paper-plane"></i></Button>
+                        <Button onClick={enviar}><i className="far fa-paper-plane"></i></Button>
                     </div>
                 </div> :
                 <div className="d-flex justify-content-center">

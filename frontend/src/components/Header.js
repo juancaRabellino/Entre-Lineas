@@ -35,7 +35,7 @@ const Header = (props) => {
         <div className="headerRight">
           <h4>Hola! {(props.loggedUser.firstname).toUpperCase()}</h4>
           <div className="dropDownPic"  onClick={() => setVisible(!visible)}>{props.loggedUser.firstname.toUpperCase().substr(0, 1)}
-          <i style={{color: 'black', marginLeft:'5.5vw', cursor: 'pointer'}} class="fas fa-caret-down"></i>
+          <i style={{color: 'black', marginLeft:'5.5vw', cursor: 'pointer'}} className="fas fa-caret-down"></i>
           {visible &&
             <div className='dropDownMenu'>
               <ul>
@@ -52,7 +52,7 @@ const Header = (props) => {
         <div className="headerRight" >
           <h4>Hola! {(props.loggedUser.firstname).toUpperCase()}</h4>
           <div className="dropDownPic" style={{backgroundImage: `url('${props.loggedUser.image}')`, cursor: 'pointer'}} onClick={() => setVisible(!visible)}>
-          <i style={{color: 'black', marginLeft:'5.5vw', cursor: 'pointer'}} class="fas fa-caret-down"></i>
+          <i style={{color: 'black', marginLeft:'5.5vw', cursor: 'pointer'}} className="fas fa-caret-down"></i>
           {visible &&
             <div className='dropDownMenu'>
               <ul>
