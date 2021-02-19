@@ -1618,9 +1618,9 @@ border-radius: 30px;
     background-position:bottom;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 12vh;
+    height: 10vh;
     width: 5vw;
-    /*-webkit-animation: rotation 2s infinite linear;*/
+    -webkit-animation: rotation 2s infinite linear;
 }
 
 @keyframes rotation {
