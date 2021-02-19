@@ -56,7 +56,6 @@ const StoryDescription = (props)=>{
                         <h5>{filtro[0].user.firstname}</h5>
                         <h5>{filtro[0].user.lastname}</h5>
                     </div>
-                    <Link><button className="BotonLeer">Leer</button></Link>
                     {filtro[0].stars.includes(voted) ?
                     <button className="BotonLeer" onClick={props.loggedUser && dismissVote}>Quitar Voto <i class="fas fa-star"></i></button>: 
                     <button className="BotonLeer" onClick={props.loggedUser && votes}>Votar <i class="far fa-star"></i></button>}
@@ -65,16 +64,16 @@ const StoryDescription = (props)=>{
             </div>
         </div>
         <div className="ocho">
-            <div>
+            <div className="diez">
                 <div className="seis">
                     <h2>Tabla de Contenidos</h2>
                 </div>
                 <div className="siete">
-                {filtro[0].chapters.map((chapter, index) => {
-                    return (
-                        <Link to={`/book/${filtro[0]._id}/${chapter._id}/${index}`}><button><p>{chapter.title}</p></button></Link>
-                    )
-                })}
+                    {filtro[0].chapters.map((chapter, index) => {
+                        return (
+                            <Link to={`/book/${filtro[0]._id}/${chapter._id}/${index}`}><button><p>{chapter.title}</p></button></Link>
+                        )
+                    })}
                 </div>
             </div>
             <div className="nueve">
@@ -88,15 +87,14 @@ const StoryDescription = (props)=>{
                  :
                 <h2 className="text-center bg-white w-100">Sin Comentarios</h2>}
                 {props.loggedUser ? 
-                <div className="d-flex justify-content-center">
-                    <div className="d-flex">
+                <div className="">
+                    <div className="inputButtomEnvComment">
                         <Input className="comment" id="comment" type="text" placeholder="Comenta!" onChange={comment} onKeyPress={keyPress}/>
                         <Button onClick={enviar}><i class="far fa-paper-plane"></i></Button>
                     </div>
                 </div> :
                 <div className="d-flex justify-content-center">
                     <Input className="comment w-50 text-center" disabled type="text" placeholder="Firts Logged plz" />
-
                 </div>}
             </div>
         </div>

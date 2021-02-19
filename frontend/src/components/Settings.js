@@ -54,39 +54,43 @@ const Settings = (props) => {
   return (
     <section className="settings">
       <div className="imagSettings"></div>
-      <div className="container-form-register">
-        <div className="userImage" style={{width: '20vw', height: '20vh', backgroundColor:"black", backgroundImage: `url('${props.loggedUser.image}')`}}></div>
-        <i onClick={edit} className="fas fa-pencil-alt editPencil"></i>
+      <div className="container-form-settings">
         <form className="form-settings">
           <div className="tituloIcon">
             <div className="iconoAjus"></div>
-            <h4>Ajustes de usuario</h4>
+              <h4>Ajustes de usuario</h4>
+              <button className="settingsEdit" onClick={edit}>
+                <i className="fas fa-pencil-alt editPencil" style={{color: 'white'}}></i>
+                <p>Comezar</p>
+              </button>
           </div>
           <div className="line">
-          <label htmlFor="email">Email</label>
-          <input type="text" name="email" id="email" value={email} disabled={!change ? true : false} onChange={(e)=>setEmail(e.target.value)} />
-        </div>
-        <div className="line">
-          <label htmlFor="firstname">Nombre</label>
-          <input type="text" name="firstname" id="firstname" disabled={!change ? true : false} value={firstname} onChange={(e)=>setFirstname(e.target.value)} />
-        </div>
-        <div className="line">
-          <label htmlFor="lastname">Apellido</label>
-          <input type="text" name="lastname" id="lastname" disabled={!change ? true : false} value={lastname} onChange={(e)=>setLastname(e.target.value)} />
-        </div>
-        <div className="line">
-          <label htmlFor="birthday">Fecha de nacimiento</label>
-          <input type="date" name="birthday" id="birthday" disabled={!change ? true : false} value={birthday} onChange={(e)=>setBirthday(e.target.value)} />
-        </div>
-        <div className="line">
-          <label htmlFor="image">URL imagen</label>
-          <input type="file" name="image" id="image" value={image} onChange={(e)=>setImage(e.target.value)}/>
-        </div>
-        <div className="line">
-          <div className="buttonSettings" onClick={send}>Confirmar cambios</div>
-        </div>
+            <label htmlFor="email">Email</label>
+            <input type="text" name="email" id="email" value={email} disabled={!change ? true : false} onChange={(e)=>setEmail(e.target.value)} />
+          </div>
+          <div className="line">
+            <label htmlFor="firstname">Nombre</label>
+            <input type="text" name="firstname" id="firstname" disabled={!change ? true : false} value={firstname} onChange={(e)=>setFirstname(e.target.value)} />
+          </div>
+          <div className="line">
+            <label htmlFor="lastname">Apellido</label>
+            <input type="text" name="lastname" id="lastname" disabled={!change ? true : false} value={lastname} onChange={(e)=>setLastname(e.target.value)} />
+          </div>
+          <div className="line">
+            <label htmlFor="birthday">Fecha de nacimiento</label>
+            <input type="date" name="birthday" id="birthday" disabled={!change ? true : false} value={birthday} onChange={(e)=>setBirthday(e.target.value)} />
+          </div>
+          <div className="lineImgUser">
+            <label htmlFor="image">Foto de perfil</label>
+            <input type="file" name="image" id="image" value={image} onChange={(e)=>setImage(e.target.value)}/>
+          </div>
+          <div className="line">
+            <div className="buttonSettings" onClick={send}><span>Confirmar cambios</span></div>
+          </div>
         </form>
+        <div className="userImage" style={{width: '20vw', height: '50vh', backgroundColor:"black", backgroundImage: `url('${props.loggedUser.image}')`}}>
       </div>
+    </div>
     </section>
   )
 }
