@@ -170,15 +170,6 @@ section.settings {
 }
 
 /* Responsividad (Juanca) */
-@media only screen and (max-width: 600px) {
-  
-}
-@media only screen and (min-width: 600px) {
-  
-}
-@media only screen and (min-width: 768px) {
-  
-}
 @media (max-width: 992px) {
   div.firstSection {
     height: 100vh;
@@ -192,13 +183,18 @@ section.settings {
 
   div.leftBoxFirst {
     text-align: center;
-    width: 80vw;
+    width: 90vw;
     height: 65vh;
   }
 
   div.rightBoxFirst {
-    width: 40vw;
-    margin-top: 5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 3vh 0;
+    text-align: center;
+    min-width: 450px;
+    min-height: 200px;
   }
 
   div.leftBoxFirst * {
@@ -206,28 +202,70 @@ section.settings {
   }
   
   h1.titleFirst {
-    font-size: 4vw;
+    font-size: 5vh;
+    margin-bottom: 2vh;
+    text-shadow: 1px 0 1px white;
   }
 
   p.firstP {
     margin: 0;
-    font-size: 3vw;
+    font-size: 4vh;
+    margin-bottom: 2vh;
   }
   p.secondP {
     margin: 0;
-    font-size: 2.5vw;
+    font-size: 3vh;
+    margin-bottom: 2vh;
   }
 
   div.leftBoxFirst button.btn.btn-danger{
     width: 30vw;
   }
 
+  div.secondSection {
+    margin: 3vh 0 0;
+  }
+
+  div.firstUp {
+    font-size: 4vh;
+  }
+
+  div.secondUp {
+    width: 100vw;
+  }
+
+  div.secondUp div.verContainer, div.secondUp div.verContainer i{
+    width: 30vw;
+    font-size: 20px;
+    /* font-size: 2.4vh; */
+  }
+  div.secondUp div.verContainer:nth-child(2){
+    margin: 4vh 2vw 0;
+    width: 35vw;
+  }
+
+  div.downBoxSecond {
+    height: 50vh;
+    margin: 8vh 0 0;
+  }
+
+  div.textRightSecondBox {
+    margin-right: 0;
+  }
+
+  p.firstTextRightSecond {
+    font-size: 20px;
+  }
+
+  p.secondTextRightSecond {
+    margin-bottom: 2vh;
+  }
+  
 }
-@media only screen and (max-width: 1200px) {
-  /* .firstSection {
-    flex-direction: column;
-  } */
+@media (max-width: 600px) {
+  
 }
+
 
 
   /* estilos del register (gime) */
@@ -446,8 +484,7 @@ section.settings {
   }
   .downBoxSecond{
       display: flex;
-      justify-content: flex-start;
-      /* background-color: blue; */
+      justify-content: space-evenly;
       height: 60vh;
       width: 90vw;
       margin-top: 9vh;
@@ -459,14 +496,15 @@ section.settings {
       background-repeat: no-repeat;
       width: 50vw;
       height: 50vh;
+      min-width: 300px;
   }
   .textRightSecondBox{
       display: flex;
       flex-direction: column;
       justify-content: space-around;
       width: 45vw;
-      margin-right: 20vw;
-      /* background-color: burlywood; */
+      margin-right: 5vw;
+      height: 40vh;
   }
   .firstTextRightSecond{
       font-size: 2vw;
@@ -485,7 +523,7 @@ section.settings {
       display: flex;
       justify-content: space-evenly;
       align-items: center;
-      height: 20vh;
+      height: 15vh;
       margin-top: -2vh;
   }
   .sony{
