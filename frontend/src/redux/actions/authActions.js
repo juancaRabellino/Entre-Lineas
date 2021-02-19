@@ -26,15 +26,16 @@ const authActions = {
         }
     },
 
-    modifyUser: userToEdit => {
-        const userId = userToEdit._id
+    modifyUser: (formData) => {
+        console.log(formData)
         return async (dispatch, getState) => {
-            const response = await axios.put(`http://localhost:4000/api/settings/${userId}`, {
+            const response = await axios.post(`http://localhost:4000/api/settings`, formData, {
                 headers: { 
-                    Authorization: `Bearer ${userToEdit.token}` 
+                    'Content-Type': 'multipart/form-data' 
                 }
             })
-            dispatch({success: true, response: response.data})
+            dispatch({type: 'MODIFY_USER', payload: response.data})
+            console.log(response.data)
         }
     },
     logFromLS: (token) => {

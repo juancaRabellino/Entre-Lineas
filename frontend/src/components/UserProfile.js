@@ -1,4 +1,5 @@
-import Link from 'react-router-dom'
+import { Link } from 'react-router-dom'
+import Settings from './Settings'
 
 
 const UserProfile = () => {
@@ -27,10 +28,20 @@ const UserProfile = () => {
                                 <div className='iconInformationProfileUserFixed'><i class="fas fa-bookmark"></i></div>
                                 <div className='dataInformationProfileUserFixed'><p>Libros Guardados</p></div>
                             </div>
+                            <button className='buttonLogout'>Cerrar mi sesión</button>
                         </div>
                     </div>
                 </div>
                 <div className='containerContentOptions'>
+                    <h2 className='titleProfile'>Mi Perfil en Entre Líneas   </h2>
+                    <div className='containerNavMenu'>
+                        <Link to='/userProfile'><div className='optionMenu'>Mis datos</div></Link>
+                        <Link to='/library'><div className='optionMenu'>Mi biblioteca</div></Link>
+                        <Link to='savedBooks'><div className='optionMenu savedBooks'>Mis libros guardados</div></Link>
+                    </div>
+                    <div className='containerViewComponentOption'>
+                        <Settings />
+                    </div>
                 </div>
             </div>
         </>

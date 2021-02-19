@@ -13,6 +13,7 @@ import Stories from './components/Stories'
 import NewChapter from './components/NewChapter'
 import NewBook from './components/NewBook'
 import Settings from './components/Settings'
+import StoryBook from './components/StoryBook'
 import StoryDescription from './components/StoryDescription'
 import authActions from './redux/actions/authActions'
 import UserProfile from './components/UserProfile'
@@ -43,6 +44,7 @@ const App = (props) => {
     routes = 
     <>
     <Switch>
+      <Route path="/settings" component={Settings}/>
       <Route path="/add-book" component={NewBook}/>
       <Route exact path="/" component={Home} />
       <Route exact path="/search" component={Search}/>

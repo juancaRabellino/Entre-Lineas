@@ -5,8 +5,10 @@ const userSchema = new mongoose.Schema({
     lastname: String,
     email: String,
     password: String,
+    resetToken: String, expireToken: Date,
     birthday: Date,
     image: String,
+    library:[String],
 
     // Debatir en grupo si agregar o no una propiedad de imagen en el modelo..
   

@@ -1,8 +1,9 @@
-import { object } from "joi"
 
 const initialState = {
   books: [],
   filter: [],
+  comments: [],
+  booksByGenre: []
 }
 
 const bookReducers = (state = initialState, action) => {
@@ -17,6 +18,11 @@ const bookReducers = (state = initialState, action) => {
         books: action.payload,
         filter: action.payload
       }
+    case 'GET_BY_GENRE':
+      return{
+        ...state,
+        booksByGenre: action.payload.sort((a,b)=> b.views - a.views)
+      }  
     case 'SEARCH_BOOKS':
     	return {
         	...state,
@@ -25,6 +31,16 @@ const bookReducers = (state = initialState, action) => {
         	|| book.user.firstname.toUpperCase().includes(action.payload.toUpperCase().trim()) 
         	|| book.user.lastname.toUpperCase().includes(action.payload.toUpperCase().trim()))
         }
+    case 'ADD_COMMENT':
+      return{
+        ...state,
+        comments: action.payload
+      }
+    case 'DELETE_COMMENT':
+      return {
+        ...state,
+        comment: action.payload
+      }
     default:
       return state
 	}

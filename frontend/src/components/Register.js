@@ -61,7 +61,6 @@ const Register = ( props ) => {
 
 const responseFacebook = async (response) => {
     var name = response.name.split(" ")
-
     if(response.error){
         alert('Algo salio mal con tu cuenta de Facebook')
     }else{
@@ -95,7 +94,7 @@ return (
                     <div className="userNameAndPassword">
                     <input className="inputRegister" type="text" name="email" placeholder="Email" onChange={readInput} />
                     <input className="inputRegister" type={visible ? "text" : "password"} name="password" placeholder="Contraseña" onChange={readInput} />
-                    <i class={visible ? "far fa-eye-slash" : "far fa-eye"} onClick={()=>setVisible(!visible)}></i>
+                    <i className={visible ? "far fa-eye-slash" : "far fa-eye"} onClick={()=>setVisible(!visible)}></i>
 
                     </div>
                     <button className="botonRegister" onClick={validateUser} >Crear usuario</button>

@@ -20,6 +20,13 @@ const bookController = {
     .catch(error => res.json({success: false, error}))
   },
 
+  getByGenre: async (req,res)=>{
+    const genre = req.params.genre
+    Book.find({genre:genre}).populate('user')
+    .then(response=> res.json({succes:true, response}))
+    .catch(error => res.json({succes: false, error}))
+  },
+
   updateBook: (req, res) => {
     const id = req.body.id
     const title = req.body.chapter.title

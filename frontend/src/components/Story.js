@@ -8,7 +8,7 @@ const Story=(props)=>{
                     <p className='storyTitle'>{props.libro.title}</p>
                     <p className='storyUser'>de {props.libro.user.firstname + ' ' + props.libro.user.lastname}</p>
                     <div className='storyIcons'>
-                        <p classNameName='storyViews'><i className="far fa-eye"></i> {props.libro.views}</p>
+                        <p className='storyViews'><i className="far fa-eye"></i> {props.libro.views}</p>
                         <p className='storyStars'><i class="far fa-star"></i> {props.libro.stars.length}</p>
                         <p className='storyChapters'><i class="fas fa-list-ul"></i> {props.libro.chapters.length}</p>
                     </div>
