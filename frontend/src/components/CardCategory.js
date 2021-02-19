@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { connect } from "react-redux"
 
 const CardCategory = (props) => {
   return (
@@ -17,5 +18,7 @@ const CardCategory = (props) => {
     </>
   )
 }
-
-export default CardCategory;
+const mapStateToProps = state => {
+  return(console.log('Voy a ser el mapStateToProps'))
+}
+export default connect(mapStateToProps)(CardCategory);

@@ -38,16 +38,19 @@ const Header = (props) => {
           <div className="dropDownPic" >{props.loggedUser.firstname.toUpperCase().substr(0, 1)}</div>
         </div>
         : props.loggedUser && props.loggedUser.image 
-        ?
+        ?<>
         <div className="headerRight">
-          <Link to="/" onClick={props.logout}><p>LogOut</p></Link>
+          <Link to='/userprofile'><p>Mi Perfil</p></Link>
           <h4>Hola! {(props.loggedUser.firstname).toUpperCase()}</h4>
           <div className="dropDownPic" style={{backgroundImage: `url('${props.loggedUser.image}')`}}></div>
+          
         </div>
+        <Link to="/" onClick={props.logout}><p>LogOut</p></Link></>
         :
         <div className="headerRight">
-          <Link to="/signin"><p>Iniciar sesión</p></Link>
-          <Link to="/register"><p>Regístrate</p></Link>
+        <Link to="/signin"><p>Iniciar sesión</p></Link>
+        <Link to="/register"><p>Regístrate</p></Link>
+        <Link to='/userprofile'><p>Mi Perfil</p></Link>
         </div>
       }
     </header>

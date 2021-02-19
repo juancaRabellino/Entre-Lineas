@@ -38,7 +38,7 @@ const Search = (props) => {
             {value === false ? 
             <>
             <div className='containerTitleSearch'>
-                <h1>Explorá las categorías</h1>
+                <h1>Explorá las categorías<span>&#160;</span></h1>
             </div>
             <div className='containerViewCardsCategories'>
                 {props.genres.map((cardCategory, index) => {
