@@ -18,6 +18,8 @@ const NewBook =(props)=>{
   useEffect(()=>{
     if(props.newBook._id) props.history.push(`/new-book/${props.newBook._id}`)
   },[props.newBook._id])
+
+
   const send=(e)=> {
     e.preventDefault()
     if(!book.genre || book.genre===''|| book.title===''|| book.description===''|| book.user==='' || book.image===''){
@@ -63,7 +65,7 @@ const NewBook =(props)=>{
             <option value="Terror">Terror</option>
           </select>
           {/* <input type="file" name="image" id="image" onChange={readInput}/> */}
-          <button onClick={send} className="buttonDiscover"><span>Continuar</span></button>
+          <button onClick={send} className="buttonDiscover"><span>Escribir capítulo </span></button>
         </form>
       </div>
     </div>
