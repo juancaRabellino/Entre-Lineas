@@ -27,6 +27,8 @@ router.route('/user/ls')
 router.route("/user/reset-password")
 .post(auth.restartPassword)
 
+router.route("/user/changepassword")
+.post(auth.changePassword)
 
 
 
