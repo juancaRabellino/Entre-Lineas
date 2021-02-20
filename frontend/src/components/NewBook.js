@@ -31,15 +31,8 @@ const NewBook =(props)=>{
       formData.append('genre', book.genre.trim())
       formData.append('title', book.title.trim())
       formData.append('description', book.description.trim())
-      // formData.append('image', book.image)
       console.log(book.image)
       props.addBook(formData, props.loggedUser.token)
-      // var filesExtension = ['.jpg', '.png', '.jpeg']
-      // if(imgValue && filesExtension.some(file=>imgValue.name.includes(file))){
-      //   alert('Libro enviado con exito')
-      // }else{
-      //   alert('Extension de archivo no permitida')
-      // }
     }
 
   }

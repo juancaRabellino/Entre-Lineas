@@ -4,9 +4,11 @@ const voteController = {
     vote: async (req, res) => {
         const idBook = req.body.id
         const userId = req.user._id
-        await Book.findOneAndUpdate({ _id:idBook}, {$addToSet: {stars:userId}}, {new: true})
-        .then(book => {
-          return res.json({success: true, respuesta: book})
+        await Book.findOneAndUpdate({ _id:idBook}, 
+          {$addToSet: {stars: userId}}, 
+          {new: true})
+        .then(bookVoted => {
+          return res.json({success: true, respuesta: bookVoted})
         })
         .catch(error => {
           return res.json({success: false, error: error})

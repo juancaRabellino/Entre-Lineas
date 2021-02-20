@@ -6,30 +6,33 @@ import { Button, Input} from 'reactstrap'
 import Comment from './Comment'
 
 const StoryDescription = (props)=>{
+    const [reload, setReload] = useState(false)
+    const [value, setValue] = useState('')
+    const [voted, setVoted] = useState('')
     var namePage = props.match.params.id
     var filtro = props.books.filter(libro=> libro._id === namePage)
-    
-    console.log()
 
-    const [value, setValue] = useState('')
-    const [voted, setVoted] = useState(false)
     useEffect(() => {
         if(props.loggedUser) {
             setVoted(props.loggedUser.id)
         }
-    }, [])
-    console.log(props.comments)
+    }, [props.loggedUser])
+
+
     const enviar =  async (e) => {
         await props.addComment(value, filtro[0]._id, props.loggedUser.token)
         setValue("")
     }
-    const votes = () => {
+    const votes = async () => {
         props.vote(filtro[0]._id, props.loggedUser.token)
-        setVoted(!voted)
+        filtro[0].stars.push(props.loggedUser.id)
+        console.log(filtro[0].stars)
+        setReload(!reload)
     }
-    const dismissVote = () => {
+    const dismissVote = async () => {
         props.dismissVote(filtro[0]._id, props.loggedUser.token)
-        setVoted(!voted)
+        filtro[0].stars.pop(props.loggedUser.id)
+        setReload(!reload)
     }
     const keyPress = e => {
         if (e.key === 'Enter') {
@@ -53,7 +56,6 @@ const StoryDescription = (props)=>{
                     <h5>{filtro[0].genre}</h5>
                     <div className="dos">
                         <h5><i className="far fa-eye"></i> {filtro[0].views} </h5>
-                        {console.log(filtro[0].stars)}
                         <h5><i class="far fa-star"></i> {filtro[0].stars.length}</h5>
                         <h5><i class="fas fa-list-ul"></i> {filtro[0].chapters.length}</h5>
                     </div>
@@ -64,9 +66,11 @@ const StoryDescription = (props)=>{
                     {filtro[0].chapters.length > 0 
                     ? <Link to={`/book/${filtro[0]._id}/${filtro[0].chapters[0]._id}/${0}`}>
                     <button className="BotonLeer">Leer</button></Link> : redirect()}
-                    {filtro[0].stars.includes(voted) ?
-                    <button className="BotonLeer" onClick={props.loggedUser && dismissVote}>Quitar Voto <i class="fas fa-star"></i></button>: 
-                    <button className="BotonLeer" onClick={props.loggedUser && votes}>Votar <i class="far fa-star"></i></button>}
+                    {filtro[0].stars.includes(voted) 
+                    ?
+                    <button className="BotonLeer" onClick={props.loggedUser && dismissVote}>Quitar Voto <i class="fas fa-star"></i></button>
+                    : 
+                    <button className="BotonLeer" onClick={props.loggedUser ? votes : ()=>alert('Necesitas iniciar sesion para poder votar!')}>Depositar voto <i class="far fa-star"></i></button>}
                 </div>
             </div>
         </div>
@@ -100,14 +104,14 @@ const StoryDescription = (props)=>{
                     </div>
                 </div> :
                 <div className="d-flex justify-content-center">
-                    <Input className="comment w-50 text-center" disabled type="text" placeholder="Firts Logged plz" />
+                    <Input className="comment w-50 text-center" disabled type="text" placeholder="Necesitas iniciar sesion para comentar!" />
                 </div>}
             </div>
         </div>
-
         </>
     )
 }
+
 const mapStateToProps = state => {
     return {
         loggedUser: state.auth.loggedUser,
@@ -120,7 +124,8 @@ const mapDispatchToProps = {
     addComment: bookActions.addComment,
     getBooks: bookActions.getBooks,
     vote: bookActions.vote,
-    dismissVote: bookActions.dismissVote
+    dismissVote: bookActions.dismissVote,
+    incViews: bookActions.incViews
 
 }
 export default connect(mapStateToProps, mapDispatchToProps)(StoryDescription);

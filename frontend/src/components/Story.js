@@ -1,5 +1,12 @@
+import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
+import bookActions from '../redux/actions/bookActions'
 const Story=(props)=>{
+
+    // const views =()=>{
+    //     props.incViews(props.libro._id)
+    // }
+
     return(
         <>
         <div className='storyContainer'>
@@ -21,4 +28,9 @@ const Story=(props)=>{
         </>
     )
 }
-export default Story
+
+const mapDispatchToProps= {
+    incViews: bookActions.incViews
+}
+
+export default connect(null, mapDispatchToProps)(Story)

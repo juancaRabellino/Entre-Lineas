@@ -1,7 +1,6 @@
 import axios from 'axios'
 
 const bookActions = {
-  
   addBook: (formData, token) => {
     return async (dispatch, getState) => {
       try {
@@ -75,14 +74,13 @@ const bookActions = {
             Authorization : `Bearer ${token}`
           }
         })
-        console.log(response.data)
         dispatch({type: 'UPDATE_BOOK', payload: response.data.response})
+        console.log(response.data)
       }catch(error){
         console.log(error) 
       }
     }
   },
-
 
   addComment:(content, id, token) => {
     return async (dispatch, getState) => {
@@ -140,7 +138,7 @@ const bookActions = {
             Authorization: `Bearer ${token}` 
           }
         })
-        dispatch({type: 'LIKE', payload: res.data})
+        dispatch({type: 'VOTE', payload: res.data})
         console.log(res.data)
       } catch(error){
         console.log(error)
@@ -156,12 +154,24 @@ const bookActions = {
             Authorization: `Bearer ${token}` 
           }
         })
-        dispatch({type: 'LIKE', payload: res.data})
+        dispatch({type: 'DIS_VOTE', payload: res.data})
         console.log(res.data)
       } catch(error){
         console.log(error)
       }
     }
+  },
+
+  incViews: (id) => {
+    return async (dispatch, getState) => {
+      try {
+        const response = await axios.post('http://localhost:4000/api/views', {id})
+        dispatch({type: 'VIEWS', payload: response.data})
+        console.log(response.data.response)
+      }catch(error){
+      console.log(error)
+      }
+    } 
   }
 }
 

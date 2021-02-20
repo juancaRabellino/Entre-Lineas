@@ -10,8 +10,9 @@ const Search = (props) => {
         
     useEffect( () => {
         props.getBooks()
-        
     },[])
+
+    console.log(props.books)
     const searching = (e) => {
         props.search(e.target.value)
         setValue(true)
