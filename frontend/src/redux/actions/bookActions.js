@@ -18,6 +18,22 @@ const bookActions = {
     }
   },
 
+  addImage: (formData, token) => {
+    return async (dispatch, getState) => {
+      try {
+        const response = await axios.put('http://localhost:4000/api/book', formData, {
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
+        })
+        dispatch({type: 'ADD_BOOK', payload:response.data.response})
+        console.log(response.data)
+      }catch(error){
+        console.log(error)
+      }
+    }
+  },
+
   getBooks: () => {
     return async (dispatch, getState) => {
       try {

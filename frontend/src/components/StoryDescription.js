@@ -8,8 +8,6 @@ import Comment from './Comment'
 const StoryDescription = (props)=>{
     var namePage = props.match.params.id
     var filtro = props.books.filter(libro=> libro._id === namePage)
-    
-    console.log()
 
     const [value, setValue] = useState('')
     const [voted, setVoted] = useState(false)

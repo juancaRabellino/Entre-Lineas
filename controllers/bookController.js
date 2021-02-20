@@ -3,23 +3,41 @@ const Book = require('../models/Book')
 const bookController = {
   createBook: (req,res) => {
     const {title, description, genre} = req.body
+    // const {image} = req.files
+    // const pic = image.name.split('.')
+    // const url = `../booksimages/${req.user._id}.${pic[1]}`
+    // image.mv(`./frontend/public/booksimages/${req.user._id}.${pic[1]}`, error => {
+    //   if(error) {
+    //     console.log(error)
+    //     return res.json({success: false, error})
+    //   }
+    // })
+    const createBook = new Book({title, description, genre, 
+      user: req.user._id})
+    createBook.save()
+    .then( async createBook => {
+      const book = await createBook.populate('user').execPopulate() 
+      res.json({success: true, response: book})})
+    .catch(error => res.json({success: false, error}))
+  },
+  addImage: (req, res) => {
+    const {id} = req.body
+    console.log(req.files)
     const {image} = req.files
-    console.log('')
     const pic = image.name.split('.')
     const url = `../booksimages/${req.user._id}.${pic[1]}`
+    console.log(url)
     image.mv(`./frontend/public/booksimages/${req.user._id}.${pic[1]}`, error => {
       if(error) {
         console.log(error)
         return res.json({success: false, error})
       }
     })
-    const createBook = new Book({title, description, genre, 
-      user: req.user._id, image:url})
-    createBook.save()
-    .then( async createBook => {
-      const book = await createBook.populate('user').execPopulate() 
-      res.json({success: true, response: book})})
-    .catch(error => res.json({success: false, error}))
+    Book.findOneAndUpdate({_id: id},
+      {$set: {image:url}},
+      {new: true})
+    .then(response=> res.json({success: true, response}))
+    .catch(error=> res.json({success: false, error}))
   },
 
   getBooks: (req,res) => {
