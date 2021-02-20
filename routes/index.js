@@ -49,17 +49,19 @@ router.route('/genre')
 .post(genreController.addGenre)
 
 // Comments Route
-router.route('/comments/')
+router.route('/comments')
 .post(passport.authenticate('jwt', {session: false}),commentController.addComment)
-.put(commentController.modComment)
+.put(passport.authenticate('jwt', {session: false}), commentController.modComment)
 
 router.route('/comments/delete')
-.put(commentController.deleteComment)
+.put(passport.authenticate('jwt', {session: false}), commentController.deleteComment)
 
 // likes/votes Route
 router.route('/vote')
 .post(passport.authenticate('jwt', {session: false}), voteController.vote)
-.put(passport.authenticate('jwt', {session: false}), voteController.dismissVote)
+
+router.route('/dismissvote')
+.post(passport.authenticate('jwt', {session: false}), voteController.dismissVote)
 
 router.route('/views')
 .post(bookController.incViews)

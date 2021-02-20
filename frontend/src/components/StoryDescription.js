@@ -114,7 +114,7 @@ const StoryDescription = (props)=>{
                 {props.loggedUser ? 
                 <div className="">
                     <div className="inputButtomEnvComment">
-                        <Input className="comment" id="comment" type="text" placeholder="Comenta!" value={value} onChange={(e)=> setValue(e.target.value)} onKeyPress={keyPress}/>
+                        <Input className="comment" type="text" placeholder="Comenta!" value={value} onChange={(e)=> setValue(e.target.value)} onKeyPress={keyPress}/>
                         <Button onClick={enviar}><i class="far fa-paper-plane"></i></Button>
                     </div>
                 </div> :
