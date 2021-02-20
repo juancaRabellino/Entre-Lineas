@@ -49,10 +49,10 @@ const FinishBook=(props)=>{
         <div className="inputAndButtonFinishBook">
           <div className="finishBook">
             <h3>Elegir foto de portada</h3>
-            <div className="selectImagPort">
-              <label  for="image">
-                <i for="image" class="fas fa-hand-pointer"></i>
-                <h6>Click para seleccionar Imagen</h6>
+            <div className="selectImagPort" style={{cursor: 'pointer'}}>
+              <label style={{cursor: 'pointer'}} for="image">
+                <i style={{cursor: 'pointer'}} for="image" class="fas fa-hand-pointer"></i>
+                <h6 style={{cursor: 'pointer'}}>Click para seleccionar Imagen</h6>
               </label>
             </div>
             <input className="imagePort" type="file" name="image" id="image" onChange={selectImag}/>

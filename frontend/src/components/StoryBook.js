@@ -11,7 +11,7 @@ const StoryBook = (props)=>{
         <>
             <div className="containerCap">
                 <div className="containerTitleAndUser">
-                    <div style={{ backgroundImage:`url('${filtro[0].image}')`, width:'15vw', height:'50vh', backgroundColor:'tomato'}}></div>
+                    <div style={{ backgroundImage: `url(${filtro[0].image})`, width:'15vw', height:'50vh', backgroundColor:'tomato'}}></div>
                     <div className="titleCap"> 
                         <p>{filtro[0].chapters[indexPage].title}</p>
                         <div style={{width:'30vh', display:'flex',justifyContent:'space-between'}}>

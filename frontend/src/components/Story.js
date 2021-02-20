@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom'
 import bookActions from '../redux/actions/bookActions'
 const Story=(props)=>{
 
-    // const views =()=>{
-    //     props.incViews(props.libro._id)
-    // }
+    const views =()=>{
+        props.incViews(props.libro._id)
+    }
 
     return(
         <>
@@ -22,7 +22,7 @@ const Story=(props)=>{
                     </div>
                     <p className='storyDescription'>{props.libro.description.substr(0,120)+"..."}</p>
                     <div className='storyButtons'>
-                        <Link to={`/story/${props.libro._id}`}><button className='btn btn-danger verMasStory'>Ver Mas</button></Link>
+                        <Link to={`/story/${props.libro._id}`}><button onClick={views} className='btn btn-danger verMasStory'>Ver Mas</button></Link>
                     </div>
                 </div>
         </div>
