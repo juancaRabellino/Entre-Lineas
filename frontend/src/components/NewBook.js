@@ -7,11 +7,12 @@ import Swal from'sweetalert2';
 const NewBook =(props)=>{
   const [book, setBook] = useState({})
   const readInput =(e)=> {
-    const value = e.target.value
+    var value = e.target.value
     const prop = e.target.name
+    if (prop ==='image') value = e.target.files[0]
     setBook({
       ...book,
-      [prop]:value.trim(),
+      [prop]:value,
     })
   }
   useEffect(()=>{
@@ -29,19 +30,18 @@ const NewBook =(props)=>{
       })
     }else{
       const formData = new FormData()
-      const imgValue = document.getElementById('image').files[0]
-      formData.append('genre', book.genre)
-      formData.append('title', book.title)
-      formData.append('description', book.description)
-      formData.append('user', book.user)
-      formData.append('image', imgValue)
-      var filesExtension = ['.jpg', '.png', '.jpeg']
-      if(imgValue && filesExtension.some(file=>imgValue.name.includes(file))){
-        props.addBook(formData, props.loggedUser.token)
-        alert('Libro enviado con exito')
-      }else{
-        alert('Extension de archivo no permitida')
-      }
+      formData.append('genre', book.genre.trim())
+      formData.append('title', book.title.trim())
+      formData.append('description', book.description.trim())
+      // formData.append('image', book.image)
+      console.log(book.image)
+      props.addBook(formData, props.loggedUser.token)
+      // var filesExtension = ['.jpg', '.png', '.jpeg']
+      // if(imgValue && filesExtension.some(file=>imgValue.name.includes(file))){
+      //   alert('Libro enviado con exito')
+      // }else{
+      //   alert('Extension de archivo no permitida')
+      // }
     }
 
   }
@@ -71,8 +71,8 @@ const NewBook =(props)=>{
             <option value="Suspenso">Suspenso</option>
             <option value="Terror">Terror</option>
           </select>
-          <input type="file" name="image" id="image"/>
-          <button onClick={send} className="buttonDiscover"><span>Continuar</span></button>
+          {/* <input type="file" name="image" id="image" onChange={readInput}/> */}
+          <button onClick={send} className="buttonDiscover"><span>Escribir capítulo </span></button>
         </form>
       </div>
     </div>

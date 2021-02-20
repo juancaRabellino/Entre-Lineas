@@ -130,7 +130,7 @@ div.dropdown-content {
   border-radius: 50%;
 }
 
-/* Styles settings user (Juanca) */
+/* Styles ngngs user (Juanca) */
 section.settings {
   min-height: 79.5vh;
   display: flex;
@@ -1264,12 +1264,13 @@ section.settings {
 .imag-form-book {
     background-image: url(../assets/imagFormBook.png);
     height: 60vh;
-    width: 98.79vw;
+    width: 99.5vw;
     background-position:center;
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.5),0 17px 50px 0 rgba(0, 0, 0, 0.5);
+    margin-top: 2vh;
 }
 
 .frase-form {
@@ -1334,12 +1335,26 @@ section.settings {
     padding-right: 3vh;
 }
 
-.input-formBook:focus , .botonRinput-formBookegister:focus {
+.input-formBook:focus , .botonRinput-formBookegister:focus, .textarea-formBook:focus {
     outline: none;
 }
 
 .textarea-formBook {
     border: solid 1.8px rgb(55, 112, 187);
+    resize: none;
+    overflow-y: scroll;
+}
+
+.textarea-formBook::-webkit-scrollbar {
+    width:1.7vh;
+}
+
+.textarea-formBook::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+.textarea-formBook::-webkit-scrollbar-thumb {
+    background-color: rgb(55, 112, 187);
 }
 
 .buttonDiscover {
@@ -1359,6 +1374,7 @@ section.settings {
     transition: 0.5s;
     font-size: 20px;
     padding-right: 25px;
+    padding-right: 25px;
 }
 
 .buttonDiscover span:after {
@@ -1377,10 +1393,6 @@ section.settings {
     border: solid 0.1vh rgb(35, 60, 201);
 }
 
-.buttonNewChapter span {
-    padding-right: 25px;
-}
-
 .buttonDiscover:hover span:after {
     opacity: 1;
     right: 0;
@@ -1397,7 +1409,7 @@ section.settings {
 }
 
 .imag-form-chapter {
-    background-image: url(../assets/17010.jpg);
+    background-image: url(../assets/Paisaje\ 11.jpg);
     height: 60vh;
     width: 99vw;
     background-position:bottom;
@@ -1425,6 +1437,10 @@ section.settings {
     background-color: white;
     border: solid 3px rgb(55, 112, 187);
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.5),0 17px 50px 0 rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
 
 .form-chapter {
@@ -1433,6 +1449,7 @@ section.settings {
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow: auto;
 }
 
 .input-chapter{
@@ -1454,12 +1471,13 @@ section.settings {
     border: solid 1.8px rgb(55, 112, 187);
     padding-left: 3vh;
     padding-right: 3vh;
+    height: 10vh;
 }
 
 
 .buttonNewChapter {
-    height: 10vh;
-    width: 46vw;
+    height: 8vh;
+    width: 20vw;
     display: inline-block;
     background-color: rgb(55, 112, 187);
     color: #FFFFFF;
@@ -1659,13 +1677,6 @@ footer p {
     margin-top: 3vh;
 }
 
-.tres{
-    width: 8vw;
-    display: flex;
-    margin-top: 3vh;
-    justify-content: space-between;
-}
-
 .hola{
     background-size: cover;
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.5),0 17px 50px 0 rgba(0, 0, 0, 0.5);
@@ -1751,10 +1762,8 @@ footer p {
 
 .nueve{
     width: 34vw;
-    height: 70vh;
+    height: 60vh;
     border-radius: 10px;
-    margin-right: 3vh;
-    margin-top: 6vh;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -1766,11 +1775,12 @@ footer p {
 /* estilos de comentarios (gime) */
 
 .inputButtomEnvComment {
-    margin-top: 20vh;
+    margin-top: 5vh;
     width: 30vw;
     margin-left: 5vh;
     display: flex;
     justify-content: space-between;
+    margin-bottom: 5vh;
 
 }
 
@@ -1783,19 +1793,22 @@ footer p {
 .containerComment {
     width: 30vw;
     margin-left: 5vh;
-overflow-y: auto;
-overflow-x: auto;
 }
 
-.containerComment::-webkit-scrollbar {
-height: 10px;
+.chichi{
+    overflow-x: auto;
+    margin-top: 5vh;
 }
 
-.containerComment::-webkit-scrollbar-track {
+.chichi::-webkit-scrollbar {
+width: 10px;
+}
+
+.chichi::-webkit-scrollbar-track {
 background-color: transparent;
 }
 
-.containerComment::-webkit-scrollbar-thumb {
+.chichi::-webkit-scrollbar-thumb {
 background-color: rgba(194, 99, 231, 0.534);
 border-radius: 30px;
 }
@@ -1813,14 +1826,14 @@ border-radius: 30px;
 }
 
 .rounded-circle {
-    height: 6vh;
-    width: 2.9vw;
+    height:8vh;
+    width: 4vw;
 }
 
 .contentComment {
     width: 18vw;
     background-color: rgb(138, 61, 168);
-    padding: 1vh;
+    padding: 0.5vh;
     border-radius: 25px;
 }
 
@@ -1840,7 +1853,9 @@ border-radius: 30px;
     margin-left: 1vh;
 }
 
-
+.d-flex{
+    height: 10vh;
+}
 
 
 /* estilos Settings (gime) */
@@ -1932,7 +1947,7 @@ border-radius: 30px;
 
 
 .line input {
-    width: 35VW;
+    width: 45VW;
     height: 3vh;
     margin-top: 3vh;
     margin-bottom: 3vh;
@@ -2001,4 +2016,244 @@ border-radius: 30px;
 .buttonSettings:hover span:after {
     opacity: 1;
     right: 0;
+}
+
+.selectImagPerfil{
+    margin-top: 5vh;
+    color: white;
+    padding: .5em 1em;
+    background-color: rgb(103, 11, 139);
+    display: block;
+    width: 20vw;
+    text-align: center;
+    height: 15vh;
+    margin-left: 22vw;
+}
+
+.selectImagPerfil label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* finishBook estilos (gime) */
+.conteiner-finishBook{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 70vh;
+}
+.imagFinishBook{
+    background-image: url(../assets/123.jpg);
+    height: 60vh;
+    width: 98.7vw;
+    background-position:bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.5),0 17px 50px 0 rgba(0, 0, 0, 0.5);
+    margin-top: 2vh;
+}
+
+.form-finishBook{
+    height: 70vh;
+    position: absolute;
+    background-color: white;
+    border: solid 3px rgb(55, 112, 187);
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.5),0 17px 50px 0 rgba(0, 0, 0, 0.5);
+    margin-top: 50vh;
+    padding-top: 5vh;
+    padding-bottom: 5vh;
+}
+
+.inputAndButtonFinishBook{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 45vh;
+    width: 50vw;
+}
+
+.finishBook{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 50vh;
+    margin-left: 5vh;
+    margin-top: 15vh;
+}
+
+.finishBook h3 {
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+.finishBook input {
+    border-bottom: solid 1px rgb(55, 112, 187);
+}
+
+.portadaImage{
+    background-position: center;
+    background-size: cover;
+    margin-right: 5vh;
+    width: 40vh;
+    height: 60vh;
+    margin-top: 15vh;
+}
+
+.buttonFinshBook {
+    width: 20vw;
+    height: 10vh;
+    display: inline-block;
+    background-color: rgb(55, 112, 187);
+    color: #FFFFFF;
+    text-align: center;
+    transition: all 0.5s;
+    border: solid 0.1vh rgb(255, 255, 255);
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+.buttonFinshBook span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+    font-size: 20px;
+    padding-right: 25px;
+    padding-right: 25px;
+}
+
+.buttonFinshBook span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+
+.buttonFinshBook:hover{
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+    background-color:#108cc5;
+    color: white;
+    border: solid 0.1vh rgb(35, 60, 201);
+}
+
+.buttonFinshBook:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+
+.selectImagPort {
+    margin-top: 5vh;
+    color: white;
+    padding: .5em 1em;
+    background-color: rgb(103, 11, 139);
+    display: block;
+    width: 20vw;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 20vh;
+    }
+
+.fa-hand-pointer{
+    height: 5vh;
+}
+
+.imagePort[type="file"] {
+    width: 20vw;
+    height: 5vh;
+    opacity: 0;
+}
+
+/* estilos StoryBook (gime) */
+
+.containerCap{
+    margin-top: 2vh;
+    height: auto;
+}
+
+.containerParrafosAndButton {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.containerTitleAndUser, .containerCap{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.titleCap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 6vh;
+    margin-top: 5vh;
+    margin-bottom: 3vh;
+}
+
+.titleCap div h5 {
+    font-size: 2.5vh;
+}
+
+.userDate {
+    margin-bottom: 4vh;
+}
+
+.containerParrafosAndButton button {
+    margin-bottom: 5vh;
+    margin-top: 5vh;
+    width: 30vw;
+    height: 10vh;
+    display: inline-block;
+    background-color: rgb(103, 11, 139);
+    color: #FFFFFF;
+    text-align: center;
+    transition: all 0.5s;
+    border: solid 0.1vh rgb(255, 255, 255);
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+.containerParrafosAndButton button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+    font-size: 20px;
+    padding-right: 25px;
+    padding-right: 25px;
+}
+
+.containerParrafosAndButton button span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+
+.containerParrafosAndButton button:hover{
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+    background-color:rgb(138, 61, 168);
+    color: white;
+    border: solid 0.1vh white;
+}
+
+.containerParrafosAndButton button:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+
+.containerParrafos {
+    width: 70vw;
+    margin-bottom: 3vh;
 }

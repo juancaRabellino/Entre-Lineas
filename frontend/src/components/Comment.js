@@ -35,15 +35,15 @@ const Comment = (props) => {
                     <div className="dropDownPic" >{props.comment.firstName.toUpperCase().substr(0, 1)}</div>}
                     <h6 className="index">{props.comment.firstName}</h6>
                 </div>
-                {!input ?
-                <div className="contentComment">
-                    <p>{props.comment.content}</p>
-                </div>
-                :
-                <div className="d-flex">
-                    <Input className="comment" id="comment" type="text" placeholder="Edit comment" onChange={(e) => {setValue(e.target.value)}} onKeyPress={keyPress}/>
-                    <Button onClick={modiComment}><i className="fas fa-paper-plane"></i></Button>
-                </div>}
+                    {!input ?
+                    <div className="contentComment">
+                        <p>{props.comment.content}</p>
+                    </div>
+                    :
+                    <div className="d-flex">
+                        <Input className="comment" id="comment" type="text" placeholder="Edit comment" onChange={(e) => {setValue(e.target.value)}} onKeyPress={keyPress}/>
+                        <Button onClick={modiComment}><i className="fas fa-paper-plane"></i></Button>
+                    </div>}
                 {loggedUser === props.comment.firstName + props.loggedUser.id &&
                 <div className="botonesEditAndBorrar">
                     <Button onClick={deleteC}><i className="far fa-trash-alt"></i></Button>

@@ -57,11 +57,10 @@ const StoryDescription = (props)=>{
                         <h5><i class="far fa-star"></i> {filtro[0].stars.length}</h5>
                         <h5><i class="fas fa-list-ul"></i> {filtro[0].chapters.length}</h5>
                     </div>
-                    <div className="tres">
-                        <h5>{filtro[0].user.firstname}</h5>
-                        <h5>{filtro[0].user.lastname}</h5>
+                    <div>
+                        <h5>{filtro[0].user.firstname} {filtro[0].user.lastname}</h5>
                     </div>
-                    {filtro[0].chapters.length > 0 
+                    {filtro[0].chapters.length > 0
                     ? <Link to={`/book/${filtro[0]._id}/${filtro[0].chapters[0]._id}/${0}`}>
                     <button className="BotonLeer">Leer</button></Link> : redirect()}
                     {filtro[0].stars.includes(voted) ?
@@ -84,24 +83,28 @@ const StoryDescription = (props)=>{
                 </div>
             </div>
             <div className="nueve">
-                {props.comments.comments ?
-                <div>
-                    {(props.comments.comments.map(comment => {
-                    return <Comment comment={comment} key={comment._id} id={filtro[0]._id}/>
-                }))}
-                </div>
-                 :
-                <h2 className="text-center bg-white w-100">Sin Comentarios</h2>}
-                {props.loggedUser ? 
-                <div className="">
-                    <div className="inputButtomEnvComment">
-                        <Input className="comment" id="comment" type="text" placeholder="Comenta!" value={value} onChange={(e)=> setValue(e.target.value)} onKeyPress={keyPress}/>
-                        <Button onClick={enviar}><i class="far fa-paper-plane"></i></Button>
+                <div className="chichi">
+                    {props.comments.comments ?
+                    <div>
+                        {(props.comments.comments.map(comment => {
+                            return <Comment comment={comment} key={comment._id} id={filtro[0]._id}/>
+                        }))}
                     </div>
-                </div> :
-                <div className="d-flex justify-content-center">
-                    <Input className="comment w-50 text-center" disabled type="text" placeholder="Firts Logged plz" />
-                </div>}
+                    :
+                    <h2 className="text-center bg-white w-100">Sin Comentarios</h2>}
+                </div>
+                <div>
+                    {props.loggedUser ?
+                    <div>
+                        <div className="inputButtomEnvComment">
+                            <Input className="comment" id="comment" type="text" placeholder="Comenta!" value={value} onChange={(e)=> setValue(e.target.value)} onKeyPress={keyPress}/>
+                            <Button onClick={enviar}><i class="far fa-paper-plane"></i></Button>
+                        </div>
+                    </div> :
+                    <div className="d-flex justify-content-center">
+                        <Input className="comment w-50 text-center" disabled type="text" placeholder="Firts Logged plz" />
+                    </div>}
+                </div>
             </div>
         </div>
 

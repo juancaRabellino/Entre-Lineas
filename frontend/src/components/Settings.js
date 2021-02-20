@@ -75,7 +75,7 @@ const Settings = (props) => {
               <h4>Ajustes de usuario</h4>
               <button className="settingsEdit" onClick={edit}>
                 <i className="fas fa-pencil-alt editPencil" style={{color: 'white'}}></i>
-                <p>Comezar</p>
+                <p>Comenzar</p>
               </button>
           </div>
           <div className="line">
@@ -95,8 +95,13 @@ const Settings = (props) => {
             <input type="date" name="birthday" id="birthday" disabled={!change ? true : false} value={birthday} onChange={(e)=>setBirthday(e.target.value)} />
           </div>
           <div className="lineImgUser">
-            <label htmlFor="image">Foto de perfil</label>
-            <input type="file" name="image" id="image" value={image} onChange={prueba}/>
+              <div className="selectImagPerfil">
+                <label htmlFor="image" for="image">
+                  <i for="image" class="fas fa-hand-pointer"></i>
+                  <h6>Click para seleccionar Imagen</h6>
+                </label>
+              </div>
+            <input className="imagePort" type="file" name="image" id="image" value={image} onChange={prueba}/>
           </div>
           <div className="line">
             <div className="buttonSettings" onClick={send}><span>Confirmar cambios</span></div>
