@@ -76,7 +76,7 @@ const bookActions = {
               Authorization: `Bearer ${token}` 
           }
       })
-        dispatch({type: 'ADD_COMMENT', payload: res.data.respuesta})
+        dispatch({type: 'COMMENT', payload: res.data.respuesta})
         return true
       } catch(error){
         console.log(error)
@@ -92,7 +92,7 @@ const bookActions = {
               Authorization: `Bearer ${token}` 
           }
       })
-        dispatch({type: 'DELETE_COMMENT', payload: res.data.respuesta})
+        dispatch({type: 'COMMENT', payload: res.data.respuesta})
       } catch(error){
         console.log(error)
       }
@@ -108,7 +108,7 @@ const bookActions = {
               Authorization: `Bearer ${token}` 
           }
       })
-        dispatch({type: 'ADD_COMMENT', payload: res.data.respuesta})
+        dispatch({type: 'COMMENT', payload: res.data.respuesta})
         console.log(res)
       } catch(error){
         console.log(error)
@@ -124,7 +124,7 @@ const bookActions = {
             Authorization: `Bearer ${token}` 
           }
         })
-        dispatch({type: 'LIKE', payload: res.data})
+        dispatch({type: 'VOTE', payload: res.data})
         console.log(res.data)
       } catch(error){
         console.log(error)
@@ -135,12 +135,12 @@ const bookActions = {
   dismissVote:(id, token) => {
     return async(dispatch, getState) => {
       try {
-        const res = await axios.put('http://localhost:4000/api/vote', {id}, {
+        const res = await axios.post('http://localhost:4000/api/dismissvote', {id}, {
           headers: {
             Authorization: `Bearer ${token}` 
           }
         })
-        dispatch({type: 'LIKE', payload: res.data})
+        dispatch({type: 'VOTE', payload: res.data})
         console.log(res.data)
       } catch(error){
         console.log(error)

@@ -16,7 +16,7 @@ const StoryDescription = (props)=>{
             setVoted(props.loggedUser.id)
         }
     }, [])
-    console.log(props.comments)
+    console.log(filtro[0])
     const enviar =  async (e) => {
         await props.addComment(value, filtro[0]._id, props.loggedUser.token)
         setValue("")
@@ -76,7 +76,7 @@ const StoryDescription = (props)=>{
                 {props.comments.comments ?
                 <div>
                     {(props.comments.comments.map(comment => {
-                    return <Comment comment={comment} key={comment._id} id={filtro[0]._id}/>
+                    return <Comment comment={comment} key={comment._id} id={filtro[0]._id} />
                 }))}
                 </div>
                  :
@@ -84,7 +84,7 @@ const StoryDescription = (props)=>{
                 {props.loggedUser ? 
                 <div className="">
                     <div className="inputButtomEnvComment">
-                        <Input className="comment" id="comment" type="text" placeholder="Comenta!" value={value} onChange={(e)=> setValue(e.target.value)} onKeyPress={keyPress}/>
+                        <Input className="comment" type="text" placeholder="Comenta!" value={value} onChange={(e)=> setValue(e.target.value)} onKeyPress={keyPress}/>
                         <Button onClick={enviar}><i class="far fa-paper-plane"></i></Button>
                     </div>
                 </div> :
