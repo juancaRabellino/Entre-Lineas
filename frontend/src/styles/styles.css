@@ -1650,6 +1650,9 @@ footer p {
 .storyUser{
     color: rgb(110, 110, 110);
 }
+.storyGenre{
+    color: rgb(110, 110, 110);
+}
 .storyButtons{
     display: flex;
     justify-content: center;

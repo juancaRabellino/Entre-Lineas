@@ -39,12 +39,10 @@ const StoryDescription = (props)=>{
         enviar()
         }
     }
-
     const redirect = () =>{
         alert("Esta historia todavia no tiene capitulos")
         props.history.push(`/stories/${filtro[0].genre}`)
     }
-
     return(
         <>
         <div className="uno">
