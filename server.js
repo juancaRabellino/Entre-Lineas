@@ -6,9 +6,6 @@ const router = require("./routes/index.js")
 require('./config/database')
 const fileUpload = require('express-fileupload')
 
-
-
-
 const app = express()
 
 

@@ -27,13 +27,6 @@ router.route('/user/ls')
 router.route("/user/reset-password")
 .post(passwordController.restartPassword)
 
-router.route("/user/changepassword")
-.post(auth.changePassword)
-
-
-
-// Aca termina los controladores sobre usuarios. Agregaremos el panel de lectores y escritores..
-
 // Book routes
 router.route('/book')
 .post(passport.authenticate('jwt', {session: false}),bookController.createBook)
@@ -68,7 +61,7 @@ router.route('/vote')
 .post(passport.authenticate('jwt', {session: false}), voteController.vote)
 .put(passport.authenticate('jwt', {session: false}), voteController.dismissVote)
 
-// router.route('/views')
-// .post(bookController.incViews)
+router.route('/views')
+.post(bookController.incViews)
 
 module.exports = router
