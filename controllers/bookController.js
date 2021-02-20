@@ -4,6 +4,7 @@ const bookController = {
   createBook: (req,res) => {
     const {title, description, genre} = req.body
     const {image} = req.files
+    console.log('')
     const pic = image.name.split('.')
     const url = `../booksimages/${req.user._id}.${pic[1]}`
     image.mv(`./frontend/public/booksimages/${req.user._id}.${pic[1]}`, error => {
@@ -35,25 +36,14 @@ const bookController = {
   },
 
   updateBook: (req, res) => {
-    const id = req.body.id
-    const {title, content} = req.body.chapter
+    const {newChapter, id} = req.body
+    console.log(newChapter, id)
     Book.findOneAndUpdate({_id: id},
-      {$push: {chapters: [{title, chapter:[{content}]}]}},
+      {$push: {chapters: newChapter}},
       {new: true})
     .then(response=> res.json({success: true, response}))
     .catch(error => res.json({success: false, error}))
   },
-
-  // updateChapter: (req, res) => {
-
-  //   const {content, id} = req.body
-  //   console.log(content, id)
-  //   Book.findOneAndUpdate({_id: id},
-  //     {$push: {chapters:{[chapter:[{content}]]}}},
-  //     {new: true})
-  //   .then(response => res.json({success: true, response}))
-  //   .catch(error => res.json({success: false, error}))
-  // }
 }
 
 module.exports = bookController

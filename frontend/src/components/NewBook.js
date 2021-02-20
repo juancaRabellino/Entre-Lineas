@@ -17,7 +17,6 @@ const NewBook =(props)=>{
   useEffect(()=>{
     if(props.newBook._id) props.history.push(`/new-book/${props.newBook._id}`)
   },[props.newBook._id])
-
   const send=(e)=> {
     e.preventDefault()
     if(!book.genre || book.genre===''|| book.title===''|| book.description===''|| book.user==='' || book.image===''){
@@ -46,8 +45,7 @@ const NewBook =(props)=>{
     }
 
   }
-
-  return (
+ return (
     <section className="section-form-book">
     <div className="imag-form-book"></div>
     <div className="frase-form">
