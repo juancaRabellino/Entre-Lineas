@@ -4,6 +4,7 @@ import authActions from '../redux/actions/authActions'
 
 
 const Settings = (props) => {
+  console.log(props.loggedUser)
   const [change, setChange] = useState(false)
   const [email, setEmail] = useState('')
   const [firstname, setFirstname] = useState('')
@@ -17,7 +18,7 @@ const Settings = (props) => {
     setEmail(props.loggedUser.email)
     setFirstname(props.loggedUser.firstname)
     setLastname(props.loggedUser.lastname)
-    setBirthday(props.loggedUser.birthday.substr(-25, 10))
+    if(props.loggedUser.birthday) setBirthday(props.loggedUser.birthday.substr(-25, 10))
   },[])
 
   const edit = (e) => {

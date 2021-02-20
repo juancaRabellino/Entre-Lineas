@@ -9,8 +9,10 @@ const crypto = require ("crypto")
 const userController = {
 
     signUp: async (req, res) => {
+        console.log('Hola')
+        console.log(req.body)
         var errores = []
-        const {firstname, lastname, email, password, birthday} = req.body
+        const {firstname, lastname, email, password, birthday, image} = req.body
         const userExists = await User.findOne({email: email})
         if (userExists) {
             errores.push('El nombre email ya está siendo utilizado.  Elija otro.')
@@ -18,7 +20,7 @@ const userController = {
         if (errores.length === 0) {
             const passwordHasheado = bcryptjs.hashSync(password, 10)
             var newUser = new User({
-                firstname, lastname, email, password: passwordHasheado, birthday
+                firstname, lastname, email, password: passwordHasheado, birthday, image
             })
             var newUserSaved = await newUser.save()
             var token = jwt.sign({...newUserSaved}, process.env.SECRET_KEY, {})
@@ -26,7 +28,7 @@ const userController = {
         return res.json({success: errores.length === 0 ? true : false,
             errores: errores,
             response: errores.length === 0 && 
-                {token, firstname: newUserSaved.firstname, email: newUserSaved.email, lastname: newUserSaved.lastname, birthday: newUserSaved.birthday}})
+                {token, firstname: newUserSaved.firstname, email: newUserSaved.email, lastname: newUserSaved.lastname, birthday: newUserSaved.birthday, image: newUserSaved.image}})
     },
 
     signIn: async (req, res) => {
