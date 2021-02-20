@@ -29,7 +29,7 @@ header, footer {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  }
+}
   
 header *, footer * {
   text-decoration: none;
@@ -534,12 +534,11 @@ section.settings {
 
   .sectionBox{
       /* min-height: 100vh; */
-      background-image: url("../assets/fotoHome2.jpg");
+      background-image: url("../assets/fotoHome2Trans.png");
       position:relative;
       background-size: cover;
       background-position:right;
       background-attachment: fixed;
-      background-color: blue;
   }
   .firstSection{
       height: 90vh;
@@ -865,13 +864,12 @@ section.settings {
       color: white;
   }
   .fourthSecBack{
-      padding-top: 2vh;
       background-image: url('../assets/dispositivos.png');
-      background-size: cover;
+      background-size: contain;
       background-position: center;
       background-repeat: no-repeat;
       height: 88vh;
-      width: 75vw;
+      width: 95vw;
       margin-bottom: -16vh;
   }
 
