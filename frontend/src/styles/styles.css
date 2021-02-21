@@ -882,7 +882,7 @@ section.settings {
 /* --- Fabi --- */
 
             /* Search Bar */
-.containerComponentSearchStories, .containerComponentUserProfile {
+.containerComponentSearchStories {
     background-image: url('../assets/IMG-20210214-WA0068.jpg');
     background-repeat: repeat-y;
     background-size: cover;
@@ -1028,17 +1028,24 @@ section.settings {
             /* UserProfile */
 .containerComponentUserProfile{
     flex-direction: row;
+     background-image: url('../assets/IMG-20210214-WA0068.jpg');
+    background-repeat: repeat-y;
+    background-size: cover;
+    background-attachment: fixed;
+    max-width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
 }
 .containerBannerUserData{
     width: 30%;
-    height: 90vh;
     display: flex;
     justify-content: flex-end;
 }
 .containerContentOptions{
-    border: 2px solid black;
-    width: 70%;
-    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    width: 70%;  
 }
 .bannerUserData {
     height: 100%;
@@ -1131,14 +1138,7 @@ section.settings {
 .buttonLogout button {
     background-color: rgb(103, 11, 139);
 }
-.containerContentOptions{
-    border: 2px solid black;
-    display: flex;
-    flex-direction: column;
-    width: 70%;
-    height: 90vh;
 
-}
 .titleProfile{
     padding: 1vw;
     height: 10%;
@@ -1172,7 +1172,11 @@ section.settings {
 }
 .containerViewComponentOption{
     width: 100%;
-    height: 80%;
+}
+/* COMPONENTE DE MI BIBLIOTECA O MIS LIBROS (MAURI) */
+.booksBoxUserProf{
+    display: flex;
+    flex-wrap: wrap;
 }
 .dropDownMenu {
     width: 10vw;
@@ -1600,6 +1604,7 @@ footer p {
     margin-top: 2vh;
     border: 1px solid rgb(103, 11, 139);
     justify-content: center;
+    background-color: white;
 }
 .storyBodyContainer{
     display: flex;

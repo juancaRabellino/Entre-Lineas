@@ -18,9 +18,13 @@ import StoryDescription from './components/StoryDescription'
 import authActions from './redux/actions/authActions'
 import UserProfile from './components/UserProfile'
 import FinishBook from './components/FinishBook'
+<<<<<<< HEAD
 import ModifyBook from './components/ModifyBook'
 import ForgotPassword from './components/ForgotPassword'
 import SendEmail from './components/SendEmail'
+=======
+import MyBooks from './components/MyBooks'
+>>>>>>> 53198178599db56aa2fd847c229e6a40493c515a
 
 const App = (props) => {
   const [reload, setReload] = useState(false)
@@ -41,7 +45,7 @@ const App = (props) => {
           <Route path='/finish-book/:id' component={FinishBook}/>
           <Route path='/modify-book/:id' component={ModifyBook}/>
           <Route path='/reset-password/:email' component={ForgotPassword}/>
-
+          <Route path='/myBooks' component={MyBooks}/>
           <Redirect to="/search" />
         </Switch>
       </>

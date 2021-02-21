@@ -44,7 +44,7 @@ const StoryDescription = (props)=>{
     }
     return(
         <>
-        <div className="uno">
+        {filtro.length === 0 ? <h1>cargando...</h1>: <> <div className="uno">
             <div className="chauu"></div>
             <div className="cuatro">
                 <div className="hola" style={{ backgroundImage:`url('${filtro[0].image}')`, width:'15vw', height:'50vh'}}></div>
@@ -119,7 +119,7 @@ const StoryDescription = (props)=>{
                     <Input className="comment w-50 text-center" disabled type="text" placeholder="Necesitas iniciar sesion para comentar!" />
                 </div>}
             </div>
-        </div>
+        </div></>}
         </>
     )
 }

@@ -1,11 +1,13 @@
 import { Link } from 'react-router-dom'
 import Settings from './Settings'
 import { connect } from 'react-redux'
-
+import {useState} from 'react'
+import MyBooks from './MyBooks'
 
 const UserProfile = (props) => {
-
-    console.log(props)
+    var myBooks = props.books.filter(book => book.user._id === props.loggedUser.id)
+    var booksLiked = props.books.filter(book => book.stars.includes(props.loggedUser.id))
+    const [visible, setVisible]=useState(true)
 
     return(
         <>
@@ -58,10 +60,21 @@ const UserProfile = (props) => {
                 <div className='containerContentOptions'>
                     <h2 className='titleProfile'>Mi Perfil en Entre Líneas   </h2>
                     <div className='containerNavMenu'>
+<<<<<<< HEAD
                         <Link to='/library'><div className='optionMenu'>Mi biblioteca</div></Link>
                         <Link to='savedBooks'><div className='optionMenu savedBooks'>Mis libros guardados</div></Link>
                     </div>
                     <div className='containerViewComponentOption'>
+=======
+                        <Link ><div onClick={()=>setVisible(true)} className='optionMenu'>Mis Libros</div></Link>
+                        <Link ><div onClick={()=>setVisible(false)} className='optionMenu savedBooks'>Mi Biblioteca</div></Link>
+                    </div>
+                    <div className='containerViewComponentOption'>
+                    <div className='booksBoxUserProf'>
+                            {visible ? myBooks.map(book => <MyBooks libro={book}/>): 
+                            booksLiked.map(book=> <MyBooks libro={book}/>)}    
+                        </div>
+>>>>>>> 53198178599db56aa2fd847c229e6a40493c515a
                     </div>
                 </div>
             </div>
@@ -71,6 +84,7 @@ const UserProfile = (props) => {
 
 const mapStateToProps = state => {
     return {
+    books: state.bookR.books,
       loggedUser: state.auth.loggedUser
     }
 }
