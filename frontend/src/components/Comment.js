@@ -45,7 +45,7 @@ const keyPress = e => {
                         <Input className="comment" id="comment" type="text" placeholder="Edit comment" onChange={(e) => {setValue(e.target.value)}} onKeyPress={keyPress}/>
                         <Button onClick={modiComment}><i className="fas fa-paper-plane"></i></Button>
                     </div>}
-                {loggedUser === props.loggedUser.id &&
+                {props.loggedUser && loggedUser === props.loggedUser.id &&
                 <div className="botonesEditAndBorrar">
                     <Button onClick={deleteC}><i className="far fa-trash-alt"></i></Button>
                     <Button onClick={() => {setInput(!input)}}><i className="far fa-edit"></i></Button>
