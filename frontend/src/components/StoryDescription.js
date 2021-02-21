@@ -26,7 +26,6 @@ const StoryDescription = (props)=>{
     const votes = async () => {
         props.vote(filtro[0]._id, props.loggedUser.token)
         filtro[0].stars.push(props.loggedUser.id)
-        console.log(filtro[0].stars)
         setReload(!reload)
     }
     const dismissVote = async () => {

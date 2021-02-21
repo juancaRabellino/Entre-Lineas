@@ -2265,3 +2265,25 @@ border-radius: 30px;
     width: 70vw;
     margin-bottom: 3vh;
 }
+
+/* ESTILOS DE MODIFYBOOK (SANTI) */
+
+.modify-book {
+    width: 80vw;
+    height: 100vh;
+}
+
+.modify-book-image {
+    margin: 2vh auto;
+    width: 30vw;
+    height: 50vh;
+}
+
+.modify-book-title {
+    color: red
+}
+
+.modify-book-chapters {
+    width: 90vw;
+    /* height: 100%; */
+}

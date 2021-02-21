@@ -59,6 +59,7 @@ const Header = (props) => {
                 <Link to='/userprofile'><li>Mi Perfil</li></Link>
                 <Link to='/settings'><li>Configuración</li></Link>
                 <Link to='/add-book'><li>Crear un Nuevo Libro</li></Link>
+                <Link to='/modify-book/:id'>Modificar Libro</Link>
                 <Link to='/' onClick={props.logout}><li>Cerrar mi Sesión</li></Link>
               </ul>
             </div>

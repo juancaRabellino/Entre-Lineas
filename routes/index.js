@@ -26,6 +26,7 @@ router.route('/user/ls')
 
 router.route("/user/reset-password")
 .post(passwordController.restartPassword)
+.put(passwordController.changePassword)
 
 // Book routes
 router.route('/book')

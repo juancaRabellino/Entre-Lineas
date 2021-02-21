@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import { connect } from 'react-redux'
+import {Link} from 'react-router-dom'
 import authActions from '../redux/actions/authActions'
 import GoogleLogin from 'react-google-login'
 import FacebookLogin from 'react-facebook-login';
@@ -102,6 +103,7 @@ const responseFacebook = async (response) => {
                 <h5>{error.message}</h5>
             })} */}
         </div>
+            <Link to="/send-email"><h5>Olvidaste tu contraseña?</h5></Link>
     </div>
     )
 }

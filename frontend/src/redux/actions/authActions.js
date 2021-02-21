@@ -57,6 +57,31 @@ const authActions = {
             }
         }
     },
+
+    resetPassword: (email)=> {
+        return async (dispatch) => {
+            try{
+                const response = await axios.post('http://localhost:4000/api/user/reset-password', {email})
+                dispatch({type: 'RESET_PASSWORD'})
+                console.log(response.data)
+            }catch(error){
+                console.log(error)
+            }
+        }
+    },
+
+    newPassword: (email, password) => {
+        return async(dispatch) => {
+            try{
+                const response = await axios.put('http://localhost:4000/api/user/reset-password', {email, password})
+                dispatch({type: 'CHANGE_PASSWORD'})
+                console.log(response.data)
+            }catch(error){
+                console.log(error)
+            }
+        }
+    },
+
     logOutUser: () => { //se usa en el header
         return async (dispatch) => {
             dispatch({type:'LOG_OUT_USER'})

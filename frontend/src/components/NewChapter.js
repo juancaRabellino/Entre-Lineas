@@ -38,6 +38,7 @@ const NewChapter = (props) => {
     props.addChapter(newChapter, id, props.loggedUser.token)
     setChapter('')
     setTitle('')
+    setContinuar(!continuar)
   }
   
   return (
