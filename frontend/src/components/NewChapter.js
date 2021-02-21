@@ -3,6 +3,7 @@ import { useState, useEffect } from "react"
 import {Link} from "react-router-dom"
 import bookActions from "../redux/actions/bookActions"
 import Swal from "sweetalert2";
+import { set } from "mongoose";
 
 
 const NewChapter = (props) => {
@@ -34,15 +35,15 @@ const NewChapter = (props) => {
     }
   }
 
-  const send = (e) => {
-    e.preventDefault()
-    // props.addChapter(newChapter, id, props.loggedUser.token)
-    // setChapter('')
-    // setTitle('')
-    // setContinuar(!continuar)
-    e.preventDefault();
+  const sendTitle=()=>{
+    setContinuar(!continuar)
+    props.addChapter(title, id, props.loggedUser.token)
+  }
 
-    if(chapter.content === '') {
+
+  const send = async (e) => {
+    e.preventDefault()
+  if(chapter.content === '') {
       Swal.fire({
         icon: 'error',
         title: 'Verifique que todos los campos esten llenos.',
@@ -51,8 +52,7 @@ const NewChapter = (props) => {
       })
 
   } else {
-    const respuesta = props.addChapter(newChapter, id, props.loggedUser.token)
-
+    const respuesta =  await props.updateBook(newChapter, id, props.loggedUser.token)
     if(respuesta && !respuesta.success) {
       Swal.fire({
         icon: 'error',
@@ -75,7 +75,7 @@ const NewChapter = (props) => {
       })
     }
   }
-
+}
   return (
     <section className="chapter">
       <div className="imag-form-chapter"></div>
@@ -111,7 +111,6 @@ const NewChapter = (props) => {
     </section>
   )
 }
-}
 
 const mapStateToProps = state => {
   return {
@@ -122,6 +121,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = {
   addChapter: bookActions.addChapter,
+  updateBook: bookActions.updateBook,
   getBooks: bookActions.getBooks,
 }
 

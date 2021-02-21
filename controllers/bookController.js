@@ -1,3 +1,4 @@
+const { response } = require('express')
 const Book = require('../models/Book')
 
 const bookController = {
@@ -53,6 +54,16 @@ const bookController = {
     Book.find({genre:genre}).populate('user')
     .then(response=> res.json({succes:true, response}))
     .catch(error => res.json({succes: false, error}))
+  },
+
+  addChapter: (req, res) => {
+    const {title, id} = req.body
+    console.log(req.body)
+    Book.findOneAndUpdate({_id:id},
+      {$addToSet: {chapters: {title:title}}},
+      {new:true})
+    .then(response =  res.json({success: true, response}))
+    .catch(error = res.json({success: false, error}))
   },
 
   updateBook: (req, res) => {

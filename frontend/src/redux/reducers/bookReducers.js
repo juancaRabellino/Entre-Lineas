@@ -45,7 +45,7 @@ const bookReducers = (state = initialState, action) => {
               ...state,
               comment: action.payload
           }
-    default:
+      default:
       return state
 	}
 }

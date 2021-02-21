@@ -47,7 +47,6 @@ const NewBook =(props)=>{
           showConfirmButton: false,
           timer: 4000
         });
-
       } else {
         Swal.fire({
           icon: 'success',

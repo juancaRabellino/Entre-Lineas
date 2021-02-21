@@ -51,17 +51,17 @@ const authActions = {
                 dispatch({type: 'LOG_USER', payload: response.data})
             }catch(error){
                 console.log(error)
-                if(error.response.status === 401) {
-                    Swal.fire({
-                        icon: 'error',
-                        title: '¡CUIDADO!',
-                        text: "No tienes permitido ingresar a la web",
-                        showConfirmButton: false,
-                        timer: 4000
-                        })
-                    localStorage.clear()
-                    return true
-                }
+                // if(error.response.status === 401) {
+                //     Swal.fire({
+                //         icon: 'error',
+                //         title: '¡CUIDADO!',
+                //         text: "No tienes permitido ingresar a la web",
+                //         showConfirmButton: false,
+                //         timer: 4000
+                //         })
+                //     localStorage.clear()
+                //     return true
+                // }
             }
         }
     },

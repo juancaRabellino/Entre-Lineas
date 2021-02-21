@@ -100,10 +100,26 @@ const bookActions = {
     }
   },
 
-  addChapter: (newChapter, id, token) => {
+  addChapter: (title, id, token) => {
+    return async (dispatch) => {
+      try {
+        const response = await axios.post('http://localhost:4000/api/book/addChapter', {title, id}, {
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
+        })
+        dispatch({type: 'ADD_CHAPTER', payload: response.data.response})
+        console.log(response.data)
+      }catch(error){
+        console.log(error)
+      }
+    }
+  },
+
+  updateBook: (newChapter, id, token) => {
     return async (dispatch, getState) => {
       try {
-        const response = await axios.post('http://localhost:4000/api/book/addChapter', {newChapter, id}, {
+        const response = await axios.put('http://localhost:4000/api/book/addChapter', {newChapter, id}, {
           headers: {
             Authorization : `Bearer ${token}`
           }
@@ -131,7 +147,7 @@ const bookActions = {
           }
       })
         dispatch({type: 'ADD_COMMENTS', payload: res.data.respuesta})
-        return true
+        console.log(res.data)
       } catch(error){
         Swal.fire({
           icon: 'error',

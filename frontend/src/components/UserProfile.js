@@ -60,12 +60,6 @@ const UserProfile = (props) => {
                 <div className='containerContentOptions'>
                     <h2 className='titleProfile'>Mi Perfil en Entre Líneas   </h2>
                     <div className='containerNavMenu'>
-<<<<<<< HEAD
-                        <Link to='/library'><div className='optionMenu'>Mi biblioteca</div></Link>
-                        <Link to='savedBooks'><div className='optionMenu savedBooks'>Mis libros guardados</div></Link>
-                    </div>
-                    <div className='containerViewComponentOption'>
-=======
                         <Link ><div onClick={()=>setVisible(true)} className='optionMenu'>Mis Libros</div></Link>
                         <Link ><div onClick={()=>setVisible(false)} className='optionMenu savedBooks'>Mi Biblioteca</div></Link>
                     </div>
@@ -74,7 +68,6 @@ const UserProfile = (props) => {
                             {visible ? myBooks.map(book => <MyBooks libro={book}/>): 
                             booksLiked.map(book=> <MyBooks libro={book}/>)}    
                         </div>
->>>>>>> 53198178599db56aa2fd847c229e6a40493c515a
                     </div>
                 </div>
             </div>
@@ -89,5 +82,3 @@ const mapStateToProps = state => {
     }
 }
 export default connect(mapStateToProps)(UserProfile)
-
-/*<Settings />*/
