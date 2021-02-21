@@ -1,4 +1,6 @@
 import axios from 'axios'
+import Swal from'sweetalert2';
+
 
 const authActions = {
     makeNewUser: (usuario) => {
@@ -50,7 +52,13 @@ const authActions = {
             }catch(error){
                 console.log(error)
                 if(error.response.status === 401) {
-                    alert("No tienes permitido ingresar a la web")
+                    Swal.fire({
+                        icon: 'error',
+                        title: '¡CUIDADO!',
+                        text: "No tienes permitido ingresar a la web",
+                        showConfirmButton: false,
+                        timer: 4000
+                        })
                     localStorage.clear()
                     return true
                 }

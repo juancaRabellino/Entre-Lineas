@@ -6,12 +6,12 @@ const genreController = {
     const newGenre = new Genre({genre, image})
     newGenre.save()
     .then(newGenre => res.json({success: true, response: newGenre}))
-    .catch(error => res.json({success:false, error}))
+    .catch(errores => res.json({success:false, errores}))
   },
   getGenres: (req,res) => {
     Genre.find()
     .then(response => res.json({success: true, response }))
-    .catch(error => res.json({success: false, error}))
+    .catch(errores => res.json({success: false, errores}))
   }
 }
 

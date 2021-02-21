@@ -6,6 +6,7 @@ import Swal from'sweetalert2';
 
 const NewBook =(props)=>{
   const [book, setBook] = useState({})
+
   const readInput =(e)=> {
     var value = e.target.value
     const prop = e.target.name
@@ -15,27 +16,49 @@ const NewBook =(props)=>{
       [prop]:value,
     })
   }
+
   useEffect(()=>{
     if(props.newBook._id) props.history.push(`/new-book/${props.newBook._id}`)
   },[props.newBook._id])
 
 
-  const send=(e)=> {
-    e.preventDefault()
-    if(!book.genre || book.genre===''|| book.title===''|| book.description===''|| book.user==='' || book.image===''){
-      Swal.fire({
-        icon: 'error',
-        title: 'Oops...',
-        text: 'No se pueden enviar campos vacios!',
-      })
-    }else{
+  const send= async (e) => {
+    e.preventDefault();
+
+    if(!book.genre || book.genre === ''|| book.title ===''|| book.description ===''|| book.user ==='' || book.image ===''){
+        Swal.fire({
+          icon: 'error',
+          title: 'Verifique que todos los campos esten llenos.',
+          showConfirmButton: false,
+          timer: 4000
+        })
+    } else {
       const formData = new FormData()
       formData.append('genre', book.genre.trim())
       formData.append('title', book.title.trim())
       formData.append('description', book.description.trim())
-      console.log(book.image)
-      props.addBook(formData, props.loggedUser.token)
+      const respuesta = await props.addBook(formData, props.loggedUser.token)
+
+      if(respuesta && !respuesta.success){
+        Swal.fire({
+          icon: 'error',
+          title: '¡CUIDADO!',
+          text: respuesta.mensaje,
+          showConfirmButton: false,
+          timer: 4000
+        });
+
+      } else {
+        Swal.fire({
+          icon: 'success',
+          title: 'Listo',
+          text: '¡Nuevo libro creado!',
+          showConfirmButton: false,
+          timer: 4000
+        })
+      }
     }
+
 
   }
  return (
@@ -76,7 +99,7 @@ const NewBook =(props)=>{
 const mapStateToProps =state=> {
   return {
     newBook: state.bookR.newBook,
-    loggedUser:state.auth.loggedUser
+    loggedUser: state.auth.loggedUser
   }
 }
 

@@ -4,17 +4,14 @@ const jwt = require ("jsonwebtoken")
 const crypto = require ("crypto")
 
 
-
-
 const userController = {
 
-    signUp: async (req, res) => {
-        var errores = []
-        const {firstname, lastname, email, password, birthday} = req.body
-        const userExists = await User.findOne({email: email})
-        if (userExists) {
-            errores.push('El nombre email ya está siendo utilizado.  Elija otro.')
-        }
+        signUp: async (req, res) => {
+            const {firstname, lastname, email, password, birthday, image} = req.body
+            const userExists = await User.findOne({email: email})
+            if (userExists) {
+                return res.json({success: false, error: 'El email ya esta registrado'})
+            }
         if (errores.length === 0) {
             const passwordHasheado = bcryptjs.hashSync(password, 10)
             var newUser = new User({
@@ -25,7 +22,7 @@ const userController = {
         }
         return res.json({success: errores.length === 0 ? true : false,
             errores: errores,
-            response: errores.length === 0 && 
+            response: errores.length === 0 &&
                 {token, firstname: newUserSaved.firstname, email: newUserSaved.email, lastname: newUserSaved.lastname, birthday: newUserSaved.birthday}})
     },
 
@@ -50,25 +47,26 @@ const userController = {
     },
 
     modifyUser: (req, res) => {
-      const {id, email, firstname, lastname, birthday} = req.body
-      const {image} = req.files
-      const pic = image.name.split('.')
-      const url = `../assets/${id}.${pic[1]}`
-      image.mv(`./frontend/public/assets/${id}.${pic[1]}`, error => {
-        if(error) {
-          console.log(error)
-          return res.json({success: false, error})
+        const {id, email, firstname, lastname, birthday} = req.body
+        const {image} = req.files
+        const pic = image.name.split('.')
+        const url = `../assets/${id}.${pic[1]}`
+        image.mv(`./frontend/public/assets/${id}.${pic[1]}`, errores=> {
+        if(errores) {
+            return res.json({
+                success: false,
+                errores:errores,
+                mensaje:'No se puede actualizar. Intente mas tarde'
+            })
         }
-      })
-      User.findOneAndUpdate({_id: id}, 
+        })
+        User.findOneAndUpdate({_id: id},
         {$set: {firstname, email, lastname, birthday, image: url}},
         {new: true})
-      .then(data => res.json({ success: true, response: data }))
-      .catch(error => res.json({ success: false, error }))
+        .then(data => res.json({ success: true, response: data }))
+        .catch(error => res.json({ success: false, error }))
     },
 
-
-    
 }
 
 module.exports = userController

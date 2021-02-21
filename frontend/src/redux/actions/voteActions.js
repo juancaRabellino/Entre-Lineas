@@ -11,7 +11,13 @@ const voteActions = {
         })
         dispatch({type: 'VOTE', payload: response.data})
       }catch(error){
-        console.log(error)
+        Swal.fire({
+          icon: 'error',
+          title: '¡Lo siento!',
+          text: "No se puede votar en este momento, intente mas tarde.",
+          showConfirmButton: false,
+          timer: 4000
+          })
       }
     }
   },
@@ -26,7 +32,14 @@ const voteActions = {
         console.log(response)
         dispatch({type: 'DISMISS_VOTE', payload: response.data})
       }catch(error){
-        console.log(error)
+        Swal.fire({
+          icon: 'error',
+          title: '¡Error!',
+          title: '¡Lo siento!',
+          text: "No se puede sacar el voto en este momento, intente mas tarde.",
+          showConfirmButton: false,
+          timer: 4000
+          })
       }
     }
   }

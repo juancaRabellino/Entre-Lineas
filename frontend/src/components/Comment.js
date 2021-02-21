@@ -8,29 +8,31 @@ const Comment = (props) => {
     const [value, setValue] = useState('')
     const [input, setInput] = useState(false)
     const [loggedUser, setLoggedUser] = useState('')
+
     useEffect(() => {
         if (props.loggedUser) {
             setLoggedUser(props.loggedUser.firstname + props.loggedUser.id)
         }
     }, [])
+
     const deleteC = async (e) => {
         await props.deleteComments(props.id, props.comment._id, props.loggedUser.token)
     }
-    console.log(props.id)
+
     const modiComment = async (e) => {
         await props.modComment(value, props.comment._id, props.id, props.loggedUser.token)
     }
-    
-  const keyPress = e => {
+
+const keyPress = e => {
     if (e.key === 'Enter') {
         modiComment()
     }
-  }
+}
     return (
         <div className="containerComment">
             <div className="containerComments">
                 <div className="userPicAndName">
-                    {props.comment.userPic ? 
+                    {props.comment.userPic ?
                     <img src={props.comment.userPic} className="rounded-circle" alt="..."/> :
                     <div className="dropDownPic" >{props.comment.firstName.toUpperCase().substr(0, 1)}</div>}
                     <h6 className="index">{props.comment.firstName}</h6>
@@ -51,12 +53,11 @@ const Comment = (props) => {
                 </div>}
             </div>
         </div>
-        
     )
 }
 const mapStateToProps = state => {
     return {
-      loggedUser: state.auth.loggedUser
+    loggedUser: state.auth.loggedUser
     }
   }
 

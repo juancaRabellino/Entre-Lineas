@@ -1,5 +1,5 @@
 import axios from 'axios'
-
+import Swal from'sweetalert2';
 const cardActions = {
     getCardsCategories: () => {
         return async (dispatch, getState) => {
@@ -12,7 +12,13 @@ const cardActions = {
                     }
                 )
             }catch(err){
-                console.log(err)
+                Swal.fire({
+                    icon: 'error',
+                    title: '¡Error!',
+                    text: "Algo salio mal. intente mas tarde.",
+                    showConfirmButton: false,
+                    timer: 4000
+                })
             }
         }
     }

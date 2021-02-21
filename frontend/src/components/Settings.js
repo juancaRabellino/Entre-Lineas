@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { connect } from 'react-redux'
 import authActions from '../redux/actions/authActions'
+import Swal from'sweetalert2';
 
 
 const Settings = (props) => {
@@ -36,6 +37,16 @@ const Settings = (props) => {
     setImage(e.target.value)
   }
 
+  const alertError = (error) =>{
+    Swal.fire({
+        icon: 'error',
+        title: '¡CUIDADO!',
+        text: error,
+        showConfirmButton: false,
+        timer: 4000
+        })
+}
+
   const send = e => {
     e.preventDefault()
     const emailValue = document.getElementById('email').value
@@ -54,14 +65,22 @@ const Settings = (props) => {
     console.log(imageValue)
 
     var filesExtension = ['.jpg', '.png', '.jpeg']
-    
+
     if(emailValue==='' || firstnameValue=== '' || lastnameValue === ''||  imageValue=== ''){
-      alert('tienes que completar todos los campos')
+      const text = 'Verifique que todos los campos esten llenos'
+      alertError(text)
     }else if(imageValue && filesExtension.some(file=>imageValue.name.includes(file))){
       props.modifyUser(formData)
-      alert('correcta validacion')
+      Swal.fire({
+        icon: 'success',
+        title: 'Listo!',
+        text: 'Ajustes guardados',
+        showConfirmButton: false,
+        timer: 4000
+      })
     }else {
-      alert('Extension de archivo no permitida')
+      const text = 'Extension de archivo no permitida'
+      alertError(text)
     }
   }
 
