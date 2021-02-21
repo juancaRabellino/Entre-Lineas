@@ -1,4 +1,6 @@
 import axios from 'axios'
+import Swal from'sweetalert2';
+
 
 const authActions = {
     makeNewUser: (usuario) => {
@@ -49,18 +51,57 @@ const authActions = {
                 dispatch({type: 'LOG_USER', payload: response.data})
             }catch(error){
                 console.log(error)
-                if(error.response.status === 401) {
-                    alert("No tienes permitido ingresar a la web")
-                    localStorage.clear()
-                    return true
-                }
+                // if(error.response.status === 401) {
+                //     Swal.fire({
+                //         icon: 'error',
+                //         title: '¡CUIDADO!',
+                //         text: "No tienes permitido ingresar a la web",
+                //         showConfirmButton: false,
+                //         timer: 4000
+                //         })
+                //     localStorage.clear()
+                //     return true
+                // }
             }
         }
     },
+
+    resetPassword: (email)=> {
+        return async (dispatch) => {
+            try{
+                const response = await axios.post('http://localhost:4000/api/user/reset-password', {email})
+                dispatch({type: 'RESET_PASSWORD'})
+                console.log(response.data)
+            }catch(error){
+                console.log(error)
+            }
+        }
+    },
+
+    newPassword: (email, password) => {
+        return async(dispatch) => {
+            try{
+                const response = await axios.put('http://localhost:4000/api/user/reset-password', {email, password})
+                dispatch({type: 'CHANGE_PASSWORD'})
+                console.log(response.data)
+            }catch(error){
+                console.log(error)
+            }
+        }
+    },
+
     logOutUser: () => { //se usa en el header
         return async (dispatch) => {
             dispatch({type:'LOG_OUT_USER'})
         }
     },
+
+    sendForgotPassword: () => {
+
+    },
+
+    makeNewPassword: () => {
+        
+    }
 }
 export default authActions

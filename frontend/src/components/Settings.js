@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react'
 import { connect } from 'react-redux'
 import authActions from '../redux/actions/authActions'
+import Swal from'sweetalert2';
 
 
 const Settings = (props) => {
+  console.log(props.loggedUser)
   const [change, setChange] = useState(false)
   const [email, setEmail] = useState('')
   const [firstname, setFirstname] = useState('')
@@ -17,7 +19,7 @@ const Settings = (props) => {
     setEmail(props.loggedUser.email)
     setFirstname(props.loggedUser.firstname)
     setLastname(props.loggedUser.lastname)
-    setBirthday(props.loggedUser.birthday.substr(-25, 10))
+    if(props.loggedUser.birthday) setBirthday(props.loggedUser.birthday.substr(-25, 10))
   },[])
 
   const edit = (e) => {
@@ -35,6 +37,16 @@ const Settings = (props) => {
     processImage()
     setImage(e.target.value)
   }
+
+  const alertError = (error) =>{
+    Swal.fire({
+        icon: 'error',
+        title: '¡CUIDADO!',
+        text: error,
+        showConfirmButton: false,
+        timer: 4000
+        })
+}
 
   const send = e => {
     e.preventDefault()
@@ -54,14 +66,22 @@ const Settings = (props) => {
     console.log(imageValue)
 
     var filesExtension = ['.jpg', '.png', '.jpeg']
-    
+
     if(emailValue==='' || firstnameValue=== '' || lastnameValue === ''||  imageValue=== ''){
-      alert('tienes que completar todos los campos')
+      const text = 'Verifique que todos los campos esten llenos'
+      alertError(text)
     }else if(imageValue && filesExtension.some(file=>imageValue.name.includes(file))){
       props.modifyUser(formData)
-      alert('correcta validacion')
+      Swal.fire({
+        icon: 'success',
+        title: 'Listo!',
+        text: 'Ajustes guardados',
+        showConfirmButton: false,
+        timer: 4000
+      })
     }else {
-      alert('Extension de archivo no permitida')
+      const text = 'Extension de archivo no permitida'
+      alertError(text)
     }
   }
 

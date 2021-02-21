@@ -3,7 +3,9 @@ import {connect} from 'react-redux'
 import bookActions from "../redux/actions/bookActions"
 import { Link } from "react-router-dom"
 import { Button, Input} from 'reactstrap'
+
 import Comment from './Comment'
+import Swal from'sweetalert2';
 
 const StoryDescription = (props)=>{
     const [reload, setReload] = useState(false)
@@ -23,10 +25,10 @@ const StoryDescription = (props)=>{
         await props.addComment(value, filtro[0]._id, props.loggedUser.token)
         setValue("")
     }
+
     const votes = async () => {
         props.vote(filtro[0]._id, props.loggedUser.token)
         filtro[0].stars.push(props.loggedUser.id)
-        console.log(filtro[0].stars)
         setReload(!reload)
     }
     const dismissVote = async () => {
@@ -40,15 +42,19 @@ const StoryDescription = (props)=>{
         }
     }
     const redirect = () =>{
-        alert("Esta historia todavia no tiene capitulos")
+        Swal.fire({
+            icon: 'error',
+            title: '¡Lo sentimos!',
+            text: 'Esta historia todavia no tiene capitulos',
+          })
         props.history.push(`/stories/${filtro[0].genre}`)
     }   
     return(
         <>
-        <div className="uno">
+        {filtro.length === 0 ? <h1>cargando...</h1>: <> <div className="uno">
             <div className="chauu"></div>
             <div className="cuatro">
-                <div className="hola" style={{ backgroundImage:`url('${filtro[0].image}')`, width:'15vw', height:'50vh'}}></div>
+                <div className="hola" style={{backgroundImage:`url('${filtro[0].image}')`, width:'15vw', height:'50vh'}}></div>
                 <div className="cinco">
                     <h2>{filtro[0].title}</h2>
                     <h5>{filtro[0].genre}</h5>
@@ -113,7 +119,7 @@ const StoryDescription = (props)=>{
                     </div>}
                 </div>
             </div>
-        </div>
+        </div></>}
         </>
     )
 }

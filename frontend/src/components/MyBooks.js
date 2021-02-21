@@ -1,15 +1,11 @@
-import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
-import bookActions from '../redux/actions/bookActions'
-const Story=(props)=>{
+import {connect} from 'react-redux'
+import {Link} from 'react-router-dom'
+const MyBooks = (props)=>{
 
-    const views =()=>{
-        props.incViews(props.libro._id)
-    }
-    return(
+    return (
         <>
         <div className='storyContainer'>
-                <div className='storyPic' style={{backgroundImage:`url(${props.libro.image})`}}></div>
+               { <div className='storyPic' style={{backgroundImage:`url(${props.libro.image})`}}></div>}
                 <div className='storyBodyContainer'>
                     <p className='storyTitle'>{props.libro.title}</p>
                     <p className='storyUser'>de {props.libro.user.firstname + ' ' + props.libro.user.lastname}</p>
@@ -21,7 +17,7 @@ const Story=(props)=>{
                     </div>
                     <p className='storyDescription'>{props.libro.description.substr(0,120)+"..."}</p>
                     <div className='storyButtons'>
-                        <Link to={`/story/${props.libro._id}`}><button onClick={views} className='btn btn-danger verMasStory'>Ver Mas</button></Link>
+                        <Link to={`/modify-book/${props.libro._id}`}><button className='btn btn-danger verMasStory'>Editar Libro</button></Link>
                     </div>
                 </div>
         </div>
@@ -29,8 +25,11 @@ const Story=(props)=>{
     )
 }
 
-const mapDispatchToProps= {
-    incViews: bookActions.incViews
-}
 
-export default connect(null, mapDispatchToProps)(Story)
+const mapStateToProps = state => {
+    return {
+        books: state.bookR.books,
+        loggedUser: state.auth.loggedUser
+    }
+  }
+export default connect(mapStateToProps)(MyBooks);
