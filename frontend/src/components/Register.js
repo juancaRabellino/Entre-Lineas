@@ -23,8 +23,8 @@ const Register = ( props ) => {
         });
     }
 
-    const checkIfInputsAreEmpty = !usuario.firstname || !usuario.lastname || !usuario.birthday || !usuario.email || !usuario.password;
-
+    const checkIfInputsAreEmpty = usuario.firstname === ''|| usuario.lastname  === ''|| usuario.birthday === ''|| usuario.email === ''|| usuario.password === '';
+    console.log(usuario)
     const alertError = (error) =>{
         Swal.fire({
             icon: 'error',
@@ -48,13 +48,17 @@ const Register = ( props ) => {
     const validateUser = async e => { // function that runs when you click the create user button
         e.preventDefault() //prevent reloading the page
         if(checkIfInputsAreEmpty){
+            console.log('hola')
             const text = 'Verifique que todos los campos esten llenos'
             alertError(text)
             return false
         }
 
         const respuesta = await props.makeNewUser(usuario)
+        console.log(respuesta)
         if(respuesta && !respuesta.success){
+            console.log('hola1')
+
             alertError(respuesta.mensaje)
         }else{
             alertSuccess()

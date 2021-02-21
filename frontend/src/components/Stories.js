@@ -14,6 +14,7 @@ const Stories = (props)=>{
         setBoolean(!boolean)
     },[])
 
+    
     function sortFilter(value) {
         if(value ==="mostPopular"){
            props.booksByGenre.sort((a,b)=> b.views - a.views)

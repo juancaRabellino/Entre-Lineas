@@ -1179,12 +1179,13 @@ section.settings {
     flex-wrap: wrap;
 }
 .dropDownMenu {
-    width: 10vw;
-    font-size: 12px;
+    width: 12vw;
+    font-size: 1.2vw;
     position: absolute;
     display: flex;
-    left: 83.5vw;
-    top: 9.3vh;
+    justify-content: center;
+    left: 81vw;
+    top: 10vh;
     z-index: 5;
     transition: 1s ease;
 }

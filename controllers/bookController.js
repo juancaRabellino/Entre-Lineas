@@ -20,9 +20,9 @@ const bookController = {
   addImage: (req, res) => {
     const {id} = req.body
     const {image} = req.files
-    const pic = image.name.split('.')
-    const url = `../booksimages/${req.user._id}.${pic[1]}`
-    image.mv(`./frontend/public/booksimages/${req.user._id}.${pic[1]}`, errores => {
+    // const pic = image.name.split('.')
+    const url = `../booksimages/${req.user._id}${image.name.trim()}`
+    image.mv(`./frontend/public/booksimages/${req.user._id}${image.name.trim()}`, errores => {
       if(errores) {
         console.log(errores)
         return res.json({
@@ -62,10 +62,18 @@ const bookController = {
     Book.findOneAndUpdate({_id:id},
       {$addToSet: {chapters: {title:title}}},
       {new:true})
-    .then(response =  res.json({success: true, response}))
-    .catch(error = res.json({success: false, error}))
+    .then(response => res.json({success: true, response}))
+    .catch(error => res.json({success: false, error}))
   },
 
+  addContent: (req,res) => {
+    const {title, content, id} = req.body
+    Book.findOneAndUpdate({_id:id, 'chapters.title':title},
+      {$addToSet: {'chapters.$.chapter': [content]}},
+      {new: true})
+    .then(response=> res.json({success: true, response}))
+    .catch(error=> res.json({success: false, error}))
+  },
   updateBook: (req, res) => {
     const {newChapter, id} = req.body
     console.log(newChapter, id)

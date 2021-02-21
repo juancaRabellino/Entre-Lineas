@@ -66,7 +66,13 @@ const bookActions = {
           })}
       }
   },
-
+  // getNewBook: (id)=>{
+  //   return async(dispatch) =>{
+  //     try {
+  //       const response = await fetch('http://localhost:4000/api/')
+  //     }
+  //   }
+  // },
   getByGenre: (genre)=>{
     return async(dispatch, getState) =>{
       try {
@@ -116,27 +122,43 @@ const bookActions = {
     }
   },
 
-  updateBook: (newChapter, id, token) => {
-    return async (dispatch, getState) => {
+  sendContent: (content, title, id, token) => {
+    return async (dispatch) => {
       try {
-        const response = await axios.put('http://localhost:4000/api/book/addChapter', {newChapter, id}, {
+        const response = await axios.put('http://localhost:4000/api/book/addChapter', {content, title, id}, {
           headers: {
             Authorization : `Bearer ${token}`
           }
         })
-        dispatch({type: 'UPDATE_BOOK', payload: response.data.response})
-        console.log(response.data)
+        dispatch({type: 'CHAPTER_CONTENT', payload: response.data.response})
+        console.log(response.data.response.chapters)
       }catch(error){
-        Swal.fire({
-          icon: 'error',
-          title: '¡Error!',
-          text: "No se pudo guardar el capitulo.",
-          text: "Por favor intente mas tarde.",
-          showConfirmButton: false,
-          timer: 4000
-          })}
+        console.log(error)
+      }
     }
   },
+
+  // updateBook: (newChapter, id, token) => {
+  //   return async (dispatch, getState) => {
+  //     try {
+  //       const response = await axios.put('http://localhost:4000/api/book/addChapter', {newChapter, id}, {
+  //         headers: {
+  //           Authorization : `Bearer ${token}`
+  //         }
+  //       })
+  //       dispatch({type: 'UPDATE_BOOK', payload: response.data.response})
+  //       console.log(response.data)
+  //     }catch(error){
+  //       Swal.fire({
+  //         icon: 'error',
+  //         title: '¡Error!',
+  //         text: "No se pudo guardar el capitulo.",
+  //         text: "Por favor intente mas tarde.",
+  //         showConfirmButton: false,
+  //         timer: 4000
+  //         })}
+  //   }
+  // },
 
   addComment:(content, id, token) => {
     return async (dispatch, getState) => {
