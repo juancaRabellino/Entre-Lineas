@@ -6,7 +6,6 @@ const commentController = {
         const {user} = req
         Book.findOneAndUpdate({_id: id}, {$push:{comments:{firstName: user.firstname, lastName: user.lastname, userPic: user.image, content: content}} }, {new: true})
         .then(book => {
-          console.log(book.comments)
           return res.json({success: true, respuesta: book})
         })
         .catch(errores => {

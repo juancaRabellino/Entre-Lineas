@@ -50,7 +50,7 @@ router.route('/genre')
 .post(genreController.addGenre)
 
 // Comments Route
-router.route('/comments')
+router.route('/comments/')
 .post(passport.authenticate('jwt', {session: false}),commentController.addComment)
 .put(passport.authenticate('jwt', {session: false}), commentController.modComment)
 

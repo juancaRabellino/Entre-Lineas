@@ -125,12 +125,12 @@ const bookActions = {
   addComment:(content, id, token) => {
     return async (dispatch, getState) => {
       try {
-        const res = await axios.post('http://localhost:4000/api/comments/', {content, id, token}, {
+        const res = await axios.post('http://localhost:4000/api/comments/', {content, id}, {
           headers: {
               Authorization: `Bearer ${token}` 
           }
       })
-        dispatch({type: 'ADD_COMMENT', payload: res.data.respuesta})
+        dispatch({type: 'ADD_COMMENTS', payload: res.data.respuesta})
         return true
       } catch(error){
         Swal.fire({
@@ -151,7 +151,7 @@ const bookActions = {
               Authorization: `Bearer ${token}` 
           }
       })
-        dispatch({type: 'COMMENT', payload: res.data.respuesta})
+        dispatch({type: 'DELETE_COMMENT', payload: res.data.respuesta})
       } catch(error){
         Swal.fire({
           icon: 'error',
@@ -165,7 +165,6 @@ const bookActions = {
   },
 
   modComment: (value, idcomment, id, token) => {
-    console.log(value, idcomment, id, token)
     return async (dispatch, getState) => {
       try{
         const res = await axios.put('http://localhost:4000/api/comments/', {value, idcomment, id}, {
@@ -173,7 +172,7 @@ const bookActions = {
               Authorization: `Bearer ${token}` 
           }
       })
-        dispatch({type: 'COMMENT', payload: res.data.respuesta})
+        dispatch({type: 'ADD_COMMENTS', payload: res.data.respuesta})
         console.log(res)
       } catch(error){
         Swal.fire({
