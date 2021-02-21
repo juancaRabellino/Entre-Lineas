@@ -5,6 +5,8 @@ import {useState} from 'react'
 import MyBooks from './MyBooks'
 
 const UserProfile = (props) => {
+    console.log(props)
+    console.log(props.loggedUser)
     var myBooks = props.books.filter(book => book.user._id === props.loggedUser.id)
     var booksLiked = props.books.filter(book => book.stars.includes(props.loggedUser.id))
     const [visible, setVisible]=useState(true)
@@ -15,13 +17,19 @@ const UserProfile = (props) => {
                 <div className='containerBannerUserData'>
                     <div className='bannerUserData'>
                         <div className='photoEditProfile'>
+                            {props.loggedUser.image
+                            ?
                             <div className='photoUser'style={{ backgroundImage: `url(${props.loggedUser.image})`}}>
+                            </div>:
+                            <div className="letterUser">{props.loggedUser.firstname.toUpperCase().substr(0, 1)}
                             </div>
+                            }
                             <div className='buttonEditProfile'>
                                 <Link to='/settings'><button><i className="fas fa-cog"></i> Editar mis Datos</button></Link>
                             </div>
                         </div>
                         <div className='informationProfileUserBlock'>
+                            <div className='containerInformationFixed'>
                             <div className='informationProfileUserFixed'>
                                 <div className='iconInformationProfileUserFixed'><i className="fas fa-user"></i></div>
                                 <div className='dataInformationProfileUserFixed'><p>{props.loggedUser.firstname} {props.loggedUser.lastname}</p></div>
@@ -50,8 +58,9 @@ const UserProfile = (props) => {
                                 <div className='iconInformationProfileUserFixed'><i className="fas fa-bookmark"></i></div>
                                 <div className='dataInformationProfileUserFixed'><p>Libros Guardados</p></div>
                             </div>
+                            </div>
                             <div className='buttonLogout'>
-                            <Link to='/' onClick={props.logout}><button className='buttonLogout'>Cerrar mi sesión</button></Link>
+                            <Link to='/' onClick={props.logout}><button>Cerrar mi sesión</button></Link>
                             </div>
 
                         </div>
@@ -64,10 +73,10 @@ const UserProfile = (props) => {
                         <Link ><div onClick={()=>setVisible(false)} className='optionMenu savedBooks'>Mi Biblioteca</div></Link>
                     </div>
                     <div className='containerViewComponentOption'>
-                    <div className='booksBoxUserProf'>
+                    
                             {visible ? myBooks.map(book => <MyBooks libro={book}/>): 
                             booksLiked.map(book=> <MyBooks libro={book}/>)}    
-                        </div>
+                        
                     </div>
                 </div>
             </div>
