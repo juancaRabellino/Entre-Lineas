@@ -388,6 +388,455 @@ section.settings {
   }
   
 }
+/* Responsive FT - Search*/
+@media (max-width: 992px) {
+    header{
+        height: 15vh;
+    }
+    .headerLeft img.logo, .footerLeft img.logo{
+        width: 20vw;
+    }
+    header p, header i, footer p{
+        font-size: 2.25vw;
+    }
+    div.containerSearchBar{
+        height: 11vh;
+    }
+    input.inputSearchStories{
+        font-size: 3.5vw;
+        transition: 750ms ease
+    }
+    div.containerTitleSearch h1{
+        font-size: 4.8vw;
+    }
+    div.cardCategory {
+        width: 32vw;
+        height: 18vw;
+    }
+    div.nameCategory{
+        font-size: 3.5vw;
+    }
+    div.containerLogoCategory{
+        width: 50%;
+    }
+    div.logoCategory{
+        width: 11vw;
+        height: 11vw;
+    }
+    div.storyContainer{
+        width: 45%;
+        height: 55vh;
+        padding: 0.5vw;
+        margin: 0 0 1vw 1vw
+    }
+    div.storyPic{
+        width: 55%;
+        height: 60%;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+    div.storyBodyContainer {
+        width: 45%;
+        align-items: flex-start
+    }
+    p.storyTitle, p.storyUser, p.storyGenre{
+        font-size: 2.5vw;
+    }
+    div.storyIcons{
+        width: 100%;
+    }
+    p.storyDescription{
+        font-size: 1.8vw
+    }
+    
+    div.storyContainer{
+        width: 45%;
+        height: 55vh;
+        padding: 0.5vw;
+        margin: 0 0 1vw 1vw
+    }
+    div.storyPic{
+        width: 50%;
+        height: 50%;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+    div.storyBodyContainer {
+        width: 50%;
+        align-items: flex-start
+    }
+    div.storyIcons{
+        width: 100%;
+    }
+    p.storyDescription{
+        font-size: 2.2vw
+    }
+    div.photoEditProfile{
+        width: 100%;
+        justify-content: flex-start;
+        height: 45vh;
+    }
+    div.photoUser{
+        width: 20vw;
+        height: 20vw;
+    }
+    div.buttonEditProfile{
+        width: 70%;
+        font-size: 1.5vw;
+        margin-top: 3vh;
+    }
+    div.informationProfileUserBlock{
+        height: 22vh;
+        padding: 0.5vw;
+    }
+    div.informationProfileUserFixed{
+        margin: 0
+    }
+    div.informationProfileUserFixed p, div.informationProfileUserFixed i{
+        font-size: 1.8vw;
+    }
+    div.informationProfileUserFixed p{
+        margin-bottom: 1vh;
+    }
+    div.buttonLogout button{
+        font-size: 1.5vw;
+        padding: 0.5vw;
+    }
+    div.containerContentOptions h2{
+        margin-top: 1vh;
+        margin-bottom: 1vh;
+        font-size: 6vw;
+    }
+    div.containerNavMenu{
+        height: 6vh;
+    }
+    div.optionMenu{
+        font-size: 4.5vw;
+    }
+    div.containerViewComponentOption{
+        width: 100%;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: center;
+    }
+    div.storyContainerProfile{
+        width: 37%;
+        height: 36vw;
+        margin: 0 0 2vw 2vw;
+    }
+    p.storyTitle{
+        font-size: 2vw;
+    }
+    p.storyUserProfile, p.storyGenreProfile {
+        font-size: 1.3vw;
+    }
+    p.storyDescription{
+        font-size: 1.4vw;
+    }
+    div.storyButtons{
+        width: 100%
+    }
+    div.storyButtons button{
+        font-size: 2vw;
+    }
+    div.storyIconsProfile{
+        height: 35%;
+    }
+    div.storyIconsProfile p{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        font-size: 1.6vw;
+    }
+
+}
+/* Responsive FT - Search*/
+@media (max-width: 600px) {
+    header{
+        height: 10vh;
+    }
+    div.iconSearchStories{
+        width: 10%;
+    }
+    div.containerSearchBar{
+        height: 6vh;
+    }
+    div.containerTitleSearch{
+        height: 6vh;
+        margin-top: 1vh;
+    }
+    div.containerTitleSearch h1{
+        font-size: 6vw;
+    }
+    div.cardCategory {
+        width: 40vw;
+        height: 22vw;
+    }
+    div.containerLogoCategory{
+        width: 65%;
+    }
+    div.logoCategory{
+        width: 15vw;
+        height: 15vw;
+    }
+    div.nameCategory{
+        font-size: 4.5vw;
+    }
+    div.storyContainer{
+        width: 45%;
+        height: 55vh;
+        padding: 0.5vw;
+        margin: 0 0 1vw 1vw
+    }
+    div.storyPic{
+        width: 55%;
+        height: 60%;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+    div.storyBodyContainer {
+        width: 45%;
+        align-items: flex-start
+    }
+    p.storyTitle, p.storyUser, p.storyGenre{
+        font-size: 2.5vw;
+    }
+    div.storyIcons{
+        width: 100%;
+    }
+    p.storyDescription{
+        font-size: 1.8vw
+    }
+    
+    div.storyContainer{
+        width: 45%;
+        height: 55vh;
+        padding: 0.5vw;
+        margin: 0 0 1vw 1vw
+    }
+    div.storyPic{
+        width: 50%;
+        height: 50%;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+    div.storyBodyContainer {
+        width: 50%;
+        align-items: flex-start
+    }
+    div.storyIcons{
+        width: 100%;
+    }
+    p.storyDescription{
+        font-size: 2.2vw
+    }
+    div.photoEditProfile{
+        width: 100%;
+        justify-content: flex-start;
+        height: 33vh;
+    }
+    div.photoUser{
+        width: 20vw;
+        height: 20vw;
+    }
+    div.buttonEditProfile{
+        width: 100%;
+        font-size: 3vw;
+        margin-top: 3vh;
+    }
+    div.informationProfileUserBlock{
+        height: 30vh;
+    }
+    div.informationProfileUserFixed{
+        margin: 0
+    }
+    div.informationProfileUserFixed{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    div.informationProfileUserFixed p, div.informationProfileUserFixed i{
+        font-size: 2.5vw;
+    }
+    div.informationProfileUserFixed p{
+        margin-bottom: 1vh;
+    }
+    div.dataInformationProfileUserFixed{
+        text-align: center;
+    }
+    div.buttonLogout button{
+        font-size: 2.5vw;
+    }
+    div.containerContentOptions h2{
+        margin-top: 1vh;
+        margin-bottom: 1vh;
+        font-size: 6vw;
+    }
+    div.containerNavMenu{
+        height: 6vh;
+    }
+    div.optionMenu{
+        font-size: 4.5vw;
+    }
+    div.containerViewComponentOption{
+        width: 100%;
+        justify-content: center;
+    }
+    div.storyContainerProfile{
+        width: 80%;
+        height: 75vw;
+    }
+    p.storyTitle{
+        font-size: 4vw;
+    }
+    p.storyUserProfile, p.storyGenreProfile {
+        font-size: 3.2vw;
+    }
+    p.storyDescription{
+        font-size: 3.2vw;
+    }
+}
+/* Responsive FT - Search*/
+@media (max-width: 480px) {
+    div.containerSearchBar{
+        height: 8vh;
+    }
+    div.containerViewCardsCategories{
+        padding-top: 5vw;
+    }
+    div.containerTitleSearch h1{
+        font-size: 8vw;
+        margin-bottom: 2vw;
+    }
+    div.cardCategory {
+        width: 70vw;
+        height: 35vw;
+    }
+    div.containerLogoCategory{
+        width: 65%;
+    }
+    div.logoCategory{
+        width: 25vw;
+        height: 25vw;
+    }
+    div.nameCategory{
+        padding-left: 3vw;
+        font-size: 7vw;
+    }
+    .headerLeft img.logo, .footerLeft img.logo{
+        width: 28vw;
+    }
+    header p, header i, footer p{
+        font-size: 3.3vw;
+    }
+    div.headerRight{
+        height: 12vw;
+    }
+    div.containerDrop{
+        height: 60%;
+        width: 60%;
+    }
+    div.dropDownMenu{
+        width: 18vw;
+        font-size: 2.3vw;
+        top: 7vh;
+    }
+    .headerRight h4 {
+        font-size: 3.5vw;
+    }
+    div.storyContainer{
+        width: 45%;
+        height: 55vh;
+        padding: 0.5vw;
+        margin: 0 0 1vw 1vw
+    }
+    div.storyPic{
+        width: 50%;
+        height: 50%;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+    div.storyBodyContainer {
+        width: 50%;
+        align-items: flex-start
+    }
+    div.storyIcons{
+        width: 100%;
+    }
+    p.storyDescription{
+        font-size: 2.2vw
+    }
+    div.photoEditProfile{
+        justify-content: flex-start;
+        height: 28vh;
+    }
+    div.photoUser{
+        width: 20vw;
+        height: 20vw;
+    }
+    div.buttonEditProfile{
+        width: 100%;
+        font-size: 3vw;
+        margin-top: 3vh;
+    }
+    div.informationProfileUserBlock{
+        height: 30vh;
+    }
+    div.informationProfileUserFixed{
+        margin: 0
+    }
+    div.informationProfileUserFixed{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    div.informationProfileUserFixed p, div.informationProfileUserFixed i{
+        font-size: 3vw;
+    }
+    div.informationProfileUserFixed p{
+        margin-bottom: 1vh;
+    }
+    div.dataInformationProfileUserFixed{
+        text-align: center;
+    }
+    div.buttonLogout button{
+        font-size: 3vw;
+    }
+    div.containerContentOptions h2{
+        margin-top: 1vh;
+        margin-bottom: 1vh;
+        font-size: 6vw;
+    }
+    div.containerNavMenu{
+        height: 6vh;
+    }
+    div.optionMenu{
+        font-size: 4.5vw;
+    }
+    div.containerViewComponentOption{
+        width: 100%;
+        justify-content: center;
+    }
+    div.storyContainerProfile{
+        width: 80%;
+        height: 75vw;
+    }
+    p.storyTitle{
+        font-size: 4vw;
+    }
+    p.storyUserProfile, p.storyGenreProfile {
+        font-size: 3.2vw;
+    }
+    p.storyDescription{
+        font-size: 3.2vw;
+    }
+}
+
 @media (max-width: 600px) {
   
 }
@@ -1023,6 +1472,8 @@ section.settings {
     background-color: hotpink;
     background-size: cover;
     border-radius: 50%;
+    width: 8vw;
+    height: 8vw;
 }
             /* UserProfile */
 .containerComponentUserProfile{
@@ -1199,7 +1650,7 @@ section.settings {
     font-weight: bold;
 }
 .containerViewComponentOption{
-    width: 80%;
+    width: 70%;
     display: flex;
     flex-wrap: wrap;
     align-self: center;
@@ -1305,7 +1756,6 @@ section.settings {
     background-color: white;
     box-shadow: 6px -4px 5px rgb(123, 122, 122);
     margin-bottom: 1vw;
-    /* background-color: tomato; */
 }
 .storyContainerProfile:hover {
     box-shadow: 7px -5px 8px rgb(50, 50, 50);
@@ -2402,5 +2852,8 @@ border-radius: 30px;
 .resultBusqueda{
     width: 100%;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-evenly;
 }
+
+

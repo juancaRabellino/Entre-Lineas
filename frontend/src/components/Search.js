@@ -50,11 +50,11 @@ const Search = (props) => {
             : 
             <>
             <h2>Su busqueda</h2>
-            <div className="resultBusquedad">
+            <div className="resultBusqueda">
             {props.filter.map((book, index) =>
-            <div>
+            
                 <Story libro={book} key={index}/>
-            </div>)}
+            )}
             </div>
             </>}
         </div>
