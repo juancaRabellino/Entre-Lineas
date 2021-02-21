@@ -46,8 +46,11 @@ const SignIn =(props) => {
             })
         if(respuesta && !respuesta.success){
             setErrores(respuesta.errores.details)
+
         }else{
             alert ('Bienvenido a Entre Lineas!')
+            console.log(respuesta)
+            console.log(response)
         }
     }
 }

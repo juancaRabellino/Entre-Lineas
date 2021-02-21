@@ -34,36 +34,40 @@ const Header = (props) => {
       {props.loggedUser && !props.loggedUser.image ?
         <div className="headerRight">
           <h4>Hola! {(props.loggedUser.firstname).toUpperCase()}</h4>
-          <div className="dropDownPic"  onClick={() => setVisible(!visible)}>{props.loggedUser.firstname.toUpperCase().substr(0, 1)}
-          <i style={{color: 'black', marginLeft:'5.5vw', cursor: 'pointer'}} className="fas fa-caret-down"></i>
-          {visible &&
-            <div className='dropDownMenu'>
-              <ul>
-                <Link to='/userprofile'><li>Mi Perfil</li></Link>
-                <Link to='/settings'><li>Configuración</li></Link>
-                <Link to='/add-book'><li>Crear un Nuevo Libro</li></Link>
-                <Link to='/' onClick={props.logout}><li>Cerrar mi Sesión</li></Link>
-              </ul>
+          <div className='containerDrop' onClick={() => setVisible(!visible)}>
+            {visible &&
+              <div className='dropDownMenu'>
+                <ul>
+                  <Link to='/userprofile'><li>Mi Perfil</li></Link>
+                  <Link to='/settings'><li>Configuración</li></Link>
+                  <Link to='/add-book'><li>Crear un Nuevo Libro</li></Link>
+                  <Link to='/' onClick={props.logout}><li>Cerrar mi Sesión</li></Link>
+                </ul>
+              </div>
+            }
+            <div className="dropDownPic">{props.loggedUser.firstname.toUpperCase().substr(0, 1)}
             </div>
-          }</div>
+            <i style={{color: 'black'}} className="fas fa-caret-down" ></i>
+          </div>
         </div>
-        : props.loggedUser && props.loggedUser.image 
+        : props.loggedUser && props.loggedUser.image
         ?<>
         <div className="headerRight" >
           <h4>Hola! {(props.loggedUser.firstname).toUpperCase()}</h4>
-          <div className="dropDownPic" style={{backgroundImage: `url('${props.loggedUser.image}')`, cursor: 'pointer'}} onClick={() => setVisible(!visible)}>
-          <i style={{color: 'black', marginLeft:'5.5vw', cursor: 'pointer'}} className="fas fa-caret-down"></i>
-          {visible &&
-            <div className='dropDownMenu'>
-              <ul>
-                <Link to='/userprofile'><li>Mi Perfil</li></Link>
-                <Link to='/settings'><li>Configuración</li></Link>
-                <Link to='/add-book'><li>Crear un Nuevo Libro</li></Link>
+          <div className='containerDrop' onClick={() => setVisible(!visible)}>
+            {visible &&
+              <div className='dropDownMenu'>
+                <ul>
+                  <Link to='/userprofile'><li>Mi Perfil</li></Link>
+                  <Link to='/settings'><li>Configuración</li></Link>
+                  <Link to='/add-book'><li>Crear un Nuevo Libro</li></Link>
                 <Link to='/modify-book/:id'>Modificar Libro</Link>
-                <Link to='/' onClick={props.logout}><li>Cerrar mi Sesión</li></Link>
-              </ul>
-            </div>
-          }
+                  <Link to='/' onClick={props.logout}><li>Cerrar mi Sesión</li></Link>
+                </ul>
+              </div>
+            }
+            <div className="dropDownPic" style={{backgroundImage: `url('${props.loggedUser.image}')`}}></div>
+            <i style={{color: 'black'}} className="fas fa-caret-down" ></i>
           </div>
         </div>
         </>
@@ -93,3 +97,6 @@ const mapDispatchToProps = {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header)
+
+
+/**/

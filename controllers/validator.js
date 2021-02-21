@@ -8,6 +8,7 @@ const validator = {
             email: Joi.string().trim().required().email({ tlds: {allow: false} }),
             password: Joi.string().trim().required().pattern(/(?=.*\d)/).min(5),
             birthday: Joi.string(),
+            image: Joi.string()
         })
 
         const validation = schema.validate(req.body, {abortEarly: false})

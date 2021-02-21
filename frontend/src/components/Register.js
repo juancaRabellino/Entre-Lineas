@@ -7,7 +7,7 @@ import FacebookLogin from 'react-facebook-login';
 const Register = ( props ) => {
 
     const [usuario, setUsuario] = useState({
-        firstname:'',lastname:'',birthday:'',email:'',password:''
+        firstname:'',lastname:'',birthday:'',email:'',password:'', image:''
     })
     const [errores, setErrores] = useState ([])
     const [visible, setVisible] = useState(false)
@@ -41,6 +41,7 @@ const Register = ( props ) => {
     }
 
     const responseGoogle = async (response) => {
+        console.log(response.profileObj.imageUrl)
         if(response.error){
             alert('Algo salio mal con tu cuenta de Google')
         }else{
@@ -49,7 +50,8 @@ const Register = ( props ) => {
                 lastname: response.profileObj.familyName,
                 // birthday: response.profileObj.googleId,
                 email: response.profileObj.email,
-                password:response.profileObj.googleId
+                password:response.profileObj.googleId,
+                image: response.profileObj.imageUrl
             })
         if(respuesta && !respuesta.success){
             setErrores(respuesta.errores.details)

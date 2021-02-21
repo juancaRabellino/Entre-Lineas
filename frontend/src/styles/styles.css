@@ -40,6 +40,11 @@ header *, footer * {
   display: flex;
   align-items: center;
 }
+.containerDrop {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
 
 header div.toSearch {
   margin-top: .3vw;
