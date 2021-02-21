@@ -1,7 +1,8 @@
 import { connect } from "react-redux"
 import { useState, useEffect } from "react"
-import {Link} from 'react-router-dom'
+import {Link} from "react-router-dom"
 import bookActions from "../redux/actions/bookActions"
+import Swal from "sweetalert2";
 
 
 const NewChapter = (props) => {
@@ -11,7 +12,7 @@ const NewChapter = (props) => {
   const [newChapter, setNewChapter] = useState([])
   const [continuar, setContinuar] = useState(false)
   const id = props.match.params.id
-  
+
   useEffect(()=>{
     props.getBooks()
   },[])
@@ -24,7 +25,7 @@ const NewChapter = (props) => {
 
 
   const keyPress=(e)=>{
-    if(e.key==='Enter'){
+    if(e.key==='Enter') {
       setChapter([
         ...chapter, {content}
       ])
@@ -35,12 +36,46 @@ const NewChapter = (props) => {
 
   const send = (e) => {
     e.preventDefault()
-    props.addChapter(newChapter, id, props.loggedUser.token)
-    setChapter('')
-    setTitle('')
-    setContinuar(!continuar)
+    // props.addChapter(newChapter, id, props.loggedUser.token)
+    // setChapter('')
+    // setTitle('')
+    // setContinuar(!continuar)
+    e.preventDefault();
+
+    if(chapter.content === '') {
+      Swal.fire({
+        icon: 'error',
+        title: 'Verifique que todos los campos esten llenos.',
+        showConfirmButton: false,
+        timer: 4000
+      })
+
+  } else {
+    const respuesta = props.addChapter(newChapter, id, props.loggedUser.token)
+
+    if(respuesta && !respuesta.success) {
+      Swal.fire({
+        icon: 'error',
+        title: '¡CUIDADO!',
+        text: respuesta.mensaje,
+        showConfirmButton: false,
+        timer: 4000
+      });
+
+    } else {
+      setChapter('');
+      setTitle('');
+
+      Swal.fire({
+        icon: 'success',
+        title: 'Listo',
+        text: '¡Nuevo capitulo creado!',
+        showConfirmButton: false,
+        timer: 4000
+      })
+    }
   }
-  
+
   return (
     <section className="chapter">
       <div className="imag-form-chapter"></div>
@@ -75,6 +110,7 @@ const NewChapter = (props) => {
       </div>
     </section>
   )
+}
 }
 
 const mapStateToProps = state => {

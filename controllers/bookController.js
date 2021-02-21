@@ -3,30 +3,43 @@ const Book = require('../models/Book')
 const bookController = {
   createBook: (req,res) => {
     const {title, description, genre} = req.body
-    const createBook = new Book({title, description, genre, 
+    const createBook = new Book({title, description, genre,
       user: req.user._id})
     createBook.save()
     .then( async createBook => {
-      const book = await createBook.populate('user').execPopulate() 
+      const book = await createBook.populate('user').execPopulate()
       res.json({success: true, response: book})})
-    .catch(error => res.json({success: false, error}))
+    .catch(errores => res.json({
+      success: false,
+      errores:errores,
+      mensaje:'No se puede crear el libro en este momento. Intente mas tarde.'
+    }))
   },
+
   addImage: (req, res) => {
     const {id} = req.body
     const {image} = req.files
     const pic = image.name.split('.')
     const url = `../booksimages/${req.user._id}.${pic[1]}`
-    image.mv(`./frontend/public/booksimages/${req.user._id}.${pic[1]}`, error => {
-      if(error) {
-        console.log(error)
-        return res.json({success: false, error})
+    image.mv(`./frontend/public/booksimages/${req.user._id}.${pic[1]}`, errores => {
+      if(errores) {
+        console.log(errores)
+        return res.json({
+          success: false,
+          errores:errores,
+          mensaje:'No se puede agregar la imagen en este momento. Intente mas tarde'
+        })
       }
     })
     Book.findOneAndUpdate({_id: id},
       {$set: {image:url}},
       {new: true})
     .then(response=> res.json({success: true, response}))
-    .catch(error=> res.json({success: false, error}))
+    .catch(errores => res.json({
+      success: false,
+      errores:errores,
+      mensaje:'No se puede actualizar su imagen en este momento. Intente mas tarde'
+    }))
   },
 
   getBooks: (req,res) => {
@@ -49,7 +62,11 @@ const bookController = {
       {$push: {chapters: newChapter}},
       {new: true})
     .then(response=> res.json({success: true, response}))
-    .catch(error => res.json({success: false, error}))
+    .catch(errores => res.json({
+      success: false,
+      errores:errores,
+      mensaje:'No se puede actualizar en este momento. Intente mas tarde'
+    }))
   },
 
   incViews: (req, res) => {

@@ -45,21 +45,24 @@ const userController = {
     },
 
     modifyUser: (req, res) => {
-      const {id, email, firstname, lastname, birthday} = req.body
-      const {image} = req.files
-      const pic = image.name.split('.')
-      const url = `../assets/${id}.${pic[1]}`
-      image.mv(`./frontend/public/assets/${id}.${pic[1]}`, error => {
-        if(error) {
-          console.log(error)
-          return res.json({success: false, error})
+        const {id, email, firstname, lastname, birthday} = req.body
+        const {image} = req.files
+        const pic = image.name.split('.')
+        const url = `../assets/${id}.${pic[1]}`
+        image.mv(`./frontend/public/assets/${id}.${pic[1]}`, errores=> {
+        if(errores) {
+            return res.json({
+                success: false,
+                errores:errores,
+                mensaje:'No se puede actualizar. Intente mas tarde'
+            })
         }
-      })
-      User.findOneAndUpdate({_id: id}, 
+        })
+        User.findOneAndUpdate({_id: id},
         {$set: {firstname, email, lastname, birthday, image: url}},
         {new: true})
-      .then(data => res.json({ success: true, response: data }))
-      .catch(error => res.json({ success: false, error }))
+        .then(data => res.json({ success: true, response: data }))
+        .catch(error => res.json({ success: false, error }))
     },
 
 }

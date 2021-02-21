@@ -1,6 +1,7 @@
 import { connect } from "react-redux"
 import { useState } from "react"
 import bookActions from "../redux/actions/bookActions"
+import Swal from'sweetalert2';
 
 
 const FinishBook=(props)=>{
@@ -35,9 +36,19 @@ const FinishBook=(props)=>{
       var filesExtension = ['.jpg', '.png', '.jpeg']
       if(book.image && filesExtension.some(file=>book.image.name.includes(file))){
         props.addImage(formData, props.loggedUser.token)
-      alert('Libro enviado con exito')
+        Swal.fire({
+          icon: 'success',
+          title: 'Libro guardado con exito!',
+          showConfirmButton: false,
+          timer: 4000
+        })
       }else{
-         alert('Extension de archivo no permitida')
+        Swal.fire({
+          icon: 'error',
+          title: 'Extension de archivo no permitida.',
+          showConfirmButton: false,
+          timer: 4000
+        })
       }
 
   }

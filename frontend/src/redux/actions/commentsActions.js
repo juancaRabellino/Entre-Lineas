@@ -1,5 +1,5 @@
 import axios from 'axios'
-
+import Swal from'sweetalert2';
 
 const commentActions = {
     addComment:(content, id, token) => {
@@ -7,13 +7,19 @@ const commentActions = {
         try {
           const res = await axios.post('http://localhost:4000/api/comments', {content, id, token}, {
             headers: {
-                Authorization: `Bearer ${token}` 
+                Authorization: `Bearer ${token}`
             }
         })
           dispatch({type: 'ADD_COMMENT', payload: res.data.respuesta})
           return true
         } catch(error){
-          console.log(error)
+          Swal.fire({
+            icon: 'error',
+            title: '¡Lo siento!',
+            text: "No se pudo enviar el comentario",
+            showConfirmButton: false,
+            timer: 4000
+            })
         }
       }
     },
@@ -28,7 +34,14 @@ const commentActions = {
         })
           dispatch({type: 'DELETE_COMMENT', payload: res.data.respuesta})
         } catch(error){
-          console.log(error)
+          Swal.fire({
+            icon: 'error',
+            title: '¡Lo siento!',
+            text: "Algo salio mal.",
+            text: "No se pudo borrar el comentario, intente mas tarde.",
+            showConfirmButton: false,
+            timer: 4000
+            })
         }
       }
     },
@@ -45,7 +58,14 @@ const commentActions = {
           dispatch({type: 'UPDATE_COMMENT', payload: res.data.respuesta})
           console.log(res)
         } catch(error){
-          console.log(error)
+          Swal.fire({
+            icon: 'error',
+            title: '¡Lo siento!',
+            text: "Algo salio mal.",
+            text: "No se pudo editar el comentario, intente mas tarde.",
+            showConfirmButton: false,
+            timer: 4000
+            })
         }
       }
     },

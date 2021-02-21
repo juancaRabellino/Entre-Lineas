@@ -10,8 +10,11 @@ const voteController = {
         .then(bookVoted => {
           return res.json({success: true, respuesta: bookVoted})
         })
-        .catch(error => {
-          return res.json({success: false, error: error})
+        .catch(errores => {
+          return res.json({
+            success: false,
+            errores:errores,
+            mensaje:'No se puede votar en este momento. Intente mas tarde'})
         })
     },
     dismissVote: (req, res) => {
@@ -19,8 +22,12 @@ const voteController = {
         .then(book => {
           return res.json({success: true, respuesta: book})
         })
-        .catch(error => {
-          return res.json({success: false, error: error})
+        .catch(errores => {
+          return res.json({
+            success: false,
+            errores:errores,
+            mensaje:'No se puede sacar el voto en este momento. Intente mas tarde'
+          })
         })
     }
 }

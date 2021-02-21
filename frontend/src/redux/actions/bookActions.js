@@ -1,6 +1,8 @@
 import axios from 'axios'
+import Swal from'sweetalert2';
 
 const bookActions = {
+
   addBook: (formData, token) => {
     return async (dispatch, getState) => {
       try {
@@ -8,11 +10,20 @@ const bookActions = {
           headers: {
             Authorization: `Bearer ${token}`
           }
+        });
+
+        dispatch({type: 'ADD_BOOK', payload:response.data.response});
+
+        console.log(response.data.response);
+      } catch(error) {
+        Swal.fire({
+          icon: 'error',
+          title: '¡Error!',
+          text: "No se pudo crear el libro.",
+          text: "Por favor intente mas tarde.",
+          showConfirmButton: false,
+          timer: 4000
         })
-        dispatch({type: 'ADD_BOOK', payload:response.data.response})
-        console.log(response.data.response)
-      }catch(error){
-        console.log(error)
       }
     }
   },
@@ -28,8 +39,14 @@ const bookActions = {
         dispatch({type: 'ADD_BOOK', payload:response.data.response})
         console.log(response.data)
       }catch(error){
-        console.log(error)
-      }
+        Swal.fire({
+          icon: 'error',
+          title: '¡Error!',
+          text: "No se pudo cargar la imagen.",
+          text: "Por favor intente mas tarde.",
+          showConfirmButton: false,
+          timer: 4000
+          })}
     }
   },
 
@@ -40,10 +57,16 @@ const bookActions = {
 				const data = await response.json()
 				dispatch({type: 'GET_BOOKS', payload: data.response})
 			}catch(error){
-				console.log(error)
-			}
+        Swal.fire({
+          icon: 'error',
+          title: '¡Error!',
+          text: "Algo salio mal. intente mas tarde.",
+          showConfirmButton: false,
+          timer: 4000
+          })}
       }
   },
+
   getByGenre: (genre)=>{
     return async(dispatch, getState) =>{
       try {
@@ -51,8 +74,14 @@ const bookActions = {
         const data = await response.json()
         dispatch({type: 'GET_BY_GENRE', payload: data.response})
       }catch(error){
-        console.log(error)
-      }
+        Swal.fire({
+          icon: 'error',
+          title: '¡Error!',
+          text: "No se pudo cargar la imagen.",
+          text: "Por favor intente mas tarde.",
+          showConfirmButton: false,
+          timer: 4000
+          })}
     }
   },
 
@@ -61,8 +90,13 @@ const bookActions = {
       try {
         dispatch({type: 'SEARCH_BOOKS', payload: value})
       }catch(error){
-        console.log(error)
-      }
+        Swal.fire({
+          icon: 'error',
+          title: '¡Error!',
+          text: "Algo salio mal. intente mas tarde.",
+          showConfirmButton: false,
+          timer: 4000
+          })}
     }
   },
 
@@ -77,8 +111,14 @@ const bookActions = {
         dispatch({type: 'UPDATE_BOOK', payload: response.data.response})
         console.log(response.data)
       }catch(error){
-        console.log(error) 
-      }
+        Swal.fire({
+          icon: 'error',
+          title: '¡Error!',
+          text: "No se pudo guardar el capitulo.",
+          text: "Por favor intente mas tarde.",
+          showConfirmButton: false,
+          timer: 4000
+          })}
     }
   },
 
@@ -90,11 +130,16 @@ const bookActions = {
               Authorization: `Bearer ${token}` 
           }
       })
-        dispatch({type: 'COMMENT', payload: res.data.respuesta})
+        dispatch({type: 'ADD_COMMENT', payload: res.data.respuesta})
         return true
       } catch(error){
-        console.log(error)
-      }
+        Swal.fire({
+          icon: 'error',
+          title: '¡Lo siento!',
+          text: "No se pudo enviar el comentario",
+          showConfirmButton: false,
+          timer: 4000
+          })}
     }
   },
 
@@ -108,8 +153,14 @@ const bookActions = {
       })
         dispatch({type: 'COMMENT', payload: res.data.respuesta})
       } catch(error){
-        console.log(error)
-      }
+        Swal.fire({
+          icon: 'error',
+          title: '¡Lo siento!',
+          text: "Algo salio mal.",
+          text: "No se pudo borrar el comentario, intente mas tarde.",
+          showConfirmButton: false,
+          timer: 4000
+          })}
     }
   },
 
@@ -125,8 +176,14 @@ const bookActions = {
         dispatch({type: 'COMMENT', payload: res.data.respuesta})
         console.log(res)
       } catch(error){
-        console.log(error)
-      }
+        Swal.fire({
+          icon: 'error',
+          title: '¡Lo siento!',
+          text: "Algo salio mal.",
+          text: "No se pudo editar el comentario, intente mas tarde.",
+          showConfirmButton: false,
+          timer: 4000
+          })}
     }
   },
 
@@ -141,8 +198,13 @@ const bookActions = {
         dispatch({type: 'VOTE', payload: res.data})
         console.log(res.data)
       } catch(error){
-        console.log(error)
-      }
+        Swal.fire({
+          icon: 'error',
+          title: '¡Lo siento!',
+          text: "No se puede votar en este momento, intente mas tarde.",
+          showConfirmButton: false,
+          timer: 4000
+          })}
     }
   },
 
@@ -157,8 +219,14 @@ const bookActions = {
         dispatch({type: 'DIS_VOTE', payload: res.data})
         console.log(res.data)
       } catch(error){
-        console.log(error)
-      }
+        Swal.fire({
+          icon: 'error',
+          title: '¡Error!',
+          title: '¡Lo siento!',
+          text: "No se puede sacar el voto en este momento, intente mas tarde.",
+          showConfirmButton: false,
+          timer: 4000
+          })}
     }
   },
 
@@ -169,9 +237,15 @@ const bookActions = {
         dispatch({type: 'VIEWS', payload: response.data})
         console.log(response.data.response)
       }catch(error){
-      console.log(error)
-      }
-    } 
+        Swal.fire({
+          icon: 'error',
+          title: '¡Error!',
+          title: '¡Lo siento!',
+          text: "Algo salio mal, intente mas tarde.",
+          showConfirmButton: false,
+          timer: 4000
+          })}
+    }
   }
 }
 
