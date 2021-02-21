@@ -22,10 +22,8 @@ const Stories = (props)=>{
     function sortFilter() {
         if(value ==="mostPopular"){
             props.booksByGenre.sort((a,b)=> b.views - a.views)
-            console.log(props.booksByGenre)
         }else if(value === "lessPopular"){
             props.booksByGenre.sort((a,b)=> a.views - b.views)
-            console.log(props.booksByGenre)
         }
     }
     return (
