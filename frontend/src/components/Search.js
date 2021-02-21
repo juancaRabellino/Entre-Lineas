@@ -50,7 +50,7 @@ const Search = (props) => {
             : 
             <>
             <h2>Su busqueda</h2>
-            <div className="d-flex flex-wrap justify-content-center">
+            <div className="resultBusquedad">
             {props.filter.map((book, index) =>
             <div>
                 <Story libro={book} key={index}/>

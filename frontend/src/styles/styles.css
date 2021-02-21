@@ -891,7 +891,6 @@ section.settings {
     max-width: 100vw;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
 }
 .containerSearchBar {
@@ -2296,4 +2295,10 @@ border-radius: 30px;
 .modify-book-chapters {
     width: 90vw;
     /* height: 100%; */
+}
+
+.resultBusqueda{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
 }

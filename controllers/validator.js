@@ -8,7 +8,7 @@ const validator = {
             email: Joi.string().trim().required().email({ tlds: {allow: false} }),
             password: Joi.string().trim().required().pattern(/(?=.*\d)/).min(5),
             birthday: Joi.string(),
-            image: Joi.string()
+            image: Joi.string().empty('')
         })
 
         const validation = schema.validate(req.body, {abortEarly: false})
@@ -17,7 +17,7 @@ const validator = {
             next()
         } else {
             console.log(validation.error.details)
-            res.json({success: false, errores: ['Hubo un error en los datos, verifique.']})
+            res.json({success: false, errores: 'Hubo un error en los datos, verifique.'})
         }
     }
 
