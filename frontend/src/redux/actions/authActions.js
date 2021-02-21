@@ -87,5 +87,13 @@ const authActions = {
             dispatch({type:'LOG_OUT_USER'})
         }
     },
+
+    sendForgotPassword: () => {
+
+    },
+
+    makeNewPassword: () => {
+        
+    }
 }
 export default authActions
