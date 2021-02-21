@@ -4,22 +4,28 @@ const MyBooks = (props)=>{
 
     return (
         <>
-        <div className='storyContainer'>
-               { <div className='storyPic' style={{backgroundImage:`url(${props.libro.image})`}}></div>}
-                <div className='storyBodyContainer'>
+        <div className='storyContainerProfile'>
+            <div className='containerFirstBlockStory'>
+                <div className='storyPicProfile' style={{backgroundImage:`url(${props.libro.image})`}}></div>
+                <div className='containerInformationBookProfile'>
                     <p className='storyTitle'>{props.libro.title}</p>
-                    <p className='storyUser'>de {props.libro.user.firstname + ' ' + props.libro.user.lastname}</p>
-                    <p className='storyGenre'>Genero: {props.libro.genre}</p>
-                    <div className='storyIcons'>
+                    <p className='storyUserProfile'>de <span>{props.libro.user.firstname + ' ' + props.libro.user.lastname}</span></p>
+                    <p className='storyGenreProfile'>Genero: <span>{props.libro.genre}</span></p>
+                    <div className='storyIconsProfile'>
                         <p className='storyViews'><i className="far fa-eye"></i> {props.libro.views}</p>
                         <p className='storyStars'><i className="far fa-star"></i> {props.libro.stars.length}</p>
                         <p className='storyChapters'><i className="fas fa-list-ul"></i> {props.libro.chapters.length}</p>
                     </div>
-                    <p className='storyDescription'>{props.libro.description.substr(0,120)+"..."}</p>
-                    <div className='storyButtons'>
-                        <Link to={`/modify-book/${props.libro._id}`}><button className='btn btn-danger verMasStory'>Editar Libro</button></Link>
-                    </div>
                 </div>
+            </div>
+            <div className='containerSecondBlockStory'>
+                <p className='storyDescription'>{props.libro.description.substr(0,130)+"..."}</p>
+            </div>            
+            <div className='containerThirdBlockStory'>
+                <div className='storyButtons'>
+                    <Link to={`/modify-book/${props.libro._id}`}><button className='btn btn-danger verMasStory'>Editar Libro</button></Link>
+                </div>
+            </div>
         </div>
         </>
     )

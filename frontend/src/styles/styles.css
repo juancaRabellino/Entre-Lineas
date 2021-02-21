@@ -1033,6 +1033,7 @@ section.settings {
     background-size: cover;
     background-attachment: fixed;
     max-width: 100vw;
+    min-height: 90vh;
     display: flex;
     justify-content: center;
     align-items: flex-start;
@@ -1049,7 +1050,7 @@ section.settings {
 }
 .bannerUserData {
     height: 100%;
-    width: 75%;
+    width: 80%;
     display: flex;
     flex-direction: column;
     /*border-left: 1px solid green;
@@ -1060,21 +1061,35 @@ section.settings {
 }
 .photoEditProfile {
     width: 100%;
-    height: 45%;
+    height: 30vh;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
     align-items: center;
+    justify-content: space-between;
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
+    margin-bottom: 1vw;
 }
 .photoUser {
-    background-color: grey;
-    width: 12vw;
-    height: 12vw;
+    background-color: rgb(103, 11, 139);
+    background-position: center;
+    width: 10vw;
+    height: 10vw;
     border-radius: 50%;
     background-size: cover;
+}
+.letterUser{
+    background-color: rgb(103, 11, 139);
+    color: white;
+    width: 10vw;
+    height: 10vw;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 8vw;
+    font-weight: bold;
 }
 .buttonEditProfile{
     width: 13vw;
@@ -1085,18 +1100,25 @@ section.settings {
     border: none;
     padding: 0.5vw;
 }
-.informationProfileUserBlock {
+.containerInformationFixed {
     width: 100%;
-    height: 55%;
+    height: 30vh;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    align-items: center;
+}
+.informationProfileUserBlock {
+    width: 100%;
+    height: 40vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
     align-items: center;
     padding-top: 2vw;
 }
 .informationProfileUserFixed {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     margin-bottom: 2vh;
     width: 80%;
     font-size: 1.5vw;
@@ -1126,22 +1148,28 @@ section.settings {
     color: rgb(103, 11, 139)
 }
 .buttonLogout{
-    width: 50%;
-    outline: none;
-    border: none;
-    padding: 0.5vw;
-    margin-top: 7vw;
-    font-size: 1.2vw;
-    border-radius: 3vw;
     color: rgb(103, 11, 139)
 }
 .buttonLogout button {
+    background-color: rgba(103, 11, 139);
+    outline: none;
+    border: none;
+    border-radius: 2vw;
+    padding: 1vw;
+    font-size: 1.2vw;
+    color: white;
+}
+.buttonLogout button:hover{
     background-color: rgb(103, 11, 139);
+    font-weight: bold;
+    font-size: 1.3vw;
+    box-shadow: 4px -5px 5px thistle;
+    transition: 250ms ease;
 }
 
 .titleProfile{
-    padding: 1vw;
-    height: 10%;
+    height: 15%;
+    font-size: 3.5vw;
 }
 .containerNavMenu{
     width: 100%;
@@ -1149,12 +1177,13 @@ section.settings {
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-bottom: 1vw;
 }
 .optionMenu{
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 2vw;
+    font-size: 2.5vw;
     padding: 0.5vw;
 }
 .optionMenu:hover{
@@ -1171,7 +1200,12 @@ section.settings {
     font-weight: bold;
 }
 .containerViewComponentOption{
-    width: 100%;
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    align-self: center;
+    justify-content: space-between;
+    padding: 1vw 1vw 1vw 1vw;
 }
 /* COMPONENTE DE MI BIBLIOTECA O MIS LIBROS (MAURI) */
 .booksBoxUserProf{
@@ -1179,12 +1213,13 @@ section.settings {
     flex-wrap: wrap;
 }
 .dropDownMenu {
-    width: 10vw;
-    font-size: 12px;
+    width: 12vw;
+    font-size: 1.2vw;
     position: absolute;
     display: flex;
-    left: 83.5vw;
-    top: 9.3vh;
+    justify-content: center;
+    left: 81vw;
+    top: 10vh;
     z-index: 5;
     transition: 1s ease;
 }
@@ -1257,6 +1292,73 @@ section.settings {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.storyContainerProfile{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 21vw;
+    border-radius: 10px;
+    padding: 0.5vw;
+    height: 28vw;
+    border: 1px solid rgb(103, 11, 139);
+    background-color: white;
+    box-shadow: 6px -4px 5px rgb(123, 122, 122);
+    margin-bottom: 1vw;
+    /* background-color: tomato; */
+}
+.storyContainerProfile:hover {
+    box-shadow: 7px -5px 8px rgb(50, 50, 50);
+    transition: 100ms ease;
+}
+.containerFirstBlockStory {
+    height: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.storyUserProfile, .storyGenreProfile{
+    font-size: 1.2vw;
+    color: rgb(110, 110, 110);
+}
+.storyUserProfile span, .storyGenreProfile span {
+    font-weight: bold;
+}
+.containerSecondBlockStory {
+    height: 25%;
+    width: 100%;
+}.containerThirdBlockStory {
+    height: 15%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.storyPicProfile{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 100%;
+    width: 45%;
+}
+.containerInformationBookProfile {
+    height: 100%;
+    width: 55%;
+    background-color: rgba(219, 178, 236, 0.175);
+    display: flex;
+    flex-direction: column;
+    padding-left: 0.5vw;
+}
+.informationBookProfile {
+    height: 60%;
+}
+.storyIconsProfile {
+    color: rgb(110, 110, 110);
+    display: flex;
+    justify-content: space-evenly;
+    justify-self: flex-end;
+    height: 20%;
 }
 /* STYLES OF NEW BOOK */
 
