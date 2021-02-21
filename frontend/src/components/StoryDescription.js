@@ -10,16 +10,16 @@ const StoryDescription = (props)=>{
     const [value, setValue] = useState('')
     const [voted, setVoted] = useState('')
     var namePage = props.match.params.id
-    var filtro = props.books.filter(libro=> libro._id === namePage)
-
+    var filtro = props.books.filter(libro => libro._id === namePage)
     useEffect(() => {
         if(props.loggedUser) {
             setVoted(props.loggedUser.id)
         }
+        if(props.comments.comments) {
+            props.comments.comments.map(comment => console.log(comment))
+        }
     }, [props.loggedUser])
-
-
-    const enviar =  async (e) => {
+    const enviar =  async () => {
         await props.addComment(value, filtro[0]._id, props.loggedUser.token)
         setValue("")
     }
@@ -42,7 +42,7 @@ const StoryDescription = (props)=>{
     const redirect = () =>{
         alert("Esta historia todavia no tiene capitulos")
         props.history.push(`/stories/${filtro[0].genre}`)
-    }
+    }   
     return(
         <>
         <div className="uno">
@@ -92,7 +92,12 @@ const StoryDescription = (props)=>{
                             return <Comment comment={comment} key={comment._id} id={filtro[0]._id}/>
                         }))}
                     </div>
-                    :
+                    : filtro[0].comments.length > 0 ?
+                    <div>
+                        {(filtro[0].comments.map(comment => {
+                            return <Comment comment={comment} key={comment._id} id={filtro[0]._id}/>
+                        }))}
+                    </div> :
                     <h2 className="text-center bg-white w-100">Sin Comentarios</h2>}
                 </div>
                 <div>
@@ -107,18 +112,6 @@ const StoryDescription = (props)=>{
                         <Input className="comment w-50 text-center" disabled type="text" placeholder="Firts Logged plz" />
                     </div>}
                 </div>
-                 :
-                <h2 className="text-center bg-white w-100">Sin Comentarios</h2>
-                {props.loggedUser ? 
-                <div className="">
-                    <div className="inputButtomEnvComment">
-                        <Input className="comment" type="text" placeholder="Comenta!" value={value} onChange={(e)=> setValue(e.target.value)} onKeyPress={keyPress}/>
-                        <Button onClick={enviar}><i class="far fa-paper-plane"></i></Button>
-                    </div>
-                </div> :
-                <div className="d-flex justify-content-center">
-                    <Input className="comment w-50 text-center" disabled type="text" placeholder="Necesitas iniciar sesion para comentar!" />
-                </div>}
             </div>
         </div>
         </>
@@ -129,13 +122,12 @@ const mapStateToProps = state => {
     return {
         loggedUser: state.auth.loggedUser,
         books: state.bookR.books,
-        comments: state.bookR.comments
+        comments: state.bookR.comment
     }
   }
 
 const mapDispatchToProps = {
     addComment: bookActions.addComment,
-    getBooks: bookActions.getBooks,
     vote: bookActions.vote,
     dismissVote: bookActions.dismissVote,
     incViews: bookActions.incViews

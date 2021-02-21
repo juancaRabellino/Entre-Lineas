@@ -4,7 +4,6 @@ import { Button, Input } from 'reactstrap'
 import bookActions from '../redux/actions/bookActions'
 
 const Comment = (props) => {
-    console.log(props)
     const [value, setValue] = useState('')
     const [input, setInput] = useState(false)
     const [loggedUser, setLoggedUser] = useState('')
@@ -16,9 +15,9 @@ const Comment = (props) => {
     const deleteC = async (e) => {
         await props.deleteComments(props.id, props.comment._id, props.loggedUser.token)
     }
-    console.log(props.id)
     const modiComment = async (e) => {
         await props.modComment(value, props.comment._id, props.id, props.loggedUser.token)
+        setInput(!input)
     }
     
   const keyPress = e => {
@@ -63,5 +62,6 @@ const mapStateToProps = state => {
 const mapDispatchToProps = {
     deleteComments: bookActions.deleteComment,
     modComment: bookActions.modComment
+
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Comment)
