@@ -83,7 +83,7 @@ const bookController = {
     const {contentId, chapterId, bookId} = req.body
     console.log(req.body)
     Book.findOneAndUpdate({'chapters._id': chapterId},
-      {$pull: {chapters: {'chapter._id':}}},
+      {$pull: {chapters: {'chapter._id':contentId}}},
       {new:true})
     .then(response => res.json({success: true, response}))
     .catch(error => res.json({success: false, error}))
