@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import {connect} from 'react-redux'
 import bookActions from "../redux/actions/bookActions"
 import { Link } from "react-router-dom"
-import { Button, Input} from 'reactstrap'
+import { Button, Input, Spinner} from 'reactstrap'
 
 import Comment from './Comment'
 import Swal from'sweetalert2';
@@ -51,7 +51,13 @@ const StoryDescription = (props)=>{
     }   
     return(
         <>
-        {filtro.length === 0 ? <h1>cargando...</h1>: <> <div className="uno">
+        {filtro.length === 0 ? 
+        <div className="cajaSpinner">
+        <div className="cajitaSpinner">
+          <Spinner  className="spinner"/>
+        </div>
+      </div>
+        : <> <div className="uno">
             <div className="chauu"></div>
             <div className="cuatro">
                 <div className="hola" style={{backgroundImage:`url('${filtro[0].image}')`, width:'15vw', height:'50vh'}}></div>
