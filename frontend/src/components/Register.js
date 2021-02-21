@@ -41,6 +41,7 @@ const Register = ( props ) => {
     }
 
     const responseGoogle = async (response) => {
+        console.log(response)
         if(response.error){
             alert('Algo salio mal con tu cuenta de Google')
         }else{

@@ -35,7 +35,6 @@ const SignIn =(props) => {
     }
 
     const responseGoogle = async (response) => {
-        console.log(response)
         if(response.error){
             alert('Algo salio mal con tu cuenta de Google')
         }else{
@@ -44,6 +43,7 @@ const SignIn =(props) => {
                 password:response.profileObj.googleId
             })
         if(respuesta && !respuesta.success){
+            console.log(respuesta)
             setErrores(respuesta.errores.details)
         }else{
             alert ('Bienvenido a Entre Lineas!')

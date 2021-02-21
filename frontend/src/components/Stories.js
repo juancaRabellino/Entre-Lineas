@@ -6,20 +6,28 @@ import Story from './Story'
 const Stories = (props)=>{
     const namePage = props.match.params.genre
     const [boolean,setBoolean]=useState(true)
+    const [stories, setStories] = useState([])
+    console.log(props.booksByGenre)
 
 
     useEffect(()=>{
         props.getByGenre(namePage)
-        props.booksByGenre.sort((a,b)=> b.views - a.views)
+        setStories(props.booksByGenre)
+        stories.sort((a,b)=> b.views - a.views)
         setBoolean(!boolean)
     },[])
+    
+    if(boolean) {
+        console.log("acasd")
+        props.getByGenre(namePage)
+    }
 
     function sortFilter(value) {
         if(value ==="mostPopular"){
-           props.booksByGenre.sort((a,b)=> b.views - a.views)
+            stories.sort((a,b)=> b.views - a.views)
            setBoolean(!boolean)
         }else if(value === "lessPopular"){
-           props.booksByGenre.sort((a,b)=> a.views - b.views)
+            stories.sort((a,b)=> a.views - b.views)
            setBoolean(!boolean)
         }
     }
