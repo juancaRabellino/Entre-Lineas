@@ -2,7 +2,6 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import bookActions from '../redux/actions/bookActions'
 const Story=(props)=>{
-
     const views =()=>{
         props.incViews(props.libro._id)
     }
@@ -15,7 +14,7 @@ const Story=(props)=>{
                     <p className='storyUser'>de {props.libro.user.firstname + ' ' + props.libro.user.lastname}</p>
                     <p className='storyGenre'>Genero: {props.libro.genre}</p>
                     <div className='storyIcons'>
-                        <p className='storyViews'><i className="far fa-eye"></i> {props.libro.views}</p>
+                        <p className='storyViews'><i className="far fa-eye"></i> {!props.libro.views ? props.libro.views = 0 : props.libro.views}</p>
                         <p className='storyStars'><i className="far fa-star"></i> {props.libro.stars.length}</p>
                         <p className='storyChapters'><i className="fas fa-list-ul"></i> {props.libro.chapters.length}</p>
                     </div>
