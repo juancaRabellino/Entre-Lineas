@@ -13,8 +13,8 @@ const authActions = {
                 } 
                 dispatch({type: 'LOG_USER', payload: respuesta.data})//lo que ma contesto el backend se lo mando al reducers
                 console.log(respuesta.data)
-            }catch(error){
-                console.log(error)
+            }catch(errores){
+                console.log(errores)
             }
         }
     },
@@ -50,7 +50,7 @@ const authActions = {
                 })
                 dispatch({type: 'LOG_USER', payload: response.data})
             }catch(error){
-                console.log(error)
+                console.log(error.status)
                 // if(error.response.status === 401) {
                 //     Swal.fire({
                 //         icon: 'error',

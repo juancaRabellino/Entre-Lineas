@@ -7,10 +7,11 @@ const userController = {
     signUp: async (req, res) => {
         const {firstname, lastname, email, password, birthday, image} = req.body
         const userExists = await User.findOne({email: email})
+        console.log('llega')
         if (userExists) {
             return res.json({success: false, error: 'El email ya esta registrado'})
         }
-        if (errores.length === 0) {
+        else{
             const passwordHasheado = bcryptjs.hashSync(password, 10)
             var newUser = new User({
                 firstname, lastname, email, password: passwordHasheado, birthday, image
@@ -18,10 +19,8 @@ const userController = {
             var newUserSaved = await newUser.save()
             var token = jwt.sign({...newUserSaved}, process.env.SECRET_KEY, {})
         }
-        return res.json({success: errores.length === 0 ? true : false,
-            errores: errores,
-            response: errores.length === 0 && 
-                {token, firstname: newUserSaved.firstname, email: newUserSaved.email, lastname: newUserSaved.lastname, birthday: newUserSaved.birthday, image: newUserSaved.image}})
+        return res.json({success: true,
+            response: {token, firstname: newUserSaved.firstname, email: newUserSaved.email, lastname: newUserSaved.lastname, birthday: newUserSaved.birthday, image: newUserSaved.image}})
     },
 
     signIn: async (req, res) => {

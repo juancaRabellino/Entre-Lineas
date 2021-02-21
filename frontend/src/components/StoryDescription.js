@@ -49,6 +49,7 @@ const StoryDescription = (props)=>{
           })
         props.history.push(`/stories/${filtro[0].genre}`)
     }   
+    console.log(filtro.length)
     return(
         <>
         {filtro.length === 0 ? 

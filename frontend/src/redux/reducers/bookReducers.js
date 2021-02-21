@@ -15,6 +15,16 @@ const bookReducers = (state = initialState, action) => {
         ...state,
         newBook: action.payload
       }
+    case 'CHAPTER_CONTENT':
+      return {
+        ...state,
+        newBook:action.payload
+      }
+    case 'GET_NEW_BOOK':
+      return{
+        ...state,
+        newBook: action.payload
+      }
     case 'GET_BOOKS':
       return {
         ...state,
@@ -25,7 +35,7 @@ const bookReducers = (state = initialState, action) => {
     case 'GET_BY_GENRE':
       return{
         ...state,
-        booksByGenre: action.payload.sort((a,b)=> b.views - a.views)
+        booksByGenre: action.payload
       }  
     case 'SEARCH_BOOKS':
     	return {

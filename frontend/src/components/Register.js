@@ -23,8 +23,8 @@ const Register = ( props ) => {
         });
     }
 
-    const checkIfInputsAreEmpty = !usuario.firstname || !usuario.lastname || !usuario.birthday || !usuario.email || !usuario.password;
-
+    const checkIfInputsAreEmpty = usuario.firstname === ''|| usuario.lastname  === ''|| usuario.birthday === ''|| usuario.email === ''|| usuario.password === '';
+    console.log(usuario)
     const alertError = (error) =>{
         Swal.fire({
             icon: 'error',
@@ -48,14 +48,16 @@ const Register = ( props ) => {
     const validateUser = async e => { // function that runs when you click the create user button
         e.preventDefault() //prevent reloading the page
         if(checkIfInputsAreEmpty){
+            console.log('hola')
             const text = 'Verifique que todos los campos esten llenos'
             alertError(text)
             return false
         }
 
         const respuesta = await props.makeNewUser(usuario)
+        console.log(respuesta)
         if(respuesta && !respuesta.success){
-            alertError(respuesta.mensaje)
+                alertError(respuesta.error)
         }else{
             alertSuccess()
         }
@@ -75,7 +77,8 @@ const Register = ( props ) => {
                 image: response.profileObj.imageUrl
             })
         if(respuesta && !respuesta.success){
-            alertError(respuesta.errores.details)
+            alertError(respuesta.errores)
+            console.log(respuesta)
         }else{
             alertSuccess()
         }
@@ -121,6 +124,7 @@ return (
                             <i className={visible ? "far fa-eye-slash" : "far fa-eye"} onClick={()=>setVisible(!visible)}></i>
                         </div>
                     </div>
+                    <p>*La contraseña debe contener al menos un número.</p>
                     <button className="botonRegister" onClick={validateUser} >Crear usuario</button>
                         <GoogleLogin
                             clientId="1087968275357-m12u0vuij7mp2vs76frlkn5of8ae1are.apps.googleusercontent.com"
