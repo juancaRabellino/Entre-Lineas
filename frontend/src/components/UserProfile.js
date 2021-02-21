@@ -65,8 +65,8 @@ const UserProfile = (props) => {
                     </div>
                     <div className='containerViewComponentOption'>
                     <div className='booksBoxUserProf'>
-                            {visible ? myBooks.map(book => <MyBooks libro={book}/>): 
-                            booksLiked.map(book=> <MyBooks libro={book}/>)}    
+                            {visible ? myBooks.length === 0 ? <h1>Todavia no creaste ningún libro!</h1> : myBooks.map(book => <MyBooks libro={book}/>): 
+                            booksLiked.length === 0 ? <h1>Todavia no te gusto ningun libro!</h1>: booksLiked.map(book=> <MyBooks libro={book}/>)}    
                         </div>
                     </div>
                 </div>

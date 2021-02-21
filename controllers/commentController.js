@@ -4,7 +4,7 @@ const commentController = {
     addComment: (req, res) => {
         const {id, content} = req.body
         const {user} = req
-        Book.findOneAndUpdate({_id: id}, {$push:{comments:{firstName: user.firstname, lastName: user.lastname, userPic: user.image, content: content}} }, {new: true})
+        Book.findOneAndUpdate({_id: id}, {$push:{comments:{firstName: user.firstname, lastName: user.lastname, userPic: user.image, content: content, userId: user._id}} }, {new: true})
         .then(book => {
           return res.json({success: true, respuesta: book})
         })
