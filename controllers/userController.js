@@ -43,13 +43,14 @@ const userController = {
             {token: req.body.token, firstname: req.user.firstname, lastname: req.user.lastname, email: req.user.email, birthday: req.user.birthday, id:req.user._id, image: req.user.image}})
     },
 
+
+
     modifyUser: (req, res) => {
         const {id, email, firstname, lastname, birthday} = req.body
         const {image} = req.files
         const pic = image.name.split('.')
-        const url = `/userimgs/${id}.${pic[1]}`
-        console.log(__dirname)
-        image.mv(`/client/build/userimgs/${id}.${pic[1]}`, errores=> {
+        const url = `userimages/${id}.${pic[1]}`
+        image.mv(`./client/build/userimages/${id}.${pic[1]}`, errores=> {
         if(errores) {
             return res.json({
                 success: false,
