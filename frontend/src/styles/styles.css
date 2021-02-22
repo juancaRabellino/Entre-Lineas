@@ -1679,7 +1679,6 @@ section.settings {
     background-size: cover;
     background-attachment: fixed;
     max-width: 100vw;
-    min-height: 90vh;
     display: flex;
     justify-content: center;
     align-items: flex-start;
@@ -1696,41 +1695,27 @@ section.settings {
 }
 .bannerUserData {
     height: 100%;
-    width: 80%;
+    width: 75%;
     display: flex;
     flex-direction: column;
 }
 .photoEditProfile {
     width: 100%;
-    height: 30vh;
+    height: 45%;
     display: flex;
     flex-direction: column;
+    justify-content: space-evenly;
     align-items: center;
-    justify-content: space-between;
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
-    margin-bottom: 1vw;
 }
 .photoUser {
-    background-color: rgb(103, 11, 139);
-    background-position: center;
-    width: 10vw;
-    height: 10vw;
+    background-color: grey;
+    width: 12vw;
+    height: 12vw;
     border-radius: 50%;
     background-size: cover;
-}
-.letterUser{
-    background-color: rgb(103, 11, 139);
-    color: white;
-    width: 10vw;
-    height: 10vw;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 8vw;
-    font-weight: bold;
 }
 .buttonEditProfile{
     width: 13vw;
@@ -1741,25 +1726,18 @@ section.settings {
     border: none;
     padding: 0.5vw;
 }
-.containerInformationFixed {
-    width: 100%;
-    height: 30vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
 .informationProfileUserBlock {
     width: 100%;
-    height: 40vh;
+    height: 55%;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: flex-start;
     align-items: center;
     padding-top: 2vw;
 }
 .informationProfileUserFixed {
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
     margin-bottom: 2vh;
     width: 80%;
     font-size: 1.5vw;
@@ -1789,28 +1767,22 @@ section.settings {
     color: rgb(103, 11, 139)
 }
 .buttonLogout{
+    width: 50%;
+    outline: none;
+    border: none;
+    padding: 0.5vw;
+    margin-top: 7vw;
+    font-size: 1.2vw;
+    border-radius: 3vw;
     color: rgb(103, 11, 139)
 }
 .buttonLogout button {
-    background-color: rgba(103, 11, 139);
-    outline: none;
-    border: none;
-    border-radius: 2vw;
-    padding: 1vw;
-    font-size: 1.2vw;
-    color: white;
-}
-.buttonLogout button:hover{
     background-color: rgb(103, 11, 139);
-    font-weight: bold;
-    font-size: 1.3vw;
-    box-shadow: 4px -5px 5px thistle;
-    transition: 250ms ease;
 }
 
 .titleProfile{
-    height: 15%;
-    font-size: 3.5vw;
+    padding: 1vw;
+    height: 10%;
 }
 .containerNavMenu{
     width: 100%;
@@ -1818,13 +1790,12 @@ section.settings {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 1vw;
 }
 .optionMenu{
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 2.5vw;
+    font-size: 2vw;
     padding: 0.5vw;
 }
 .optionMenu:hover{
@@ -1841,12 +1812,12 @@ section.settings {
     font-weight: bold;
 }
 .containerViewComponentOption{
-    width: 70%;
     display: flex;
     flex-wrap: wrap;
     align-self: center;
     justify-content: space-between;
     padding: 1vw 1vw 1vw 1vw;
+    width: 100%;
 }
 .containerPhotoStoryBook{
     width: 15vw;
@@ -1862,13 +1833,13 @@ section.settings {
     flex-wrap: wrap;
 }
 .dropDownMenu {
-    width: 12vw;
-    font-size: 1.2vw;
+    width: 10vw;
+    font-size: 12px;
     position: absolute;
     display: flex;
     justify-content: center;
-    left: 82vw;
-    top: 10vh;
+    left: 83.5vw;
+    top: 9.3vh;
     z-index: 5;
     transition: 1s ease;
 }
@@ -2171,6 +2142,10 @@ section.settings {
     border: none;
 }
 
+textarea:focus{
+    outline: none;
+}
+
 
 .imag-form-chapter {
     background-image: url(../assets/Paisaje\ 11.jpg);
@@ -2198,6 +2173,7 @@ section.settings {
 }
 
 .container-form-chapter {
+    height: 100vh;
     background-color: white;
     border: solid 3px rgb(55, 112, 187);
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.5),0 17px 50px 0 rgba(0, 0, 0, 0.5);
@@ -2207,14 +2183,38 @@ section.settings {
     align-items: center;
 }
 
+.capitulo{
+    width: 60vw;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
 .form-chapter {
     width: 60vw;
-    padding: 10vh;
+    height: 45vh;
+    padding-left: 10vh;
+    padding-right: 10vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     overflow: auto;
+    margin-bottom: 3vh;
 }
+
+.form-chapter::-webkit-scrollbar {
+    width:1.7vh;
+}
+
+.form-chapter::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+.form-chapter::-webkit-scrollbar-thumb {
+    background-color: rgb(55, 112, 187);
+}
+
 
 .input-chapter{
     width: 45VW;
@@ -2236,6 +2236,9 @@ section.settings {
     padding-left: 3vh;
     padding-right: 3vh;
     height: 10vh;
+    width: 44vw;
+    resize: none;
+    margin-right: 1vh;
 }
 
 
@@ -2426,54 +2429,53 @@ footer p {
 
 /* componente storyDescriptio (gime) */
 
-.uno{
-    height: 80vh;
-    width: 98vw;
+.conteinerResp{
+    height: 50vh;
+    width: 98.7vw;
     display: flex;
-    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-end;
+    background-image: url(../assets/fontoDesciptionStory.jpg);
+    background-position:center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: 0 0px 16px 0 rgba(0,0,0,0.5);
 }
 
-.dos{
+.views-stars-chapters{
     display: flex;
-    width: 25vw;
+    width: 20vw;
     justify-content: space-between;
     margin-top: 3vh;
 }
 
-.hola{
-    /* background-color: teal!important; */
-    background-size: cover;
-    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.5),0 17px 50px 0 rgba(0, 0, 0, 0.5);
-}
-
-.cuatro{
-    position: absolute;
-    display: flex;
-    width: 60vw;
-    margin-top: 25vh;
-    margin-left: 3vh;
-    align-items: center;
-}
-
-.chauu{
-    background-image: url(../assets/fontoDesciptionStory.jpg);
-    height: 60vh;
-    width: 98.7vw;
+.imag-book-story-description{
+    width:180px;
+    height:300px;
     background-position:center;
     background-repeat: no-repeat;
     background-size: cover;
-    position: relative;
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.5),0 17px 50px 0 rgba(0, 0, 0, 0.5);
 }
 
-.cinco {
+.container-image-info-book{
+    height: 50vh;
+    display: flex;
+    width: 60vw;
+    margin-left: 3vh;
+    align-items: center;
+    margin-bottom: -15vh;
+}
+
+
+.container-info-book {
     color: rgb(255, 255, 255);
-    margin-left: 4vh;
+    margin-left: 15px;
 }
 
 .BotonLeer {
     padding: 1vh 8vh 1vh 8vh;
-    margin-top: 11vh;
+    margin-top: 7vh;
     background-color: rgb(98, 18, 129);
     color: rgb(255, 255, 255);
     border: none;
@@ -2483,18 +2485,18 @@ footer p {
     border-radius: 25px 25px 25px 25px ;
 }
 
-.seis{
+.table-title-container{
     width: 50vw;
     border-bottom: solid 2px rgb(103, 11, 139);
     margin-bottom: 0vh;
     margin-left: 4vh;
 }
 
-.seis h2 {
+.table-title-container h2 {
     margin-left: 3vh;
 }
 
-.siete{
+.table-containe{
     display: flex;
     flex-direction: column;
     margin-bottom: 5vh;
@@ -2502,7 +2504,7 @@ footer p {
     margin-left: 4vh;
 }
 
-.siete button {
+.table-containe button {
     width:50vw ;
     text-align: start;
     background-color: rgb(245, 245, 245);
@@ -2510,21 +2512,22 @@ footer p {
     padding: 2vh 0vh 2vh 0vh;
 }
 
-.siete button:hover{
+.table-containe button:hover{
     background-color: rgb(228, 228, 228);
     font-size: 3vh;
 }
 
-.siete button p {
+.table-containe button p {
     margin-left: 3vh;
 }
 
-.ocho {
+.comment-table-container {
+    margin-top: 20vh;
     display: flex;
     justify-content: space-between;
 }
 
-.nueve{
+.coments-container-storyDescription{
     width: 34vw;
     height: 60vh;
     border-radius: 10px;
@@ -2536,6 +2539,263 @@ footer p {
     margin-right: 8vh;
 }
 
+.stars{
+    margin-top: 0vh;
+}
+
+/* responsive storyDescription (gime) */
+@media (max-width: 992px) {
+    .conteinerResp{
+        height: 40vh;
+        min-width: 100vw;
+        display: flex;
+        justify-content: flex-start;
+        background-image: url(../assets/fontoDesciptionStory.jpg);
+        background-position:center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        box-shadow: 0 0px 16px 0 rgba(0,0,0,0.5);
+    }
+
+    .imag-book-story-description{
+        height: 220px;
+        min-width: 130px;
+        background-position:center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        box-shadow: 0 12px 16px 0 rgba(0,0,0,0.5),0 17px 50px 0 rgba(0, 0, 0, 0.5);
+    }
+
+    .views-stars-chapters{
+        width: 18vw;
+        font-size: 20px;
+    }
+
+    .views-stars-chapters h5 {
+        font-size: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .container-image-info-book {
+        left: 0;
+        display: flex;
+        height: 20vh;
+        width: 60vw;
+        margin-top: 0vh;
+        margin-left: 3vh;
+        margin-bottom: 0vh;
+    }
+
+    .container-info-book{
+        height: 140px;
+        width: 280px;
+        font-size: 2vh;
+        margin-left: 2vh;
+    }
+
+    .container-info-book h2 {
+        font-size: 25px;
+    }
+
+    .BotonLeer{
+        padding: 1vh 3vh 1vh 3vh;
+        margin-top: 2vh;
+        background-color: rgb(98, 18, 129);
+        color: rgb(255, 255, 255);
+        border: none;
+        font: inherit;
+        cursor: pointer;
+        outline: none;
+        border-radius: 25px 25px 25px 25px ;
+    }
+
+    .stars{
+        display: flex;
+        width: 60vh;
+    }
+
+    .comment-table-container {
+        margin-top: 10vh;
+        display: flex;
+        justify-content: space-between;
+    }
+    .coments-container-storyDescription{
+        width: 38vw;
+        height: 40vh;
+        border-radius: 10px;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        border: solid 1px rgb(103, 11, 139);
+        box-shadow: 0 12px 10px 0 rgba(0,0,0,0.5),0 17px 25px 0 rgba(0, 0, 0, 0.5);
+        margin-right: 4vh;
+    }
+
+    .table-title-container{
+        width: 50vw;
+        border-bottom: solid 2px rgb(103, 11, 139);
+        margin-bottom: 0vh;
+    }
+
+    .table-containe{
+        width: 50vw;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 5vh;
+        border-bottom: solid 2px rgb(103, 11, 139);
+    }
+    
+    .table-containe button {
+        width:50vw ;
+        text-align: start;
+        background-color: rgb(245, 245, 245);
+        border: none;
+        padding: 2vh 0vh 2vh 0vh;
+    }
+    
+    .table-containe button:hover{
+        background-color: rgb(228, 228, 228);
+        font-size: 3vh;
+    }
+    
+    .table-containe button p {
+        margin-left: 3vh;
+    }
+
+}
+@media (max-width: 600px) {
+    .conteinerResp{
+        height: 40vh;
+        min-width: 100vw;
+        display: flex;
+        justify-content: flex-start;
+        background-image: url(../assets/3572.jpg);
+        background-position:initial;
+        background-repeat: no-repeat;
+        background-size: cover;
+        box-shadow: 0 0px 16px 0 rgba(0,0,0,0.5);
+    }
+
+    .imag-book-story-description{
+        height: 220px;
+        min-width: 130px;
+        background-position:center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        box-shadow: 0 12px 16px 0 rgba(0,0,0,0.5),0 17px 50px 0 rgba(0, 0, 0, 0.5);
+    }
+
+    .views-stars-chapters{
+        width: 27vw;
+        font-size: 20px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .views-stars-chapters div {
+        width: 15vh;
+    }
+
+    .views-stars-chapters div h5 {
+        font-size: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .container-image-info-book {
+        position: absolute;
+        display: flex;
+        left: 0;
+        height: 20vh;
+        width: 60vw;
+        margin-top: 0vh;
+        margin-left: 3vh;
+        margin-bottom: 0vh;
+    }
+
+    .container-info-book{
+        height: 140px;
+        width: 280px;
+        font-size: 2vh;
+        margin-left: 2vh;
+    }
+
+    .container-info-book h2 {
+        font-size: 25px;
+    }
+
+    .BotonLeer{
+        padding: 1vh 3vh 1vh 3vh;
+        margin-top: 2vh;
+        background-color: rgb(98, 18, 129);
+        color: rgb(255, 255, 255);
+        border: none;
+        font: inherit;
+        cursor: pointer;
+        outline: none;
+        border-radius: 25px 25px 25px 25px ;
+    }
+
+    .stars{
+        display: flex;
+        width: 60vh;
+    }
+
+    .comment-table-container {
+        margin-top: 10vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .coments-container-storyDescription{
+        width: 80vw;
+        height: 40vh;
+        border-radius: 10px;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        border: solid 1px rgb(103, 11, 139);
+        box-shadow: 0 12px 10px 0 rgba(0,0,0,0.5),0 17px 25px 0 rgba(0, 0, 0, 0.5);
+        margin-left: 8vh;
+        margin-bottom: 10vh;
+    }
+
+    .seis{
+        width: 80vw;
+        border-bottom: solid 2px rgb(103, 11, 139);
+        margin-bottom: 0vh;
+    }
+
+    .table-containe{
+        width: 80vw;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 5vh;
+        border-bottom: solid 2px rgb(103, 11, 139);
+    }
+    
+    .table-containe button {
+        width:80vw ;
+        text-align: start;
+        background-color: rgb(245, 245, 245);
+        border: none;
+        padding: 2vh 0vh 2vh 0vh;
+    }
+    
+    .table-containe button:hover{
+        background-color: rgb(228, 228, 228);
+        font-size: 3vh;
+    }
+    
+    .table-containe button p {
+        margin-left: 3vh;
+    }
+
+}
 /* estilos de comentarios (gime) */
 
 .inputButtomEnvComment {
@@ -2559,20 +2819,20 @@ footer p {
     margin-left: 5vh;
 }
 
-.chichi{
+.comments-storyDescription{
     overflow-x: auto;
     margin-top: 5vh;
 }
 
-.chichi::-webkit-scrollbar {
+.comments-storyDescription::-webkit-scrollbar {
 width: 10px;
 }
 
-.chichi::-webkit-scrollbar-track {
+.comments-storyDescription::-webkit-scrollbar-track {
 background-color: transparent;
 }
 
-.chichi::-webkit-scrollbar-thumb {
+.comments-storyDescription::-webkit-scrollbar-thumb {
 background-color: rgba(194, 99, 231, 0.534);
 border-radius: 30px;
 }
@@ -2619,6 +2879,70 @@ border-radius: 30px;
 
 .d-flex{
     height: 10vh;
+}
+
+@media (max-width: 992px) {
+    .inputButtomEnvComment {
+        margin-top: 5vh;
+        width: 30vw;
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 5vh;
+    }
+    .inputButtomEnvComment input {
+        width: 30vw;
+    }
+
+    .comments-storyDescription h2 {
+        font-size: 25px;
+    }
+
+    .fa-trash-alt{
+        height: 2vh;
+    }
+    .fa-edit{
+        height: 1vh;
+        width: 2vw;
+    }
+    .botonesEditAndBorrar {
+        display: flex;
+    }
+}
+
+@media (max-width: 600px) {
+    .inputButtomEnvComment {
+        margin-top: 5vh;
+        width: 65vw;
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 5vh;
+    }
+
+    .inputButtomEnvComment input {
+        width: 60vh;
+    }
+
+    .comments-storyDescription h2 {
+        font-size: 25px;
+    }
+
+    .containerComments{
+        width: 65vw;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .contentComment {
+        width: 35vw;
+        background-color: rgb(138, 61, 168);
+        padding: 0.5vh;
+        border-radius: 25px;
+    }
+
+    .rounded-circle{
+        width: 8vh;
+        margin-right: 1vh;
+    }
 }
 
 
@@ -3094,105 +3418,10 @@ border-radius: 30px;
 }
 
 .resultBusqueda{
-    width: 100%;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
-}
-/* ESTILOS MODIFICAR LIBRO (MAURI) */
-.oneModify{
-    height: 80vh;
-    width: 98vw;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-}
-
-
-.fourModify{
-    background-size: cover;
-    box-shadow: 0 12px 16px 0 rgba(211, 209, 209, 0.5),0 17px 50px 0 rgba(238, 235, 235, 0.5);
-}
-
-.threeModify{
-    position: absolute;
-    display: flex;
-    width: 60vw;
-    margin-top: 25vh;
-    margin-left: 3vh;
-    align-items: center;
-}
-
-.twoModify{
-    background-image: url(../assets/fontoDesciptionStory.jpg);
-    height: 60vh;
-    width: 98.7vw;
-    background-position:center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;
-    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.5),0 17px 50px 0 rgba(0, 0, 0, 0.5);
-}
-
-.fiveModify {
-    color: rgb(255, 255, 255);
-    margin-left: 4vh;
-}
-
-.buttonModify {
-    padding: 1vh 8vh 1vh 8vh;
-    margin-top: 11vh;
-    background-color: rgb(98, 18, 129);
-    color: rgb(255, 255, 255);
-    border: none;
-    font: inherit;
-    cursor: pointer;
-    outline: none;
-    border-radius: 25px 25px 25px 25px ;
-}
-.eightModify{
-    display: flex;
-    justify-content: center;
-    width: 50vw;
-    border-bottom: solid 2px rgb(103, 11, 139);
-    margin-bottom: 0vh;
-    margin-left: 4vh;
-}
-
-.eightModify h2 {
-    margin-left: 3vh;
-
-}
-
-.nineModify{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 5vh;
-    border-bottom: solid 2px rgb(103, 11, 139);
-    margin-left: 4vh;
-}
-
-.nineModify button {
-    width:50vw ;
-    text-align: start;
-    background-color: rgb(245, 245, 245);
-    border: none;
-    padding: 2vh 0vh 2vh 0vh;
-}
-
-.nineModify button:hover{
-    background-color: rgb(228, 228, 228);
-    font-size: 3vh;
-}
-
-.nineModify button p {
-    margin-left: 3vh;
-}
-.sevenModify{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-wrap: wrap;
 }
 .storyBookImg{
     background-size: cover;
