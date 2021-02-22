@@ -99,7 +99,7 @@ const responseFacebook = async (response) => {
                         <input className="inputRegister" type="text" name="email" placeholder="Nombre de Usuario" onChange={readInput}/>
                         <div className="a">
                             <input className="inputRegisterPassword" type={visible ? "text" : "password"} name="password" placeholder="Contraseña" onChange={readInput}/>
-                            <div className='ojito'><i class={visible ? "far fa-eye-slash" : "far fa-eye"} onClick={()=>setVisible(!visible)}></i></div>
+                            <div className='ojito'><i className={visible ? "far fa-eye-slash" : "far fa-eye"} onClick={()=>setVisible(!visible)}></i></div>
                         </div>
                     <button className="botonRegister" onClick={validateUser} >Iniciar sesion</button>
                     <GoogleLogin

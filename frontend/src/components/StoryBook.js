@@ -15,8 +15,8 @@ const StoryBook = (props)=>{
                         <p>{filtro[0].chapters[indexPage].title}</p>
                         <div style={{width:'30vh', display:'flex',justifyContent:'space-between'}}>
                             <h5><i className="far fa-eye"></i> {filtro[0].views} </h5>
-                            <h5><i class="far fa-star"></i> {filtro[0].stars.length}</h5>
-                            <h5><i class="fas fa-list-ul"></i> {filtro[0].chapters.length}</h5>
+                            <h5><i className="far fa-star"></i> {filtro[0].stars.length}</h5>
+                            <h5><i className="fas fa-list-ul"></i> {filtro[0].chapters.length}</h5>
                         </div>
                     </div>
                     <div className="userDate">por {filtro[0].user.firstname} {filtro[0].user.lastname}</div>

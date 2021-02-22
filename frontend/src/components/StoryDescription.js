@@ -60,8 +60,8 @@ const StoryDescription = (props)=>{
                     <h5>{filtro[0].genre}</h5>
                     <div className="dos">
                         <h5><i className="far fa-eye"></i> {filtro[0].views} </h5>
-                        <h5><i class="far fa-star"></i> {filtro[0].stars.length}</h5>
-                        <h5><i class="fas fa-list-ul"></i> {filtro[0].chapters.length}</h5>
+                        <h5><i className="far fa-star"></i> {filtro[0].stars.length}</h5>
+                        <h5><i className="fas fa-list-ul"></i> {filtro[0].chapters.length}</h5>
                     </div>
                     <div>
                         <h5>{filtro[0].user.firstname} {filtro[0].user.lastname}</h5>
@@ -71,9 +71,9 @@ const StoryDescription = (props)=>{
                     <button className="BotonLeer">Leer</button></Link> : redirect()}
                     {filtro[0].stars.includes(voted) 
                     ?
-                    <button className="BotonLeer" onClick={props.loggedUser && dismissVote}>Quitar Voto <i class="fas fa-star"></i></button>
+                    <button className="BotonLeer" onClick={props.loggedUser && dismissVote}>Quitar Voto <i className="fas fa-star"></i></button>
                     : 
-                    <button className="BotonLeer" onClick={props.loggedUser ? votes : ()=>alert('Necesitas iniciar sesion para poder votar!')}>Depositar voto <i class="far fa-star"></i></button>}
+                    <button className="BotonLeer" onClick={props.loggedUser ? votes : ()=>alert('Necesitas iniciar sesion para poder votar!')}>Depositar voto <i className="far fa-star"></i></button>}
                 </div>
             </div>
         </div>
@@ -111,7 +111,7 @@ const StoryDescription = (props)=>{
                     <div>
                         <div className="inputButtomEnvComment">
                             <Input className="comment" id="comment" type="text" placeholder="Comenta!" value={value} onChange={(e)=> setValue(e.target.value)} onKeyPress={keyPress}/>
-                            <Button onClick={enviar}><i class="far fa-paper-plane"></i></Button>
+                            <Button onClick={enviar}><i className="far fa-paper-plane"></i></Button>
                         </div>
                     </div> :
                     <div className="d-flex justify-content-center">

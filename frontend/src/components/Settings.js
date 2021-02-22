@@ -117,7 +117,7 @@ const Settings = (props) => {
           <div className="lineImgUser">
               <div className="selectImagPerfil">
                 <label htmlFor="image" for="image">
-                  <i for="image" class="fas fa-hand-pointer"></i>
+                  <i for="image" className="fas fa-hand-pointer"></i>
                   <h6>Click para seleccionar Imagen</h6>
                 </label>
               </div>

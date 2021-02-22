@@ -33,7 +33,7 @@ const Header = (props) => {
       </div></Link>
       {props.loggedUser && !props.loggedUser.image ?
         <div className="headerRight">
-          <h4>Hola! {(props.loggedUser.firstname).toUpperCase()}</h4>
+          <p>Hola! {(props.loggedUser.firstname).toUpperCase()}</p>
           <div className='containerDrop' onClick={() => setVisible(!visible)}>
             {visible &&
               <div className='dropDownMenu'>
@@ -54,7 +54,7 @@ const Header = (props) => {
         : props.loggedUser && props.loggedUser.image
         ?<>
         <div className="headerRight" >
-          <h4>Hola! {(props.loggedUser.firstname).toUpperCase()}</h4>
+          <p>Hola! {(props.loggedUser.firstname).toUpperCase()}</p>
           <div className='containerDrop' onClick={() => setVisible(!visible)}>
             {visible &&
               <div className='dropDownMenu'>
