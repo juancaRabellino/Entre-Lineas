@@ -5,7 +5,7 @@ const commentActions = {
     addComment:(content, id, token) => {
       return async (dispatch, getState) => {
         try {
-          const res = await axios.post('http://localhost:4000/api/comments', {content, id, token}, {
+          const res = await axios.post('https://entrelineas.herokuapp.com/api/comments', {content, id, token}, {
             headers: {
                 Authorization: `Bearer ${token}`
             }
@@ -27,7 +27,7 @@ const commentActions = {
     deleteComment: (id, idcomment, token) => {
       return async(dispatch, getState) => {
         try {
-          const res = await axios.put('http://localhost:4000/api/comments/delete', {id, idcomment}, {
+          const res = await axios.put('https://entrelineas.herokuapp.com/api/comments/delete', {id, idcomment}, {
             headers: {
                 Authorization: `Bearer ${token}` 
             }
@@ -50,7 +50,7 @@ const commentActions = {
       console.log(value, idcomment, id, token)
       return async (dispatch, getState) => {
         try{
-          const res = await axios.put('http://localhost:4000/api/comments', {value, idcomment, id}, {
+          const res = await axios.put('https://entrelineas.herokuapp.com/api/comments', {value, idcomment, id}, {
             headers: {
                 Authorization: `Bearer ${token}` 
             }

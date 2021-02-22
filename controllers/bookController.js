@@ -39,13 +39,12 @@ const bookController = {
     const {id} = req.body
     const {image} = req.files
     const pic = image.name.split('.')
-    var url = `../booksimages/${req.user._id}${image.name}`
-    image.mv(`./frontend/public/booksimages/${req.user._id}${image.name}`, errores => {
-      if(errores) {
-        console.log(errores)
+    var url = `../userimages/${req.user._id}${image.name}`
+    image.mv(`./client/build/static/${req.user._id}${image.name}`, error => {
+      if(error) {
         return res.json({
           success: false,
-          errores:errores,
+          error,
           mensaje:'No se puede agregar la imagen en este momento. Intente mas tarde'
         })
       }
