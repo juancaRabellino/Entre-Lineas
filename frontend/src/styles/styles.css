@@ -1108,7 +1108,7 @@ section.settings {
     display: flex;
     justify-content: center;
     align-items: center;
-    opacity: 100%;
+    opacity: 100% !important;
 }
 
 .register {
@@ -1198,8 +1198,8 @@ section.settings {
     justify-content: space-between;
     align-items: center;
     padding: 10vh;
-    background-color: rgb(255, 255, 255);
-    position: absolute ;
+    background-color: rgb(255, 255, 255) !important;
+    position: absolute !important;
     border: solid 2px rgb(83, 1, 150);
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
 }
