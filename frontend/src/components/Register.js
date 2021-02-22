@@ -61,25 +61,25 @@ const Register = ( props ) => {
         }
     }
 
-    const responseGoogle = async (response) => {
-        if(response.error){
-            const text = 'Algo salio mal con tu cuenta de Google, vuelve a intentar!'
-            alertError(text)
-        }else{
-            const respuesta = await props.makeNewUser({
-                firstname: response.profileObj.givenName,
-                lastname: response.profileObj.familyName,
-                email: response.profileObj.email,
-                password:response.profileObj.googleId,
-                image: response.profileObj.imageUrl
-            })
-        if(respuesta && !respuesta.success){
-            alertError(respuesta.error)
-        }else{
-            alertSuccess()
-        }
-    }
-}
+//     const responseGoogle = async (response) => {
+//         if(response.error){
+//             const text = 'Algo salio mal con tu cuenta de Google, vuelve a intentar!'
+//             alertError(text)
+//         }else{
+//             const respuesta = await props.makeNewUser({
+//                 firstname: response.profileObj.givenName,
+//                 lastname: response.profileObj.familyName,
+//                 email: response.profileObj.email,
+//                 password:response.profileObj.googleId,
+//                 image: response.profileObj.imageUrl
+//             })
+//         if(respuesta && !respuesta.success){
+//             alertError(respuesta.error)
+//         }else{
+//             alertSuccess()
+//         }
+//     }
+// }
 
 
 
@@ -103,13 +103,13 @@ return (
                     </div>
                     <p>*La contraseña debe contener al menos un número.</p>
                     <button className="botonRegister" onClick={validateUser} >Crear usuario</button>
-                        <GoogleLogin
+                        {/* <GoogleLogin
                             clientId="1038057212104-nnvs147cdmm0l23842rfofjg32aqll0s.apps.googleusercontent.com"
                             buttonText="Crear usuario con google"
                             onSuccess={responseGoogle}
                             onFailure={responseGoogle}
                             cookiePolicy={'single_host_origin'}
-                        />
+                        /> */}
                 </div>
             </div>
         <div style={{height:"50vh", width:"60vw"}}>

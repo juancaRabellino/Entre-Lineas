@@ -39,8 +39,8 @@ const bookController = {
     const {id} = req.body
     const {image} = req.files
     const pic = image.name.split('.')
-    var url = `../userimages/${req.user._id}${image.name}`
-    image.mv(`./client/build/static/${req.user._id}${image.name}`, error => {
+    var url = `../booksimages/${req.user._id}${image.name}`
+    image.mv(`./client/build/booksimages/${req.user._id}${image.name}`, error => {
       if(error) {
         return res.json({
           success: false,

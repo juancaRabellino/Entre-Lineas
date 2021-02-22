@@ -56,22 +56,22 @@ const SignIn = (props) => {
         }
     }
 
-    const responseGoogle = async (response) => {
-        if (response.error) {
-            const text = 'Algo salio mal con tu cuenta de Google, vuelve a intentar!'
-            alertError(text)
-        } else {
-            const respuesta = await props.logInUser({
-                email: response.profileObj.email,
-                password: response.profileObj.googleId
-            })
-            if (respuesta && !respuesta.success) {
-                alertError(respuesta.mensaje)
-            } else {
-                alertSuccess()
-            }
-        }
-    }
+    // const responseGoogle = async (response) => {
+    //     if (response.error) {
+    //         const text = 'Algo salio mal con tu cuenta de Google, vuelve a intentar!'
+    //         alertError(text)
+    //     } else {
+    //         const respuesta = await props.logInUser({
+    //             email: response.profileObj.email,
+    //             password: response.profileObj.googleId
+    //         })
+    //         if (respuesta && !respuesta.success) {
+    //             alertError(respuesta.mensaje)
+    //         } else {
+    //             alertSuccess()
+    //         }
+    //     }
+    // }
 
 
     return (
@@ -86,13 +86,13 @@ const SignIn = (props) => {
                         <div className='ojito'><i className={visible ? "far fa-eye-slash" : "far fa-eye"} onClick={() => setVisible(!visible)}></i></div>
                     </div>
                     <button className="botonRegister" onClick={validateUser} >Iniciar sesion</button>
-                    <GoogleLogin
+                    {/* <GoogleLogin
                         clientId="1038057212104-nnvs147cdmm0l23842rfofjg32aqll0s.apps.googleusercontent.com"
                         buttonText="Iniciar sesion con google"
                         onSuccess={responseGoogle}
                         onFailure={responseGoogle}
                         cookiePolicy={'single_host_origin'}
-                    />
+                    /> */}
                 </div>
             </div>
             <div style={{ height: "50vh", width: "60vw" }}>
