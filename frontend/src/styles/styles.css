@@ -81,7 +81,8 @@ header a, footer a {
     margin: 0 3vw 0 0;
     background-image: url("../assets/logoHeader.png");
     background-position: center;
-    background-size: cover
+    background-size: contain;
+    background-repeat: no-repeat;
   }
   .footerLeft{
       width: 15vw;
@@ -89,7 +90,8 @@ header a, footer a {
       margin: 0 3vw 0 0;
       background-image: url("../assets/logoHeader.png");
       background-position: center;
-      background-size: cover
+      background-size: contain;
+      background-repeat: no-repeat;
   }
 
 .socialNetworks {
