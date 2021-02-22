@@ -3,7 +3,7 @@ const initialState = {
   books: [],
   newBook: [],
   filter: [],
-  comments: [],
+  comment: [],
   booksByGenre: [],
   vote: {}
 }
@@ -15,16 +15,27 @@ const bookReducers = (state = initialState, action) => {
         ...state,
         newBook: action.payload
       }
+    case 'CHAPTER_CONTENT':
+      return {
+        ...state,
+        newBook:action.payload
+      }
+    case 'GET_NEW_BOOK':
+      return{
+        ...state,
+        newBook: action.payload
+      }
     case 'GET_BOOKS':
       return {
         ...state,
         books: action.payload,
-        filter: action.payload
+        filter: action.payload,
+        comment: state.books.map(book => book._id === action.payload._id ? action.payload : book)
       }
     case 'GET_BY_GENRE':
       return{
         ...state,
-        booksByGenre: action.payload.sort((a,b)=> b.views - a.views)
+        booksByGenre: action.payload
       }  
     case 'SEARCH_BOOKS':
     	return {
@@ -34,12 +45,17 @@ const bookReducers = (state = initialState, action) => {
         	|| book.user.firstname.toUpperCase().includes(action.payload.toUpperCase().trim()) 
         	|| book.user.lastname.toUpperCase().includes(action.payload.toUpperCase().trim()))
       }
-    case 'COMMENT':
-      return {
-        ...state,
-        books: state.books.map(book => book._id === action.payload.response._id ? action.payload.response : book)
-      }
-    default:
+      case 'ADD_COMMENTS':
+          return{
+              ...state,
+              comment: action.payload
+          }
+      case 'DELETE_COMMENT':
+          return {
+              ...state,
+              comment: action.payload
+          }
+      default:
       return state
 	}
 }

@@ -5,23 +5,10 @@ import authActions from '../redux/actions/authActions'
 
 const SendEmail = ( props ) => {
 
-    const [usuario, setUsuario] = useState({
-        email:''
-    })
+    const [email, setEmail] = useState('')
     const [errores, setErrores] = useState ([])
  
-
-    const readInput = e => { //receive the event
-        const valor = e.target.value // capture the value
-        const campo = e.target.name // capture the field
-
-        setUsuario ({ //modify the user I have in the useState
-            ...usuario,
-            [campo]:valor
-        });
-    }
-
-    const checkIfInputsAreEmpty = !usuario.email;
+    const checkIfInputsAreEmpty = email===''
 
     const validateUser = async e => { // function that runs when you click the create user button
         e.preventDefault() //prevent reloading the page
@@ -31,11 +18,11 @@ const SendEmail = ( props ) => {
         }
         setErrores([])
 
-        const respuesta = await props.sendForgotPassword(usuario)
+        const respuesta = await props.resetPassword(email)
         if(respuesta && !respuesta.success){
             setErrores(respuesta.errores.details)
         }else{
-            alert ("La solicitud de restablecimiento de contraseña fue generada con exito")
+            alert ("La solicitud de restablecimiento de contraseña fue generada con exito, chequea tu mail.")
         }
     }
 
@@ -49,7 +36,7 @@ return (
                 <div className= "register">
                     <h2>Solicitud de restablecimiento de contraseña</h2>
                     <div className="userNameAndPassword">
-                        <input className="inputRegister" type="text" name="email" placeholder="Email" onChange={readInput} />
+                        <input className="inputRegister" type="text" name="email" placeholder="Email" onChange={(e)=>setEmail(e.target.value.trim())} />
                     </div>
                     <button className="botonRegister" onClick={validateUser} >Recuperar contraseña!</button>
                 </div>
@@ -62,7 +49,7 @@ return (
     }
 
 const mapDispatchToProps = { // map the actions
-   sendForgotPassword : authActions.sendForgotPassword //mapDispachToProps object that has an action value
+   resetPassword : authActions.resetPassword //mapDispachToProps object that has an action value
 }
 
-export default connect(null,mapDispatchToProps) (SendEmail)
+export default connect(null,mapDispatchToProps)(SendEmail)

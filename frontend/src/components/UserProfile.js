@@ -1,11 +1,15 @@
 import { Link } from 'react-router-dom'
 import Settings from './Settings'
 import { connect } from 'react-redux'
-
+import {useState} from 'react'
+import MyBooks from './MyBooks'
 
 const UserProfile = (props) => {
-
+    console.log(props)
     console.log(props.loggedUser)
+    var myBooks = props.books.filter(book => book.user._id === props.loggedUser.id)
+    var booksLiked = props.books.filter(book => book.stars.includes(props.loggedUser.id))
+    const [visible, setVisible]=useState(true)
 
     return(
         <>
@@ -13,13 +17,19 @@ const UserProfile = (props) => {
                 <div className='containerBannerUserData'>
                     <div className='bannerUserData'>
                         <div className='photoEditProfile'>
+                            {props.loggedUser.image
+                            ?
                             <div className='photoUser'style={{ backgroundImage: `url(${props.loggedUser.image})`}}>
+                            </div>:
+                            <div className="letterUser">{props.loggedUser.firstname.toUpperCase().substr(0, 1)}
                             </div>
+                            }
                             <div className='buttonEditProfile'>
-                                <Link to='/settings'><button>Editar mis Datos</button></Link>
+                                <Link to='/settings'><button><i className="fas fa-cog"></i> Editar mis Datos</button></Link>
                             </div>
                         </div>
                         <div className='informationProfileUserBlock'>
+                            <div className='containerInformationFixed'>
                             <div className='informationProfileUserFixed'>
                                 <div className='iconInformationProfileUserFixed'><i className="fas fa-user"></i></div>
                                 <div className='dataInformationProfileUserFixed'><p>{props.loggedUser.firstname} {props.loggedUser.lastname}</p></div>
@@ -48,8 +58,9 @@ const UserProfile = (props) => {
                                 <div className='iconInformationProfileUserFixed'><i className="fas fa-bookmark"></i></div>
                                 <div className='dataInformationProfileUserFixed'><p>Libros Guardados</p></div>
                             </div>
+                            </div>
                             <div className='buttonLogout'>
-                            <Link to='/' onClick={props.logout}><button className='buttonLogout'>Cerrar mi sesión</button></Link>
+                            <Link to='/' onClick={props.logout}><button>Cerrar mi sesión</button></Link>
                             </div>
 
                         </div>
@@ -58,45 +69,13 @@ const UserProfile = (props) => {
                 <div className='containerContentOptions'>
                     <h2 className='titleProfile'>Mi Perfil en Entre Líneas   </h2>
                     <div className='containerNavMenu'>
-                        <Link to='/userProfile'><div className='optionMenu'>Mis datos</div></Link>
-                        <Link to='/library'><div className='optionMenu'>Mi biblioteca</div></Link>
-                        <Link to='savedBooks'><div className='optionMenu savedBooks'>Mis libros guardados</div></Link>
+                        <Link ><div onClick={()=>setVisible(true)} className='optionMenu'>Mis Libros</div></Link>
+                        <Link ><div onClick={()=>setVisible(false)} className='optionMenu savedBooks'>Mi Biblioteca</div></Link>
                     </div>
                     <div className='containerViewComponentOption'>
-                        <div className='containerFirstBlock'>
-                            <div className='containerInfo'>
-                                <div className='containerInfoField'>
-                                    <p>Tu nombre</p>
-                                </div>
-                                <div className='containerField'>
-                                    <div className='containerFieldData'>
-                                        <p>{props.loggedUser.firstname} {props.loggedUser.lastname}</p>
-                                        <div className='iconField'><i className="fas fa-user"></i></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className='containerInfo'>
-                                <div className='containerInfoField'>
-                                    <p>Tu cumpleaños</p>
-                                </div>
-                                <div className='containerField'>
-                                    <div className='containerFieldData'>
-                                        <p>{props.loggedUser.birthday.substr(5, 5)}</p>
-                                        <div className='iconField'><i className="fas fa-birthday-cake"></i></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className='containerInfo'>
-                                <div className='containerInfoField'>
-                                    <p>Tu nombre</p>
-                                </div>
-                                <div className='containerField'>
-                                    <div className='containerFieldData'>
-                                        <p>{props.loggedUser.firstname} {props.loggedUser.lastname}</p>
-                                        <div className='iconField'><i className="fas fa-bookmark"></i></div>
-                                    </div>
-                                </div>
-                            </div>
+                    <div className='booksBoxUserProf'>
+                            {visible ? myBooks.length === 0 ? <h1>Todavia no creaste ningún libro!</h1> : myBooks.map(book => <MyBooks libro={book}/>): 
+                            booksLiked.length === 0 ? <h1>Todavia no te gusto ningun libro!</h1>: booksLiked.map(book=> <MyBooks libro={book}/>)}    
                         </div>
                     </div>
                 </div>
@@ -107,9 +86,8 @@ const UserProfile = (props) => {
 
 const mapStateToProps = state => {
     return {
+    books: state.bookR.books,
       loggedUser: state.auth.loggedUser
     }
 }
 export default connect(mapStateToProps)(UserProfile)
-
-/*<Settings />*/

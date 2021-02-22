@@ -26,6 +26,7 @@ router.route('/user/ls')
 
 router.route("/user/reset-password")
 .post(passwordController.restartPassword)
+.put(passwordController.changePassword)
 
 // Book routes
 router.route('/book')
@@ -38,7 +39,8 @@ router.route('/book/:genre')
 
 
 router.route('/book/addChapter')
-.post(passport.authenticate('jwt', {session: false}),bookController.updateBook)
+.post(passport.authenticate('jwt', {session: false}),bookController.addChapter)
+.put(passport.authenticate('jwt', {session: false}),bookController.addContent)
 
 router.route('/settings')
 .post(userController.modifyUser)
@@ -49,7 +51,7 @@ router.route('/genre')
 .post(genreController.addGenre)
 
 // Comments Route
-router.route('/comments')
+router.route('/comments/')
 .post(passport.authenticate('jwt', {session: false}),commentController.addComment)
 .put(passport.authenticate('jwt', {session: false}), commentController.modComment)
 

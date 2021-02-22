@@ -5,14 +5,13 @@ const StoryBook = (props)=>{
     var namePage = props.match.params.id
     var filtro = props.books.filter(libro=> libro._id === namePage)
     var indexPage = parseInt(props.match.params.index)
-    console.log(filtro)
 
     return(
         <>
             <div className="containerCap">
                 <div className="containerTitleAndUser">
-                    <div style={{ backgroundImage: `url(${filtro[0].image})`, width:'15vw', height:'50vh', backgroundColor:'tomato'}}></div>
-                    <div className="titleCap"> 
+                    <div style={{ backgroundImage:`url('${filtro[0].image}')`, width:'15vw', height:'50vh', backgroundColor:'tomato'}}></div>
+                    <div className="titleCap">
                         <p>{filtro[0].chapters[indexPage].title}</p>
                         <div style={{width:'30vh', display:'flex',justifyContent:'space-between'}}>
                             <h5><i className="far fa-eye"></i> {filtro[0].views} </h5>

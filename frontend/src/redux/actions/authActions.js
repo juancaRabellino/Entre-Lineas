@@ -1,4 +1,6 @@
 import axios from 'axios'
+import Swal from'sweetalert2';
+
 
 const authActions = {
     makeNewUser: (usuario) => {
@@ -11,8 +13,8 @@ const authActions = {
                 } 
                 dispatch({type: 'LOG_USER', payload: respuesta.data})//lo que ma contesto el backend se lo mando al reducers
                 console.log(respuesta.data)
-            }catch(error){
-                console.log(error)
+            }catch(errores){
+                console.log(errores)
             }
         }
     },
@@ -42,21 +44,46 @@ const authActions = {
         return async (dispatch, getState) => {
             try{
                 const response = await axios.post('http://localhost:4000/api/user/ls/', {token}, {
+                
                     headers: {
                         Authorization: `Bearer ${token}`
+                       
                     }
                 })
                 dispatch({type: 'LOG_USER', payload: response.data})
+                
             }catch(error){
-                console.log(error)
-                if(error.response.status === 401) {
-                    alert("No tienes permitido ingresar a la web")
-                    localStorage.clear()
-                    return true
-                }
+              
+               
+               
             }
         }
     },
+
+    resetPassword: (email)=> {
+        return async (dispatch) => {
+            try{
+                const response = await axios.post('http://localhost:4000/api/user/reset-password', {email})
+                dispatch({type: 'RESET_PASSWORD'})
+                console.log(response.data)
+            }catch(error){
+                console.log(error)
+            }
+        }
+    },
+
+    newPassword: (email, password) => {
+        return async(dispatch) => {
+            try{
+                const response = await axios.put('http://localhost:4000/api/user/reset-password', {email, password})
+                dispatch({type: 'CHANGE_PASSWORD'})
+                console.log(response.data)
+            }catch(error){
+                console.log(error)
+            }
+        }
+    },
+
     logOutUser: () => { //se usa en el header
         return async (dispatch) => {
             dispatch({type:'LOG_OUT_USER'})

@@ -3,13 +3,14 @@ import { connect } from 'react-redux'
 import authActions from '../redux/actions/authActions'
 import GoogleLogin from 'react-google-login'
 import FacebookLogin from 'react-facebook-login';
+import Swal from'sweetalert2';
+
 
 const Register = ( props ) => {
 
     const [usuario, setUsuario] = useState({
-        firstname:'',lastname:'',birthday:'',email:'',password:''
+        firstname:'',lastname:'',birthday:'',email:'',password:'', image:''
     })
-    const [errores, setErrores] = useState ([])
     const [visible, setVisible] = useState(false)
 
     const readInput = e => { //receive the event
@@ -22,39 +23,64 @@ const Register = ( props ) => {
         });
     }
 
-    const checkIfInputsAreEmpty = !usuario.firstname || !usuario.lastname || !usuario.birthday || !usuario.email || !usuario.password;
+    const checkIfInputsAreEmpty = usuario.firstname === ''|| usuario.lastname  === ''|| usuario.birthday === ''|| usuario.email === ''|| usuario.password === '';
+    console.log(usuario)
+    const alertError = (error) =>{
+        Swal.fire({
+            icon: 'error',
+            title: '¡CUIDADO!',
+            text: error,
+            showConfirmButton: false,
+            timer: 4000
+            })
+    }
+
+    const alertSuccess = () => {
+        Swal.fire({
+            icon: 'success',
+            title: 'Bienvenido',
+            text: '¡Segui disfrutando de tus libros favoritos!',
+            showConfirmButton: false,
+            timer: 4000
+          })
+        }
 
     const validateUser = async e => { // function that runs when you click the create user button
         e.preventDefault() //prevent reloading the page
         if(checkIfInputsAreEmpty){
-            alert ('falta de llenar campos')
-            return true
+            console.log('hola')
+            const text = 'Verifique que todos los campos esten llenos'
+            alertError(text)
+            return false
         }
-        setErrores([])
 
         const respuesta = await props.makeNewUser(usuario)
+        console.log(respuesta)
         if(respuesta && !respuesta.success){
-            setErrores(respuesta.errores.details)
+                alertError(respuesta.error)
         }else{
-            alert ('usuario guardado con exito')
+            alertSuccess()
         }
     }
 
     const responseGoogle = async (response) => {
+        console.log(response.profileObj.imageUrl)
         if(response.error){
-            alert('Algo salio mal con tu cuenta de Google')
+            const text = 'Algo salio mal con tu cuenta de Google, vuelve a intentar!'
+            alertError(text)
         }else{
             const respuesta = await props.makeNewUser({
                 firstname: response.profileObj.givenName,
                 lastname: response.profileObj.familyName,
-                // birthday: response.profileObj.googleId,
                 email: response.profileObj.email,
-                password:response.profileObj.googleId
+                password:response.profileObj.googleId,
+                image: response.profileObj.imageUrl
             })
         if(respuesta && !respuesta.success){
-            setErrores(respuesta.errores.details)
+            alertError(respuesta.errores)
+            console.log(respuesta)
         }else{
-            alert ('usuario guardado con exito')
+            alertSuccess()
         }
     }
 }
@@ -62,19 +88,19 @@ const Register = ( props ) => {
 const responseFacebook = async (response) => {
     var name = response.name.split(" ")
     if(response.error){
-        alert('Algo salio mal con tu cuenta de Facebook')
+        const text = 'Algo salio mal con tu cuenta de Facebook, vuelve a intentar!'
+        alertError(text)
     }else{
         const respuesta = await props.makeNewUser({
             firstname:name[0],
             lastname:name[1],
-            // birthday: response.profileObj.googleId,
             email: response.email,
             password:response.id
         })
     if(respuesta && !respuesta.success){
-        setErrores(respuesta.errores)
+        alertError(respuesta.errores)
     }else{
-        alert ('usuario guardado con exito')
+        alertSuccess()
         }
     }
 }
@@ -98,6 +124,7 @@ return (
                             <i className={visible ? "far fa-eye-slash" : "far fa-eye"} onClick={()=>setVisible(!visible)}></i>
                         </div>
                     </div>
+                    <p>*La contraseña debe contener al menos un número.</p>
                     <button className="botonRegister" onClick={validateUser} >Crear usuario</button>
                         <GoogleLogin
                             clientId="1087968275357-m12u0vuij7mp2vs76frlkn5of8ae1are.apps.googleusercontent.com"
@@ -118,7 +145,6 @@ return (
                 </div>
             </div>
         <div style={{height:"50vh", width:"60vw"}}>
-            {/* {errores.map(error => alert(error))} */}
         </div>
     </div>
         )

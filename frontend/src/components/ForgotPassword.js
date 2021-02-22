@@ -3,10 +3,8 @@ import { connect } from 'react-redux'
 import authActions from '../redux/actions/authActions'
 
 const ForgotPassword = ( props ) => {
-
-    const [usuario, setUsuario] = useState({
-       password:''
-    })
+    const email = props.match.params.email
+    const [usuario, setUsuario] = useState({ password:'', newPassword: '' })
     const [errores, setErrores] = useState ([])
     const [visible, setVisible] = useState(false)
 
@@ -26,21 +24,17 @@ const ForgotPassword = ( props ) => {
         if(checkIfInputsAreEmpty){
             alert ('Debe ingresar una nueva contraseña')
             return true
-        }
-        setErrores([])
-
-        const respuesta = await props.makeNewPassword(usuario)
-        if(respuesta && !respuesta.success){
-            setErrores(respuesta.errores.details)
+        }else if(usuario.password !== usuario.newPassword){
+            alert('las contraseñas no coinciden')
         }else{
-            alert ('Password almacenada con exito')
+            const respuesta = await props.newPassword(email, usuario.password)
+            if(respuesta && !respuesta.success){
+                console.log(respuesta)
+            }else if(respuesta && respuesta.success){
+                alert ('Password almacenada con exito')
+            }
         }
     }
-
-  
-
-
-
 
 return (
     <div className="containerRegister">
@@ -51,6 +45,7 @@ return (
                     <div className="userNameAndPassword">
                         <div style={{display:'flex',alignItems:'center'}}>
                             <input className="inputRegister" type={visible ? "text" : "password"} name="password" placeholder="Contraseña" onChange={readInput} />
+                            <input className="inputRegister" type={visible ? "text" : "password"} name="newPassword" placeholder="Contraseña" onChange={readInput} />
                             <i className={visible ? "far fa-eye-slash" : "far fa-eye"} onClick={()=>setVisible(!visible)}></i>
                         </div>
                     </div>
@@ -65,7 +60,7 @@ return (
     }
 
 const mapDispatchToProps = { // map the actions
-    makeNewPassword: authActions.makeNewPassword //mapDispachToProps object that has an action value
+    newPassword: authActions.newPassword //mapDispachToProps object that has an action value
 }
 
 export default connect(null,mapDispatchToProps) (ForgotPassword)
