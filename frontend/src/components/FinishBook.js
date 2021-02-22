@@ -27,11 +27,11 @@ const FinishBook=(props)=>{
     })
   }
 
-
   const send=()=>{
     const formData = new FormData()
     formData.append('image', book.image)
     formData.append('id', id)
+    console.log(book.image)
     var filesExtension = ['.jpg', '.png', '.jpeg']
     if(book.image && filesExtension.some(file=>book.image.name.includes(file))){
       props.addImage(formData, props.loggedUser.token)
@@ -67,7 +67,7 @@ const FinishBook=(props)=>{
             <input className="imagePort" type="file" name="image" id="image" onChange={selectImag}/>
             <button onClick={send} className="buttonFinshBook"><span>TERMINAR EL LIBRO</span></button>
           </div>
-          <div className="portadaImage" style={{backgroundColor:"black", backgroundImage: `url('${fileUrl}')`}}></div>
+          <div className="portadaImage" style={{boxShadow: '0px 5px 5px rgba(0,0,0,0.2)', backgroundImage: `url('${fileUrl}')`}}></div>
         </div>
       </div>
     </section>

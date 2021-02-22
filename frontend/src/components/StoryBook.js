@@ -25,7 +25,7 @@ const StoryBook = (props)=>{
                     <div className="containerParrafos">
                         {filtro[0].chapters[indexPage].chapter.map(parrafo=>{
                             return(
-                                <p>{parrafo.content}</p>
+                                <p key={parrafo.content}>{parrafo.content}</p>
                             )
                         })}
                     </div>

@@ -1,5 +1,5 @@
 import {connect} from 'react-redux'
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 import bookActions from "../redux/actions/bookActions"
 
 const Content =(props)=>{
@@ -7,7 +7,11 @@ const Content =(props)=>{
   const [updatedContent, setUpdatedContent] = useState('')
   const {content, _id} = props.content
   const {bookId, chapterId} = props
-  // console.log()
+
+  useEffect(()=>{
+    setUpdatedContent(content)
+  },[])
+
   const edit =(e)=> {
     setVisible(!visible)
     setUpdatedContent(content)
@@ -17,12 +21,12 @@ const Content =(props)=>{
     setVisible(!visible)
   }
   const deleteContent =async()=>{
-    await props.deleteContent(_id, chapterId, props.id, props.loggedUser.token)
+    await props.deleteContent(_id, chapterId, bookId, props.loggedUser.token)
   }
   const keyPress=(e)=>{
     e.key==='Enter' && modifyContent()
   }
-  // console.log(updatedContent)
+  console.log(updatedContent)
   return (
     <div>
       {visible ?
@@ -33,7 +37,7 @@ const Content =(props)=>{
       </div>
       :
       <div>
-        <textarea name="updatedContent" id="updatedContent" disabled={!visible && true} value={content} style={{resize: 'none', width: '100%'}}></textarea>
+        <textarea name="updatedContent" id="updatedContent" disabled={!visible && true} value={updatedContent} style={{resize: 'none', width: '100%'}}></textarea>
         <i onClick={edit} className="far fa-edit"></i>
         <i onClick={deleteContent} className="fas fa-eraser"></i>
       </div>

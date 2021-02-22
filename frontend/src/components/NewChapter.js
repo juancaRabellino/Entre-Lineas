@@ -12,12 +12,10 @@ const NewChapter = (props) => {
   const [continuar, setContinuar] = useState(false)
   const id = props.match.params.id
 
-  
   const sendTitle=async ()=>{
     setContinuar(!continuar)
     props.addChapter(title, id, props.loggedUser.token)
   }
-  
   
   const keyPress=async (e)=>{
     if(e.key==='Enter') {
@@ -37,7 +35,6 @@ const NewChapter = (props) => {
       setContent('')
       setContent({content:''})
       e.preventDefault()
-
       
     }
   }

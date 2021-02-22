@@ -39,9 +39,8 @@ const Header = (props) => {
               <div className='dropDownMenu'>
                 <ul>
                   <Link to='/userprofile'><li>Mi Perfil</li></Link>
-                  <Link to='/settings'><li>Configuración</li></Link>
                   <Link to='/add-book'><li>Crear un Nuevo Libro</li></Link>
-                  <Link to='/modify-book/:id'><li>Modificar Libro</li></Link>
+                  <Link to='/settings'><li>Configuración</li></Link>
                   <Link to='/' onClick={props.logout}><li>Cerrar mi Sesión</li></Link>
                 </ul>
               </div>
@@ -60,9 +59,8 @@ const Header = (props) => {
               <div className='dropDownMenu'>
                 <ul>
                   <Link to='/userprofile'><li>Mi Perfil</li></Link>
-                  <Link to='/settings'><li>Configuración</li></Link>
                   <Link to='/add-book'><li>Crear un Nuevo Libro</li></Link>
-                  <Link to='/modify-book/:id'><li>Modificar Libro</li></Link>
+                  <Link to='/settings'><li>Configuración</li></Link>
                   <Link to='/' onClick={props.logout}><li>Cerrar mi Sesión</li></Link>
                 </ul>
               </div>

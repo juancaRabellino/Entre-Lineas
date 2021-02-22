@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
+import bookActions from '../redux/actions/bookActions'
 
 const ModifyBook = (props) => {
   var namePage = props.match.params.id
@@ -8,8 +9,12 @@ const ModifyBook = (props) => {
 
   useEffect(() => {
   }, [])
-  console.log(props.loggedUser)
-  console.log(filtro[0])
+
+  const deleteBook=async()=>{
+    await props.deleteBook(namePage)
+    props.history.push("/userprofile")
+  }
+
   return (
     <>
       {!props.books ?
@@ -22,7 +27,8 @@ const ModifyBook = (props) => {
             <div className="fiveModify">
               <h2>{filtro[0].title}</h2>
               <h5>{filtro[0].genre}</h5>
-              <Link to='/modify-book/:id/image'><button className="buttonModify">Modificar Imagen</button></Link>
+              <Link to={`/modify-book/${namePage}/image`}><button className="buttonModify">Modificar Imagen</button></Link>
+              <button onClick={deleteBook} className="buttonModify" style={{backgroundColor: 'red', marginLeft: '1vw'}}>Eliminar Libro</button>
             </div>
           </div>
         </div>
@@ -52,4 +58,9 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps)(ModifyBook)
+const mapDispatchToProps = {
+  deleteBook: bookActions.deleteBook
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(ModifyBook)

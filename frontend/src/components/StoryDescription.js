@@ -17,9 +17,6 @@ const StoryDescription = (props)=>{
         if(props.loggedUser) {
             setVoted(props.loggedUser.id)
         }
-        if(props.comments.comments) {
-            props.comments.comments.map(comment => console.log(comment))
-        }
     }, [props.loggedUser])
     const enviar =  async () => {
         await props.addComment(value, filtro[0]._id, props.loggedUser.token)
@@ -71,7 +68,7 @@ const StoryDescription = (props)=>{
                     <button className="BotonLeer">Leer</button></Link> : redirect()}
                     {filtro[0].stars.includes(voted) 
                     ?
-                    <button className="BotonLeer" onClick={props.loggedUser && dismissVote}>Quitar Voto <i class="fas fa-star"></i></button>
+                    <button className="BotonLeer" onClick={props.loggedUser && dismissVote}>Quitar Voto <i className="fas fa-star"></i></button>
                     : 
                     <button className="BotonLeer" onClick={props.loggedUser ? votes : ()=>alert('Necesitas iniciar sesion para poder votar!')}>Depositar voto <i class="far fa-star"></i></button>}
                 </div>
@@ -85,7 +82,7 @@ const StoryDescription = (props)=>{
                 <div className="siete">
                     {filtro[0].chapters.map((chapter, index) => {
                         return (
-                            <Link to={`/book/${filtro[0]._id}/${chapter._id}/${index}`}><button><p>{chapter.title}</p></button></Link>
+                            <Link key={index} to={`/book/${filtro[0]._id}/${chapter._id}/${index}`}><button><p>{chapter.title}</p></button></Link>
                         )
                     })}
                 </div>
