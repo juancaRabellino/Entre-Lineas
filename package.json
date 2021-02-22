@@ -1,13 +1,14 @@
 {
-  "name": "entrelineas",
+  "name": "challenge-grupal",
   "version": "1.0.0",
   "description": "Challenge Grupo C app web completa",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node ./server.js",
-    "dev": "nodemon ./server.js"
-    },
+    "dev": "nodemon ./server.js",
+    "heroku-postbuild": "cd client && npm install && npm run build "
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/SanAlessa/challenge-Grupo-C.git"
