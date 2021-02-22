@@ -3,10 +3,11 @@ import Settings from './Settings'
 import { connect } from 'react-redux'
 import {useState} from 'react'
 import MyBooks from './MyBooks'
+import authActions from '../redux/actions/authActions'
 
 const UserProfile = (props) => {
     console.log(props)
-    console.log(props.loggedUser)
+    console.log(props.logout)
     var myBooks = props.books.filter(book => book.user._id === props.loggedUser.id)
     var booksLiked = props.books.filter(book => book.stars.includes(props.loggedUser.id))
     const [visible, setVisible]=useState(true)
@@ -90,4 +91,8 @@ const mapStateToProps = state => {
       loggedUser: state.auth.loggedUser
     }
 }
-export default connect(mapStateToProps)(UserProfile)
+
+const mapDispatchToProps = {
+    logout: authActions.logOutUser,
+}
+export default connect(mapStateToProps, mapDispatchToProps)(UserProfile)

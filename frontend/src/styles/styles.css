@@ -25,10 +25,11 @@ html * {
 }
 
 header, footer {
-  height: 10vh;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+    height: 10vh;
+    padding: 0 5vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
   
 header *, footer * {
@@ -447,9 +448,8 @@ section.settings {
         width: 100%;
     }
     p.storyDescription{
-        font-size: 1.8vw
+        font-size: 1.6vw
     }
-    
     div.storyContainer{
         width: 45%;
         height: 55vh;
@@ -469,9 +469,6 @@ section.settings {
     }
     div.storyIcons{
         width: 100%;
-    }
-    p.storyDescription{
-        font-size: 2.2vw
     }
     div.photoEditProfile{
         width: 100%;
@@ -514,6 +511,12 @@ section.settings {
     }
     div.optionMenu{
         font-size: 4.5vw;
+    }    
+    div.dropDownMenu{
+        width: 18vw;
+        font-size: 1.5vw;
+        top: 11.5vh;
+        left: 82vw;
     }
     div.containerViewComponentOption{
         width: 100%;
@@ -531,9 +534,6 @@ section.settings {
     }
     p.storyUserProfile, p.storyGenreProfile {
         font-size: 1.3vw;
-    }
-    p.storyDescription{
-        font-size: 1.4vw;
     }
     div.storyButtons{
         width: 100%
@@ -608,7 +608,7 @@ section.settings {
         width: 100%;
     }
     p.storyDescription{
-        font-size: 1.8vw
+        font-size: 2vw
     }
     
     div.storyContainer{
@@ -630,9 +630,6 @@ section.settings {
     }
     div.storyIcons{
         width: 100%;
-    }
-    p.storyDescription{
-        font-size: 2.2vw
     }
     div.photoEditProfile{
         width: 100%;
@@ -696,8 +693,11 @@ section.settings {
     p.storyUserProfile, p.storyGenreProfile {
         font-size: 3.2vw;
     }
-    p.storyDescription{
-        font-size: 3.2vw;
+    div.dropDownMenu{
+        width: 18vw;
+        font-size: 1.8vw;
+        top: 8vh;
+        left: 82vw;
     }
 }
 /* Responsive FT - Search*/
@@ -830,9 +830,6 @@ section.settings {
         font-size: 4vw;
     }
     p.storyUserProfile, p.storyGenreProfile {
-        font-size: 3.2vw;
-    }
-    p.storyDescription{
         font-size: 3.2vw;
     }
 }
@@ -1657,6 +1654,14 @@ section.settings {
     justify-content: space-between;
     padding: 1vw 1vw 1vw 1vw;
 }
+.containerPhotoStoryBook{
+    width: 15vw;
+    height: 40vh;
+    background-color:tomato;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
 /* COMPONENTE DE MI BIBLIOTECA O MIS LIBROS (MAURI) */
 .booksBoxUserProf{
     display: flex;
@@ -1668,7 +1673,7 @@ section.settings {
     position: absolute;
     display: flex;
     justify-content: center;
-    left: 81vw;
+    left: 82vw;
     top: 10vh;
     z-index: 5;
     transition: 1s ease;
@@ -2767,6 +2772,7 @@ border-radius: 30px;
     font-size: 6vh;
     margin-top: 5vh;
     margin-bottom: 3vh;
+    font-weight: bold;
 }
 
 .titleCap div h5 {
@@ -2775,6 +2781,7 @@ border-radius: 30px;
 
 .userDate {
     margin-bottom: 4vh;
+    font-size: 2vw;
 }
 
 .containerParrafosAndButton button {
@@ -2823,8 +2830,36 @@ border-radius: 30px;
 }
 
 .containerParrafos {
-    width: 70vw;
+    width: 75vw;
     margin-bottom: 3vh;
+    padding: 2vw;
+    background-color: rgba(248, 231, 200, 0.2);
+    box-shadow: 6px -6px 10px rgb(110, 110, 110);
+}
+.containerParrafos p{
+    text-align: justify;
+    text-justify: inter-word;
+    padding-bottom: 3vh;
+    font-size: 1.9vw;
+}
+
+@media (max-width: 992px) {
+    .containerParrafos p{
+        padding-bottom: 1.8vw;
+        font-size: 2.6vw;
+    }
+}
+@media (max-width: 600px) {
+    .containerParrafos p{
+        padding-bottom: 2vw;
+        font-size: 2.9vw;
+    }
+}
+@media (max-width: 480px) {
+    .containerParrafos p{
+        padding-bottom: 1.8vw;
+        font-size: 3.5vw;
+    }
 }
 
 /* ESTILOS DE MODIFYBOOK (SANTI) */
