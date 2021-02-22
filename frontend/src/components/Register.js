@@ -83,10 +83,10 @@ const Register = ( props ) => {
 
 
 return (
-    <div className="containerRegistera">
-        <div className="imagRegistera"></div>
-            <div className="registerInputa" >
-                <div className= "registera">
+    <div className="containerRegister">
+        <div className="imagRegister"></div>
+            <div className="registerInput" >
+                <div className= "register">
                     <h2>Crear Usuario</h2>
                     <div className="nameAndLastName">
                         <input className="inputRegister" type="text" name="firstname" placeholder="Nombre" onChange={readInput}/>
@@ -102,8 +102,6 @@ return (
                     </div>
                     <p>*La contraseña debe contener al menos un número.</p>
                     <button className="botonRegister" onClick={validateUser} >Crear usuario</button>
-                </div>
-            </div>
                         <GoogleLogin
                             clientId="1038057212104-nnvs147cdmm0l23842rfofjg32aqll0s.apps.googleusercontent.com"
                             buttonText="Crear usuario con google"
@@ -111,6 +109,8 @@ return (
                             onFailure={responseGoogle}
                             cookiePolicy={'single_host_origin'}
                         />
+                </div>
+            </div>
         <div style={{height:"50vh", width:"60vw"}}>
         </div>
     </div>

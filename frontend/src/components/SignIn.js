@@ -85,10 +85,6 @@ const SignIn = (props) => {
                         <div className='ojito'><i className={visible ? "far fa-eye-slash" : "far fa-eye"} onClick={() => setVisible(!visible)}></i></div>
                     </div>
                     <button className="botonRegister" onClick={validateUser} >Iniciar sesion</button>
-                </div>
-            </div>
-            <div style={{ height: "50vh", width: "60vw" }}>
-            </div>
                     <GoogleLogin
                         clientId="1038057212104-nnvs147cdmm0l23842rfofjg32aqll0s.apps.googleusercontent.com"
                         buttonText="Iniciar sesion con google"
@@ -96,6 +92,10 @@ const SignIn = (props) => {
                         onFailure={responseGoogle}
                         cookiePolicy={'single_host_origin'}
                     />
+                </div>
+            </div>
+            <div style={{ height: "50vh", width: "60vw" }}>
+            </div>
             <Link to="/send-email"><h5>Olvidaste tu contraseña?</h5></Link>
         </div>
     )
