@@ -50,7 +50,8 @@ const userController = {
         const {image} = req.files
         const pic = image.name.split('.')
         const url = `userimages/${id}.${pic[1]}`
-        console.log('ACA ESTA EL DIRNAMEEEEEEEEEEEEE MIRAMEEEEEEEEEEE'+__dirname)
+        console.log(req)
+        console.log(req.files)
         image.mv(`./client/build/userimages/${id}.${pic[1]}`, errores=> {
         if(errores) {
             return res.json({
