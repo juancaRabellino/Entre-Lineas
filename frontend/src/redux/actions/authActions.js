@@ -32,7 +32,6 @@ const authActions = {
     },
 
     modifyUser: (formData) => {
-        console.log(formData)
         return async (dispatch, getState) => {
             const response = await axios.post(`https://entrelineas.herokuapp.com/api/settings`, formData, {
                 headers: { 

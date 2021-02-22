@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import authActions from '../redux/actions/authActions'
 import GoogleLogin from 'react-google-login'
-import FacebookLogin from 'react-facebook-login';
 import Swal from 'sweetalert2';
 
 

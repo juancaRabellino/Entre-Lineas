@@ -2,7 +2,6 @@ import React, {useState} from 'react'
 import { connect } from 'react-redux'
 import authActions from '../redux/actions/authActions'
 import GoogleLogin from 'react-google-login'
-import FacebookLogin from 'react-facebook-login';
 import Swal from'sweetalert2';
 
 

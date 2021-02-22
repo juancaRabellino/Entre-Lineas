@@ -33,6 +33,7 @@ const App = (props) => {
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/search" component={Search} />
+          <Route path="/register" component={Register}/>
           <Route path="/add-book" component={NewBook} />
           <Route path="/stories/:genre" component={Stories} />
           <Route path="/story/:id" component={StoryDescription} />
