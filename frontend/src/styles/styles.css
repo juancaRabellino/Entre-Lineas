@@ -69,12 +69,28 @@ header a, footer a {
   cursor: pointer;
 }
 
-.headerLeft img.logo, .footerLeft img.logo {
+/* .headerLeft img.logo, .footerLeft img.logo {
   height: 8.5vh;
   margin: 0 3vw;
   background-position: center;
   background-size: cover;
-}
+} */
+.headerLeft .prueba{
+    width: 15vw;
+    height: 10vh;
+    margin: 0 3vw 0 0;
+    background-image: url("../assets/logoHeader.png");
+    background-position: center;
+    background-size: cover
+  }
+  .footerLeft{
+      width: 15vw;
+      height: 10vh;
+      margin: 0 3vw 0 0;
+      background-image: url("../assets/logoHeader.png");
+      background-position: center;
+      background-size: cover
+  }
 
 .socialNetworks {
   margin: 0 3vw;

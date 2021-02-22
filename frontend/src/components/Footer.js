@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <footer>
       <div className="footerLeft">
-        <Link to="/"><img src={'../assets/Logo-EntreLineas-Pluma-inclinada.png'} className="logo" alt='logo Entre Líneas'></img></Link>
+      <Link to="/"><div className="prueba"></div></Link>{/* <Link to="/"><img src={'../assets/Logo-EntreLineas-Pluma-inclinada.png'} className="logo" alt='logo Entre Líneas'></img></Link> */}
       </div>
       <div className="footerRight">
         <p>© 2020 Entre Líneas.</p>
