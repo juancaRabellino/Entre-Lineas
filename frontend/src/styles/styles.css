@@ -2252,6 +2252,7 @@ footer p {
 }
 
 .hola{
+    /* background-color: teal!important; */
     background-size: cover;
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.5),0 17px 50px 0 rgba(0, 0, 0, 0.5);
 }
@@ -2883,6 +2884,26 @@ border-radius: 30px;
     width: 90vw;
     /* height: 100%; */
 }
+.cajaSpinner{
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+}
+.cajitaSpinner{
+    margin: 0;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform:translate(-50%,-50%);
+}
+.spinner{
+    width: 100px!important;
+    height: 100px!important;
+    border:10px solid currentColor!important;
+    border-right-color: transparent!important;
+    color:rgb(103, 11, 139)!important;
+}
 
 .resultBusqueda{
     width: 100%;
@@ -2985,5 +3006,17 @@ border-radius: 30px;
     flex-direction: column;
     align-items: center;
 }
+.storyBookImg{
+    background-size: cover;
+}
+.ops{
+    color: rgb(103, 11, 139);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+
 
 

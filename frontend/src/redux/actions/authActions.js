@@ -52,7 +52,6 @@ const authActions = {
                 dispatch({type: 'LOG_USER', payload: response.data})
                 
             }catch(error){
-                console.log(error.status)
                 if(error.response.status === 401) {
                     Swal.fire({
                         icon: 'error',

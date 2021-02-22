@@ -2,8 +2,7 @@ import React, { useState, useEffect } from 'react'
 import {connect} from 'react-redux'
 import bookActions from "../redux/actions/bookActions"
 import { Link } from "react-router-dom"
-import { Button, Input} from 'reactstrap'
-
+import { Button, Input, Spinner} from 'reactstrap'
 import Comment from './Comment'
 import Swal from'sweetalert2';
 
@@ -19,6 +18,16 @@ const StoryDescription = (props)=>{
         }
     }, [props.loggedUser])
     const enviar =  async () => {
+        if(value===""){
+            Swal.fire({
+              position: 'top',
+              icon: 'warning',
+              title: "No podes mandar un comentario vacio!",
+              showConfirmButton: false,
+              timer: 1500
+            })
+            return false
+          }
         await props.addComment(value, filtro[0]._id, props.loggedUser.token)
         setValue("")
     }
@@ -46,9 +55,16 @@ const StoryDescription = (props)=>{
           })
         props.history.push(`/stories/${filtro[0].genre}`)
     }   
+    /* console.log(filtro[0].image) */
     return(
         <>
-        {filtro.length === 0 ? <h1>cargando...</h1>: <> <div className="uno">
+        {filtro.length === 0 ? 
+        <div className="cajaSpinner">
+        <div className="cajitaSpinner">
+          <Spinner  className="spinner"/>
+        </div>
+      </div>
+        : <> <div className="uno">
             <div className="chauu"></div>
             <div className="cuatro">
                 <div className="hola" style={{backgroundImage:`url('${filtro[0].image}')`, width:'15vw', height:'50vh'}}></div>
