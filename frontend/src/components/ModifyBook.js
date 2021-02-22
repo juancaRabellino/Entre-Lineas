@@ -14,6 +14,13 @@ const ModifyBook = (props) => {
 
   const deleteBook = async () => {
     await props.deleteBook(namePage)
+    Swal.fire({
+      icon: 'success',
+      title: 'Listo!',
+      text: "Tu libro ha sido eliminado",
+      showConfirmButton: false,
+      timer: 4000
+      })
     props.history.push("/userprofile")
   }
 
@@ -47,13 +54,7 @@ const ModifyBook = (props) => {
               <div className="nineModify">
                 {filtro[0].chapters.map((chapter, index) => {
                   return (
-                    <Link to={`/modify-book/${filtro[0]._id}/${chapter._id}/${index}`}><button onClick={()=>Swal.fire({
-                      icon: 'success',
-                      title: 'Listo!',
-                      text: "Tu libro ha sido eliminado",
-                      showConfirmButton: false,
-                      timer: 4000
-                      })}><p>{chapter.title}</p></button></Link>)
+                    <Link to={`/modify-book/${filtro[0]._id}/${chapter._id}/${index}`}><button ><p>{chapter.title}</p></button></Link>)
                 })}
               </div>
             </div>
