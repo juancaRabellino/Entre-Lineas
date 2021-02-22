@@ -6,7 +6,6 @@ import MyBooks from './MyBooks'
 import authActions from '../redux/actions/authActions'
 
 const UserProfile = (props) => {
-
     var myBooks = props.books.filter(book => book.user._id === props.loggedUser.id)
     var booksLiked = props.books.filter(book => book.stars.includes(props.loggedUser.id))
     const [visible, setVisible]=useState(true)
@@ -73,10 +72,10 @@ const UserProfile = (props) => {
                         <Link ><div onClick={()=>setVisible(false)} className='optionMenu savedBooks'>Mi Biblioteca</div></Link>
                     </div>
                     <div className='containerViewComponentOption'>
-                    <div className='booksBoxUserProf'>
+                    
                             {visible ? myBooks.length === 0 ? <h1>Todavia no creaste ningún libro!</h1> : myBooks.map(book => <MyBooks libro={book}/>): 
                             booksLiked.length === 0 ? <h1>Todavia no te gusto ningun libro!</h1>: booksLiked.map(book=> <MyBooks libro={book}/>)}    
-                        </div>
+                        
                     </div>
                 </div>
             </div>

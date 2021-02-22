@@ -27,7 +27,7 @@ const Stories = (props)=>{
         }
     }
     return (
-        <>
+        
         <div className='storiesContainer'>
             <h1>Historias de <span className='capitalize'>{namePage}</span></h1>
             <div className='boxStories'>
@@ -55,7 +55,7 @@ const Stories = (props)=>{
                 </div>
             </div>
         </div>
-        </>
+        
     )
 }
 const mapStateToProps = state => {
