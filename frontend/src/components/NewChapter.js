@@ -71,8 +71,7 @@ const NewChapter = (props) => {
           <>
           <div className="form-chapter">
             {chapter.length > 0 && <div className="chapterSended">
-              {chapter.map(content=> <textarea style={{resize: 'none', width: '100%'}} >{content.content}</textarea>)}
-              <i className="fas fa-sign-in-alt"></i></div>}
+              {chapter.map(content=> <textarea style={{resize: 'none', width: '100%'}} >{content.content}</textarea>)}</div>}
             <textarea type="text" className="textarea-chapter" name="content" id="content" cols="20" rows="5" placeholder="Comenza a escibir tu historia..." 
             onKeyPress={keyPress} style={{ resize: 'none', width: '90%' }} value={content.content} onChange={(e)=>setContent({content:e.target.value})}></textarea>
           </div>

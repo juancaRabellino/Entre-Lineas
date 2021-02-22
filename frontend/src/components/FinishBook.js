@@ -60,7 +60,7 @@ const FinishBook=(props)=>{
             <h3>{props.match.url==='/finish-book/:id' ? 'Elegir foto de portada' : 'Cambiar foto de portada!'}</h3>
             <div className="selectImagPort" style={{cursor: 'pointer'}}>
               <label style={{cursor: 'pointer'}} for="image">
-                <i style={{cursor: 'pointer'}} for="image" class="fas fa-hand-pointer"></i>
+                <i style={{cursor: 'pointer'}} for="image" className="fas fa-hand-pointer"></i>
                 <h6 style={{cursor: 'pointer'}}>Click para seleccionar Imagen</h6>
               </label>
             </div>

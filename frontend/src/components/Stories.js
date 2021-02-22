@@ -66,21 +66,22 @@ const Stories = (props) => {
                                 })}
                         </div>
                     </div>
-               </div>              
-         }
-    </>
+                </div>
+            }
+        </>
     )
 }
 
 const mapStateToProps = state => {
     return {
-                        books: state.bookR.books,
+        books: state.bookR.books,
         booksByGenre: state.bookR.booksByGenre
     }
-  }
+}
+}
 
 const mapDispatchToProps = {
-                        getByGenre: bookActions.getByGenre,
+    getByGenre: bookActions.getByGenre,
 
 }
-export default connect(mapStateToProps,mapDispatchToProps)(Stories);
+export default connect(mapStateToProps, mapDispatchToProps)(Stories);
