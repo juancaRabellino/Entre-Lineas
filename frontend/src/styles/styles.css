@@ -1108,7 +1108,6 @@ section.settings {
     display: flex;
     justify-content: center;
     align-items: center;
-    opacity: 100% !important;
 }
 
 .register {
