@@ -26,12 +26,11 @@ const Content =(props)=>{
   const keyPress=(e)=>{
     e.key==='Enter' && modifyContent()
   }
-  console.log(updatedContent)
   return (
     <div>
       {visible ?
-      <div>
-        <textarea name="updatedContent" id="updatedContent" value={updatedContent} onChange={(e)=>setUpdatedContent(e.target.value)} style={{resize: 'none', width: '100%'}}></textarea>
+      <div className="form-chapter">
+        <textarea className="textarea-chapter" name="updatedContent" id="updatedContent" value={updatedContent} onChange={(e)=>setUpdatedContent(e.target.value)} style={{resize: 'none', width: '100%'}}></textarea>
         <i onClick={modifyContent} onKeyPress={keyPress} className="fas fa-sign-in-alt"></i>
         <i onClick={()=>setVisible(!visible)} className="far fa-window-close"></i>
       </div>

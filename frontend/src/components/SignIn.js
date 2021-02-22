@@ -73,22 +73,6 @@ const SignIn =(props) => {
     }
 }
 
-const responseFacebook = async (response) => {
-    if(response.error){
-        const text = 'Algo salio mal con tu cuenta de Fcaebook, vuelve a intentar!'
-        alertError(text)
-    }else{
-        const respuesta = await props.logInUser({
-            email: response.email,
-            password:response.id
-        })
-    if(respuesta && !respuesta.success){
-        alertError(respuesta.mensaje)
-    }else{
-        alertSuccess()
-        }
-    }
-}
 
     return (
 <div className="containerLogin">
@@ -108,15 +92,6 @@ const responseFacebook = async (response) => {
                         onSuccess={responseGoogle}
                         onFailure={responseGoogle}
                         cookiePolicy={'single_host_origin'}
-                    />
-                    <FacebookLogin
-                        appId="781019919514137"
-                        autoLoad={false}
-                        fields="name,email,picture"
-                        callback={responseFacebook}
-                        textButton="Iniciar sesion con Facebook"
-                        icon="fa-facebook"
-                        cssClass="iconoFacebook"
                     />
                 </div>
             </div>

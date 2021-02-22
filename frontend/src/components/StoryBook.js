@@ -1,3 +1,4 @@
+import {useEffect} from 'react'
 import {connect} from 'react-redux'
 import { Link } from "react-router-dom"
 import {Spinner} from 'reactstrap'
@@ -6,7 +7,11 @@ const StoryBook = (props)=>{
     var namePage = props.match.params.id
     var filtro = props.books.filter(libro=> libro._id === namePage)
     var indexPage = parseInt(props.match.params.index)
-    console.log(filtro)
+
+    useEffect(()=>{
+        window.scrollTo(0,0)
+    },[])
+
     return(
         <>
             {filtro.length === 0 ? 
@@ -18,7 +23,6 @@ const StoryBook = (props)=>{
             :
             <div className="containerCap">
             <div className="containerTitleAndUser">
-                <div className="storyBookImg" style={{backgroundImage:`url('${filtro[0].image}')`, width:'15vw', height:'50vh'}}></div>
                 <div className="titleCap">
                     <p>{filtro[0].chapters[indexPage].title}</p>
                     <div style={{width:'30vh', display:'flex',justifyContent:'space-between'}}>
@@ -37,7 +41,6 @@ const StoryBook = (props)=>{
                     </div>
                     {indexPage === filtro[0].chapters.length -1 ? <Link to={`/story/${filtro[0]._id}`}><button><span>Volver al libro</span></button></Link> : <Link to={`/book/${filtro[0]._id}/${filtro[0].chapters[indexPage]._id}/${indexPage+1}`}><button><span>Sigue leyendo la parte siguiente</span></button></Link>}
                 </div>
-               {indexPage === filtro[0].chapters.length -1 ? <Link to={`/story/${filtro[0]._id}`}><button><span>Volver al libro</span></button></Link> : <Link to={`/book/${filtro[0]._id}/${filtro[0].chapters[indexPage]._id}/${indexPage+1}`}><button><span>Sigue leyendo la parte siguiente</span></button></Link>}
             </div>
         </div>}
         </>

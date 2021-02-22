@@ -4,7 +4,6 @@ import Swal from'sweetalert2';
 
 const authActions = {
     makeNewUser: (usuario) => {
-        console.log(usuario)
         return async (dispatch) => {
             try {
                 const respuesta = await axios.post('http://localhost:4000/api/user/signup', usuario)///esto viaja al backend, va a router, busca la ruta
@@ -23,7 +22,6 @@ const authActions = {
             const respuesta = await axios.post('http://localhost:4000/api/user/signin',user)
             if(!respuesta.data.success) return respuesta.data;
             dispatch({type: 'LOG_USER', payload: respuesta.data})
-            console.log(respuesta.data)
         }
     },
 
@@ -36,7 +34,6 @@ const authActions = {
                 }
             })
             dispatch({type: 'MODIFY_USER', payload: response.data})
-            console.log(response.data)
         }
     },
     logFromLS: (token) => {
