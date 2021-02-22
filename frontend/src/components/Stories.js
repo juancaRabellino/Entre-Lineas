@@ -6,14 +6,15 @@ import {Spinner} from 'reactstrap'
 const Stories = (props)=>{
     const namePage = props.match.params.genre
     const [boolean,setBoolean]=useState(true)
+    const [loaded, setLoaded]=useState(false)
     const [value, setValue] = useState('')
     
-    useEffect(()=>{
-        props.getByGenre(namePage)
+    useEffect(async()=>{
+        await props.getByGenre(namePage)
+        setLoaded(true)
         props.booksByGenre.sort((a,b)=> b.views - a.views)
     },[namePage])
 
-    console.log(props.booksByGenre)
  
     if(value !== "") {
         sortFilter()
@@ -30,7 +31,7 @@ const Stories = (props)=>{
     }
     return (
         <>
-        {props.booksByGenre.length === 0 ? 
+        {!loaded ? 
         <div className="cajaSpinner">
         <div className="cajitaSpinner">
           <Spinner  className="spinner"/>
@@ -51,7 +52,10 @@ const Stories = (props)=>{
                 </div>
             </div>
             <div className='downContainerStories'>
-                {
+                {props.booksByGenre.length === 0 ? 
+                <div className='ops' style={{height:"50vh"}}>
+                    <h1>Aún no hay historias en esta sección, se el primero!</h1>
+                </div>:
                 boolean ? props.booksByGenre.map((libro, i)=>{
                     return(
                         <Story libro={libro} key={`story${i}`}/>

@@ -18,7 +18,7 @@ const StoryBook = (props)=>{
             :
             <div className="containerCap">
             <div className="containerTitleAndUser">
-                <div style={{ backgroundImage:`url('${filtro[0].image}')`, width:'15vw', height:'50vh', backgroundColor:'tomato'}}></div>
+                <div className="storyBookImg" style={{backgroundImage:`url('${filtro[0].image}')`, width:'15vw', height:'50vh'}}></div>
                 <div className="titleCap">
                     <p>{filtro[0].chapters[indexPage].title}</p>
                     <div style={{width:'30vh', display:'flex',justifyContent:'space-between'}}>
@@ -37,7 +37,7 @@ const StoryBook = (props)=>{
                         )
                     })}
                 </div>
-                {indexPage === filtro[0].chapters.length -1 ? <Link to={`/story/${filtro[0]._id}`}><button><span>Volver al libro</span></button></Link> : <Link to={`/book/${filtro[0]._id}/${filtro[0].chapters[indexPage]._id}/${indexPage+1}`}><button><span>Sigue leyendo la parte siguiente</span></button></Link>}
+               {indexPage === filtro[0].chapters.length -1 ? <Link to={`/story/${filtro[0]._id}`}><button><span>Volver al libro</span></button></Link> : <Link to={`/book/${filtro[0]._id}/${filtro[0].chapters[indexPage]._id}/${indexPage+1}`}><button><span>Sigue leyendo la parte siguiente</span></button></Link>}
             </div>
         </div>}
         </>

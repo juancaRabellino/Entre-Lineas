@@ -1797,6 +1797,7 @@ footer p {
 }
 
 .hola{
+    /* background-color: teal!important; */
     background-size: cover;
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.5),0 17px 50px 0 rgba(0, 0, 0, 0.5);
 }
@@ -2519,6 +2520,16 @@ border-radius: 30px;
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+.storyBookImg{
+    background-size: cover;
+}
+.ops{
+    color: rgb(103, 11, 139);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
 }
 
 

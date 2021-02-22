@@ -3,7 +3,6 @@ import {connect} from 'react-redux'
 import bookActions from "../redux/actions/bookActions"
 import { Link } from "react-router-dom"
 import { Button, Input, Spinner} from 'reactstrap'
-
 import Comment from './Comment'
 import Swal from'sweetalert2';
 
@@ -22,6 +21,16 @@ const StoryDescription = (props)=>{
         }
     }, [props.loggedUser])
     const enviar =  async () => {
+        if(value===""){
+            Swal.fire({
+              position: 'top',
+              icon: 'warning',
+              title: "No podes mandar un comentario vacio!",
+              showConfirmButton: false,
+              timer: 1500
+            })
+            return false
+          }
         await props.addComment(value, filtro[0]._id, props.loggedUser.token)
         setValue("")
     }
@@ -49,7 +58,7 @@ const StoryDescription = (props)=>{
           })
         props.history.push(`/stories/${filtro[0].genre}`)
     }   
-    console.log(filtro.length)
+    /* console.log(filtro[0].image) */
     return(
         <>
         {filtro.length === 0 ? 
