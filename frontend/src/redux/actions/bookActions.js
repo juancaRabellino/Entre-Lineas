@@ -64,13 +64,7 @@ const bookActions = {
           })}
       }
   },
-  // getNewBook: (id)=>{
-  //   return async(dispatch) =>{
-  //     try {
-  //       const response = await fetch('https://entrelineas.herokuapp.com/api/')
-  //     }
-  //   }
-  // },
+
   getByGenre: (genre)=>{
     return async(dispatch, getState) =>{
       try {

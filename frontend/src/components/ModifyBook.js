@@ -26,7 +26,6 @@ const ModifyBook = (props) => {
 
   return (
     <>
-
       {filtro.length === 0 ?
         <div className="cajaSpinner">
           <div className="cajitaSpinner">
