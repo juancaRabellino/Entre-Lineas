@@ -104,7 +104,7 @@ return (
                     <p>*La contraseña debe contener al menos un número.</p>
                     <button className="botonRegister" onClick={validateUser} >Crear usuario</button>
                         <GoogleLogin
-                            clientId="1087968275357-m12u0vuij7mp2vs76frlkn5of8ae1are.apps.googleusercontent.com"
+                            clientId="1038057212104-nnvs147cdmm0l23842rfofjg32aqll0s.apps.googleusercontent.com"
                             buttonText="Crear usuario con google"
                             onSuccess={responseGoogle}
                             onFailure={responseGoogle}
