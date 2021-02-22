@@ -19,8 +19,8 @@ const validator = {
             console.log(validation.error.details)
             res.json({success: false, errores: 'Hubo un error en los datos, verifique.'})
         }
-    }
-
+      }
   }
+  
 
   module.exports = validator

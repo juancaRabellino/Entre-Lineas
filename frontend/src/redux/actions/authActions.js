@@ -43,11 +43,14 @@ const authActions = {
         return async (dispatch, getState) => {
             try{
                 const response = await axios.post('http://localhost:4000/api/user/ls/', {token}, {
+                
                     headers: {
                         Authorization: `Bearer ${token}`
+                       
                     }
                 })
                 dispatch({type: 'LOG_USER', payload: response.data})
+                
             }catch(error){
                 console.log(error.status)
                 if(error.response.status === 401) {

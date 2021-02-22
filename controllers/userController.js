@@ -38,10 +38,12 @@ const userController = {
             {token, firstname: userExists.firstname, email: userExists.email, lastname: userExists.lastname, birthday: userExists.birthday, image: userExists.image, id: userExists._id}})
     },
 
-    logFromLS: (req, res) => {
+    logFromLS: async (req, res) => {
         res.json({success: true, response: 
             {token: req.body.token, firstname: req.user.firstname, lastname: req.user.lastname, email: req.user.email, birthday: req.user.birthday, id:req.user._id, image: req.user.image}})
     },
+
+
 
     modifyUser: (req, res) => {
         const {id, email, firstname, lastname, birthday} = req.body
