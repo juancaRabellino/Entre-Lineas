@@ -121,7 +121,7 @@ const StoryDescription = (props)=>{
                             </div>
                         </div> :
                         <div className="d-flex justify-content-center">
-                            <Input className="comment w-50 text-center" disabled type="text" placeholder="Debes registrarte para comentar!" />
+                            <Input className="comment w-50 text-center" disabled type="text" placeholder="Primero Regístrate!" />
                         </div>}
                     </div>
                 </div>
