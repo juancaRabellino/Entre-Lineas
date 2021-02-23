@@ -48,7 +48,6 @@ const commentActions = {
     },
   
     modComment: (value, idcomment, id, token) => {
-      console.log(value, idcomment, id, token)
       return async (dispatch, getState) => {
         try{
           const res = await axios.put(`${API}comments`, {value, idcomment, id}, {
@@ -57,7 +56,6 @@ const commentActions = {
             }
         })
           dispatch({type: 'UPDATE_COMMENT', payload: res.data.respuesta})
-          console.log(res)
         } catch(error){
           Swal.fire({
             icon: 'error',

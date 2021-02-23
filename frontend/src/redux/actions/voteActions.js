@@ -30,12 +30,10 @@ const voteActions = {
             Authorization: `Bearer ${token}`
           }
         })
-        console.log(response)
         dispatch({type: 'DISMISS_VOTE', payload: response.data})
       }catch(error){
         Swal.fire({
           icon: 'error',
-          title: '¡Error!',
           title: '¡Lo siento!',
           text: "No se puede sacar el voto en este momento, intente mas tarde.",
           showConfirmButton: false,

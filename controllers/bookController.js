@@ -18,7 +18,6 @@ const bookController = {
   },
   addChapter: (req, res) => {
     const {title, id} = req.body
-    console.log(req.body)
     Book.findOneAndUpdate({_id:id},
       {$addToSet: {chapters: {title:title}}},
       {new:true})
@@ -75,7 +74,6 @@ const bookController = {
     const chapters = book.chapters.filter(chapter=> chapter._id.toString() === chapterId)
     const chapter = chapters[0].chapter.filter(content=> content._id.toString()===contentId)
     const content = chapter[0].content = updatedContent
-    console.log(content)
     book.save()
     .then(response => res.json({success: true, response}))
     .catch(error => res.json({success: false, error}))
@@ -83,7 +81,6 @@ const bookController = {
 
   deleteContent: async (req,res) => {
     const {contentId, chapterId, bookId} = req.body
-    console.log(req.body)
     await Book.findOneAndUpdate({_id: bookId, 'chapters._id': chapterId},
       {$pull: {"chapters.$.chapter": {'_id':contentId}}},
       {new:true})
@@ -93,8 +90,6 @@ const bookController = {
 
   deleteBook: async (req,res)=>{
     const {id} = req.body
-    console.log(req.body)
-    console.log(id)
     await Book.findByIdAndRemove(id, {new:true})
     .then(response=> res.json({success: true, response}))
     .catch(error => res.json({success: false, error}))
