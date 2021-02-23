@@ -70,10 +70,12 @@ const bookController = {
   },
 
   modifyContent: async (req,res) => {
-    const {updatedContent, contentId, bookId} = req.body
+    const {updatedContent, contentId, chapterId, bookId} = req.body
     const book = await Book.findOne({_id:bookId})
-    const chapters = book.chapters.map(chapter=> chapter.chapter.filter(content=> content._id.toString()===contentId))
-    const content = chapters[0][0].content = updatedContent
+    const chapters = book.chapters.filter(chapter=> chapter._id.toString() === chapterId)
+    const chapter = chapters[0].chapter.filter(content=> content._id.toString()===contentId)
+    const content = chapter[0].content = updatedContent
+    console.log(content)
     book.save()
     .then(response => res.json({success: true, response}))
     .catch(error => res.json({success: false, error}))

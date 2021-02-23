@@ -4,7 +4,7 @@ const voteActions = {
   vote: (id, token) => {
     return async (dispatch, getState) => {
       try {
-        const response = await axios.post('https://entrelineas.herokuapp.com/api/vote', {id}, {
+        const response = await axios.post('http://localhost:4000/api/vote', {id}, {
           headers: {
             Authorization: `Bearer ${token}`
           }
@@ -24,7 +24,7 @@ const voteActions = {
   dismissVote: (id, token) => {
     return async (dispatch, getState) => {
       try {
-        const response = await axios.post('https://entrelineas.herokuapp.com/api/dismissvote', {id}, {
+        const response = await axios.post('http://localhost:4000/api/dismissvote', {id}, {
           headers: {
             Authorization: `Bearer ${token}`
           }

@@ -4,7 +4,7 @@ const cardActions = {
     getCardsCategories: () => {
         return async (dispatch, getState) => {
             try{
-                const responseCategories = await axios.get('https://entrelineas.herokuapp.com/api/genre')
+                const responseCategories = await axios.get('http://localhost:4000/api/genre')
                 dispatch(
                     {
                         type: 'GET_CARDS_GENRES',
