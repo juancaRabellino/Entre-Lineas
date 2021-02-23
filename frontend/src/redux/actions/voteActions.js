@@ -1,10 +1,11 @@
 import axios from 'axios'
+import {API} from '../../Api'
 
 const voteActions = {
   vote: (id, token) => {
     return async (dispatch, getState) => {
       try {
-        const response = await axios.post('http://localhost:4000/api/vote', {id}, {
+        const response = await axios.post(`${API}vote`, {id}, {
           headers: {
             Authorization: `Bearer ${token}`
           }
@@ -24,7 +25,7 @@ const voteActions = {
   dismissVote: (id, token) => {
     return async (dispatch, getState) => {
       try {
-        const response = await axios.post('http://localhost:4000/api/dismissvote', {id}, {
+        const response = await axios.post(`${API}dismissvote`, {id}, {
           headers: {
             Authorization: `Bearer ${token}`
           }

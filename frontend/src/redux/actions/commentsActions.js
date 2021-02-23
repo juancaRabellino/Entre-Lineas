@@ -1,11 +1,12 @@
 import axios from 'axios'
 import Swal from'sweetalert2';
+import {API} from '../../Api'
 
 const commentActions = {
     addComment:(content, id, token) => {
       return async (dispatch, getState) => {
         try {
-          const res = await axios.post('http://localhost:4000/api/comments', {content, id, token}, {
+          const res = await axios.post(`${API}comments`, {content, id, token}, {
             headers: {
                 Authorization: `Bearer ${token}`
             }
@@ -27,7 +28,7 @@ const commentActions = {
     deleteComment: (id, idcomment, token) => {
       return async(dispatch, getState) => {
         try {
-          const res = await axios.put('http://localhost:4000/api/comments/delete', {id, idcomment}, {
+          const res = await axios.put(`${API}comments/delete`, {id, idcomment}, {
             headers: {
                 Authorization: `Bearer ${token}` 
             }
@@ -50,7 +51,7 @@ const commentActions = {
       console.log(value, idcomment, id, token)
       return async (dispatch, getState) => {
         try{
-          const res = await axios.put('http://localhost:4000/api/comments', {value, idcomment, id}, {
+          const res = await axios.put(`${API}comments`, {value, idcomment, id}, {
             headers: {
                 Authorization: `Bearer ${token}` 
             }
