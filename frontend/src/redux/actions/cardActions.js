@@ -1,12 +1,12 @@
 import axios from 'axios'
 import Swal from'sweetalert2';
-// import {API} from '../../Api'
+import {API} from '../../Api'
 
 const cardActions = {
     getCardsCategories: () => {
         return async (dispatch, getState) => {
             try{
-                const responseCategories = await axios.get(`https://entrelineas.herokuapp.com/genre`)
+                const responseCategories = await axios.get(`${API}genre`)
                 dispatch(
                     {
                         type: 'GET_CARDS_GENRES',
