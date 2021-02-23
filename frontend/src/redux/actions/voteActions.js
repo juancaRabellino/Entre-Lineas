@@ -1,4 +1,5 @@
 import axios from 'axios'
+import Swal from 'sweetalert2'
 import {API} from '../../Api'
 
 const voteActions = {

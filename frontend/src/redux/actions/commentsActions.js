@@ -38,7 +38,6 @@ const commentActions = {
           Swal.fire({
             icon: 'error',
             title: '¡Lo siento!',
-            text: "Algo salio mal.",
             text: "No se pudo borrar el comentario, intente mas tarde.",
             showConfirmButton: false,
             timer: 4000
@@ -60,7 +59,6 @@ const commentActions = {
           Swal.fire({
             icon: 'error',
             title: '¡Lo siento!',
-            text: "Algo salio mal.",
             text: "No se pudo editar el comentario, intente mas tarde.",
             showConfirmButton: false,
             timer: 4000
