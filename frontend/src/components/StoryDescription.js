@@ -21,8 +21,17 @@ const StoryDescription = (props)=>{
         }
     }, [props.loggedUser])
     const enviar =  async () => {
+        if (value !== ""){
         await props.addComment(value, filtro[0]._id, props.loggedUser.token)
-        setValue("")
+        setValue("")}
+        else {
+            Swal.fire({
+                icon: 'error',
+                title: '¡Y el comentario!',
+                text: 'No hay ningun comentario',
+              })
+
+        }
     }
 
     const votes = async () => {
@@ -99,10 +108,10 @@ const StoryDescription = (props)=>{
                 <div className="coments-container-storyDescription">
                     <div className="comments-storyDescription">
                         {props.comments.comments ?
-                        <div>
-                            {(props.comments.comments.map(comment => {
-                                return <Comment comment={comment} key={comment._id} id={filtro[0]._id}/>
-                            }))}
+                        <div>{props.comments.comments.length > 0 ? props.comments.comments.map(comment => {
+                            return <Comment comment={comment} key={comment._id} id={filtro[0]._id}/>
+                        }): 
+                        <h2 className="text-center bg-white w-100">Sin Comentarios</h2>}
                         </div>
                         : filtro[0].comments.length > 0 ?
                         <div>

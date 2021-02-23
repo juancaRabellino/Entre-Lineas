@@ -24,7 +24,7 @@ app.use('/api', router)
 //   })
 // }
 
-const PORT = process.env.PORT || 8000;
+const PORT = process.env.PORT
 const HOST = process.env.HOST || '0.0.0.0'
 
-app.listen(PORT, ()=> console.log('App listening on port' + port ))
+app.listen(PORT, () => console.log( 'App listening on port' + PORT ))
