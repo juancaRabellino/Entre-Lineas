@@ -1,13 +1,13 @@
 import axios from 'axios'
 import Swal from'sweetalert2';
-import {API} from '../../Api'
+// import {API} from '../../Api'
 
 const bookActions = {
 
   addBook: (formData, token) => {
     return async (dispatch, getState) => {
       try {
-        const response = await axios.post(`${API}book`, formData, {
+        const response = await axios.post(`https://entrelineas.herokuapp.com/book`, formData, {
           headers: {
             Authorization: `Bearer ${token}`
           }
@@ -31,7 +31,7 @@ const bookActions = {
   addImage: (formData, token) => {
     return async (dispatch, getState) => {
       try {
-        const response = await axios.put(`${API}book`, formData, {
+        const response = await axios.put(`https://entrelineas.herokuapp.com/book`, formData, {
           headers: {
             Authorization: `Bearer ${token}`
           }
@@ -52,7 +52,7 @@ const bookActions = {
   getBooks: () => {
     return async (dispatch, getState) => {
       try {
-				const response = await fetch(`${API}book`)
+				const response = await fetch(`https://entrelineas.herokuapp.com/book`)
 				const data = await response.json()
 				dispatch({type: 'GET_BOOKS', payload: data.response})
 			}catch(error){
@@ -69,7 +69,7 @@ const bookActions = {
   getByGenre: (genre)=>{
     return async(dispatch, getState) =>{
       try {
-        const response = await fetch(`${API}book/`+genre)
+        const response = await fetch(`https://entrelineas.herokuapp.com/book/`+genre)
         const data = await response.json()
         dispatch({type: 'GET_BY_GENRE', payload: data.response})
       }catch(error){
@@ -102,7 +102,7 @@ const bookActions = {
   addChapter: (title, id, token) => {
     return async (dispatch) => {
       try {
-        const response = await axios.post(`${API}book/addChapter`, {title, id}, {
+        const response = await axios.post(`https://entrelineas.herokuapp.com/book/addChapter`, {title, id}, {
           headers: {
             Authorization: `Bearer ${token}`
           }
@@ -123,7 +123,7 @@ const bookActions = {
   sendContent: (content, title, id, token) => {
     return async (dispatch) => {
       try {
-        const response = await axios.put(`${API}book/addChapter`, {content, title, id}, {
+        const response = await axios.put(`https://entrelineas.herokuapp.com/book/addChapter`, {content, title, id}, {
           headers: {
             Authorization : `Bearer ${token}`
           }
@@ -144,7 +144,7 @@ const bookActions = {
   modifyChapterTitle:(title, id, chapterId, token) =>{
     return async(dispatch) => {
       try {
-        const response = await axios.post(`${API}book/modifyChapterTitle`, {title, id, chapterId}, {
+        const response = await axios.post(`https://entrelineas.herokuapp.com/book/modifyChapterTitle`, {title, id, chapterId}, {
           headers: {
             Authorization : `Bearer ${token}`
           }
@@ -165,7 +165,7 @@ const bookActions = {
   modifyContent: (updatedContent, contentId, chapterId, bookId, token) => {
     return async (dispatch, getState) => {
       try {
-        const response = await axios.post(`${API}book/modifyChapter`, {updatedContent, contentId, chapterId, bookId}, {
+        const response = await axios.post(`https://entrelineas.herokuapp.com/book/modifyChapter`, {updatedContent, contentId, chapterId, bookId}, {
           headers: {
             Authorization : `Bearer ${token}`
           }
@@ -187,7 +187,7 @@ const bookActions = {
   deleteContent:(contentId, chapterId, bookId, token) => {
     return async (dispatch, getState) => {
       try {
-        const response = await axios.put(`${API}book/modifyChapter`, {contentId, chapterId, bookId}, {
+        const response = await axios.put(`https://entrelineas.herokuapp.com/book/modifyChapter`, {contentId, chapterId, bookId}, {
           headers: {
             Authorization : `Bearer ${token}`
           }
@@ -208,7 +208,7 @@ const bookActions = {
     console.log(id)
     return async (dispatch)=>{
       try {
-        const response = await axios.put(`${API}book/delete`, {id})
+        const response = await axios.put(`https://entrelineas.herokuapp.com/book/delete`, {id})
       }catch(error){
         Swal.fire({
           icon: 'error',
@@ -223,7 +223,7 @@ const bookActions = {
   addComment:(content, id, token) => {
     return async (dispatch, getState) => {
       try {
-        const res = await axios.post(`${API}comments/`, {content, id}, {
+        const res = await axios.post(`https://entrelineas.herokuapp.com/comments/`, {content, id}, {
           headers: {
               Authorization: `Bearer ${token}` 
           }
@@ -243,7 +243,7 @@ const bookActions = {
   deleteComment: (id, idcomment, token) => {
     return async(dispatch, getState) => {
       try {
-        const res = await axios.put(`${API}comments/delete`, {id, idcomment}, {
+        const res = await axios.put(`https://entrelineas.herokuapp.com/comments/delete`, {id, idcomment}, {
           headers: {
               Authorization: `Bearer ${token}` 
           }
@@ -264,7 +264,7 @@ const bookActions = {
   modComment: (value, idcomment, id, token) => {
     return async (dispatch, getState) => {
       try{
-        const res = await axios.put(`${API}comments/`, {value, idcomment, id}, {
+        const res = await axios.put(`https://entrelineas.herokuapp.com/comments/`, {value, idcomment, id}, {
           headers: {
               Authorization: `Bearer ${token}` 
           }
@@ -285,7 +285,7 @@ const bookActions = {
   vote:(id, token) => {
     return async(dispatch, getState) => {
       try {
-        const res = await axios.post(`${API}vote`, {id}, {
+        const res = await axios.post(`https://entrelineas.herokuapp.com/vote`, {id}, {
           headers: {
             Authorization: `Bearer ${token}` 
           }
@@ -305,7 +305,7 @@ const bookActions = {
   dismissVote:(id, token) => {
     return async(dispatch, getState) => {
       try {
-        const res = await axios.post(`${API}dismissvote`, {id}, {
+        const res = await axios.post(`https://entrelineas.herokuapp.com/dismissvote`, {id}, {
           headers: {
             Authorization: `Bearer ${token}` 
           }
@@ -326,7 +326,7 @@ const bookActions = {
   incViews: (id) => {
     return async (dispatch, getState) => {
       try {
-        const response = await axios.post(`${API}views`, {id})
+        const response = await axios.post(`https://entrelineas.herokuapp.com/views`, {id})
         dispatch({type: 'VIEWS', payload: response.data})
       }catch(error){
         Swal.fire({

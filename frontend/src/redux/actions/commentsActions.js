@@ -1,12 +1,12 @@
 import axios from 'axios'
 import Swal from'sweetalert2';
-import {API} from '../../Api'
+// import {API} from '../../Api'
 
 const commentActions = {
     addComment:(content, id, token) => {
       return async (dispatch, getState) => {
         try {
-          const res = await axios.post(`${API}comments`, {content, id, token}, {
+          const res = await axios.post(`https://entrelineas.herokuapp.com/comments`, {content, id, token}, {
             headers: {
                 Authorization: `Bearer ${token}`
             }
@@ -28,7 +28,7 @@ const commentActions = {
     deleteComment: (id, idcomment, token) => {
       return async(dispatch, getState) => {
         try {
-          const res = await axios.put(`${API}comments/delete`, {id, idcomment}, {
+          const res = await axios.put(`https://entrelineas.herokuapp.com/comments/delete`, {id, idcomment}, {
             headers: {
                 Authorization: `Bearer ${token}` 
             }
@@ -49,7 +49,7 @@ const commentActions = {
     modComment: (value, idcomment, id, token) => {
       return async (dispatch, getState) => {
         try{
-          const res = await axios.put(`${API}comments`, {value, idcomment, id}, {
+          const res = await axios.put(`https://entrelineas.herokuapp.com/comments`, {value, idcomment, id}, {
             headers: {
                 Authorization: `Bearer ${token}` 
             }

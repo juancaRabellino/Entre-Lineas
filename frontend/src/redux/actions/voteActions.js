@@ -1,12 +1,12 @@
 import axios from 'axios'
 import Swal from 'sweetalert2'
-import {API} from '../../Api'
+// import {API} from '../../Api'
 
 const voteActions = {
   vote: (id, token) => {
     return async (dispatch, getState) => {
       try {
-        const response = await axios.post(`${API}vote`, {id}, {
+        const response = await axios.post(`https://entrelineas.herokuapp.com/vote`, {id}, {
           headers: {
             Authorization: `Bearer ${token}`
           }
@@ -26,7 +26,7 @@ const voteActions = {
   dismissVote: (id, token) => {
     return async (dispatch, getState) => {
       try {
-        const response = await axios.post(`${API}dismissvote`, {id}, {
+        const response = await axios.post(`https://entrelineas.herokuapp.com/dismissvote`, {id}, {
           headers: {
             Authorization: `Bearer ${token}`
           }
