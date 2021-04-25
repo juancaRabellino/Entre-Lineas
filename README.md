@@ -1,4 +1,4 @@
-# Entre-Lineas
+# Entre Líneas
 Aplicación web desarrollada con stack MERN. Es una aplicación donde cada persona puede ingresar a leer diferentes historias creadas por usuarios registrados!
 # Trabajo realizado
 Una app desarrollada en una semana, realizando dailies diarias y meets durante todo el dia para poder resolver los diferentes inconvenientes ya que fue un challenge para el bootcamp cursado en MindHub.
